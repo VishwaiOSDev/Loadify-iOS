@@ -11,7 +11,8 @@ import SwiftUI
 struct LoadifyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VideoURLView()
+                .preferredColorScheme(.dark)
         }
     }
 }
