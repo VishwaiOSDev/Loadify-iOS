@@ -76,7 +76,7 @@ struct VideoURLView_Previews: PreviewProvider {
             VideoURLView(viewModel: VideoDetailsViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
-            VideoURLView()
+            VideoURLView(viewModel: VideoDetailsViewModel())
                 .previewDevice("iPad Pro (11-inch) (3rd generation)")
                 .previewDisplayName("iPad Pro")
         }
