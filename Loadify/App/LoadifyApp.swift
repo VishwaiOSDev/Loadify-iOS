@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct LoadifyApp: App {
+    
+    @StateObject var viewModel = VideoDetailsViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            VideoURLView()
+            VideoURLView(viewModel: viewModel)
                 .preferredColorScheme(.dark)
         }
     }

@@ -26,6 +26,7 @@ struct CustomTextField: View {
             TextField("", text: $text)
                 .foregroundColor(.white)
                 .autocapitalization(.none)
+                .disableAutocorrection(true)
         }
         .frame(maxWidth: .infinity, maxHeight: 56)
         .padding(.horizontal, 16)
