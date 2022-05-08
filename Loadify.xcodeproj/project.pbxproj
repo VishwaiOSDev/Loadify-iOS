@@ -15,6 +15,7 @@
 		88B1CFA82826BBDA007B19B4 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA72826BBDA007B19B4 /* AppConstants.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* ViewDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* ViewDetailsViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
+		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		88B1CFA72826BBDA007B19B4 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* ViewDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDetailsViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
+		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		88B1CFAD2826C41D007B19B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				88CD83B72827D77B00F520C0 /* ApiService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */,
 				88B1CFA82826BBDA007B19B4 /* AppConstants.swift in Sources */,
+				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* ViewDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

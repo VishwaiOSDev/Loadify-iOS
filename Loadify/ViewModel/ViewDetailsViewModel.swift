@@ -14,7 +14,13 @@ protocol VideoDetailsProtocol: ObservableObject {
 
 final class VideoDetailsViewModel: VideoDetailsProtocol {
     
+    let apiService: DataService
+    
+    init(apiService: DataService = ApiService()) {
+        self.apiService = apiService
+    }
+    
     func getVideoDetails(for url: URL) {
-        print("Get details from \(url)")
+        apiService.getVideoDetails(from: url)
     }
 }

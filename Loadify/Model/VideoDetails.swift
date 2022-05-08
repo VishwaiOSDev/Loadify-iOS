@@ -27,6 +27,16 @@ struct Author: Decodable {
     var channelUrl: String // Coding Key
     var thumbnails: [Thumbnail]
     var subscriberCount: Int // Coding Key
+    
+    private enum CodingKeys: String, CodingKey {
+        case channelUrl = "channel_url"
+        case subscriberCount = "subscriber_count"
+        
+        case id
+        case name
+        case user
+        case thumbnails
+    }
 }
 
 struct Thumbnail: Decodable {

@@ -63,7 +63,8 @@ struct VideoURLView<ViewModel>: View where ViewModel: VideoDetailsProtocol {
     }
     
     func didTapContinue() {
-        viewModel.getVideoDetails(for: URL(string: "https://api.loadify.app/api")!)
+        var urlString = AppConstants.Api.apiUrl + "/yt/details?url=" + url
+        viewModel.getVideoDetails(for: URL(string: urlString)!)
     }
 }
 
