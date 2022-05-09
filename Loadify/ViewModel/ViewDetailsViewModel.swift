@@ -8,12 +8,23 @@
 import Foundation
 import SwiftUI
 
-protocol VideoDetailsProtocol: ObservableObject {
-    func getVideoDetails(for url: URL)
+enum VideoQuality {
+    case Low, medium, high
 }
 
-final class VideoDetailsViewModel: VideoDetailsProtocol {
+protocol URLConfigable: ObservableObject {
+    var url: String { get set }
+}
+
+protocol Downloadable: URLConfigable {
+    func getVideoDetails(for url: URL)
+    func downloadAudio(from url: URL)
+    func downloadVideo(from url: URL, for quality: VideoQuality)
+}
+
+final class DownloaderViewModel: Downloadable {
     
+    @Published var url: String = ""
     let apiService: DataService
     
     init(apiService: DataService = ApiService()) {
@@ -22,5 +33,13 @@ final class VideoDetailsViewModel: VideoDetailsProtocol {
     
     func getVideoDetails(for url: URL) {
         apiService.getVideoDetails(from: url)
+    }
+    
+    func downloadAudio(from url: URL) {
+        
+    }
+    
+    func downloadVideo(from url: URL, for quality: VideoQuality) {
+        
     }
 }

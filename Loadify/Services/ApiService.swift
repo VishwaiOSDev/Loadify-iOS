@@ -14,7 +14,6 @@ protocol DataService {
 class ApiService: DataService {
     
     func getVideoDetails(from url: URL) {
-        print(url)
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { data, response, error in

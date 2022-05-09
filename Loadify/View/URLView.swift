@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct VideoURLView<ViewModel>: View where ViewModel: VideoDetailsProtocol {
+struct URLView<ViewModel>: View where ViewModel: Downloadable {
     
-    @State private var url: String = ""
     @ObservedObject var viewModel: ViewModel
     
     init(viewModel: ViewModel) {
@@ -29,7 +28,7 @@ struct VideoURLView<ViewModel>: View where ViewModel: VideoDetailsProtocol {
                     .multilineTextAlignment(.center)
                 Spacer()
                 VStack(spacing: 12) {
-                    CustomTextField("Enter YouTube URL", text: $url)
+                    CustomTextField("Enter YouTube URL", text: $viewModel.url)
                     Button(action: didTapContinue) {
                         Text("Continue")
                             .font(.title3)
@@ -63,7 +62,7 @@ struct VideoURLView<ViewModel>: View where ViewModel: VideoDetailsProtocol {
     }
     
     func didTapContinue() {
-        var urlString = AppConstants.Api.apiUrl + "/yt/details?url=" + url
+        let urlString = AppConstants.Api.apiUrl + "/yt/details?url=" + viewModel.url
         viewModel.getVideoDetails(for: URL(string: urlString)!)
     }
 }
@@ -71,13 +70,13 @@ struct VideoURLView<ViewModel>: View where ViewModel: VideoDetailsProtocol {
 struct VideoURLView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            VideoURLView(viewModel: VideoDetailsViewModel())
+            URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            VideoURLView(viewModel: VideoDetailsViewModel())
+            URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
-            VideoURLView(viewModel: VideoDetailsViewModel())
+            URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPad Pro (11-inch) (3rd generation)")
                 .previewDisplayName("iPad Pro")
         }
