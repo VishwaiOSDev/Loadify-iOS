@@ -8,12 +8,9 @@
 import Foundation
 import SwiftUI
 
-enum VideoQuality {
-    case Low, medium, high
-}
-
 protocol URLConfigable: ObservableObject {
     var url: String { get set }
+    var isLoading: Bool { get set }
 }
 
 protocol Downloadable: URLConfigable {
@@ -25,6 +22,7 @@ protocol Downloadable: URLConfigable {
 final class DownloaderViewModel: Downloadable {
     
     @Published var url: String = ""
+    @Published var isLoading: Bool = false
     let apiService: DataService
     
     init(apiService: DataService = ApiService()) {
@@ -32,7 +30,15 @@ final class DownloaderViewModel: Downloadable {
     }
     
     func getVideoDetails(for url: URL) {
-        apiService.getVideoDetails(from: url)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            DispatchQueue.main.async {
+                self?.isLoading = true
+            }
+            self?.apiService.getVideoDetails(from: url)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self?.isLoading = false
+            }
+        }
     }
     
     func downloadAudio(from url: URL) {

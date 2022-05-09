@@ -16,28 +16,34 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
     }
     
     var body: some View {
-        ZStack {
-            Loadify.Colors.app_background
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                Image(Loadify.Images.loadify_icon)
-                    .frame(maxWidth: 150, maxHeight: 150)
-                Text("We are the best Audio and Video downloader \n app ever")
-                    .foregroundColor(Loadify.Colors.grey_text)
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-                Spacer()
-                VStack(spacing: 12) {
-                    CustomTextField("Enter YouTube URL", text: $viewModel.url)
-                    Button(action: didTapContinue) {
-                        Text("Continue")
-                            .bold()
-                    }.buttonStyle(CustomButtonStyle())
-                }.padding(.horizontal, 16)
-                Spacer()
-                termsOfService
+        NavigationView {
+            ZStack {
+                Loadify.Colors.app_background
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Image(Loadify.Images.loadify_icon)
+                        .frame(maxWidth: 150, maxHeight: 150)
+                    Text("We are the best Audio and Video downloader \n app ever")
+                        .foregroundColor(Loadify.Colors.grey_text)
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                    VStack(spacing: 12) {
+                        CustomTextField("Enter YouTube URL", text: $viewModel.url)
+                        Button(action: didTapContinue) {
+                            Text("Continue")
+                                .bold()
+                        }
+                        .buttonStyle(CustomButtonStyle())
+                    }
+                    .padding(.horizontal, 16)
+                    Spacer()
+                    termsOfService
+                }
+                .padding()
             }
-            .padding()
+            .showLoader(when: viewModel.isLoading)
+            .navigationBarHidden(true)
         }
     }
     
@@ -88,5 +94,6 @@ struct Loadify {
     
     struct Images {
         static let loadify_icon = "loadify_icon"
+        static let loadify_horizontal = "loadify_horizontal"
     }
 }
