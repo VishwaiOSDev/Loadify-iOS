@@ -31,13 +31,8 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
                     CustomTextField("Enter YouTube URL", text: $viewModel.url)
                     Button(action: didTapContinue) {
                         Text("Continue")
-                            .font(.title3)
                             .bold()
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, maxHeight: 56)
-                            .background(Loadify.Colors.blue_accent)
-                            .cornerRadius(10)
-                    }
+                    }.buttonStyle(CustomButtonStyle())
                 }.padding(.horizontal, 16)
                 Spacer()
                 termsOfService
