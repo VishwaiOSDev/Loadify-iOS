@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct URLView<ViewModel>: View where ViewModel: Downloadable {
     
+    @State private var url: String = ""
     @ObservedObject var viewModel: ViewModel
+    @ObservedObject var loaderState = LoaderState()
     
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
@@ -29,7 +32,7 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
                         .multilineTextAlignment(.center)
                     Spacer()
                     VStack(spacing: 12) {
-                        CustomTextField("Enter YouTube URL", text: $viewModel.url)
+                        CustomTextField("Enter YouTube URL", text: $url)
                         Button(action: didTapContinue) {
                             Text("Continue")
                                 .bold()
@@ -40,9 +43,9 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
                     Spacer()
                     termsOfService
                 }
+                .showAlert(loaderState: loaderState)
                 .padding()
             }
-            .showLoader(when: viewModel.isLoading)
             .navigationBarHidden(true)
         }
     }
@@ -63,8 +66,13 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
     }
     
     func didTapContinue() {
-        let urlString = AppConstants.Api.apiUrl + "/yt/details?url=" + viewModel.url
-        viewModel.getVideoDetails(for: URL(string: urlString)!)
+        loaderState.showLoader(title: "Loading")
+        Task {
+            let urlString = "https://api.tikapp.ml/api/yt/details?url=\(url)"
+            await viewModel.getVideoDetails(for: URL(string: urlString)!)
+            try await Task.sleep(nanoseconds: 3_000_000_000)
+            loaderState.hideLoader()
+        }
     }
 }
 

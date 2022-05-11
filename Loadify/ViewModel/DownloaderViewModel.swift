@@ -8,36 +8,29 @@
 import Foundation
 import SwiftUI
 
-protocol URLConfigable: ObservableObject {
-    var url: String { get set }
-    var isLoading: Bool { get set }
+protocol Describable: ObservableObject {
+    var videoDetails: VideoDetails? { get set }
 }
 
-protocol Downloadable: URLConfigable {
-    func getVideoDetails(for url: URL)
+protocol Downloadable: Describable {
+    func getVideoDetails(for url: URL) async
     func downloadAudio(from url: URL)
     func downloadVideo(from url: URL, for quality: VideoQuality)
 }
 
 final class DownloaderViewModel: Downloadable {
     
-    @Published var url: String = ""
-    @Published var isLoading: Bool = false
-    let apiService: DataService
+    @Published var videoDetails: VideoDetails?
+    private let apiService: DataService
     
     init(apiService: DataService = ApiService()) {
         self.apiService = apiService
     }
     
-    func getVideoDetails(for url: URL) {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            DispatchQueue.main.async {
-                self?.isLoading = true
-            }
-            self?.apiService.getVideoDetails(from: url)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self?.isLoading = false
-            }
+    func getVideoDetails(for url: URL) async {
+        let videoDetails = await apiService.getVideoDetails(from: url)
+        DispatchQueue.main.async {
+            self.videoDetails = videoDetails
         }
     }
     
