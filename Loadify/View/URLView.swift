@@ -10,9 +10,8 @@ import LoadifyKit
 
 struct URLView<ViewModel>: View where ViewModel: Downloadable {
     
-    @State private var url: String = ""
     @ObservedObject var viewModel: ViewModel
-    @ObservedObject var loaderState = LoaderState()
+    @StateObject var loaderState = LoaderState()
     
     init(viewModel: ViewModel) {
         self._viewModel = ObservedObject(wrappedValue: viewModel)
@@ -32,7 +31,7 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
                         .multilineTextAlignment(.center)
                     Spacer()
                     VStack(spacing: 12) {
-                        CustomTextField("Enter YouTube URL", text: $url)
+                        CustomTextField("Enter YouTube URL", text: $viewModel.url)
                         Button(action: didTapContinue) {
                             Text("Continue")
                                 .bold()
@@ -43,9 +42,9 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
                     Spacer()
                     termsOfService
                 }
-                .showAlert(loaderState: loaderState)
                 .padding()
             }
+            .showAlert(loaderState: loaderState)
             .navigationBarHidden(true)
         }
     }
@@ -66,11 +65,10 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
     }
     
     func didTapContinue() {
-        loaderState.showLoader(title: "Loading")
+        loaderState.showLoader(title: "Fetching Details...")
         Task {
-            let urlString = "https://api.tikapp.ml/api/yt/details?url=\(url)"
-            await viewModel.getVideoDetails(for: URL(string: urlString)!)
-            try await Task.sleep(nanoseconds: 3_000_000_000)
+            await viewModel.getVideoDetails(for: viewModel.url)
+            try await Task.sleep(seconds: 1)
             loaderState.hideLoader()
         }
     }
@@ -85,9 +83,6 @@ struct VideoURLView_Previews: PreviewProvider {
             URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
-            URLView(viewModel: DownloaderViewModel())
-                .previewDevice("iPad Pro (11-inch) (3rd generation)")
-                .previewDisplayName("iPad Pro")
         }
     }
 }
