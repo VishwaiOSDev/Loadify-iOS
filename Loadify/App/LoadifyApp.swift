@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct LoadifyApp: App {
     
-    @StateObject var viewModel = DownloaderViewModel()
+    @StateObject var downloaderViewModel = DownloaderViewModel()
     
     var body: some Scene {
         WindowGroup {
-            URLView(viewModel: viewModel)
+            URLView(viewModel: downloaderViewModel)
                 .preferredColorScheme(.dark)
         }
     }
