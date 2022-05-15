@@ -5,8 +5,8 @@
 //  Created by Vishweshwaran on 5/7/22.
 //
 
-import Foundation
 import SwiftUI
+import SwiftDI
 
 protocol Describable: ObservableObject {
     var url: String { get set }
@@ -23,7 +23,7 @@ final class DownloaderViewModel: Downloadable {
     
     @Published var url: String = ""
     @Published var videoDetails: VideoDetails?
-    @Injected(\.apiSerice) var apiService: DataService
+    @Inject var apiService: ApiService
     
     func getVideoDetails(for url: String) async {
         guard let apiUrl = URL(string: "https://api.tikapp.ml/api/yt/details?url=\(url)") else { return }
