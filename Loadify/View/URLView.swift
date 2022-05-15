@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
+import SwiftDI
 import LoadifyKit
 
-struct URLView<ViewModel>: View where ViewModel: Downloadable {
+struct URLView: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @ObservedInject var viewModel: DownloaderViewModel
     @StateObject var loaderState = LoaderState()
-    
-    init(viewModel: ViewModel) {
-        self._viewModel = ObservedObject(wrappedValue: viewModel)
-    }
     
     var body: some View {
         NavigationView {
@@ -77,10 +74,10 @@ struct URLView<ViewModel>: View where ViewModel: Downloadable {
 struct VideoURLView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            URLView(viewModel: DownloaderViewModel())
+            URLView()
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView(viewModel: DownloaderViewModel())
+            URLView()
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

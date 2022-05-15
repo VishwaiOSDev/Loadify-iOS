@@ -6,16 +6,30 @@
 //
 
 import SwiftUI
+import SwiftDI
+import Swinject
 
 @main
 struct LoadifyApp: App {
     
-    @StateObject var viewModel = DownloaderViewModel()
+    
+    init() {
+        setupDependencyInjection()
+    }
     
     var body: some Scene {
         WindowGroup {
-            URLView(viewModel: viewModel)
+            URLView()
                 .preferredColorScheme(.dark)
         }
+    }
+}
+
+extension LoadifyApp {
+    func setupDependencyInjection() {
+        SwiftDI.shared.setup(assemblies: [
+            SerivceAssembly(),
+            ViewModelAssembly()
+        ], inContainer: Container())
     }
 }

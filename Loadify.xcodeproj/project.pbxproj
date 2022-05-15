@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88097C2F2830D5780082E674 /* SwiftDI in Frameworks */ = {isa = PBXBuildFile; productRef = 88097C2E2830D5780082E674 /* SwiftDI */; };
+		88097C322830D59A0082E674 /* Assemblies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88097C312830D59A0082E674 /* Assemblies.swift */; };
 		8815AFE7282AAF6D00980759 /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8815AFE6282AAF6D00980759 /* LoadifyKit */; };
 		881D042E2829416F0006C0B7 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */; };
 		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88097C312830D59A0082E674 /* Assemblies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assemblies.swift; sourceTree = "<group>"; };
 		881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		882A8BA528296E5F0094BA6E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -49,12 +52,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8815AFE7282AAF6D00980759 /* LoadifyKit in Frameworks */,
+				88097C2F2830D5780082E674 /* SwiftDI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88097C302830D58C0082E674 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				88097C312830D59A0082E674 /* Assemblies.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		8815AFE5282AAF6D00980759 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				88B1CFA62826BBA4007B19B4 /* App */,
+				88097C302830D58C0082E674 /* DI */,
 				882A8BA428296E470094BA6E /* Extensions */,
 				88B1CFAD2826C41D007B19B4 /* Services */,
 				88A729BD2826506B00B5FE61 /* Model */,
@@ -207,6 +220,7 @@
 			name = Loadify;
 			packageProductDependencies = (
 				8815AFE6282AAF6D00980759 /* LoadifyKit */,
+				88097C2E2830D5780082E674 /* SwiftDI */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -236,6 +250,9 @@
 				Base,
 			);
 			mainGroup = 88A729A128264AD100B5FE61;
+			packageReferences = (
+				88097C2D2830D5780082E674 /* XCRemoteSwiftPackageReference "IOS-DI-Kit" */,
+			);
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,6 +282,7 @@
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */,
+				88097C322830D59A0082E674 /* Assemblies.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */,
@@ -477,7 +495,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		88097C2D2830D5780082E674 /* XCRemoteSwiftPackageReference "IOS-DI-Kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Adaptavant/IOS-DI-Kit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		88097C2E2830D5780082E674 /* SwiftDI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88097C2D2830D5780082E674 /* XCRemoteSwiftPackageReference "IOS-DI-Kit" */;
+			productName = SwiftDI;
+		};
 		8815AFE6282AAF6D00980759 /* LoadifyKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LoadifyKit;
