@@ -23,7 +23,7 @@ final class DownloaderViewModel: Downloadable {
     
     @Published var url: String = ""
     @Published var videoDetails: VideoDetails?
-    @Inject var apiService: ApiService
+    @Inject var apiService: DataService
     
     func getVideoDetails(for url: String) async {
         guard let apiUrl = URL(string: "https://api.tikapp.ml/api/yt/details?url=\(url)") else { return }

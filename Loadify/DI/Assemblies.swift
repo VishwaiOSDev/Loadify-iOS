@@ -6,19 +6,25 @@
 //
 
 import Foundation
+import SwiftDI
 import Swinject
 import SwinjectAutoregistration
 
 class SerivceAssembly: Assembly {
     func assemble(container: Container) {
-        container.autoregister(DataService.self, initializer: ApiService.init).inObjectScope(.singleton)
+        container.autoregister(
+            DataService.self,
+            initializer: ApiService.init
+        ).inObjectScope(.singleton)
     }
 }
-
 
 class ViewModelAssembly: Assembly {
     // MARK: - Change the DownloaderViewModel to Downloadable
     func assemble(container: Container) {
-        container.autoregister(DownloaderViewModel.self, initializer: DownloaderViewModel.init).inObjectScope(.singleton)
+        container.autoregister(
+            DownloaderViewModel.self,
+            initializer: DownloaderViewModel.init
+        ).inObjectScope(.singleton)
     }
 }

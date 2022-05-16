@@ -12,7 +12,6 @@ import Swinject
 @main
 struct LoadifyApp: App {
     
-    
     init() {
         setupDependencyInjection()
     }
