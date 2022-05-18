@@ -11,11 +11,10 @@ import LoadifyKit
 
 struct URLView: View {
     
-    @ObservedInject var viewModel: DownloaderViewModel
-    @StateObject var loaderState = LoaderState()
+    @ObservedObject var viewModel: DownloaderViewModel
+    @EnvironmentObject var loaderState: LoaderState
     
     var body: some View {
-        NavigationView {
             ZStack {
                 Loadify.Colors.app_background
                     .edgesIgnoringSafeArea(.all)
@@ -41,9 +40,6 @@ struct URLView: View {
                 }
                 .padding()
             }
-            .showAlert(loaderState: loaderState)
-            .navigationBarHidden(true)
-        }
     }
     
     private var termsOfService: some View {
@@ -74,10 +70,10 @@ struct URLView: View {
 struct VideoURLView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            URLView()
+            URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView()
+            URLView(viewModel: DownloaderViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

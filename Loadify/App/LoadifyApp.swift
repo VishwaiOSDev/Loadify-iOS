@@ -8,9 +8,13 @@
 import SwiftUI
 import SwiftDI
 import Swinject
+import LoadifyKit
 
 @main
 struct LoadifyApp: App {
+    
+    @StateObject var downloaderViewModel = DownloaderViewModel()
+    @StateObject var loader: LoaderState = .init()
     
     init() {
         setupDependencyInjection()
@@ -18,8 +22,13 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView()
-                .preferredColorScheme(.dark)
+            NavigationView {
+                URLView(viewModel: downloaderViewModel)
+                    .environmentObject(loader)
+                    .showAlert(loaderState: loader)
+                    .preferredColorScheme(.dark)
+                    .navigationBarHidden(true)
+            }
         }
     }
 }
