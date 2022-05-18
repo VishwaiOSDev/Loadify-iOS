@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import SwiftDI
-import Swinject
 import LoadifyKit
 
 @main
@@ -30,14 +28,5 @@ struct LoadifyApp: App {
                     .navigationBarHidden(true)
             }
         }
-    }
-}
-
-extension LoadifyApp {
-    func setupDependencyInjection() {
-        SwiftDI.shared.setup(assemblies: [
-            SerivceAssembly(),
-            ViewModelAssembly()
-        ], inContainer: Container())
     }
 }
