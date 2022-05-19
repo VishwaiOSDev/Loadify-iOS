@@ -9,37 +9,46 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
+// AvatarURL - https://www.youtube.com/watch?v=CYYtLXfquy0
+
 struct URLView: View {
     
     @ObservedObject var viewModel: DownloaderViewModel
     @EnvironmentObject var loaderState: LoaderState
+    @State private var showError: Bool = false
+    @State private var showMessage = ""
     
     var body: some View {
-            ZStack {
-                Loadify.Colors.app_background
-                    .edgesIgnoringSafeArea(.all)
-                VStack {
-                    Image(Loadify.Images.loadify_icon)
-                        .frame(maxWidth: 150, maxHeight: 150)
-                    Text("We are the best Audio and Video downloader \n app ever")
-                        .foregroundColor(Loadify.Colors.grey_text)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                    VStack(spacing: 12) {
-                        CustomTextField("Enter YouTube URL", text: $viewModel.url)
-                        Button(action: didTapContinue) {
-                            Text("Continue")
-                                .bold()
-                        }
-                        .buttonStyle(CustomButtonStyle())
+        ZStack {
+            Loadify.Colors.app_background
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Image(Loadify.Images.loadify_icon)
+                    .frame(maxWidth: 150, maxHeight: 150)
+                Text("We are the best Audio and Video downloader \n app ever")
+                    .foregroundColor(Loadify.Colors.grey_text)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                VStack(spacing: 12) {
+                    CustomTextField(
+                        "Enter YouTube URL",
+                        text: $viewModel.url,
+                        showError: $showError,
+                        errorMessage: showMessage
+                    )
+                    Button(action: didTapContinue) {
+                        Text("Continue")
+                            .bold()
                     }
-                    .padding(.horizontal, 16)
-                    Spacer()
-                    termsOfService
+                    .buttonStyle(CustomButtonStyle())
                 }
-                .padding()
+                .padding(.horizontal, 16)
+                Spacer()
+                termsOfService
             }
+            .padding()
+        }
     }
     
     private var termsOfService: some View {
@@ -58,6 +67,15 @@ struct URLView: View {
     }
     
     func didTapContinue() {
+        if viewModel.url.isEmpty {
+            showError = true
+            showMessage = "URL cannot be empty"
+        } else {
+            fetchVideoDetails()
+        }
+    }
+    
+    private func fetchVideoDetails() {
         loaderState.showLoader(title: "Fetching Details...")
         Task {
             await viewModel.getVideoDetails(for: viewModel.url)

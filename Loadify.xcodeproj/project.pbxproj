@@ -14,7 +14,6 @@
 		882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA528296E5F0094BA6E /* View+Extension.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
 		88469C0F282B979A009C553C /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88469C0E282B979A009C553C /* Task+Extension.swift */; };
-		8847C1B12834DF8800255819 /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8847C1B02834DF8800255819 /* LoadifyKit */; };
 		8847C1B32834F08400255819 /* LoadifyApp+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* LoadifyApp+Extension.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -25,6 +24,7 @@
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
+		88F3418128362A1F00493544 /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88F3418028362A1F00493544 /* LoadifyKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,6 @@
 		882A8BA528296E5F0094BA6E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
 		88469C0E282B979A009C553C /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
-		8847C1AF2834DF7000255819 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
 		8847C1B22834F08400255819 /* LoadifyApp+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadifyApp+Extension.swift"; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		88F3417F28362A1900493544 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8847C1B12834DF8800255819 /* LoadifyKit in Frameworks */,
+				88F3418128362A1F00493544 /* LoadifyKit in Frameworks */,
 				88097C2F2830D5780082E674 /* SwiftDI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,7 +106,7 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
-				8847C1AF2834DF7000255819 /* LoadifyKit */,
+				88F3417F28362A1900493544 /* LoadifyKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88A729AB28264AD100B5FE61 /* Products */,
 				8815AFE5282AAF6D00980759 /* Frameworks */,
@@ -223,7 +223,7 @@
 			name = Loadify;
 			packageProductDependencies = (
 				88097C2E2830D5780082E674 /* SwiftDI */,
-				8847C1B02834DF8800255819 /* LoadifyKit */,
+				88F3418028362A1F00493544 /* LoadifyKit */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -516,7 +516,7 @@
 			package = 88097C2D2830D5780082E674 /* XCRemoteSwiftPackageReference "IOS-DI-Kit" */;
 			productName = SwiftDI;
 		};
-		8847C1B02834DF8800255819 /* LoadifyKit */ = {
+		88F3418028362A1F00493544 /* LoadifyKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LoadifyKit;
 		};

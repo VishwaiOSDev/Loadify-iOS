@@ -26,7 +26,7 @@ class ApiService: DataService {
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print(error)
+                print("Error Fetching data", error)
             }
             let decoder = JSONDecoder()
             do {
@@ -35,7 +35,7 @@ class ApiService: DataService {
                     completion(jsonResponse)
                 }
             } catch {
-                print(error)
+                print("Error Decoding data", error)
             }
         }.resume()
     }
