@@ -9,20 +9,14 @@ import SwiftUI
 
 struct CustomTextField: View {
     
-    @Binding var showError: Bool
     @Binding var text: String
     var placeHolder: String
-    var errorMessage: String
     
     init(
         _ placeHolder: String,
-        text: Binding<String>,
-        showError: Binding<Bool> = .constant(false),
-        errorMessage: String = ""
+        text: Binding<String>
     ) {
         self.placeHolder = placeHolder
-        self._showError = showError
-        self.errorMessage = errorMessage
         self._text = text
     }
     
@@ -42,17 +36,6 @@ struct CustomTextField: View {
             .padding(.horizontal, 16)
             .background(Loadify.Colors.textfield_background)
             .cornerRadius(10)
-            errorTextView
-                .padding(.horizontal, 8)
-        }
-    }
-    
-    @ViewBuilder
-    private var errorTextView: some View {
-        if showError {
-            Text("\(errorMessage)")
-                .font(.subheadline)
-                .foregroundColor(.red)
         }
     }
 }

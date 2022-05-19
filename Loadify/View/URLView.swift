@@ -14,9 +14,8 @@ import LoadifyKit
 struct URLView: View {
     
     @ObservedObject var viewModel: DownloaderViewModel
-    @EnvironmentObject var loaderState: LoaderState
-    @State private var showError: Bool = false
-    @State private var showMessage = ""
+    @EnvironmentObject var loaderAction: LoaderViewAction
+    @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
         ZStack {
@@ -33,9 +32,7 @@ struct URLView: View {
                 VStack(spacing: 12) {
                     CustomTextField(
                         "Enter YouTube URL",
-                        text: $viewModel.url,
-                        showError: $showError,
-                        errorMessage: showMessage
+                        text: $viewModel.url
                     )
                     Button(action: didTapContinue) {
                         Text("Continue")
@@ -68,19 +65,18 @@ struct URLView: View {
     
     func didTapContinue() {
         if viewModel.url.isEmpty {
-            showError = true
-            showMessage = "URL cannot be empty"
+            alertAction.showAlert(title: "Error", subTitle: "URL cannot be empty", options: .init(alertType: .error, style: .vertical))
         } else {
             fetchVideoDetails()
         }
     }
     
     private func fetchVideoDetails() {
-        loaderState.showLoader(title: "Fetching Details...")
+        loaderAction.showLoader(title: "Fetching Details...")
         Task {
             await viewModel.getVideoDetails(for: viewModel.url)
             try await Task.sleep(seconds: 1)
-            loaderState.hideLoader()
+            loaderAction.hideLoader()
         }
     }
 }
@@ -95,19 +91,5 @@ struct VideoURLView_Previews: PreviewProvider {
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }
-    }
-}
-
-struct Loadify {
-    struct Colors {
-        static let app_background = Color("app_background")
-        static let grey_text = Color("grey_text")
-        static let textfield_background = Color("textfield_background")
-        static let blue_accent = Color("blue_accent")
-    }
-    
-    struct Images {
-        static let loadify_icon = "loadify_icon"
-        static let loadify_horizontal = "loadify_horizontal"
     }
 }
