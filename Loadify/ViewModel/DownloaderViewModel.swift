@@ -29,7 +29,7 @@ protocol Downloadable: Describable {
 
 final class DownloaderViewModel: Downloadable, Loadable, Navigatable {
     
-    @Published var url: String = ""
+    @Published var url: String = "https://www.youtube.com/watch?v=CYYtLXfquy0"
     @Published var details: VideoDetails?
     @Published var showProgessView: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
