@@ -9,32 +9,49 @@ import SwiftUI
 
 struct DownloadView: View {
     
+    var videoDetails: VideoDetails?
+    
     var body: some View {
         ZStack {
             Loadify.Colors.app_background
                 .edgesIgnoringSafeArea(.all)
+            checkDetailsExists()
+                .padding()
+        }
+    }
+    
+    @ViewBuilder
+    private func checkDetailsExists() -> some View {
+        if let videoDetails = videoDetails {
+            constructBody(with: videoDetails)
+        } else {
+            ProgressView()
+        }
+    }
+    
+    @ViewBuilder
+    private func constructBody(with details: VideoDetails) -> some View {
+        VStack {
+            
+            Image(Loadify.Images.loadify_horizontal)
+            Spacer()
             VStack {
-                Image(Loadify.Images.loadify_horizontal)
-                Spacer()
-                VStack {
-                    Text("Beast - Official Trailer | Thalapathy Vijay | Sun Pictures | Nelson | Anirudh | Pooja Hedge")
+                Text("\(details.title)")
+                    .foregroundColor(.white)
+                    .font(.title3)
+                    .bold()
+                    .lineLimit(2)
+                VStack(alignment: .leading) {
+                    Text("\(details.ownerChannelName)")
                         .foregroundColor(.white)
-                        .font(.title3)
-                        .bold()
-                        .lineLimit(2)
-                    VStack(alignment: .leading) {
-                        Text("Sun TV")
-                            .foregroundColor(.white)
-                            .font(.subheadline)
-                        Text("1.74 Crore subscribers")
-                            .font(.footnote)
-                            .foregroundColor(Loadify.Colors.grey_text)
-                    }
+                        .font(.subheadline)
+                    Text("\(String(describing: details.author.subscriberCount ?? 0)) Crore subscribers")
+                        .font(.footnote)
+                        .foregroundColor(Loadify.Colors.grey_text)
                 }
-                Spacer()
-                madeWithSwift
             }
-            .padding()
+            Spacer()
+            madeWithSwift
         }
     }
     
@@ -45,8 +62,8 @@ struct DownloadView: View {
     }
 }
 
-struct DownloadView_Previews: PreviewProvider {
-    static var previews: some View {
-        DownloadView()
-    }
-}
+//struct DownloadView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DownloadView()
+//    }
+//}

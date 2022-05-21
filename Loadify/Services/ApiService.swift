@@ -8,20 +8,12 @@
 import Foundation
 
 protocol DataService {
-    func getVideoDetails(from url: URL) async -> VideoDetails
+    func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)
 }
 
 class ApiService: DataService {
     
-    func getVideoDetails(from url: URL) async -> VideoDetails {
-        await withCheckedContinuation { continuation in
-            getVideoDetails(url: url) { videoDetails in
-                continuation.resume(returning: videoDetails)
-            }
-        }
-    }
-    
-    private func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)  {
+    func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)  {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { data, response, error in

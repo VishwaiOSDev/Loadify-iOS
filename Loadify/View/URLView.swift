@@ -18,33 +18,40 @@ struct URLView: View {
     @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
-        ZStack {
-            Loadify.Colors.app_background
-                .edgesIgnoringSafeArea(.all)
-            VStack {
-                Image(Loadify.Images.loadify_icon)
-                    .frame(maxWidth: 150, maxHeight: 150)
-                Text("We are the best Audio and Video downloader \n app ever")
-                    .foregroundColor(Loadify.Colors.grey_text)
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
-                Spacer()
-                VStack(spacing: 12) {
-                    CustomTextField(
-                        "Enter YouTube URL",
-                        text: $viewModel.url
-                    )
-                    Button(action: didTapContinue) {
-                        Text("Continue")
-                            .bold()
+        NavigationView {
+            ZStack {
+                Loadify.Colors.app_background
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Image(Loadify.Images.loadify_icon)
+                        .frame(maxWidth: 150, maxHeight: 150)
+                    Text("We are the best Audio and Video downloader \n app ever")
+                        .foregroundColor(Loadify.Colors.grey_text)
+                        .font(.subheadline)
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                    VStack(spacing: 12) {
+                        CustomTextField(
+                            "Enter YouTube URL",
+                            text: $viewModel.url
+                        )
+                        NavigationLink(destination: DownloadView(videoDetails: viewModel.details), isActive: $viewModel.shouldNavigateToDownload) {
+                            Button(action: didTapContinue) {
+                                Text("Continue")
+                                    .bold()
+                            }.buttonStyle(CustomButtonStyle())
+                        }
                     }
-                    .buttonStyle(CustomButtonStyle())
+                    .padding(.horizontal, 16)
+                    Spacer()
+                    termsOfService
                 }
-                .padding(.horizontal, 16)
-                Spacer()
-                termsOfService
+                .padding()
+                if viewModel.showProgessView {
+                    LoaderView(title: "Fetching Details...")
+                }
             }
-            .padding()
+            .navigationBarHidden(true)
         }
     }
     
@@ -63,20 +70,11 @@ struct URLView: View {
         .font(.footnote)
     }
     
-    func didTapContinue() {
+    private func didTapContinue() {
         if viewModel.url.isEmpty {
             alertAction.showAlert(title: "Error", subTitle: "URL cannot be empty", options: .init(alertType: .error, style: .vertical))
         } else {
-            fetchVideoDetails()
-        }
-    }
-    
-    private func fetchVideoDetails() {
-        loaderAction.showLoader(title: "Fetching Details...")
-        Task {
-            await viewModel.getVideoDetails(for: viewModel.url)
-            try await Task.sleep(seconds: 1)
-            loaderAction.hideLoader()
+            viewModel.getVideoDetails(for: viewModel.url)
         }
     }
 }

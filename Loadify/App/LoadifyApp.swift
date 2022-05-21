@@ -12,7 +12,6 @@ import LoadifyKit
 struct LoadifyApp: App {
     
     @StateObject var downloaderViewModel = DownloaderViewModel()
-    @StateObject var loaderAction: LoaderViewAction = .init()
     @StateObject var alertAction: AlertViewAction = .init()
     
     init() {
@@ -21,15 +20,10 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                URLView(viewModel: downloaderViewModel)
-                    .environmentObject(loaderAction)
-                    .environmentObject(alertAction)
-                    .addLoaderView(for: loaderAction)
-                    .addAlertView(for: alertAction)
-                    .preferredColorScheme(.dark)
-                    .navigationBarHidden(true)
-            }
+            URLView(viewModel: downloaderViewModel)
+                .environmentObject(alertAction)
+                .addAlertView(for: alertAction)
+                .preferredColorScheme(.dark)
         }
     }
 }
