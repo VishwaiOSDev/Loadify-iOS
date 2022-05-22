@@ -24,9 +24,9 @@ struct Author: Decodable {
     var id: String
     var name: String
     var user: String
-    var channelUrl: String // Coding Key
+    var channelUrl: String
     var thumbnails: [Thumbnail]
-    var subscriberCount: Int? // Coding Key
+    var subscriberCount: Int?
     
     private enum CodingKeys: String, CodingKey {
         case channelUrl = "channel_url"
