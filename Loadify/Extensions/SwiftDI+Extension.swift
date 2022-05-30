@@ -8,7 +8,7 @@
 import SwiftDI
 import Swinject
 
-extension LoadifyApp {
+extension SwiftDI {
     func setupDependencyInjection() {
         SwiftDI.shared.setup(assemblies: [
             SerivceAssembly(),

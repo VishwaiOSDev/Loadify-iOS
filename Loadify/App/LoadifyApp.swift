@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LoadifyKit
+import SwiftDI
 
 @main
 struct LoadifyApp: App {
@@ -15,7 +16,7 @@ struct LoadifyApp: App {
     @StateObject var alertAction: AlertViewAction = .init()
     
     init() {
-        setupDependencyInjection()
+        SwiftDI.shared.setupDependencyInjection()
     }
     
     var body: some Scene {
