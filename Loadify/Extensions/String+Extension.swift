@@ -25,9 +25,14 @@ extension String {
         }
         return String(splittedDate[0])
     }
-}
-
-extension String {
+    
+    func getDuration() -> String {
+        let interval = Int(self)!
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        return formatter.string(from: TimeInterval(interval))!
+    }
+    
     private func extractDateAlgorithim(for splittedDate: [String.SubSequence]) -> String {
         let month = getMonth(for: String(splittedDate[1]))
         let day = Int(splittedDate[2])!
@@ -35,9 +40,7 @@ extension String {
         let date = String("\(dayString) " + "\(month) ")
         return date
     }
-}
-
-extension String {
+    
     private func getMonth(for month: String) -> String {
         switch month {
         case "01":

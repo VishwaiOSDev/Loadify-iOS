@@ -20,10 +20,9 @@ class ApiService: DataService {
             if let error = error {
                 print("Error Fetching data", error)
             }
-            let decoder = JSONDecoder()
             do {
                 if let data = data {
-                    let jsonResponse = try decoder.decode(VideoDetails.self, from: data)
+                    let jsonResponse = try JSONDecoder().decode(VideoDetails.self, from: data)
                     completion(jsonResponse)
                 }
             } catch {

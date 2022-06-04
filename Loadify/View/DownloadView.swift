@@ -17,33 +17,37 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
         ZStack {
             Loadify.Colors.app_background
                 .edgesIgnoringSafeArea(.all)
-            constructBody(with: videoDetails)
+            constructBody
                 .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
     }
     
     @ViewBuilder
-    private func constructBody(with details: VideoDetails) -> some View {
+    private var constructBody: some View {
         VStack {
             Image(Loadify.Images.loadify_horizontal)
             Spacer()
             VStack {
                 VStack {
-                    Image(systemName: "person.fill")
-                        .data(url: details.thumbnails[details.thumbnails.count - 1].url)
-                        .scaledToFit()
-                        .clipped()
+                    ZStack(alignment: .bottomTrailing) {
+                        Image(systemName: "person.fill")
+                            .data(url: videoDetails.thumbnails[videoDetails.thumbnails.count - 1].url)
+                            .scaledToFit()
+                            .clipped()
+                        durationView
+                            .offset(x: -5, y: -5)
+                    }
                     VStack(alignment: .leading, spacing: 0) {
-                        videoTitleView(for: details)
+                        videoTitleView
                             .padding(.vertical, 8)
                         ChannelView(
-                            name: details.ownerChannelName,
-                            profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
-                            subscriberCount: details.author.subscriberCount
+                            name: videoDetails.ownerChannelName,
+                            profileImage: videoDetails.author.thumbnails[videoDetails.author.thumbnails.count - 1].url,
+                            subscriberCount: videoDetails.author.subscriberCount
                         )
                         .padding(.all, 8)
-                        videoInfoView(for: details)
+                        videoInfoView
                             .padding(.all, 8)
                     }
                     .padding(.horizontal, 12)
@@ -56,8 +60,8 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
         }
     }
     
-    private func videoTitleView(for details: VideoDetails) -> some View {
-        Text("\(details.title)")
+    private var videoTitleView: some View {
+        Text("\(videoDetails.title)")
             .foregroundColor(.white)
             .font(.title3)
             .bold()
@@ -65,11 +69,20 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
             .minimumScaleFactor(0.5)
     }
     
-    private func videoInfoView(for details: VideoDetails) -> some View {
+    private var durationView: some View {
+        Text(videoDetails.lengthSeconds.getDuration())
+            .font(.caption2)
+            .foregroundColor(.white)
+            .padding(.horizontal, 4)
+            .padding(.vertical, 2)
+            .background(Color.black.opacity(0.6).cornerRadius(4))
+    }
+    
+    private var videoInfoView: some View {
         HStack(alignment: .center, spacing: 50) {
-            InfoView(title: details.likes.shortStringRepresentation, subTitle: "Likes")
-            InfoView(title: details.viewCount.commaFormater(), subTitle: "Views")
-            InfoView(title: details.publishDate.dateFormatter(), subTitle: details.publishDate.dateFormatter(get: "Year"))
+            InfoView(title: videoDetails.likes.shortStringRepresentation, subTitle: "Likes")
+            InfoView(title: videoDetails.viewCount.commaFormater(), subTitle: "Views")
+            InfoView(title: videoDetails.publishDate.dateFormatter(), subTitle: videoDetails.publishDate.dateFormatter(get: "Year"))
         }
         .frame(maxWidth: .infinity)
     }
@@ -81,14 +94,44 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
     }
 }
 
-//struct DownloadView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let mockData = VideoDetails(title: "AVATAR 2 THE WAY OF WATER Trailer (4K ULTRA HD) 2022", description: "", lengthSeconds: "109", viewCount: "7123860", publishDate: "2022-05-09", ownerChannelName: "TrailerSpot", videoId: "", author: .init(id: "", name: "", user: "", channelUrl: "", thumbnails: [.init(url: "https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj", width: 120, height: 12)], subscriberCount: nil), likes: 57095, thumbnails: [.init(url: "https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA", width: 12, height: 12)])
-//        Group {
-//            DownloadView(videoDetails: mockData)
-//                .previewDevice("iPhone 13 Pro Max")
-//            DownloadView(videoDetails: mockData)
-//                .previewDevice("iPhone SE (3rd generation)")
-//        }
-//    }
-//}
+struct DownloadView_Previews: PreviewProvider {
+    static var previews: some View {
+        let mockData = VideoDetails(
+            title: "AVATAR 2 THE WAY OF WATER Trailer (4K ULTRA HD) 2022",
+            description: "",
+            lengthSeconds: "109",
+            viewCount: "7123860",
+            publishDate: "2022-05-09",
+            ownerChannelName: "TrailerSpot",
+            videoId: "",
+            author: .init(
+                id: "",
+                name: "",
+                user: "",
+                channelUrl: "",
+                thumbnails: [
+                    .init(
+                        url: "https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj",
+                        width: 120,
+                        height: 12
+                    )
+                ],
+                subscriberCount: nil
+            ),
+            likes: 57095,
+            thumbnails: [
+                .init(
+                    url: "https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
+                    width: 12,
+                    height: 12
+                )
+            ]
+        )
+        Group {
+            DownloadView(router: AppRouter(downloaderViewModel: DownloaderViewModel()), videoDetails: mockData)
+                .previewDevice("iPhone 13 Pro Max")
+            DownloadView(router: AppRouter(downloaderViewModel: DownloaderViewModel()), videoDetails: mockData)
+                .previewDevice("iPhone SE (3rd generation)")
+        }
+    }
+}
