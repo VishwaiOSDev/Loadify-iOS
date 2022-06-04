@@ -16,7 +16,6 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
     let router: Router
     
     @ObservedObject var viewModel: DownloaderViewModel
-    @EnvironmentObject var loaderAction: LoaderViewAction
     @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
@@ -24,39 +23,42 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
             Loadify.Colors.app_background
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Image(Loadify.Images.loadify_icon)
-                    .frame(maxWidth: 150, maxHeight: 150)
-                Text("We are the best Audio and Video downloader \n app ever")
-                    .foregroundColor(Loadify.Colors.grey_text)
-                    .font(.subheadline)
-                    .multilineTextAlignment(.center)
+                headerView
                 Spacer()
-                VStack(spacing: 12) {
-                    CustomTextField(
-                        "Enter YouTube URL",
-                        text: $viewModel.url
-                    )
-                    NavigationLink(
-                        destination: router.view(for: .downloadView),
-                        isActive: $viewModel.shouldNavigateToDownload
-                    ) {
-                        Button(action: didTapContinue) {
-                            Text("Continue")
-                                .bold()
-                        }.buttonStyle(CustomButtonStyle())
-                    }
-                }
-                .padding(.horizontal, 16)
+                textFieldView
+                    .padding(.horizontal, 16)
                 Spacer()
                 termsOfService
             }
             .padding()
-            if viewModel.showProgessView {
-                LoaderView(title: "Fetching Details...")
-            }
+            loaderView
         }
         .navigationBarHidden(true)
-        
+    }
+    
+    @ViewBuilder
+    private var headerView: some View {
+        Image(Loadify.Images.loadify_icon)
+            .frame(maxWidth: 150, maxHeight: 150)
+        Text("We are the best Audio and Video downloader \n app ever")
+            .foregroundColor(Loadify.Colors.grey_text)
+            .font(.subheadline)
+            .multilineTextAlignment(.center)
+    }
+    
+    private var textFieldView: some View {
+        VStack(spacing: 12) {
+            CustomTextField("Enter YouTube URL",text: $viewModel.url)
+            NavigationLink(
+                destination: router.view(for: .downloadView),
+                isActive: $viewModel.shouldNavigateToDownload
+            ) {
+                Button(action: didTapContinue) {
+                    Text("Continue")
+                        .bold()
+                }.buttonStyle(CustomButtonStyle())
+            }
+        }
     }
     
     private var termsOfService: some View {
@@ -74,9 +76,20 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
         .font(.footnote)
     }
     
+    @ViewBuilder
+    private var loaderView: some View {
+        if viewModel.showProgessView {
+            LoaderView(title: "Fetching Details...")
+        }
+    }
+    
     private func didTapContinue() {
         if viewModel.url.isEmpty {
-            alertAction.showAlert(title: "Error", subTitle: "URL cannot be empty", options: .init(alertType: .error, style: .vertical))
+            alertAction.showAlert(
+                title: "Error",
+                subTitle: "URL cannot be empty",
+                options: .init(alertType: .error, style: .vertical)
+            )
         } else {
             viewModel.getVideoDetails(for: viewModel.url)
         }
