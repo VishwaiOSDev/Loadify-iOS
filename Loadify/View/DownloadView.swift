@@ -7,27 +7,20 @@
 
 import SwiftUI
 
-struct DownloadView: View {
+struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
     
-    var videoDetails: VideoDetails?
+    let router: Router
+    // TODO: - Try to resolve this from Swinject
+    var videoDetails: VideoDetails
     
     var body: some View {
         ZStack {
             Loadify.Colors.app_background
                 .edgesIgnoringSafeArea(.all)
-            checkDetailsExists()
+            constructBody(with: videoDetails)
                 .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    @ViewBuilder
-    private func checkDetailsExists() -> some View {
-        if let videoDetails = videoDetails {
-            constructBody(with: videoDetails)
-        } else {
-            ProgressView()
-        }
     }
     
     @ViewBuilder
@@ -88,14 +81,14 @@ struct DownloadView: View {
     }
 }
 
-struct DownloadView_Previews: PreviewProvider {
-    static var previews: some View {
-        let mockData = VideoDetails(title: "AVATAR 2 THE WAY OF WATER Trailer (4K ULTRA HD) 2022", description: "", lengthSeconds: "109", viewCount: "7123860", publishDate: "2022-05-09", ownerChannelName: "TrailerSpot", videoId: "", author: .init(id: "", name: "", user: "", channelUrl: "", thumbnails: [.init(url: "https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj", width: 120, height: 12)], subscriberCount: nil), likes: 57095, thumbnails: [.init(url: "https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA", width: 12, height: 12)])
-        Group {
-            DownloadView(videoDetails: mockData)
-                .previewDevice("iPhone 13 Pro Max")
-            DownloadView(videoDetails: mockData)
-                .previewDevice("iPhone SE (3rd generation)")
-        }
-    }
-}
+//struct DownloadView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let mockData = VideoDetails(title: "AVATAR 2 THE WAY OF WATER Trailer (4K ULTRA HD) 2022", description: "", lengthSeconds: "109", viewCount: "7123860", publishDate: "2022-05-09", ownerChannelName: "TrailerSpot", videoId: "", author: .init(id: "", name: "", user: "", channelUrl: "", thumbnails: [.init(url: "https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj", width: 120, height: 12)], subscriberCount: nil), likes: 57095, thumbnails: [.init(url: "https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA", width: 12, height: 12)])
+//        Group {
+//            DownloadView(videoDetails: mockData)
+//                .previewDevice("iPhone 13 Pro Max")
+//            DownloadView(videoDetails: mockData)
+//                .previewDevice("iPhone SE (3rd generation)")
+//        }
+//    }
+//}

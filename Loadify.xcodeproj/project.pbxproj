@@ -19,6 +19,8 @@
 		8837993A283A1A6C00DDBA79 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379939283A1A6C00DDBA79 /* Image+Extension.swift */; };
 		88469C0F282B979A009C553C /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88469C0E282B979A009C553C /* Task+Extension.swift */; };
 		8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* SwiftDI+Extension.swift */; };
+		887A4DB2284B42E000383FC8 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB1284B42E000383FC8 /* Routing.swift */; };
+		887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB3284B42FB00383FC8 /* AppRouter.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		88379939283A1A6C00DDBA79 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		88469C0E282B979A009C553C /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
 		8847C1B22834F08400255819 /* SwiftDI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDI+Extension.swift"; sourceTree = "<group>"; };
+		887A4DB1284B42E000383FC8 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
+		887A4DB3284B42FB00383FC8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		887A4DB0284B42CB00383FC8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				887A4DB1284B42E000383FC8 /* Routing.swift */,
+				887A4DB3284B42FB00383FC8 /* AppRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				88B1CFA62826BBA4007B19B4 /* App */,
+				887A4DB0284B42CB00383FC8 /* Router */,
 				88097C302830D58C0082E674 /* DI */,
 				882A8BA428296E470094BA6E /* Extensions */,
 				88B1CFAD2826C41D007B19B4 /* Services */,
@@ -310,6 +324,7 @@
 			files = (
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
+				887A4DB2284B42E000383FC8 /* Routing.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConfig.swift in Sources */,
 				882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */,
@@ -325,6 +340,7 @@
 				88B1CFA82826BBDA007B19B4 /* Api.swift in Sources */,
 				8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */,
 				882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */,
+				887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,

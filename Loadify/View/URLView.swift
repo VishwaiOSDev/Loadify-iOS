@@ -11,48 +11,52 @@ import LoadifyKit
 
 // AvatarURL - https://www.youtube.com/watch?v=CYYtLXfquy0
 
-struct URLView: View {
+struct URLView<Router: Routing>: View where Router.Route == AppRoute {
+    
+    let router: Router
     
     @ObservedObject var viewModel: DownloaderViewModel
     @EnvironmentObject var loaderAction: LoaderViewAction
     @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Loadify.Colors.app_background
-                    .edgesIgnoringSafeArea(.all)
-                VStack {
-                    Image(Loadify.Images.loadify_icon)
-                        .frame(maxWidth: 150, maxHeight: 150)
-                    Text("We are the best Audio and Video downloader \n app ever")
-                        .foregroundColor(Loadify.Colors.grey_text)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                    VStack(spacing: 12) {
-                        CustomTextField(
-                            "Enter YouTube URL",
-                            text: $viewModel.url
-                        )
-                        NavigationLink(destination: DownloadView(videoDetails: viewModel.details), isActive: $viewModel.shouldNavigateToDownload) {
-                            Button(action: didTapContinue) {
-                                Text("Continue")
-                                    .bold()
-                            }.buttonStyle(CustomButtonStyle())
-                        }
+        ZStack {
+            Loadify.Colors.app_background
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Image(Loadify.Images.loadify_icon)
+                    .frame(maxWidth: 150, maxHeight: 150)
+                Text("We are the best Audio and Video downloader \n app ever")
+                    .foregroundColor(Loadify.Colors.grey_text)
+                    .font(.subheadline)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                VStack(spacing: 12) {
+                    CustomTextField(
+                        "Enter YouTube URL",
+                        text: $viewModel.url
+                    )
+                    NavigationLink(
+                        destination: router.view(for: .downloadView),
+                        isActive: $viewModel.shouldNavigateToDownload
+                    ) {
+                        Button(action: didTapContinue) {
+                            Text("Continue")
+                                .bold()
+                        }.buttonStyle(CustomButtonStyle())
                     }
-                    .padding(.horizontal, 16)
-                    Spacer()
-                    termsOfService
                 }
-                .padding()
-                if viewModel.showProgessView {
-                    LoaderView(title: "Fetching Details...")
-                }
+                .padding(.horizontal, 16)
+                Spacer()
+                termsOfService
             }
-            .navigationBarHidden(true)
+            .padding()
+            if viewModel.showProgessView {
+                LoaderView(title: "Fetching Details...")
+            }
         }
+        .navigationBarHidden(true)
+        
     }
     
     private var termsOfService: some View {
@@ -79,13 +83,13 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider {
+struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            URLView(viewModel: DownloaderViewModel())
+            AppRouter(downloaderViewModel: DownloaderViewModel()).view(for: .urlView)
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView(viewModel: DownloaderViewModel())
+            AppRouter(downloaderViewModel: DownloaderViewModel()).view(for: .urlView)
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

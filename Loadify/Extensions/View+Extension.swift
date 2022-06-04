@@ -7,4 +7,9 @@
 
 import SwiftUI
 
-extension View { }
+extension View {
+    
+    func embedInNavigation() -> some View {
+        NavigationView { self }
+    }
+}

@@ -21,7 +21,8 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView(viewModel: downloaderViewModel)
+            AppRouter(downloaderViewModel: downloaderViewModel).view(for: .urlView)
+                .embedInNavigation()
                 .environmentObject(alertAction)
                 .addAlertView(for: alertAction)
                 .preferredColorScheme(.dark)
