@@ -12,7 +12,7 @@ import SwiftDI
 @main
 struct LoadifyApp: App {
     
-    @StateObject var downloaderViewModel = DownloaderViewModel()
+    @StateObject var downloaderViewModel = URLViewModel()
     @StateObject var alertAction: AlertViewAction = .init()
     
     init() {

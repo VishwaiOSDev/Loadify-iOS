@@ -21,13 +21,14 @@
 		8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* SwiftDI+Extension.swift */; };
 		887A4DB2284B42E000383FC8 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB1284B42E000383FC8 /* Routing.swift */; };
 		887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB3284B42FB00383FC8 /* AppRouter.swift */; };
+		88924C95284B65C6000BDD32 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
 		88A729B528264AD400B5FE61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B428264AD400B5FE61 /* Preview Assets.xcassets */; };
 		88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729C028265A9500B5FE61 /* CustomTextField.swift */; };
 		88B1CFA82826BBDA007B19B4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA72826BBDA007B19B4 /* Api.swift */; };
-		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
+		88B1CFAA2826BCA5007B19B4 /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* URLViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 		88D1276C2848B63B00D8750B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276B2848B63B00D8750B /* InfoView.swift */; };
@@ -49,6 +50,7 @@
 		8847C1B22834F08400255819 /* SwiftDI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDI+Extension.swift"; sourceTree = "<group>"; };
 		887A4DB1284B42E000383FC8 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		887A4DB3284B42FB00383FC8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		88A729B428264AD400B5FE61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88A729C028265A9500B5FE61 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		88B1CFA72826BBDA007B19B4 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
+		88B1CFA92826BCA5007B19B4 /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		88D1276B2848B63B00D8750B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
@@ -205,7 +207,8 @@
 		88A729BE2826507100B5FE61 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */,
+				88B1CFA92826BCA5007B19B4 /* URLViewModel.swift */,
+				88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				88097C322830D59A0082E674 /* Assemblies.swift in Sources */,
 				88D1276C2848B63B00D8750B /* InfoView.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
+				88924C95284B65C6000BDD32 /* DownloaderViewModel.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,
@@ -343,7 +347,7 @@
 				887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
-				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
+				88B1CFAA2826BCA5007B19B4 /* URLViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +479,7 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need you photos access to store video files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -505,6 +510,7 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need you photos access to store video files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

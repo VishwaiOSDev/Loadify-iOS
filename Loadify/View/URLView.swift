@@ -15,7 +15,7 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
     
     let router: Router
     
-    @ObservedObject var viewModel: DownloaderViewModel
+    @ObservedObject var viewModel: URLViewModel
     @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
@@ -99,10 +99,10 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
 struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            AppRouter(downloaderViewModel: DownloaderViewModel()).view(for: .urlView)
+            AppRouter(downloaderViewModel: URLViewModel()).view(for: .urlView)
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            AppRouter(downloaderViewModel: DownloaderViewModel()).view(for: .urlView)
+            AppRouter(downloaderViewModel: URLViewModel()).view(for: .urlView)
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

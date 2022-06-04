@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftDI
 
 struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
     
     let router: Router
     // TODO: - Try to resolve this from Swinject
     var videoDetails: VideoDetails
+    @ObservedInject var downloaderViewModel: DownloderViewModel
     
     var body: some View {
         ZStack {
@@ -49,6 +51,11 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
                         .padding(.all, 8)
                         videoInfoView
                             .padding(.all, 8)
+                        Button(action: didTapDownload) {
+                            Text("Download")
+                                .bold()
+                        }
+                        .buttonStyle(CustomButtonStyle())
                     }
                     .padding(.horizontal, 12)
                 }
@@ -92,6 +99,10 @@ struct DownloadView<Router: Routing>: View where Router.Route == AppRoute {
             .font(.footnote)
             .foregroundColor(Loadify.Colors.grey_text)
     }
+    
+    private func didTapDownload() {
+        downloaderViewModel.downloadVideo(with: .medium)
+    }
 }
 
 struct DownloadView_Previews: PreviewProvider {
@@ -128,9 +139,9 @@ struct DownloadView_Previews: PreviewProvider {
             ]
         )
         Group {
-            DownloadView(router: AppRouter(downloaderViewModel: DownloaderViewModel()), videoDetails: mockData)
+            DownloadView(router: AppRouter(downloaderViewModel: URLViewModel()), videoDetails: mockData)
                 .previewDevice("iPhone 13 Pro Max")
-            DownloadView(router: AppRouter(downloaderViewModel: DownloaderViewModel()), videoDetails: mockData)
+            DownloadView(router: AppRouter(downloaderViewModel: URLViewModel()), videoDetails: mockData)
                 .previewDevice("iPhone SE (3rd generation)")
         }
     }

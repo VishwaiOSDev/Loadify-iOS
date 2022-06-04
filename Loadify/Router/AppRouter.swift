@@ -15,7 +15,7 @@ enum AppRoute {
 struct AppRouter: Routing {
     
     // TODO: - Try swinject here aswell
-    @ObservedObject var downloaderViewModel: DownloaderViewModel
+    @ObservedObject var downloaderViewModel: URLViewModel
     
     func view(for route: AppRoute) -> some View {
         switch route {
