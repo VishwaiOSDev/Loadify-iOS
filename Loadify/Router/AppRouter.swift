@@ -15,12 +15,12 @@ enum AppRoute {
 struct AppRouter: Routing {
     
     // TODO: - Try swinject here aswell
-    @ObservedObject var downloaderViewModel: URLViewModel
+    @ObservedObject var urlViewModel: URLViewModel
     
     func view(for route: AppRoute) -> some View {
         switch route {
         case .urlView:
-            URLView(router: self, viewModel: downloaderViewModel)
+            URLView(router: self, viewModel: urlViewModel)
         case .downloadView:
             getDownloadView()
         }
@@ -28,7 +28,7 @@ struct AppRouter: Routing {
     
     @ViewBuilder
     fileprivate func getDownloadView() -> some View {
-        if let details = downloaderViewModel.details {
+        if let details = urlViewModel.details {
             DownloadView(router: self, videoDetails: details)
         }
     }

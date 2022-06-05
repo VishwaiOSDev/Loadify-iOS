@@ -139,9 +139,9 @@ struct DownloadView_Previews: PreviewProvider {
             ]
         )
         Group {
-            DownloadView(router: AppRouter(downloaderViewModel: URLViewModel()), videoDetails: mockData)
+            DownloadView(router: AppRouter(urlViewModel: URLViewModel()), videoDetails: mockData)
                 .previewDevice("iPhone 13 Pro Max")
-            DownloadView(router: AppRouter(downloaderViewModel: URLViewModel()), videoDetails: mockData)
+            DownloadView(router: AppRouter(urlViewModel: URLViewModel()), videoDetails: mockData)
                 .previewDevice("iPhone SE (3rd generation)")
         }
     }
