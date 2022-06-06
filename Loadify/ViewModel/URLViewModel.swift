@@ -12,7 +12,7 @@ protocol Detailable: Navigatable {
     func getVideoDetails(for url: String)
 }
 
-protocol Downloadable: Describable {
+protocol Downloadable: Loadable {
     func downloadAudio(from url: URL)
     func downloadVideo(with quality: VideoQuality)
 }

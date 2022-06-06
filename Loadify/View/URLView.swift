@@ -9,9 +9,7 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-struct URLView<ViewModel: Detailable, Router: Routing>: View where Router.Route == AppRoute {
-    
-    let router: Router
+struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @EnvironmentObject var alertAction: AlertViewAction
@@ -48,7 +46,7 @@ struct URLView<ViewModel: Detailable, Router: Routing>: View where Router.Route 
         VStack(spacing: 12) {
             CustomTextField("Enter YouTube URL", text: $viewModel.url)
             NavigationLink(
-                destination: router.view(for: .downloadView),
+                destination: downloadView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
                 Button(action: didTapContinue) {
@@ -92,16 +90,23 @@ struct URLView<ViewModel: Detailable, Router: Routing>: View where Router.Route 
             viewModel.getVideoDetails(for: viewModel.url)
         }
     }
+    
+    @ViewBuilder
+    private var downloadView: some View {
+        if let details = viewModel.details {
+            DownloadView<URLViewModel>(videoDetails: details)
+        }
+    }
 }
 
 struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            URLView<URLViewModel, AppRouter>(router: AppRouter())
+            URLView<URLViewModel>()
                 .environmentObject(URLViewModel())
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView<URLViewModel, AppRouter>(router: AppRouter())
+            URLView<URLViewModel>()
                 .environmentObject(URLViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
