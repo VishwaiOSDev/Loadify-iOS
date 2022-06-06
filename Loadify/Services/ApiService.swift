@@ -9,17 +9,19 @@ import Foundation
 import Photos
 import UIKit
 
+enum DownloaderStatus {
+    case downloaded, failed
+}
+
 protocol DataService {
     func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void)
 }
 
-enum DownloaderStatus {
-    case downloaded, failed
-}
-
+// TODO: - Handle Networking (High Priority)
 class ApiService: DataService {
     
+    // TODO: - Handle invaild URL's
     func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)  {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -38,6 +40,7 @@ class ApiService: DataService {
         }.resume()
     }
     
+    // TODO: - Change the FileName to resonable name
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
