@@ -41,14 +41,14 @@ class ApiService: DataService {
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        print("\(url)")
-        let filePath = FileManager.default.temporaryDirectory.appendingPathComponent("myFile.mp4")
+        let filePath = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error Donwloading.. \(error)")
             }
             DispatchQueue.main.async {
                 do {
+                    // TODO: - Video is not downloaded properly.
                     try data?.write(to: filePath)
                     PHPhotoLibrary.shared().performChanges ({
                         PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: filePath)

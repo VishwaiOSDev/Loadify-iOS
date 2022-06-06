@@ -21,7 +21,6 @@
 		8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* SwiftDI+Extension.swift */; };
 		887A4DB2284B42E000383FC8 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB1284B42E000383FC8 /* Routing.swift */; };
 		887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB3284B42FB00383FC8 /* AppRouter.swift */; };
-		88924C95284B65C6000BDD32 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
@@ -33,6 +32,7 @@
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 		88D1276C2848B63B00D8750B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276B2848B63B00D8750B /* InfoView.swift */; };
 		88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276D2848CDC000D8750B /* ChannelView.swift */; };
+		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConfig.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,6 @@
 		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		882A8BA528296E5F0094BA6E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
-		8830E7B62844E61B007EEDD4 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
 		88379935283A19F400DDBA79 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		88379937283A1A0F00DDBA79 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		88379939283A1A6C00DDBA79 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
@@ -50,7 +49,6 @@
 		8847C1B22834F08400255819 /* SwiftDI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDI+Extension.swift"; sourceTree = "<group>"; };
 		887A4DB1284B42E000383FC8 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		887A4DB3284B42FB00383FC8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -63,6 +61,8 @@
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		88D1276B2848B63B00D8750B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		88D1276D2848CDC000D8750B /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
+		88EBFF2C284DB3C6007EFF97 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
+		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +136,7 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
-				8830E7B62844E61B007EEDD4 /* LoadifyKit */,
+				88EBFF2C284DB3C6007EFF97 /* LoadifyKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88A729AB28264AD100B5FE61 /* Products */,
 				8815AFE5282AAF6D00980759 /* Frameworks */,
@@ -158,6 +158,7 @@
 				887A4DB0284B42CB00383FC8 /* Router */,
 				88097C302830D58C0082E674 /* DI */,
 				882A8BA428296E470094BA6E /* Extensions */,
+				88EBFF2D284DC2EA007EFF97 /* Protocol */,
 				88B1CFAD2826C41D007B19B4 /* Services */,
 				88A729BD2826506B00B5FE61 /* Model */,
 				88A729BC2826506300B5FE61 /* View */,
@@ -208,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				88B1CFA92826BCA5007B19B4 /* URLViewModel.swift */,
-				88924C94284B65C6000BDD32 /* DownloaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -238,6 +238,14 @@
 				88CD83B72827D77B00F520C0 /* ApiService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		88EBFF2D284DC2EA007EFF97 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				88EBFF2E284DC33A007EFF97 /* Protocols.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		88F341822836547C00493544 /* Others */ = {
@@ -326,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
+				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				887A4DB2284B42E000383FC8 /* Routing.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
@@ -334,7 +343,6 @@
 				88097C322830D59A0082E674 /* Assemblies.swift in Sources */,
 				88D1276C2848B63B00D8750B /* InfoView.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
-				88924C95284B65C6000BDD32 /* DownloaderViewModel.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,

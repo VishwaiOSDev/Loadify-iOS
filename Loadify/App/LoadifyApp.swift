@@ -21,9 +21,10 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppRouter(urlViewModel: urlViewModel).view(for: .urlView)
+            AppRouter().view(for: .urlView)
                 .embedInNavigation()
                 .environmentObject(alertAction)
+                .environmentObject(urlViewModel)
                 .addAlertView(for: alertAction)
                 .preferredColorScheme(.dark)
         }

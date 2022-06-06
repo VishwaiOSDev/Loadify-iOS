@@ -15,11 +15,3 @@ class SerivceAssembly: Assembly {
         container.autoregister(DataService.self, initializer: ApiService.init).inObjectScope(.singleton)
     }
 }
-
-class ViewModelAssembly: Assembly {
-    // MARK: - Change the DownloaderViewModel to Downloadable
-    func assemble(container: Container) {
-        container.autoregister(URLViewModel.self, initializer: URLViewModel.init).inObjectScope(.singleton)
-        container.autoregister(DownloderViewModel.self, initializer: DownloderViewModel.init).inObjectScope(.singleton)
-    }
-}

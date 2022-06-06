@@ -9,13 +9,11 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-// AvatarURL - https://www.youtube.com/watch?v=CYYtLXfquy0
-
-struct URLView<Router: Routing>: View where Router.Route == AppRoute {
+struct URLView<ViewModel: Detailable, Router: Routing>: View where Router.Route == AppRoute {
     
     let router: Router
     
-    @ObservedObject var viewModel: URLViewModel
+    @EnvironmentObject var viewModel: ViewModel
     @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
@@ -48,7 +46,7 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL",text: $viewModel.url)
+            CustomTextField("Enter YouTube URL", text: $viewModel.url)
             NavigationLink(
                 destination: router.view(for: .downloadView),
                 isActive: $viewModel.shouldNavigateToDownload
@@ -99,10 +97,12 @@ struct URLView<Router: Routing>: View where Router.Route == AppRoute {
 struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            AppRouter(urlViewModel: URLViewModel()).view(for: .urlView)
+            URLView<URLViewModel, AppRouter>(router: AppRouter())
+                .environmentObject(URLViewModel())
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            AppRouter(urlViewModel: URLViewModel()).view(for: .urlView)
+            URLView<URLViewModel, AppRouter>(router: AppRouter())
+                .environmentObject(URLViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }
