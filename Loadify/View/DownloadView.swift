@@ -137,11 +137,11 @@ struct DownloadView_Previews: PreviewProvider {
             ]
         )
         Group {
-            DownloadView<URLViewModel>(videoDetails: mockData)
-                .environmentObject(URLViewModel())
+            DownloadView<DownloaderViewModel>(videoDetails: mockData)
+                .environmentObject(DownloaderViewModel())
                 .previewDevice("iPhone 13 Pro Max")
-            DownloadView<URLViewModel>(videoDetails: mockData)
-                .environmentObject(URLViewModel())
+            DownloadView<DownloaderViewModel>(videoDetails: mockData)
+                .environmentObject(DownloaderViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
         }
     }

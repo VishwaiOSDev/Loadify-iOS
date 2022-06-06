@@ -17,7 +17,7 @@ protocol Downloadable: Loadable {
     func downloadVideo(with quality: VideoQuality)
 }
 
-final class URLViewModel: Detailable, Downloadable {
+final class DownloaderViewModel: Detailable {
     
     @Published var url: String = "https://www.youtube.com/watch?v=CYYtLXfquy0"
     @Published var details: VideoDetails?
@@ -38,6 +38,9 @@ final class URLViewModel: Detailable, Downloadable {
             }
         }
     }
+}
+
+extension DownloaderViewModel: Downloadable {
     
     func downloadAudio(from url: URL) {
         

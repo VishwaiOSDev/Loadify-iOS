@@ -94,7 +94,7 @@ struct URLView<ViewModel: Detailable>: View {
     @ViewBuilder
     private var downloadView: some View {
         if let details = viewModel.details {
-            DownloadView<URLViewModel>(videoDetails: details)
+            DownloadView<DownloaderViewModel>(videoDetails: details)
         }
     }
 }
@@ -102,12 +102,12 @@ struct URLView<ViewModel: Detailable>: View {
 struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            URLView<URLViewModel>()
-                .environmentObject(URLViewModel())
+            URLView<DownloaderViewModel>()
+                .environmentObject(DownloaderViewModel())
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView<URLViewModel>()
-                .environmentObject(URLViewModel())
+            URLView<DownloaderViewModel>()
+                .environmentObject(DownloaderViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

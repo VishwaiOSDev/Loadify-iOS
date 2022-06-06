@@ -12,7 +12,7 @@ import SwiftDI
 @main
 struct LoadifyApp: App {
     
-    @StateObject var urlViewModel = URLViewModel()
+    @StateObject var urlViewModel = DownloaderViewModel()
     @StateObject var alertAction: AlertViewAction = .init()
     
     init() {
@@ -21,7 +21,7 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView<URLViewModel>()
+            URLView<DownloaderViewModel>()
                 .embedInNavigation()
                 .environmentObject(alertAction)
                 .environmentObject(urlViewModel)
