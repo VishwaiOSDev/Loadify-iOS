@@ -27,9 +27,14 @@ struct URLView<ViewModel: Detailable>: View {
                 termsOfService
             }
             .padding()
-            loaderView
         }
         .navigationBarHidden(true)
+        .customAlert(item: $viewModel.detailsError) { error in
+            AlertView(title: error.localizedDescription)
+                .dismiss {
+                    viewModel.detailsError = nil
+                }
+        }
     }
     
     @ViewBuilder
@@ -49,7 +54,11 @@ struct URLView<ViewModel: Detailable>: View {
                 destination: downloadView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
-                Button(action: didTapContinue) {
+                Button {
+                    Task {
+                        await didTapContinue()
+                    }
+                } label: {
                     Text("Continue")
                         .bold()
                 }.buttonStyle(CustomButtonStyle())
@@ -73,29 +82,14 @@ struct URLView<ViewModel: Detailable>: View {
     }
     
     @ViewBuilder
-    private var loaderView: some View {
-        if viewModel.showProgessView {
-            LoaderView(title: "Fetching Details...")
-        }
-    }
-    
-    private func didTapContinue() {
-        if viewModel.url.isEmpty {
-            alertAction.showAlert(
-                title: "Error",
-                subTitle: "URL cannot be empty",
-                options: .init(alertType: .error, style: .vertical)
-            )
-        } else {
-            viewModel.getVideoDetails(for: viewModel.url)
-        }
-    }
-    
-    @ViewBuilder
     private var downloadView: some View {
         if let details = viewModel.details {
             DownloadView<DownloaderViewModel>(videoDetails: details)
         }
+    }
+    
+    private func didTapContinue() async {
+        await viewModel.getVideoDetails(for: viewModel.url)
     }
 }
 

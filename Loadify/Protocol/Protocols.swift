@@ -12,7 +12,7 @@ protocol Urlable: ObservableObject {
 }
 
 protocol Loadable: Urlable {
-    var showProgessView: Bool { get set }
+    var detailsError: Error? { get set }
 }
 
 protocol Describable: Loadable {

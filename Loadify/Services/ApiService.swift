@@ -9,37 +9,61 @@ import Foundation
 import Photos
 import UIKit
 
+extension URLSession {
+    @available(iOS, deprecated: 15.0, message: "This extension is no longer necessary. Use API built into SDK")
+    func data(from url: URL) async throws -> (Data, URLResponse) {
+        try await withCheckedThrowingContinuation { continuation in
+            let task = self.dataTask(with: url) { data, response, error in
+                guard let data = data, let response = response else {
+                    let error = error ?? URLError(.badServerResponse)
+                    return continuation.resume(throwing: error)
+                }
+                
+                continuation.resume(returning: (data, response))
+            }
+            task.resume()
+        }
+    }
+}
+
 enum DownloaderStatus {
     case downloaded, failed
 }
 
 protocol DataService {
-    func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)
+    func getVideoDetails(for url: String) async throws -> VideoDetails
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void)
 }
 
-// TODO: - Handle Networking (High Priority)
+enum DetailsError: Error, LocalizedError {
+    case invaildDomain
+    case invaildApiUrl
+    case emptyUrl
+    
+    var errorDescription: String? {
+        switch self {
+        case .invaildDomain: return "This is not a valid YouTube URL"
+        case .invaildApiUrl: return "This is not a vaild API URL"
+        case .emptyUrl: return "URL cannot be empty"
+        }
+    }
+}
+
 class ApiService: DataService {
     
-    // TODO: - Handle invaild URL's
-    func getVideoDetails(url: URL, completion: @escaping (VideoDetails) -> Void)  {
+    func getVideoDetails(for url: String) async throws -> VideoDetails {
+        if url.isEmpty { throw DetailsError.emptyUrl }
+        let apiUrl = "https://api.tikapp.ml/api/yt/details?url=\(url)"
+        guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error Fetching data", error)
-            }
-            do {
-                if let data = data {
-                    let jsonResponse = try JSONDecoder().decode(VideoDetails.self, from: data)
-                    completion(jsonResponse)
-                }
-            } catch {
-                print("Error Decoding data", error)
-            }
-        }.resume()
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let decodedData = try JSONDecoder().decode(VideoDetails.self, from: data)
+        return decodedData
     }
-    
+}
+
+extension ApiService {
     // TODO: - Change the FileName to resonable name
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void) {
         var request = URLRequest(url: url)
