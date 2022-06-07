@@ -13,7 +13,6 @@ import SwiftDI
 struct LoadifyApp: App {
     
     @StateObject var urlViewModel = DownloaderViewModel()
-    @StateObject var alertAction: AlertViewAction = .init()
     
     init() {
         SwiftDI.shared.setupDependencyInjection()
@@ -23,9 +22,7 @@ struct LoadifyApp: App {
         WindowGroup {
             URLView<DownloaderViewModel>()
                 .embedInNavigation()
-                .environmentObject(alertAction)
                 .environmentObject(urlViewModel)
-                .addAlertView(for: alertAction)
                 .preferredColorScheme(.dark)
         }
     }

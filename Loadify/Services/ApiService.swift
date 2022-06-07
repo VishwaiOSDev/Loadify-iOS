@@ -9,30 +9,13 @@ import Foundation
 import Photos
 import UIKit
 
-extension URLSession {
-    @available(iOS, deprecated: 15.0, message: "This extension is no longer necessary. Use API built into SDK")
-    func data(from url: URL) async throws -> (Data, URLResponse) {
-        try await withCheckedThrowingContinuation { continuation in
-            let task = self.dataTask(with: url) { data, response, error in
-                guard let data = data, let response = response else {
-                    let error = error ?? URLError(.badServerResponse)
-                    return continuation.resume(throwing: error)
-                }
-                
-                continuation.resume(returning: (data, response))
-            }
-            task.resume()
-        }
-    }
+protocol DataService {
+    func getVideoDetails(for url: String) async throws -> VideoDetails
+    func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void)
 }
 
 enum DownloaderStatus {
     case downloaded, failed
-}
-
-protocol DataService {
-    func getVideoDetails(for url: String) async throws -> VideoDetails
-    func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void)
 }
 
 enum DetailsError: Error, LocalizedError {
@@ -57,6 +40,7 @@ class ApiService: DataService {
         guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        // TODO: - Handle the data effectively
         let (data, _) = try await URLSession.shared.data(from: url)
         let decodedData = try JSONDecoder().decode(VideoDetails.self, from: data)
         return decodedData
@@ -64,7 +48,8 @@ class ApiService: DataService {
 }
 
 extension ApiService {
-    // TODO: - Change the FileName to resonable name
+    
+    // TODO: - Change this to Async Await later.
     func downloadVideo(url: URL, completion: @escaping (DownloaderStatus) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

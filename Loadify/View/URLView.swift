@@ -12,7 +12,6 @@ import LoadifyKit
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @EnvironmentObject var alertAction: AlertViewAction
     
     var body: some View {
         ZStack {
