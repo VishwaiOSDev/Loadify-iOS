@@ -14,12 +14,12 @@ protocol Detailable: Navigatable {
 
 protocol Downloadable: Loadable {
     func downloadAudio(from url: URL)
-    func downloadVideo(with quality: VideoQuality)
+    func downloadVideo(with quality: VideoQuality) async
 }
 
 final class DownloaderViewModel: Detailable {
     
-    @Published var url: String = "https://www.youtube.com/watch?v=CYYtLXfquy0"
+    @Published var url: String = "https://www.youtube.com/watch?v=jwmS1gc9S5A"
     @Published var details: VideoDetails? = nil
     @Published var detailsError: Error? = nil
     @Published var showLoader: Bool = false
@@ -52,15 +52,11 @@ extension DownloaderViewModel: Downloadable {
         
     }
     
-    func downloadVideo(with quality: VideoQuality) {
-        guard let apiUrl = URL(string: "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=Medium") else { return }
-        apiService.downloadVideo(url: apiUrl) { status in
-            switch status {
-            case .downloaded:
-                print("Video Downloaded")
-            case .failed:
-                print("Failed to Download the Video...")
-            }
+    func downloadVideo(with quality: VideoQuality) async {
+        do {
+            try await apiService.downloadVideo(for: url)
+        } catch {
+            print("Error downloading the video file \(error.localizedDescription)")
         }
     }
 }

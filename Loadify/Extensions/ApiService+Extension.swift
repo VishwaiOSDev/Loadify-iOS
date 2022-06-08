@@ -30,6 +30,12 @@ extension ApiService {
         }
     }
     
+    func checkIsValidUrl(_ url: String) throws {
+        if url.checkIsEmpty() {
+            throw DetailsError.emptyUrl
+        }
+    }
+    
     /// This function is used to create URLRequest instance
     func createUrlRequest(for url: URL) -> URLRequest {
         var urlRequest = URLRequest(url: url)
@@ -40,14 +46,20 @@ extension ApiService {
     /// This function handles server side errors
     func checkForServerErrors(for urlResponse: URLResponse, with data: Data) async throws {
         if let response = urlResponse as? HTTPURLResponse {
-            if 400...499 ~= response.statusCode {
+            switch response.statusCode {
+            case 200...299:
+                break
+            case 400...499:
                 let decodedErrorData = decode(data, to: ErrorModel.self)
-                switch decodedErrorData.message {
-                case ApiError.notValidYouTubeDomain:
+                if decodedErrorData.message == ApiError.notValidYouTubeDomain {
                     throw DetailsError.notVaildYouTubeUrl
-                default:
+                } else {
                     throw DetailsError.invaildApiUrl
                 }
+            case 500...599:
+                throw ServerError.internalServerError
+            default:
+                throw URLError(.badServerResponse)
             }
         }
     }

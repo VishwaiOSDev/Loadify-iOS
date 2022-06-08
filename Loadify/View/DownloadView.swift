@@ -49,7 +49,11 @@ struct DownloadView<ViewModel: Downloadable>: View {
                         .padding(.all, 8)
                         videoInfoView
                             .padding(.all, 8)
-                        Button(action: didTapDownload) {
+                        Button {
+                            Task {
+                                await didTapDownload()
+                            }
+                        } label: {
                             Text("Download")
                                 .bold()
                         }
@@ -98,8 +102,8 @@ struct DownloadView<ViewModel: Downloadable>: View {
             .foregroundColor(Loadify.Colors.grey_text)
     }
     
-    private func didTapDownload() {
-        viewModel.downloadVideo(with: .medium)
+    private func didTapDownload() async {
+        await viewModel.downloadVideo(with: .medium)
     }
 }
 
