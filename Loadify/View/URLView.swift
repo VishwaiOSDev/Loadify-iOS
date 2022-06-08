@@ -12,7 +12,6 @@ import LoadifyKit
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @State var showLoader: Bool = false
     
     var body: some View {
         ZStack {
@@ -35,7 +34,7 @@ struct URLView<ViewModel: Detailable>: View {
                     viewModel.detailsError = nil
                 }
         }
-        .customLoader("Fetching Details...", isPresented: $showLoader)
+        .customLoader("Fetching Details...", isPresented: $viewModel.showLoader)
     }
     
     @ViewBuilder

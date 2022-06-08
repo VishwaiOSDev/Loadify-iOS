@@ -11,12 +11,12 @@ struct CustomButtonStyle: ButtonStyle {
     
     var buttonColor: Color = Loadify.Colors.blue_accent
     var cornerRadius: CGFloat = 10
-    var isDisabled: Bool = true
+    var isDisabled: Bool = false
     
     init(
         buttonColor: Color = Loadify.Colors.blue_accent,
         cornerRadius: CGFloat = 10,
-        isDisabled: Bool = true
+        isDisabled: Bool = false
     ) {
         self.buttonColor = buttonColor
         self.cornerRadius = cornerRadius
@@ -28,9 +28,8 @@ struct CustomButtonStyle: ButtonStyle {
             .font(.title3)
             .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
             .frame(maxWidth: .infinity, maxHeight: 56)
-            .background(
-                (configuration.isPressed || isDisabled) ? buttonColor.opacity(0.5) : buttonColor
-            )
+            .background(isDisabled ? buttonColor.opacity(0.5) : buttonColor)
             .cornerRadius(cornerRadius)
+            .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
     }
 }

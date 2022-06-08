@@ -15,7 +15,9 @@ protocol Errorable: ObservableObject {
     var detailsError: Error? { get set }
 }
 
-protocol Loadable: Urlable, Errorable { }
+protocol Loadable: Urlable, Errorable {
+    var showLoader: Bool { get set }
+}
 
 protocol Describable: Loadable {
     var details: VideoDetails? { get set }

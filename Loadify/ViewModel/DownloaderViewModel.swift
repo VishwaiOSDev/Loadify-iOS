@@ -22,18 +22,24 @@ final class DownloaderViewModel: Detailable {
     @Published var url: String = "https://www.youtube.com/watch?v=CYYtLXfquy0"
     @Published var details: VideoDetails? = nil
     @Published var detailsError: Error? = nil
+    @Published var showLoader: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
     @Inject var apiService: DataService
     
     func getVideoDetails(for url: String) async {
         do {
+            DispatchQueue.main.async {
+                self.showLoader = true
+            }
             let response = try await apiService.getVideoDetails(for: url)
             DispatchQueue.main.async {
                 self.details = response
+                self.showLoader = false
                 self.shouldNavigateToDownload = true
             }
         } catch {
             DispatchQueue.main.async {
+                self.showLoader = false
                 self.detailsError = error
             }
         }
