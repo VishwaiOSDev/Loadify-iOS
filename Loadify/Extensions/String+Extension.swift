@@ -33,6 +33,11 @@ extension String {
         return formatter.string(from: TimeInterval(interval))!
     }
     
+    func checkIsEmpty() -> Bool {
+        let text = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return text.isEmpty ? true : false
+    }
+    
     private func extractDateAlgorithim(for splittedDate: [String.SubSequence]) -> String {
         let month = getMonth(for: String(splittedDate[1]))
         let day = Int(splittedDate[2])!

@@ -12,6 +12,7 @@ import LoadifyKit
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
+    @State var showLoader: Bool = false
     
     var body: some View {
         ZStack {
@@ -34,6 +35,7 @@ struct URLView<ViewModel: Detailable>: View {
                     viewModel.detailsError = nil
                 }
         }
+        .customLoader("Fetching Details...", isPresented: $showLoader)
     }
     
     @ViewBuilder
@@ -60,8 +62,10 @@ struct URLView<ViewModel: Detailable>: View {
                 } label: {
                     Text("Continue")
                         .bold()
-                }.buttonStyle(CustomButtonStyle())
+                }
+                .buttonStyle(CustomButtonStyle(isDisabled: viewModel.url.checkIsEmpty()))
             }
+            .disabled(viewModel.url.checkIsEmpty())
         }
     }
     

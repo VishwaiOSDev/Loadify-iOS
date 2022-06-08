@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 extension View {
     
@@ -22,7 +23,16 @@ extension View {
         }
     }
     
-    func dismiss(delay: TimeInterval = 3, completion: @escaping () -> Void) -> some View {
+    func customLoader(_ title: String, isPresented: Binding<Bool>) -> some View {
+        ZStack {
+            self.allowsHitTesting(!isPresented.wrappedValue)
+            if isPresented.wrappedValue {
+                LoaderView(title: title)
+            }
+        }
+    }
+    
+    func dismiss(delay: TimeInterval = 2.5, completion: @escaping () -> Void) -> some View {
         self.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 completion()
