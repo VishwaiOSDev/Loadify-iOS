@@ -35,7 +35,7 @@ enum DetailsError: Error, LocalizedError {
 class ApiService: DataService {
     
     func getVideoDetails(for url: String) async throws -> VideoDetails {
-        if url.isEmpty { throw DetailsError.emptyUrl } // Not needed anymore
+        if url.checkIsEmpty() { throw DetailsError.emptyUrl }
         let apiUrl = "https://api.tikapp.ml/api/yt/details?url=\(url)"
         guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
         let request = createUrlRequest(for: url)
