@@ -11,9 +11,11 @@ protocol Urlable: ObservableObject {
     var url: String { get set }
 }
 
-protocol Loadable: Urlable {
+protocol Errorable: ObservableObject {
     var detailsError: Error? { get set }
 }
+
+protocol Loadable: Urlable, Errorable { }
 
 protocol Describable: Loadable {
     var details: VideoDetails? { get set }

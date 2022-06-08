@@ -5,9 +5,9 @@
 //  Created by Vishweshwaran on 5/8/22.
 //
 
-import Foundation
 import Photos
 import UIKit
+import Foundation
 
 protocol DataService {
     func getVideoDetails(for url: String) async throws -> VideoDetails
@@ -19,15 +19,15 @@ enum DownloaderStatus {
 }
 
 enum DetailsError: Error, LocalizedError {
-    case invaildDomain
-    case invaildApiUrl
     case emptyUrl
+    case invaildApiUrl
+    case notVaildYouTubeUrl
     
     var errorDescription: String? {
         switch self {
-        case .invaildDomain: return "This is not a valid YouTube URL"
-        case .invaildApiUrl: return "This is not a vaild API URL"
         case .emptyUrl: return "URL cannot be empty"
+        case .invaildApiUrl: return "This is not valid URL"
+        case .notVaildYouTubeUrl: return "This is not a valid YouTube URL"
         }
     }
 }
@@ -38,12 +38,10 @@ class ApiService: DataService {
         if url.isEmpty { throw DetailsError.emptyUrl }
         let apiUrl = "https://api.tikapp.ml/api/yt/details?url=\(url)"
         guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        // TODO: - Handle the data effectively
-        let (data, _) = try await URLSession.shared.data(from: url)
-        let decodedData = try JSONDecoder().decode(VideoDetails.self, from: data)
-        return decodedData
+        let request = createUrlRequest(for: url)
+        let (data, urlResponse) = try await URLSession.shared.data(from: request)
+        try await checkForServerErrors(for: urlResponse, with: data)
+        return decode(data, to: VideoDetails.self)
     }
 }
 
@@ -80,4 +78,3 @@ extension ApiService {
         }.resume()
     }
 }
-

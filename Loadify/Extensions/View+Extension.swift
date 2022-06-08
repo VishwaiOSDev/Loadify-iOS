@@ -15,7 +15,7 @@ extension View {
     
     func customAlert<T: View>(item: Binding<Error?>, content: (Error) -> T) ->  some View {
         ZStack {
-            self
+            self.allowsHitTesting(item.wrappedValue != nil ? false : true)
             if let error = item.wrappedValue {
                 content(error)
             }

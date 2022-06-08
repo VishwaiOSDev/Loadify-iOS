@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VideoDetails: Decodable {
+struct VideoDetails: Codable {
     var title: String
     var description: String
     var lengthSeconds: String
@@ -20,7 +20,7 @@ struct VideoDetails: Decodable {
     var thumbnails: [Thumbnail]
 }
 
-struct Author: Decodable {
+struct Author: Codable {
     var id: String
     var name: String
     var user: String
@@ -39,8 +39,12 @@ struct Author: Decodable {
     }
 }
 
-struct Thumbnail: Decodable {
+struct Thumbnail: Codable {
     var url: String
     var width: Int
     var height: Int
+}
+
+struct ErrorModel: Codable {
+    var message: String
 }
