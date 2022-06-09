@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftDI
-import UIKit
+import LoadifyKit
 
 enum Quality: String {
     case none
@@ -25,24 +25,14 @@ enum Quality: String {
     }
 }
 
-extension UINavigationController {
-    
-    open override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        navigationBar.topItem?.backButtonDisplayMode = .minimal
-    }
-    
-}
-
 struct DownloadView<ViewModel: Downloadable>: View {
     
-    var videoDetails: VideoDetails
-    @State var qualities: [Quality] = [.low, .medium, .high]
+    // Wrappers
     @State var selectedQuality: Quality = .none
-    
     @EnvironmentObject var viewModel: ViewModel
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    // Property
+    var videoDetails: VideoDetails
     
     var body: some View {
         GeometryReader { geomentry in
@@ -104,6 +94,16 @@ struct DownloadView<ViewModel: Downloadable>: View {
                     }
                 }.padding()
             }
+            .alert(isPresented: $viewModel.showSettingsAlert, content: {
+                Alert(
+                    title: Text("Photos access requied to save videos"),
+                    message: Text("To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."),
+                    primaryButton: .default(Text("Settings"), action: {
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    }),
+                    secondaryButton: .default(Text("Cancel"))
+                )
+            })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -113,6 +113,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
+            
         }
     }
     

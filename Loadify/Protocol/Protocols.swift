@@ -11,15 +11,20 @@ protocol Urlable: ObservableObject {
     var url: String { get set }
 }
 
-protocol Errorable: ObservableObject {
-    var detailsError: Error? { get set }
-}
-
-protocol Loadable: Urlable, Errorable {
+protocol Loadable: Urlable {
     var showLoader: Bool { get set }
 }
 
-protocol Describable: Loadable {
+protocol DetailableError: Loadable {
+    var detailsError: Error? { get set }
+}
+
+protocol DownloadableError: ObservableObject {
+    var downloadError: Error? { get set }
+    var showSettingsAlert: Bool { get set }
+}
+
+protocol Describable: DetailableError {
     var details: VideoDetails? { get set }
 }
 

@@ -13,5 +13,6 @@ import SwinjectAutoregistration
 class SerivceAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(DataService.self, initializer: ApiService.init).inObjectScope(.singleton)
+        container.autoregister(PhotosServiceProtocol.self, initializer: PhotosService.init).inObjectScope(.singleton)
     }
 }

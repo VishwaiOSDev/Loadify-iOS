@@ -5,8 +5,9 @@
 //  Created by Vishweshwaran on 5/8/22.
 //
 
-import Photos
 import UIKit
+import Photos
+import SwiftDI
 import Foundation
 
 protocol DataService {
@@ -40,6 +41,8 @@ enum DetailsError: Error, LocalizedError {
 
 class ApiService: DataService {
     
+    @Inject var photoService: PhotosServiceProtocol
+    
     func getVideoDetails(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
         let apiUrl = "https://api.tikapp.ml/api/yt/details?url=\(url)"
@@ -56,8 +59,9 @@ extension ApiService {
     func downloadVideo(for url: String) async throws {
         try checkIsValidUrl(url)
         // TODO: - Create resuable function to use url as guard let
-        let apiUrl = "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=High"
+        let apiUrl = "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=Low"
         guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
+        try await photoService.checkForPhotosPermission()
         let request = createUrlRequest(for: url)
         // TODO: - Create new service for FileManager
         let filePath = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")

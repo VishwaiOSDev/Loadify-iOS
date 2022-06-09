@@ -12,7 +12,7 @@ import LoadifyKit
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    
+        
     var body: some View {
         ZStack {
             Loadify.Colors.app_background

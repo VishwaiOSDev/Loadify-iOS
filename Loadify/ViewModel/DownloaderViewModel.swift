@@ -12,17 +12,19 @@ protocol Detailable: Navigatable {
     func getVideoDetails(for url: String) async
 }
 
-protocol Downloadable: Loadable {
+protocol Downloadable: Loadable, DownloadableError {
     func downloadAudio(from url: URL)
     func downloadVideo(with quality: VideoQuality) async
 }
 
-final class DownloaderViewModel: Detailable {
+final class DownloaderViewModel: Detailable, Downloadable {
     
     @Published var url: String = "https://www.youtube.com/watch?v=jwmS1gc9S5A"
     @Published var details: VideoDetails? = nil
-    @Published var detailsError: Error? = nil
     @Published var showLoader: Bool = false
+    @Published var detailsError: Error? = nil
+    @Published var downloadError: Error? = nil
+    @Published var showSettingsAlert: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
     @Inject var apiService: DataService
     
@@ -46,7 +48,7 @@ final class DownloaderViewModel: Detailable {
     }
 }
 
-extension DownloaderViewModel: Downloadable {
+extension DownloaderViewModel {
     
     func downloadAudio(from url: URL) {
         
@@ -55,8 +57,14 @@ extension DownloaderViewModel: Downloadable {
     func downloadVideo(with quality: VideoQuality) async {
         do {
             try await apiService.downloadVideo(for: url)
+        } catch PhotosError.permissionDenied {
+            DispatchQueue.main.async {
+                self.showSettingsAlert = true
+            }
         } catch {
-            print("Error downloading the video file \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                self.downloadError = error
+            }
         }
     }
 }

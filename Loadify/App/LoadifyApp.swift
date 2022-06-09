@@ -21,6 +21,7 @@ struct LoadifyApp: App {
         WindowGroup {
             URLView<DownloaderViewModel>()
                 .embedInNavigation()
+                .accentColor(Loadify.Colors.blue_accent)
                 .environmentObject(urlViewModel)
                 .preferredColorScheme(.dark)
         }
