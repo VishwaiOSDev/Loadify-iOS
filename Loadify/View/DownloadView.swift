@@ -31,7 +31,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
     @State var selectedQuality: Quality = .none
     @EnvironmentObject var viewModel: ViewModel
     
-    // Property
+    // Properties
     var videoDetails: VideoDetails
     
     var body: some View {
@@ -104,6 +104,13 @@ struct DownloadView<ViewModel: Downloadable>: View {
                     secondaryButton: .default(Text("Cancel"))
                 )
             })
+            .customLoader("Downloading...",subTitle: "This process might take time. Do not close the app.", isPresented: $viewModel.showLoader)
+            .customAlert(item: $viewModel.downloadError, content: { error in
+                AlertView(title: error.localizedDescription)
+                    .dismiss {
+                        viewModel.downloadError = nil
+                    }
+            })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -113,7 +120,6 @@ struct DownloadView<ViewModel: Downloadable>: View {
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
-            
         }
     }
     

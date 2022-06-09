@@ -39,9 +39,22 @@ enum DetailsError: Error, LocalizedError {
     }
 }
 
+enum DownloadError: Error, LocalizedError {
+    case notCompatible
+    case fatalError
+    
+    var errorDescription: String? {
+        switch self {
+        case .notCompatible: return "This video is not compatible to save"
+        case .fatalError: return "Something went worng. Please try again later"
+        }
+    }
+}
+
 class ApiService: DataService {
     
     @Inject var photoService: PhotosServiceProtocol
+    @Inject var fileSerivce: FileServiceProtocol
     
     func getVideoDetails(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
@@ -59,18 +72,20 @@ extension ApiService {
     func downloadVideo(for url: String) async throws {
         try checkIsValidUrl(url)
         // TODO: - Create resuable function to use url as guard let
-        let apiUrl = "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=Low"
+        let apiUrl = "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=High"
         guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
         try await photoService.checkForPhotosPermission()
         let request = createUrlRequest(for: url)
-        // TODO: - Create new service for FileManager
-        let filePath = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")
+        let filePath = fileSerivce.getTemporaryFilePath()
         let (data, _) = try await URLSession.shared.data(from: request)
-        do {
-            try data.write(to: filePath)
-            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
-        } catch {
-            fatalError("Failed to download the video file...\(error)")
+        try data.write(to: filePath)
+        try checkVideoIsCompatible(at: filePath.path)
+        UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+    }
+    
+    private func checkVideoIsCompatible(at filePath: String) throws {
+        if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
+            throw DownloadError.notCompatible
         }
     }
 }

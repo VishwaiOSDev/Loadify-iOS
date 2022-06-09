@@ -23,11 +23,11 @@ extension View {
         }
     }
     
-    func customLoader(_ title: String, isPresented: Binding<Bool>) -> some View {
+    func customLoader(_ title: String, subTitle: String? = nil, isPresented: Binding<Bool>) -> some View {
         ZStack {
             self.allowsHitTesting(!isPresented.wrappedValue)
             if isPresented.wrappedValue {
-                LoaderView(title: title)
+                LoaderView(title: title, subTitle: subTitle)
             }
         }
     }

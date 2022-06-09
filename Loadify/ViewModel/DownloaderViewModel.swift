@@ -56,14 +56,22 @@ extension DownloaderViewModel {
     
     func downloadVideo(with quality: VideoQuality) async {
         do {
+            DispatchQueue.main.async {
+                self.showLoader = true
+            }
             try await apiService.downloadVideo(for: url)
+            DispatchQueue.main.async {
+                self.showLoader = false
+            }
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async {
                 self.showSettingsAlert = true
+                self.showLoader = false
             }
         } catch {
             DispatchQueue.main.async {
                 self.downloadError = error
+                self.showLoader = false
             }
         }
     }

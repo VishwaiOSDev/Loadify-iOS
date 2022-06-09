@@ -31,6 +31,7 @@
 		88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729C028265A9500B5FE61 /* CustomTextField.swift */; };
 		88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */; };
 		88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A22851E7B900D00040 /* PhotosService.swift */; };
+		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFA82826BBDA007B19B4 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA72826BBDA007B19B4 /* Api.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
@@ -66,6 +67,7 @@
 		88A729C028265A9500B5FE61 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		88AFF4A22851E7B900D00040 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
+		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA72826BBDA007B19B4 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				88CD83B72827D77B00F520C0 /* ApiService.swift */,
+				88AFF4A428521F1300D00040 /* FileService.swift */,
 				88AFF4A22851E7B900D00040 /* PhotosService.swift */,
 			);
 			path = Services;
@@ -382,6 +385,7 @@
 				8837993A283A1A6C00DDBA79 /* Image+Extension.swift in Sources */,
 				88B1CFA82826BBDA007B19B4 /* Api.swift in Sources */,
 				8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */,
+				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
 				882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */,
 				887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */,
 				88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */,

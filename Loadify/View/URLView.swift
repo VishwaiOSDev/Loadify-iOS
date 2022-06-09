@@ -28,13 +28,13 @@ struct URLView<ViewModel: Detailable>: View {
             .padding()
         }
         .navigationBarHidden(true)
+        .customLoader("Fetching Details...", isPresented: $viewModel.showLoader)
         .customAlert(item: $viewModel.detailsError) { error in
             AlertView(title: error.localizedDescription)
                 .dismiss {
                     viewModel.detailsError = nil
                 }
         }
-        .customLoader("Fetching Details...", isPresented: $viewModel.showLoader)
     }
     
     @ViewBuilder
