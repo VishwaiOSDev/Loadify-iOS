@@ -16,10 +16,12 @@ protocol DataService {
 }
 
 enum ServerError: Error, LocalizedError {
+    case notValidDomain
     case internalServerError
     
     var errorDescription: String? {
         switch self {
+        case .notValidDomain: return "Error: Not a YouTube domain"
         case .internalServerError: return "Something went wrong"
         }
     }

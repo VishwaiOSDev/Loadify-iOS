@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-
 struct DownloadView<ViewModel: Downloadable>: View {
     
     // Wrappers
@@ -22,7 +21,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
     var body: some View {
         GeometryReader { geomentry in
             ZStack {
-                Loadify.Colors.app_background
+                Colors.app_background
                     .edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
@@ -33,23 +32,14 @@ struct DownloadView<ViewModel: Downloadable>: View {
                             videoContentView
                         }
                     }
-                    .cardView(color: Loadify.Colors.textfield_background)
+                    .cardView(color: Colors.textfield_background)
                     Spacer()
                     footerView
                 }
                 .padding()
             }
-            .alert(isPresented: $viewModel.showSettingsAlert, content: {
-                Alert(
-                    title: Text("Photos access requied to save videos"),
-                    message: Text("To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."),
-                    primaryButton: .default(Text("Settings"), action: {
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                    }),
-                    secondaryButton: .default(Text("Cancel"))
-                )
-            })
-            .customLoader("Downloading...",subTitle: "This process might take time. Do not close the app.", loaderType: .vertical, isPresented: $viewModel.showLoader)
+            .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .customLoader(Texts.downloading_title,subTitle: Texts.downloading_subtitle, loaderType: .vertical, isPresented: $viewModel.showLoader)
             .customAlert(isPresented: $viewModel.isDownloaded) {
                 AlertView(title: "Downloaded", subTitle: "File saved in Photos", options: .init(alertType: .success))
                     .dismiss {
@@ -65,7 +55,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Image(Loadify.Images.loadify_horizontal)
+                    Image(Images.loadify_horizontal)
                         .resizable()
                         .scaledToFit()
                         .frame(height: geomentry.size.height * 0.050)
@@ -160,7 +150,18 @@ struct DownloadView<ViewModel: Downloadable>: View {
     private var madeWithSwift: some View {
         Text("Made with 💙 using Swift")
             .font(.footnote)
-            .foregroundColor(Loadify.Colors.grey_text)
+            .foregroundColor(Colors.grey_text)
+    }
+    
+    private var permissionAlert: Alert {
+        Alert(
+            title: Text(Texts.photos_access_title),
+            message: Text(Texts.photos_access_subtitle),
+            primaryButton: .default(Text("Settings"), action: {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }),
+            secondaryButton: .default(Text("Cancel"))
+        )
     }
     
     private func didTapOnQuality(_ quality: VideoQuality) {

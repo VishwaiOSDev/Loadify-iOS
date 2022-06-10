@@ -43,8 +43,11 @@ final class DownloaderViewModel: Detailable, Downloadable {
             }
         } catch {
             DispatchQueue.main.async {
-                self.showLoader = false
-                self.detailsError = error
+                Task {
+                    try await Task.sleep(seconds: 0.25)
+                    self.showLoader = false
+                    self.detailsError = error
+                }
             }
         }
     }

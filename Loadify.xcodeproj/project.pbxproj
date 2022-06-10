@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */; };
-		88064FB62850B42200D41D56 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88064FB52850B42200D41D56 /* ApiError.swift */; };
 		88097C2F2830D5780082E674 /* SwiftDI in Frameworks */ = {isa = PBXBuildFile; productRef = 88097C2E2830D5780082E674 /* SwiftDI */; };
 		88097C322830D59A0082E674 /* Assemblies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88097C312830D59A0082E674 /* Assemblies.swift */; };
 		881D042E2829416F0006C0B7 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiService+Extension.swift"; sourceTree = "<group>"; };
-		88064FB52850B42200D41D56 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		88097C312830D59A0082E674 /* Assemblies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assemblies.swift; sourceTree = "<group>"; };
 		881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
@@ -95,14 +93,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		88064FB02850AFC700D41D56 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				88064FB52850B42200D41D56 /* ApiError.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		88097C302830D58C0082E674 /* DI */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				88A729AD28264AD100B5FE61 /* LoadifyApp.swift */,
-				88064FB02850AFC700D41D56 /* Constants */,
 				882A8BAB282973730094BA6E /* Enums */,
 			);
 			path = App;
@@ -379,7 +368,6 @@
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
 				88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */,
 				88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */,
-				88064FB62850B42200D41D56 /* ApiError.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,

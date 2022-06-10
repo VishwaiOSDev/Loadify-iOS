@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+typealias Texts = Loadify.Texts
+typealias Colors = Loadify.Colors
+typealias Images = Loadify.Images
+
 struct Loadify {
     struct Colors {
         static let app_background = Color("app_background")
@@ -18,5 +22,12 @@ struct Loadify {
     struct Images {
         static let loadify_icon = "loadify_icon"
         static let loadify_horizontal = "loadify_horizontal"
+    }
+    
+    struct Texts {
+        static let photos_access_title = "Photos access is required"
+        static let photos_access_subtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
+        static let downloading_title = "Downloading..."
+        static let downloading_subtitle = "This process might take time. Do not close the app"
     }
 }

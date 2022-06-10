@@ -51,7 +51,7 @@ extension ApiService {
                 break
             case 400...499:
                 let decodedErrorData = decode(data, to: ErrorModel.self)
-                if decodedErrorData.message == ApiError.notValidYouTubeDomain {
+                if decodedErrorData.message == ServerError.notValidDomain.localizedDescription {
                     throw DetailsError.notVaildYouTubeUrl
                 } else {
                     throw DetailsError.invaildApiUrl
