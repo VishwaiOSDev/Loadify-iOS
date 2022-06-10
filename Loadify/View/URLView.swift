@@ -86,7 +86,7 @@ struct URLView<ViewModel: Detailable>: View {
     @ViewBuilder
     private var downloadView: some View {
         if let details = viewModel.details {
-            DownloadView<DownloaderViewModel>(videoDetails: details)
+            DownloadView<DownloaderViewModel>(details: details)
         }
     }
     

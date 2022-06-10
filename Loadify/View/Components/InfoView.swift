@@ -31,5 +31,6 @@ struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
         InfoView(title: "31 lakh", subTitle: "Likes")
             .previewLayout(.sizeThatFits)
+            .preferredColorScheme(.dark)
     }
 }

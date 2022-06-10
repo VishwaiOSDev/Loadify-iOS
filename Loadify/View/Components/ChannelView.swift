@@ -23,13 +23,12 @@ struct ChannelView: View {
     }
     
     private var channelImageView: some View {
-        Image(systemName: "person.fill")
+        Image(systemName: "photo.circle.fill")
             .data(url: profileImage)
             .frame(width: 40, height: 40)
             .clipShape(Circle())
     }
     
-    // TODO: - Refactor the ViewModifiers
     @ViewBuilder
     private var channelInfoView: some View {
         Text("\(name)")
@@ -48,7 +47,7 @@ struct ChannelView: View {
         if let subscribers = subscriberCount {
             Text("\(subscribers.shortStringRepresentation) subscribers")
         } else {
-            Text("Subscriber hidden")
+            Text("Subscribers hidden")
         }
     }
 }

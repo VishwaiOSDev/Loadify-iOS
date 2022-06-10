@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectView: View {
+struct MenuButton: View {
     
     var title: String
     
@@ -30,7 +30,7 @@ struct SelectView: View {
 
 struct SelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectView(title: "Select Video Quality")
+        MenuButton(title: "Select Video Quality")
             .previewLayout(.sizeThatFits)
     }
 }

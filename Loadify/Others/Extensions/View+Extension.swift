@@ -23,11 +23,25 @@ extension View {
         }
     }
     
-    func customLoader(_ title: String, subTitle: String? = nil, isPresented: Binding<Bool>) -> some View {
+    func customAlert<T: View>(isPresented: Binding<Bool>, content: () -> T) ->  some View {
+        ZStack {
+            self.allowsHitTesting(isPresented.wrappedValue ? false : true)
+            if isPresented.wrappedValue {
+                content()
+            }
+        }
+    }
+    
+    func customLoader(
+        _ title: String,
+        subTitle: String? = nil,
+        loaderType: LoaderStyle = .horizontal,
+        isPresented: Binding<Bool>
+    ) -> some View {
         ZStack {
             self.allowsHitTesting(!isPresented.wrappedValue)
             if isPresented.wrappedValue {
-                LoaderView(title: title, subTitle: subTitle)
+                LoaderView(title: title, subTitle: subTitle, options: .init(style: loaderType))
             }
         }
     }
@@ -38,5 +52,9 @@ extension View {
                 completion()
             }
         }
+    }
+    
+    func cardView(color: Color, cornerRadius: CGFloat = 10) -> some View {
+        modifier(CardView(color: color, cornerRadius: cornerRadius))
     }
 }

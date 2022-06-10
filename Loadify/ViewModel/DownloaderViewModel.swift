@@ -13,6 +13,7 @@ protocol Detailable: Navigatable {
 }
 
 protocol Downloadable: Loadable, DownloadableError {
+    var isDownloaded: Bool { get set }
     func downloadAudio(from url: URL)
     func downloadVideo(with quality: VideoQuality) async
 }
@@ -25,6 +26,7 @@ final class DownloaderViewModel: Detailable, Downloadable {
     @Published var detailsError: Error? = nil
     @Published var downloadError: Error? = nil
     @Published var showSettingsAlert: Bool = false
+    @Published var isDownloaded: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
     @Inject var apiService: DataService
     
@@ -62,6 +64,7 @@ extension DownloaderViewModel {
             try await apiService.downloadVideo(for: url)
             DispatchQueue.main.async {
                 self.showLoader = false
+                self.isDownloaded = true
             }
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async {

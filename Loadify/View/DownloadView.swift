@@ -9,30 +9,15 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-enum Quality: String {
-    case none
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
-    
-    var description: String {
-        switch self {
-        case .none: return "Select Video Quality"
-        case .low: return "Low - 320p"
-        case .medium: return "Medium - 720p"
-        case .high: return "High - 1080p"
-        }
-    }
-}
 
 struct DownloadView<ViewModel: Downloadable>: View {
     
     // Wrappers
-    @State var selectedQuality: Quality = .none
+    @State var selectedQuality: VideoQuality = .none
     @EnvironmentObject var viewModel: ViewModel
     
     // Properties
-    var videoDetails: VideoDetails
+    var details: VideoDetails
     
     var body: some View {
         GeometryReader { geomentry in
@@ -44,55 +29,15 @@ struct DownloadView<ViewModel: Downloadable>: View {
                         .frame(height: geomentry.size.height * 0.032)
                     VStack {
                         VStack {
-                            ZStack(alignment: .bottomTrailing) {
-                                Image(systemName: "person.fill")
-                                    .data(url: videoDetails.thumbnails[videoDetails.thumbnails.count - 1].url)
-                                    .frame(minHeight: 188)
-                                    .scaledToFit()
-                                    .clipped()
-                                durationView
-                                    .offset(x: -5, y: -5)
-                            }
-                            VStack(alignment: .leading, spacing: 0) {
-                                videoTitleView
-                                    .padding(.vertical, 8)
-                                ChannelView(
-                                    name: videoDetails.ownerChannelName,
-                                    profileImage: videoDetails.author.thumbnails[videoDetails.author.thumbnails.count - 1].url,
-                                    subscriberCount: videoDetails.author.subscriberCount
-                                )
-                                .padding(.all, 8)
-                                videoInfoView
-                                    .padding(.all, 8)
-                                Menu {
-                                    Button("Low - 320p") { didTapOnQuality(.low) }
-                                    Button("Medium - 720p") { didTapOnQuality(.medium) }
-                                    Button("High - 1080p") { didTapOnQuality(.high) }
-                                } label: {
-                                    SelectView(title: selectedQuality.description)
-                                }
-                                .padding(.vertical, 8)
-                            }
-                            .padding(.horizontal, 12)
+                            thumbnailView
+                            videoContentView
                         }
                     }
-                    .background(Loadify.Colors.textfield_background)
-                    .cornerRadius(10)
+                    .cardView(color: Loadify.Colors.textfield_background)
                     Spacer()
-                    VStack(spacing: 16) {
-                        Button {
-                            Task {
-                                await didTapDownload()
-                            }
-                        } label: {
-                            Text("Download")
-                                .bold()
-                        }
-                        .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
-                        .disabled(selectedQuality == .none ? true: false)
-                        madeWithSwift
-                    }
-                }.padding()
+                    footerView
+                }
+                .padding()
             }
             .alert(isPresented: $viewModel.showSettingsAlert, content: {
                 Alert(
@@ -104,7 +49,13 @@ struct DownloadView<ViewModel: Downloadable>: View {
                     secondaryButton: .default(Text("Cancel"))
                 )
             })
-            .customLoader("Downloading...",subTitle: "This process might take time. Do not close the app.", isPresented: $viewModel.showLoader)
+            .customLoader("Downloading...",subTitle: "This process might take time. Do not close the app.", loaderType: .vertical, isPresented: $viewModel.showLoader)
+            .customAlert(isPresented: $viewModel.isDownloaded) {
+                AlertView(title: "Downloaded", subTitle: "File saved in Photos", options: .init(alertType: .success))
+                    .dismiss {
+                        viewModel.isDownloaded = false
+                    }
+            }
             .customAlert(item: $viewModel.downloadError, content: { error in
                 AlertView(title: error.localizedDescription)
                     .dismiss {
@@ -123,17 +74,20 @@ struct DownloadView<ViewModel: Downloadable>: View {
         }
     }
     
-    private var videoTitleView: some View {
-        Text("\(videoDetails.title)")
-            .foregroundColor(.white)
-            .font(.title3)
-            .bold()
-            .lineLimit(2)
-            .minimumScaleFactor(0.01)
+    private var thumbnailView: some View {
+        ZStack(alignment: .bottomTrailing) {
+            Image("not_found")
+                .data(url: details.thumbnails[details.thumbnails.count - 1].url)
+                .frame(minHeight: 188)
+                .scaledToFit()
+                .clipped()
+            durationView
+                .offset(x: -5, y: -5)
+        }
     }
     
     private var durationView: some View {
-        Text(videoDetails.lengthSeconds.getDuration())
+        Text(details.lengthSeconds.getDuration())
             .font(.caption2)
             .foregroundColor(.white)
             .padding(.horizontal, 4)
@@ -141,13 +95,66 @@ struct DownloadView<ViewModel: Downloadable>: View {
             .background(Color.black.opacity(0.6).cornerRadius(4))
     }
     
+    private var videoContentView: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            videoTitleView
+                .padding(.vertical, 8)
+            ChannelView(
+                name: details.ownerChannelName,
+                profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
+                subscriberCount: details.author.subscriberCount
+            )
+            .padding(.all, 8)
+            videoInfoView
+                .padding(.all, 8)
+            menuView
+                .padding(.vertical, 8)
+        }
+        .padding(.horizontal, 12)
+    }
+    
+    private var menuView: some View {
+        Menu {
+            Button(VideoQuality.high.description) { didTapOnQuality(.high) }
+            Button(VideoQuality.medium.description) { didTapOnQuality(.medium) }
+            Button(VideoQuality.low.description) { didTapOnQuality(.low) }
+        } label: {
+            MenuButton(title: selectedQuality.description)
+        }
+    }
+    
+    private var videoTitleView: some View {
+        Text("\(details.title)")
+            .foregroundColor(.white)
+            .font(.title3)
+            .bold()
+            .lineLimit(2)
+            .minimumScaleFactor(0.01)
+    }
+    
     private var videoInfoView: some View {
         HStack(alignment: .center, spacing: 50) {
-            InfoView(title: videoDetails.likes.shortStringRepresentation, subTitle: "Likes")
-            InfoView(title: videoDetails.viewCount.commaFormater(), subTitle: "Views")
-            InfoView(title: videoDetails.publishDate.dateFormatter(), subTitle: videoDetails.publishDate.dateFormatter(get: "Year"))
+            InfoView(title: details.likes.shortStringRepresentation, subTitle: "Likes")
+            InfoView(title: details.viewCount.commaFormater(), subTitle: "Views")
+            InfoView(title: details.publishDate.dateFormatter(), subTitle: details.publishDate.dateFormatter(get: "Year"))
         }
         .frame(maxWidth: .infinity)
+    }
+    
+    private var footerView: some View {
+        VStack(spacing: 16) {
+            Button {
+                Task {
+                    await didTapDownload()
+                }
+            } label: {
+                Text("Download")
+                    .bold()
+            }
+            .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
+            .disabled(selectedQuality == .none ? true: false)
+            madeWithSwift
+        }
     }
     
     private var madeWithSwift: some View {
@@ -156,7 +163,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
             .foregroundColor(Loadify.Colors.grey_text)
     }
     
-    private func didTapOnQuality(_ quality: Quality) {
+    private func didTapOnQuality(_ quality: VideoQuality) {
         selectedQuality = quality
     }
     
@@ -182,7 +189,7 @@ struct DownloadView_Previews: PreviewProvider {
                 channelUrl: "",
                 thumbnails: [
                     .init(
-                        url: "https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj",
+                        url: "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj",
                         width: 120,
                         height: 12
                     )
@@ -192,7 +199,7 @@ struct DownloadView_Previews: PreviewProvider {
             likes: 172442,
             thumbnails: [
                 .init(
-                    url: "https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
+                    url: "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
                     width: 12,
                     height: 12
                 )
@@ -200,12 +207,12 @@ struct DownloadView_Previews: PreviewProvider {
         )
         Group {
             NavigationView {
-                DownloadView<DownloaderViewModel>(videoDetails: mockData)
+                DownloadView<DownloaderViewModel>(details: mockData)
             }
             .environmentObject(DownloaderViewModel())
             .previewDevice("iPhone 13 Pro Max")
             NavigationView {
-                DownloadView<DownloaderViewModel>(videoDetails: mockData)
+                DownloadView<DownloaderViewModel>(details: mockData)
             }
             .navigationBarTitleDisplayMode(.inline)
             .environmentObject(DownloaderViewModel())
