@@ -30,11 +30,8 @@ struct URLView<ViewModel: Detailable>: View {
         }
         .navigationBarHidden(true)
         .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
-        .customAlert(item: $viewModel.detailsError) { error in
-            AlertView(title: error.localizedDescription)
-                .dismiss {
-                    viewModel.detailsError = nil
-                }
+        .showAlert(item: $viewModel.detailsError) { error in
+            AlertUI(title: error.localizedDescription, subtitle: Texts.try_again_later.randomElement())
         }
     }
     
@@ -108,5 +105,6 @@ struct VideoURLView_Previews: PreviewProvider{
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }
+        .preferredColorScheme(.dark)
     }
 }

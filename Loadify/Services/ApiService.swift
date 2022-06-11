@@ -35,8 +35,8 @@ enum DetailsError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .emptyUrl: return "URL cannot be empty"
-        case .invaildApiUrl: return "This is not valid URL"
-        case .notVaildYouTubeUrl: return "This is not a valid YouTube URL"
+        case .invaildApiUrl: return "This is not valid Url"
+        case .notVaildYouTubeUrl: return "This is not a valid YouTube Url"
         }
     }
 }

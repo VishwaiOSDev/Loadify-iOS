@@ -39,19 +39,10 @@ struct DownloadView<ViewModel: Downloadable>: View {
                 .padding()
             }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-            .showLoader(Texts.downloading_title, isPresented: $viewModel.showLoader)
-            .customAlert(isPresented: $viewModel.isDownloaded) {
-                AlertView(title: "Downloaded", subTitle: "File saved in Photos", options: .init(alertType: .success))
-                    .dismiss {
-                        viewModel.isDownloaded = false
-                    }
+            .showLoader(Texts.downloading, isPresented: $viewModel.isDownloaded)
+            .showAlert(item: $viewModel.downloadError) { error in
+                AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
             }
-            .customAlert(item: $viewModel.downloadError, content: { error in
-                AlertView(title: error.localizedDescription)
-                    .dismiss {
-                        viewModel.downloadError = nil
-                    }
-            })
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
