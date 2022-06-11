@@ -22,8 +22,6 @@
 		8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* SwiftDI+Extension.swift */; };
 		88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88684DC62851B69600D7DA1C /* MenuButton.swift */; };
 		886CD1CB285314DC00662882 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD1CA285314DC00662882 /* CardView.swift */; };
-		887A4DB2284B42E000383FC8 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB1284B42E000383FC8 /* Routing.swift */; };
-		887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887A4DB3284B42FB00383FC8 /* AppRouter.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
@@ -58,8 +56,6 @@
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		886FE656285456E00051E705 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
-		887A4DB1284B42E000383FC8 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
-		887A4DB3284B42FB00383FC8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -140,15 +136,6 @@
 				882A8BA9282973620094BA6E /* VideoQuality.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		887A4DB0284B42CB00383FC8 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				887A4DB1284B42E000383FC8 /* Routing.swift */,
-				887A4DB3284B42FB00383FC8 /* AppRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		88A729A128264AD100B5FE61 = {
@@ -270,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				88A729BB2826505500B5FE61 /* Resources */,
-				887A4DB0284B42CB00383FC8 /* Router */,
 				882A8BA428296E470094BA6E /* Extensions */,
 				88F341832836549000493544 /* LoadifyConfig.swift */,
 			);
@@ -357,7 +343,6 @@
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
-				887A4DB2284B42E000383FC8 /* Routing.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConfig.swift in Sources */,
@@ -379,7 +364,6 @@
 				8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */,
 				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
 				882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */,
-				887A4DB4284B42FB00383FC8 /* AppRouter.swift in Sources */,
 				88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,

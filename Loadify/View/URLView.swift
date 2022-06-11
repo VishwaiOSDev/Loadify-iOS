@@ -31,7 +31,7 @@ struct URLView<ViewModel: Detailable>: View {
         .navigationBarHidden(true)
         .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
         .showAlert(item: $viewModel.detailsError) { error in
-            AlertUI(title: error.localizedDescription, subtitle: Texts.try_again_later.randomElement())
+            AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
         }
     }
     
