@@ -12,7 +12,7 @@ import Foundation
 
 protocol DataService {
     func getVideoDetails(for url: String) async throws -> VideoDetails
-    func downloadVideo(for url: String) async throws
+    func downloadVideo(for url: String, quality: VideoQuality) async throws
 }
 
 enum ServerError: Error, LocalizedError {
@@ -60,22 +60,24 @@ class ApiService: DataService {
     
     func getVideoDetails(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
-        let apiUrl = "https://api.tikapp.ml/api/yt/details?url=\(url)"
-        guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
+        let apiUrl = Api.baseUrl + Api.YouTube.getDetails.rawValue + url
+        let url = try getUrl(from: apiUrl)
         let request = createUrlRequest(for: url)
         let (data, urlResponse) = try await URLSession.shared.data(from: request)
         try await checkForServerErrors(for: urlResponse, with: data)
         return decode(data, to: VideoDetails.self)
     }
-}
-
-extension ApiService {
     
-    func downloadVideo(for url: String) async throws {
+    func downloadVideo(for url: String, quality: VideoQuality) async throws {
         try checkIsValidUrl(url)
-        // TODO: - Create resuable function to use url as guard let
-        let apiUrl = "https://api.tikapp.ml/api/yt/download/video/mp4?url=\(url)&video_quality=High"
-        guard let url = URL(string: apiUrl) else { throw DetailsError.invaildApiUrl }
+        let apiUrl = (
+            Api.baseUrl +
+            Api.YouTube.downloadVideo.rawValue +
+            url +
+            Api.YouTube.videoQuality.rawValue +
+            quality.rawValue
+        )
+        let url = try getUrl(from: apiUrl)
         try await photoService.checkForPhotosPermission()
         let request = createUrlRequest(for: url)
         let filePath = fileSerivce.getTemporaryFilePath()
@@ -83,6 +85,14 @@ extension ApiService {
         try data.write(to: filePath)
         try checkVideoIsCompatible(at: filePath.path)
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+    }
+}
+
+extension ApiService {
+    
+    private func getUrl(from urlString: String) throws ->  URL {
+        guard let url = URL(string: urlString) else { throw DetailsError.invaildApiUrl }
+        return url
     }
     
     private func checkVideoIsCompatible(at filePath: String) throws {

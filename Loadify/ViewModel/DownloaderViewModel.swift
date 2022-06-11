@@ -14,13 +14,12 @@ protocol Detailable: Navigatable {
 
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
-    func downloadAudio(from url: URL)
     func downloadVideo(with quality: VideoQuality) async
 }
 
 final class DownloaderViewModel: Detailable, Downloadable {
     
-    @Published var url: String = "https://youtube.com/shorts/HQMYqWBu2J8?feature=share"
+    @Published var url: String = ""
     @Published var details: VideoDetails? = nil
     @Published var showLoader: Bool = false
     @Published var detailsError: Error? = nil
@@ -51,20 +50,13 @@ final class DownloaderViewModel: Detailable, Downloadable {
             }
         }
     }
-}
-
-extension DownloaderViewModel {
-    
-    func downloadAudio(from url: URL) {
-        
-    }
     
     func downloadVideo(with quality: VideoQuality) async {
         do {
             DispatchQueue.main.async {
                 self.showLoader = true
             }
-            try await apiService.downloadVideo(for: url)
+            try await apiService.downloadVideo(for: url, quality: quality)
             DispatchQueue.main.async {
                 self.showLoader = false
                 self.isDownloaded = true

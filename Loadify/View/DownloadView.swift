@@ -39,11 +39,13 @@ struct DownloadView<ViewModel: Downloadable>: View {
                 .padding()
             }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-            .showLoader(Texts.downloading, isPresented: $viewModel.isDownloaded)
+            .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) { error in
                 AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .showAlert(isPresented: $viewModel.isDownloaded) {
+                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
+            }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Image(Images.loadify_horizontal)
@@ -52,6 +54,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
@@ -125,7 +128,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
         VStack(spacing: 16) {
             Button {
                 Task {
-                    await didTapDownload()
+                    await didTapDownload(quality: selectedQuality)
                 }
             } label: {
                 Text("Download")
@@ -158,8 +161,8 @@ struct DownloadView<ViewModel: Downloadable>: View {
         selectedQuality = quality
     }
     
-    private func didTapDownload() async {
-        await viewModel.downloadVideo(with: .medium)
+    private func didTapDownload(quality: VideoQuality) async {
+        await viewModel.downloadVideo(with: quality)
     }
 }
 

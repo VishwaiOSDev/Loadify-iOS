@@ -27,6 +27,8 @@ struct Loadify {
     struct Texts {
         static let loading = "LOADING"
         static let downloading = "DOWNLOADING"
+        static let downloaded_title = "Downloaded Successfully"
+        static let downloaded_subtitle = "Added to photos"
         static let photos_access_title = "Photos access is required"
         static let photos_access_subtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
         static let try_again: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]

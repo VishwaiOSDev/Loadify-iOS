@@ -7,18 +7,40 @@
 
 import Foundation
 
-protocol Api {
-    static var baseUrl: URL { get set }
+protocol EndpointFactory {
+    static var baseUrl: String { get set }
 }
 
-enum Endpoint: Api {
+enum Api: EndpointFactory {
     
-    static var baseUrl: URL = URL(string: "https://api.tikapp.ml/api")!
+    static var baseUrl: String = "https://api.tikapp.ml/api"
     
     enum YouTube: String {
-        case getDetails = "details"
-        case downloadVideo = "/download/video"
-        case downloadAudio = "/download/audio"
+        case getDetails = "/yt/details?url="
+        case videoQuality = "&video_quality="
+        case downloadVideo = "/yt/download/video/mp4?url="
+        case downloadAudio = "/yt/download/audio/mp3?url="
+    }
+    
+    enum Twitter: String {
+        case getDetails = "/tw/details?url="
+        case videoQuality = "&video_quality="
+        case downloadVideo = "/tw/download/video/mp4?url="
+        case downloadAudio = "/tw/download/audio/mp3?url="
+    }
+    
+    enum Facebook: String {
+        case getDetails = "/fb/details?url="
+        case videoQuality = "&video_quality="
+        case downloadVideo = "/fb/download/video/mp4?url="
+        case downloadAudio = "/fb/download/audio/mp3?url="
+    }
+    
+    enum LinkedIn: String {
+        case getDetails = "/ln/details?url="
+        case videoQuality = "&video_quality="
+        case downloadVideo = "/ln/download/video/mp4?url="
+        case downloadAudio = "/ln/download/audio/mp3?url="
     }
 }
 

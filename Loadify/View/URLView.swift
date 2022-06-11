@@ -39,7 +39,7 @@ struct URLView<ViewModel: Detailable>: View {
     private var headerView: some View {
         Image(Loadify.Images.loadify_icon)
             .frame(maxWidth: 150, maxHeight: 150)
-        Text("We are the best Audio and Video downloader \n app ever")
+        Text("The secret of getting ahead is getting started.")
             .foregroundColor(Loadify.Colors.grey_text)
             .font(.subheadline)
             .multilineTextAlignment(.center)
