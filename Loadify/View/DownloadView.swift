@@ -39,7 +39,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
                 .padding()
             }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-            .customLoader(Texts.downloading_title,subTitle: Texts.downloading_subtitle, loaderType: .vertical, isPresented: $viewModel.showLoader)
+            .showLoader(Texts.downloading_title, isPresented: $viewModel.showLoader)
             .customAlert(isPresented: $viewModel.isDownloaded) {
                 AlertView(title: "Downloaded", subTitle: "File saved in Photos", options: .init(alertType: .success))
                     .dismiss {
@@ -114,12 +114,11 @@ struct DownloadView<ViewModel: Downloadable>: View {
     }
     
     private var videoTitleView: some View {
-        Text("\(details.title)")
+        Text(details.title)
             .foregroundColor(.white)
             .font(.title3)
             .bold()
             .lineLimit(2)
-            .minimumScaleFactor(0.01)
     }
     
     private var videoInfoView: some View {
@@ -176,8 +175,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
 struct DownloadView_Previews: PreviewProvider {
     static var previews: some View {
         let mockData = VideoDetails(
-            title: "AVATAR 2 THE WAY OF WATER Trailer (4K ULTRA HD) 2022",
-            description: "",
+            title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
             lengthSeconds: "109",
             viewCount: "172442",
             publishDate: "2022-05-09",

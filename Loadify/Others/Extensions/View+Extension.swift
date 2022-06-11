@@ -32,20 +32,6 @@ extension View {
         }
     }
     
-    func customLoader(
-        _ title: String,
-        subTitle: String? = nil,
-        loaderType: LoaderStyle = .horizontal,
-        isPresented: Binding<Bool>
-    ) -> some View {
-        ZStack {
-            self.allowsHitTesting(!isPresented.wrappedValue)
-            if isPresented.wrappedValue {
-                LoaderView(title: title, subTitle: subTitle, options: .init(style: loaderType))
-            }
-        }
-    }
-    
     func dismiss(delay: TimeInterval = 2.5, completion: @escaping () -> Void) -> some View {
         self.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {

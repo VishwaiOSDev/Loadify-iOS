@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
+// TODO: - Check Keyboard PopUp when the video details are fetched
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-        
+    
     var body: some View {
         ZStack {
             Loadify.Colors.app_background
@@ -28,7 +29,7 @@ struct URLView<ViewModel: Detailable>: View {
             .padding()
         }
         .navigationBarHidden(true)
-        .customLoader("Fetching Details...", isPresented: $viewModel.showLoader)
+        .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
         .customAlert(item: $viewModel.detailsError) { error in
             AlertView(title: error.localizedDescription)
                 .dismiss {

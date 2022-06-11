@@ -20,7 +20,7 @@ protocol Downloadable: Loadable, DownloadableError {
 
 final class DownloaderViewModel: Detailable, Downloadable {
     
-    @Published var url: String = "https://www.youtube.com/watch?v=jwmS1gc9S5A"
+    @Published var url: String = "https://youtube.com/shorts/HQMYqWBu2J8?feature=share"
     @Published var details: VideoDetails? = nil
     @Published var showLoader: Bool = false
     @Published var detailsError: Error? = nil
@@ -44,7 +44,7 @@ final class DownloaderViewModel: Detailable, Downloadable {
         } catch {
             DispatchQueue.main.async {
                 Task {
-                    try await Task.sleep(seconds: 0.25)
+                    try await Task.sleep(seconds: 0.3)
                     self.showLoader = false
                     self.detailsError = error
                 }

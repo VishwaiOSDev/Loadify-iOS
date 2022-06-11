@@ -25,9 +25,9 @@ struct Loadify {
     }
     
     struct Texts {
+        static let loading = "LOADING"
         static let photos_access_title = "Photos access is required"
         static let photos_access_subtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
-        static let downloading_title = "Downloading..."
-        static let downloading_subtitle = "This process might take time. Do not close the app"
+        static let downloading_title = "DOWNLOADING"
     }
 }

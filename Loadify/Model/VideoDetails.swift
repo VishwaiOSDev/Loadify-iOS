@@ -9,7 +9,6 @@ import Foundation
 
 struct VideoDetails: Codable {
     var title: String
-    var description: String
     var lengthSeconds: String
     var viewCount: String
     var publishDate: String
