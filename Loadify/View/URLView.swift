@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-// TODO: - Check Keyboard PopUp when the video details are fetched
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
@@ -89,6 +88,7 @@ struct URLView<ViewModel: Detailable>: View {
     }
     
     private func didTapContinue() async {
+        hideKeyboard()
         await viewModel.getVideoDetails(for: viewModel.url)
     }
 }

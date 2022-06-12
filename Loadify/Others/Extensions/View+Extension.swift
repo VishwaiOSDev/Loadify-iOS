@@ -43,4 +43,8 @@ extension View {
     func cardView(color: Color, cornerRadius: CGFloat = 10) -> some View {
         modifier(CardView(color: color, cornerRadius: cornerRadius))
     }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
