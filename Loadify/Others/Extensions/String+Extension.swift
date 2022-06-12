@@ -7,6 +7,12 @@
 
 import Foundation
 
+internal enum NeededComponent {
+    case year
+    case month
+    case date
+}
+
 extension String {
     
     /// ✅ To add commas in between the numbers
@@ -30,12 +36,19 @@ extension String {
         return formatter.string(from: TimeInterval(interval))!.replacingOccurrences(of: #"^00[:.]0?|^0"#, with: "", options: .regularExpression)
     }
     
-    func dateFormatter(get: String? = nil) -> String {
+    func formatter(_ component: NeededComponent? = nil) -> String {
         let splittedDate = self.split(separator: "-")
-        guard get != nil else {
+        // TODO: - Use IntArray
+        let intArray = splittedDate.compactMap { Int($0) }
+        if intArray.count <= 2 { return "Not Mentioned" }
+        guard let neededComponent = component else {
             return extractDateAlgorithim(for: splittedDate)
         }
-        return String(splittedDate[0])
+        switch neededComponent {
+        case .year: return String(splittedDate[0])
+        case .month: return getMonth(for: String(splittedDate[1]))
+        case .date: return String(splittedDate[2])
+        }
     }
     
     func checkIsEmpty() -> Bool {
@@ -45,12 +58,12 @@ extension String {
     
     private func extractDateAlgorithim(for splittedDate: [String.SubSequence]) -> String {
         let month = getMonth(for: String(splittedDate[1]))
-        let day = Int(splittedDate[2])!
-        let dayString = String(day)
-        let date = String("\(dayString) " + "\(month) ")
+        let dateInString = String(splittedDate[2])
+        let date = String("\(dateInString) " + "\(month)")
         return date
     }
     
+    // TODO: - Use Enum with Int Values
     private func getMonth(for month: String) -> String {
         switch month {
         case "01":
@@ -66,7 +79,7 @@ extension String {
         case "06":
             return "Jun"
         case "07":
-            return "July"
+            return "Jul"
         case "08":
             return "Aug"
         case "09":
@@ -78,7 +91,7 @@ extension String {
         case "12":
             return "Dec"
         default:
-            return "Not mentioned"
+            return "Not Mentioned"
         }
     }
 }

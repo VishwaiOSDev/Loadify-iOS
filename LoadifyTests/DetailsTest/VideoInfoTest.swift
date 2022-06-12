@@ -19,7 +19,59 @@ class VideoInfoTest: XCTestCase {
     }
     
     func testPublishedDate() {
+        let publishedDateFromYT = "2022-06-10"
+        let publishedDateVariationTwo = "1999-04-30"
         
+        let getYearOfPublishedDate = publishedDateFromYT.formatter(.year)
+        let getMonthOfPublishedDate = publishedDateFromYT.formatter(.month)
+        let getDateOfPublishedDate = publishedDateFromYT.formatter(.date)
+        let getPublishedDate = publishedDateFromYT.formatter()
+        
+        let getYearOfVariationDate = publishedDateVariationTwo.formatter(.year)
+        let getMonthOfVariationDate = publishedDateVariationTwo.formatter(.month)
+        let getDateOfVariationDate = publishedDateVariationTwo.formatter(.date)
+        let getPublishedVariationDate = publishedDateVariationTwo.formatter()
+        
+        XCTAssertEqual(getYearOfPublishedDate, "2022")
+        XCTAssertEqual(getMonthOfPublishedDate, "Jun")
+        XCTAssertEqual(getDateOfPublishedDate, "10")
+        XCTAssertEqual(getPublishedDate, "10 Jun")
+        
+        XCTAssertEqual(getYearOfVariationDate, "1999")
+        XCTAssertEqual(getMonthOfVariationDate, "Apr")
+        XCTAssertEqual(getDateOfVariationDate, "30")
+        XCTAssertEqual(getPublishedVariationDate, "30 Apr")
+    }
+    
+    func testPublishedDateWithWrongInputs() {
+        let invaildSingleRangeDate = "20220610"
+        let invaildTwoRange = "2022-06"
+        let wrongInput = "applle-marg-wqrq"
+        
+        let getInvaildRangeDateYear = invaildSingleRangeDate.formatter(.year)
+        let getInvaildSingleRaneDateMonth = invaildSingleRangeDate.formatter(.month)
+        let getInvaildSingleRangeDateDate = invaildSingleRangeDate.formatter(.date)
+        let getInvaildSingleRangeDate = invaildSingleRangeDate.formatter()
+        
+        let getInvaildTwoRangeDateYear = invaildTwoRange.formatter(.year)
+        let getInvaildTwoRangeDateMonth = invaildTwoRange.formatter(.month)
+        let getInvaildTwoRangeDateDate = invaildTwoRange.formatter(.date)
+        let getInvaildTwoRangeDate = invaildTwoRange.formatter()
+        
+        XCTAssertEqual(getInvaildRangeDateYear, "Not Mentioned")
+        XCTAssertEqual(getInvaildSingleRaneDateMonth, "Not Mentioned")
+        XCTAssertEqual(getInvaildSingleRangeDateDate, "Not Mentioned")
+        XCTAssertEqual(getInvaildSingleRangeDate, "Not Mentioned")
+        
+        XCTAssertEqual(getInvaildTwoRangeDateYear, "Not Mentioned")
+        XCTAssertEqual(getInvaildTwoRangeDateMonth, "Not Mentioned")
+        XCTAssertEqual(getInvaildTwoRangeDateDate, "Not Mentioned")
+        XCTAssertEqual(getInvaildTwoRangeDate, "Not Mentioned")
+        
+        XCTAssertEqual(wrongInput.formatter(.year), "Not Mentioned")
+        XCTAssertEqual(wrongInput.formatter(.month), "Not Mentioned")
+        XCTAssertEqual(wrongInput.formatter(.date), "Not Mentioned")
+        XCTAssertEqual(wrongInput.formatter(), "Not Mentioned")
     }
     
     func testViewsFormatter() {

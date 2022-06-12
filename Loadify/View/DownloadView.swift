@@ -119,7 +119,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
         HStack(alignment: .center, spacing: 50) {
             InfoView(title: details.likes.toUnits, subTitle: "Likes")
             InfoView(title: details.viewCount.format, subTitle: "Views")
-            InfoView(title: details.publishDate.dateFormatter(), subTitle: details.publishDate.dateFormatter(get: "Year"))
+            InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
         }
         .frame(maxWidth: .infinity)
     }
