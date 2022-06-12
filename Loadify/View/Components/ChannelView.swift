@@ -45,7 +45,7 @@ struct ChannelView: View {
     @ViewBuilder
     private var subscriberCountView: some View {
         if let subscribers = subscriberCount {
-            Text("\(subscribers.shortStringRepresentation) subscribers")
+            Text("\(subscribers.toUnits) subscribers")
         } else {
             Text("Subscribers hidden")
         }

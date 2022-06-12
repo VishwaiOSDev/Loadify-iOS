@@ -8,26 +8,33 @@
 import Foundation
 
 extension Int {
-    var shortStringRepresentation: String {
-        let number = Double(self)
-        if number.isNaN {
-            return "NaN"
+    
+    /// ✅ To convert integer into short representation of numbers. For instance, **1500 will be converted to 1.5K**
+    var toUnits: String {
+        let num = abs(Double(self))
+        let sign = (self < 0) ? "-" : ""
+        
+        switch num {
+        case 1_000_000_000...:
+            var formatted = num / 1_000_000_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)B"
+            
+        case 1_000_000...:
+            var formatted = num / 1_000_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)M"
+            
+        case 1_000...:
+            var formatted = num / 1_000
+            formatted = formatted.reduceScale(to: 1)
+            return "\(sign)\(formatted)K"
+            
+        case 0...:
+            return "\(self)"
+            
+        default:
+            return "\(sign)\(self)"
         }
-        if number.isInfinite {
-            return "\(number < 0.0 ? "-" : "+")Infinity"
-        }
-        let units = ["", "k", "M"]
-        var interval = number
-        var i = 0
-        while i < units.count - 1 {
-            if abs(interval) < 1000.0 {
-                break
-            }
-            i += 1
-            interval /= 1000.0
-        }
-        // + 2 to have one digit after the comma, + 1 to not have any.
-        // Remove the * and the number of digits argument to display all the digits after the comma.
-        return "\(String(format: "%0.*g", Int(log10(abs(interval))) + 1, interval))\(units[i])"
     }
 }

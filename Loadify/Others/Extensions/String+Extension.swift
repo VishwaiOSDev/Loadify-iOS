@@ -8,7 +8,9 @@
 import Foundation
 
 extension String {
-    func commaFormater() -> String {
+    
+    /// ✅ To add commas in between the numbers
+    var format: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         guard let number = Int(self) else { return "Hidden" }
@@ -18,19 +20,22 @@ extension String {
         return formattedNumber
     }
     
+    /// ✅ To convert the length in seconds to duration of the view.
+    var getDuration: String {
+        guard let interval = Int(self) else { return "Duration Unavailable" }
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
+        return formatter.string(from: TimeInterval(interval))!.replacingOccurrences(of: #"^00[:.]0?|^0"#, with: "", options: .regularExpression)
+    }
+    
     func dateFormatter(get: String? = nil) -> String {
         let splittedDate = self.split(separator: "-")
         guard get != nil else {
             return extractDateAlgorithim(for: splittedDate)
         }
         return String(splittedDate[0])
-    }
-    
-    func getDuration() -> String {
-        let interval = Int(self)!
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.hour, .minute, .second]
-        return formatter.string(from: TimeInterval(interval))!
     }
     
     func checkIsEmpty() -> Bool {

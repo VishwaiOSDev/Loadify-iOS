@@ -71,7 +71,7 @@ struct DownloadView<ViewModel: Downloadable>: View {
     }
     
     private var durationView: some View {
-        Text(details.lengthSeconds.getDuration())
+        Text(details.lengthSeconds.getDuration)
             .font(.caption2)
             .foregroundColor(.white)
             .padding(.horizontal, 4)
@@ -117,8 +117,8 @@ struct DownloadView<ViewModel: Downloadable>: View {
     
     private var videoInfoView: some View {
         HStack(alignment: .center, spacing: 50) {
-            InfoView(title: details.likes.shortStringRepresentation, subTitle: "Likes")
-            InfoView(title: details.viewCount.commaFormater(), subTitle: "Views")
+            InfoView(title: details.likes.toUnits, subTitle: "Likes")
+            InfoView(title: details.viewCount.format, subTitle: "Views")
             InfoView(title: details.publishDate.dateFormatter(), subTitle: details.publishDate.dateFormatter(get: "Year"))
         }
         .frame(maxWidth: .infinity)
