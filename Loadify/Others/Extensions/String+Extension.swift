@@ -13,6 +13,10 @@ internal enum NeededComponent {
     case date
 }
 
+internal enum Month: Int {
+    case january = 1, february, march, april, may, june, july, august, september, october, november, december
+}
+
 extension String {
     
     /// ✅ To add commas in between the numbers
@@ -36,18 +40,22 @@ extension String {
         return formatter.string(from: TimeInterval(interval))!.replacingOccurrences(of: #"^00[:.]0?|^0"#, with: "", options: .regularExpression)
     }
     
+    /// ✅ To convert the date string into formatted date. For example, 2000-01-01 will be converted to 1 Jan 2000
     func formatter(_ component: NeededComponent? = nil) -> String {
         let splittedDate = self.split(separator: "-")
-        // TODO: - Use IntArray
-        let intArray = splittedDate.compactMap { Int($0) }
-        if intArray.count <= 2 { return "Not Mentioned" }
-        guard let neededComponent = component else {
-            return extractDateAlgorithim(for: splittedDate)
-        }
-        switch neededComponent {
-        case .year: return String(splittedDate[0])
-        case .month: return getMonth(for: String(splittedDate[1]))
-        case .date: return String(splittedDate[2])
+        let dateArray = splittedDate.compactMap { Int($0) }
+        if dateArray.count <= 2 { return "Not Mentioned" }
+        guard let month = Month(rawValue: dateArray[1]) else { return "Not Mentioned" }
+        guard 1...31 ~= dateArray[2] else { return "Not Mentioned" }
+        guard 1000...9999 ~= dateArray[0] else { return "Not Mentioned" }
+        if let neededComponent = component {
+            switch neededComponent {
+            case .year: return String(dateArray[0])
+            case .month: return getMonthNotation(for: month)
+            case .date: return String(dateArray[2])
+            }
+        } else {
+            return combineDateAndMonth(date: dateArray[2], month: month)
         }
     }
     
@@ -56,42 +64,27 @@ extension String {
         return text.isEmpty ? true : false
     }
     
-    private func extractDateAlgorithim(for splittedDate: [String.SubSequence]) -> String {
-        let month = getMonth(for: String(splittedDate[1]))
-        let dateInString = String(splittedDate[2])
-        let date = String("\(dateInString) " + "\(month)")
-        return date
+    /// Helper function for combined the date and month in String
+    private func combineDateAndMonth(date: Int, month: Month) -> String {
+        let convertedMonth = getMonthNotation(for: month)
+        return "\(date) \(convertedMonth)"
     }
     
-    // TODO: - Use Enum with Int Values
-    private func getMonth(for month: String) -> String {
+    /// Helper function to get String representation of month
+    private func getMonthNotation(for month: Month) -> String {
         switch month {
-        case "01":
-            return "Jan"
-        case "02":
-            return "Feb"
-        case "03":
-            return "Mar"
-        case "04":
-            return "Apr"
-        case "05":
-            return "May"
-        case "06":
-            return "Jun"
-        case "07":
-            return "Jul"
-        case "08":
-            return "Aug"
-        case "09":
-            return "Sep"
-        case "10":
-            return "Oct"
-        case "11":
-            return "Nov"
-        case "12":
-            return "Dec"
-        default:
-            return "Not Mentioned"
+        case .january: return "Jan"
+        case .february: return "Feb"
+        case .march: return "Mar"
+        case .april: return "Apr"
+        case .may: return "May"
+        case .june: return "Jun"
+        case .july: return "Jul"
+        case .august: return "Aug"
+        case .september: return "Sep"
+        case .october: return "Oct"
+        case .november: return "Nov"
+        case .december: return "Dec"
         }
     }
 }
