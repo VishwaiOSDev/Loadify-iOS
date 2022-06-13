@@ -39,6 +39,10 @@
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 		88D1276C2848B63B00D8750B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276B2848B63B00D8750B /* InfoView.swift */; };
 		88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276D2848CDC000D8750B /* ChannelView.swift */; };
+		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
+		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
+		88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */; };
+		88DB2C3B2856FDA60065BBF9 /* VideoDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* VideoDetailsTest.swift */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConfig.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +90,10 @@
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		88D1276B2848B63B00D8750B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		88D1276D2848CDC000D8750B /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
+		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
+		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoDetailsResponse.json; sourceTree = "<group>"; };
+		88DB2C3A2856FDA60065BBF9 /* VideoDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +121,10 @@
 		88083D6B2855D95A0027BA0D /* LoadifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				8832338828560CED00BF38B5 /* DetailsTest */,
+				88DB2C322856F24F0065BBF9 /* ApiTest */,
+				8832338828560CED00BF38B5 /* InfoTest */,
+				88DB2C392856FD7C0065BBF9 /* Mock */,
+				88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */,
 			);
 			path = LoadifyTests;
 			sourceTree = "<group>";
@@ -168,12 +179,12 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
-		8832338828560CED00BF38B5 /* DetailsTest */ = {
+		8832338828560CED00BF38B5 /* InfoTest */ = {
 			isa = PBXGroup;
 			children = (
 				88083D732855D9D00027BA0D /* VideoInfoTest.swift */,
 			);
-			path = DetailsTest;
+			path = InfoTest;
 			sourceTree = "<group>";
 		};
 		88A729A128264AD100B5FE61 = {
@@ -284,6 +295,23 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		88DB2C322856F24F0065BBF9 /* ApiTest */ = {
+			isa = PBXGroup;
+			children = (
+				88DB2C3A2856FDA60065BBF9 /* VideoDetailsTest.swift */,
+			);
+			path = ApiTest;
+			sourceTree = "<group>";
+		};
+		88DB2C392856FD7C0065BBF9 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				88DB2C332856F2820065BBF9 /* MockApiService.swift */,
+				88DB2C352856F2BB0065BBF9 /* Mockable.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		88EBFF2D284DC2EA007EFF97 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +439,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */,
+				88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */,
+				88DB2C3B2856FDA60065BBF9 /* VideoDetailsTest.swift in Sources */,
 				88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

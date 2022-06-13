@@ -8,7 +8,6 @@
 import UIKit
 import Photos
 import SwiftDI
-import Foundation
 
 protocol DataService {
     func getVideoDetails(for url: String) async throws -> VideoDetails

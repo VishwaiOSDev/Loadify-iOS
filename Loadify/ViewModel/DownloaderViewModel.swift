@@ -17,6 +17,7 @@ protocol Downloadable: Loadable, DownloadableError {
     func downloadVideo(with quality: VideoQuality) async
 }
 
+// TODO: - Rearchitect Needed
 final class DownloaderViewModel: Detailable, Downloadable {
     
     @Published var url: String = ""
