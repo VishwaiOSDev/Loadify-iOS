@@ -32,5 +32,7 @@ struct Loadify {
         static let photos_access_title = "Photos access is required"
         static let photos_access_subtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
         static let try_again: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]
+        static let no_internet = "No Internet Connection"
+        static let no_internet_message = "Make sure your device is connected to the internet"
     }
 }

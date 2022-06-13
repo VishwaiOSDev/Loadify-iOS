@@ -14,6 +14,8 @@ protocol EndpointFactory {
 enum Api: EndpointFactory {
     
     static var baseUrl: String = "https://api.tikapp.ml/api"
+    static var termsOfService = "https://tikapp.ml/pages/TermsOfService.html"
+    static var privacyPolicy = "https://tikapp.ml/pages/PrivacyPolicy.html"
     
     enum YouTube: String {
         case getDetails = "/yt/details?url="

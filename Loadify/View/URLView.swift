@@ -67,14 +67,25 @@ struct URLView<ViewModel: Detailable>: View {
     
     private var termsOfService: some View {
         ZStack {
-            Text("By continuing, you agree to our ") +
-            Text("Privacy Policy")
-                .bold()
-                .foregroundColor(Loadify.Colors.blue_accent) +
-            Text(" and \nour ") +
-            Text("Terms of Service")
-                .bold()
-                .foregroundColor(Loadify.Colors.blue_accent)
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(spacing: 4) {
+                    Text("By continuing, you agree to our")
+                    NavigationLink(destination: WebView(url: Api.privacyPolicy)) {
+                        Text("Privacy Policy")
+                            .bold()
+                            .foregroundColor(Loadify.Colors.blue_accent)
+                    }
+                    Text("and")
+                }
+                HStack(spacing: 4) {
+                    Text("our")
+                    NavigationLink(destination: WebView(url: Api.termsOfService)) {
+                        Text("Terms of Service")
+                            .bold()
+                            .foregroundColor(Loadify.Colors.blue_accent)
+                    }
+                }
+            }
         }
         .foregroundColor(Loadify.Colors.grey_text)
         .font(.footnote)
