@@ -12,6 +12,7 @@ import LoadifyKit
 struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
+    @State var showWebView: Bool = false
     
     var body: some View {
         ZStack {
@@ -63,6 +64,7 @@ struct URLView<ViewModel: Detailable>: View {
             }
             .disabled(viewModel.url.checkIsEmpty())
         }
+        .showLoader("Loading", isPresented: $showWebView)
     }
     
     private var termsOfService: some View {
@@ -70,7 +72,7 @@ struct URLView<ViewModel: Detailable>: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 4) {
                     Text("By continuing, you agree to our")
-                    NavigationLink(destination: WebView(url: Api.privacyPolicy)) {
+                    NavigationLink(destination: webView(url: Api.Web.privacyPolicy)) {
                         Text("Privacy Policy")
                             .bold()
                             .foregroundColor(Loadify.Colors.blue_accent)
@@ -79,7 +81,7 @@ struct URLView<ViewModel: Detailable>: View {
                 }
                 HStack(spacing: 4) {
                     Text("our")
-                    NavigationLink(destination: WebView(url: Api.termsOfService)) {
+                    NavigationLink(destination: webView(url: Api.Web.termsOfService)) {
                         Text("Terms of Service")
                             .bold()
                             .foregroundColor(Loadify.Colors.blue_accent)
@@ -101,6 +103,16 @@ struct URLView<ViewModel: Detailable>: View {
     private func didTapContinue() async {
         hideKeyboard()
         await viewModel.getVideoDetails(for: viewModel.url)
+    }
+    
+    func webView(url: Api.Web) -> some View {
+        GeometryReader { geomentry in
+            WebView(url: url.rawValue, showLoading: $showWebView)
+                .showLoader("Loading", isPresented: $showWebView)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Loadify's Agreement")
+                .accentColor(Colors.blue_accent)
+        }
     }
 }
 
