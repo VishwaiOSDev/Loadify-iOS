@@ -13,11 +13,11 @@ protocol EndpointFactory {
 
 enum Api: EndpointFactory {
     
-    static var baseUrl: String = "https://api.tikapp.ml/api"
-   
+    static var baseUrl: String = "https://api.loadify.app/api"
+    
     enum Web: String {
-        case termsOfService = "https://tikapp.ml/pages/TermsOfService.html"
-        case privacyPolicy = "https://tikapp.ml/pages/PrivacyPolicy.html"
+        case termsOfService = "https://loadify.app/pages/TermsOfService.html"
+        case privacyPolicy = "https://loadify.app/pages/PrivacyPolicy.html"
     }
     
     enum YouTube: String {

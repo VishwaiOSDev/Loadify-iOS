@@ -13,6 +13,7 @@ struct URLView<ViewModel: Detailable>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @State var showWebView: Bool = false
+    @State private var webViewHeight: CGFloat = .zero
     
     var body: some View {
         ZStack {
@@ -106,13 +107,11 @@ struct URLView<ViewModel: Detailable>: View {
     }
     
     func webView(url: Api.Web) -> some View {
-        GeometryReader { geomentry in
-            WebView(url: url.rawValue, showLoading: $showWebView)
-                .showLoader("Loading", isPresented: $showWebView)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Loadify's Agreement")
-                .accentColor(Colors.blue_accent)
-        }
+        WebView(url: url.rawValue, showLoading: $showWebView)
+            .showLoader("Loading", isPresented: $showWebView)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Loadify's Agreement")
+            .accentColor(Colors.blue_accent)
     }
 }
 
