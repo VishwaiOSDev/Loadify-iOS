@@ -17,11 +17,13 @@ protocol DataService {
 enum ServerError: Error, LocalizedError {
     case notValidDomain
     case internalServerError
+    case requestedQualityUnavailable
     
     var errorDescription: String? {
         switch self {
         case .notValidDomain: return "Error: Not a YouTube domain"
         case .internalServerError: return "Something went wrong"
+        case .requestedQualityUnavailable: return "The requested quality is not supported"
         }
     }
 }
@@ -43,11 +45,13 @@ enum DetailsError: Error, LocalizedError {
 enum DownloadError: Error, LocalizedError {
     case notCompatible
     case fatalError
+    case qualityNotAvailable
     
     var errorDescription: String? {
         switch self {
         case .notCompatible: return "This video is not compatible to save"
         case .fatalError: return "Something went worng. Please try again later"
+        case .qualityNotAvailable: return "The request quality is not available"
         }
     }
 }
@@ -80,7 +84,8 @@ class ApiService: DataService {
         try await photoService.checkForPhotosPermission()
         let request = createUrlRequest(for: url)
         let filePath = fileSerivce.getTemporaryFilePath()
-        let (data, _) = try await URLSession.shared.data(from: request)
+        let (data, urlResponse) = try await URLSession.shared.data(from: request)
+        try await checkForServerErrors(for: urlResponse, with: data)
         try data.write(to: filePath)
         try checkVideoIsCompatible(at: filePath.path)
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)

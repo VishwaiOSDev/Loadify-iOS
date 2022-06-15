@@ -53,6 +53,8 @@ extension ApiService {
                 let decodedErrorData = decode(data, to: ErrorModel.self)
                 if decodedErrorData.message == ServerError.notValidDomain.localizedDescription {
                     throw DetailsError.notVaildYouTubeUrl
+                } else if decodedErrorData.message == ServerError.requestedQualityUnavailable.localizedDescription {
+                    throw DownloadError.qualityNotAvailable
                 } else {
                     throw DetailsError.invaildApiUrl
                 }
