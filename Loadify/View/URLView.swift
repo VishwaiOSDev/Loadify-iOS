@@ -9,11 +9,10 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-struct URLView<ViewModel: Detailable>: View {
+struct URLView: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var urlViewModel: URLViewModel = SwiftDI.shared.resolve()
     @State var showWebView: Bool = false
-    @State private var webViewHeight: CGFloat = .zero
     
     var body: some View {
         ZStack {
@@ -30,8 +29,8 @@ struct URLView<ViewModel: Detailable>: View {
             .padding()
         }
         .navigationBarHidden(true)
-        .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
-        .showAlert(item: $viewModel.detailsError) { error in
+        .showLoader(Texts.loading, isPresented: $urlViewModel.showLoader)
+        .showAlert(item: $urlViewModel.detailsError) { error in
             AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
         }
     }
@@ -48,10 +47,10 @@ struct URLView<ViewModel: Detailable>: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL", text: $viewModel.url)
+            CustomTextField("Enter YouTube URL", text: $urlViewModel.url)
             NavigationLink(
                 destination: downloadView,
-                isActive: $viewModel.shouldNavigateToDownload
+                isActive: $urlViewModel.shouldNavigateToDownload
             ) {
                 Button {
                     Task {
@@ -61,9 +60,9 @@ struct URLView<ViewModel: Detailable>: View {
                     Text("Continue")
                         .bold()
                 }
-                .buttonStyle(CustomButtonStyle(isDisabled: viewModel.url.checkIsEmpty()))
+                .buttonStyle(CustomButtonStyle(isDisabled: urlViewModel.url.checkIsEmpty()))
             }
-            .disabled(viewModel.url.checkIsEmpty())
+            .disabled(urlViewModel.url.checkIsEmpty())
         }
         .showLoader("Loading", isPresented: $showWebView)
     }
@@ -96,14 +95,14 @@ struct URLView<ViewModel: Detailable>: View {
     
     @ViewBuilder
     private var downloadView: some View {
-        if let details = viewModel.details {
-            DownloadView<DownloaderViewModel>(details: details)
+        if let details = urlViewModel.details {
+            DownloadView(details: details)
         }
     }
     
     private func didTapContinue() async {
         hideKeyboard()
-        await viewModel.getVideoDetails(for: viewModel.url)
+        await urlViewModel.getVideoDetails(for: urlViewModel.url)
     }
     
     func webView(url: Api.Web) -> some View {
@@ -118,12 +117,10 @@ struct URLView<ViewModel: Detailable>: View {
 struct VideoURLView_Previews: PreviewProvider{
     static var previews: some View {
         Group {
-            URLView<DownloaderViewModel>()
-                .environmentObject(DownloaderViewModel())
+            URLView()
                 .previewDevice("iPhone 13 Pro Max")
                 .previewDisplayName("iPhone 13 Pro Max")
-            URLView<DownloaderViewModel>()
-                .environmentObject(DownloaderViewModel())
+            URLView()
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
         }

@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-struct DownloadView<ViewModel: Downloadable>: View {
+struct DownloadView: View {
     
     // Wrappers
     @State var selectedQuality: VideoQuality = .none
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     
     // Properties
     var details: VideoDetails
@@ -193,6 +193,7 @@ struct DownloadView_Previews: PreviewProvider {
                 subscriberCount: nil
             ),
             likes: 172442,
+            videoUrl: "https://www.youtube.com/watch?v=66XwG1CLHuU",
             thumbnails: [
                 .init(
                     url: "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
@@ -203,15 +204,13 @@ struct DownloadView_Previews: PreviewProvider {
         )
         Group {
             NavigationView {
-                DownloadView<DownloaderViewModel>(details: mockData)
+                DownloadView(details: mockData)
             }
-            .environmentObject(DownloaderViewModel())
             .previewDevice("iPhone 13 Pro Max")
             NavigationView {
-                DownloadView<DownloaderViewModel>(details: mockData)
+                DownloadView(details: mockData)
             }
             .navigationBarTitleDisplayMode(.inline)
-            .environmentObject(DownloaderViewModel())
             .previewDevice("iPhone SE (3rd generation)")
         }
     }

@@ -16,7 +16,14 @@ struct VideoDetails: Codable {
     var videoId: String
     var author: Author
     var likes: Int
+    var videoUrl: String
     var thumbnails: [Thumbnail]
+    
+    private enum CodingKeys: String, CodingKey {
+        case videoUrl = "video_url"
+        
+        case title, lengthSeconds, viewCount, publishDate, ownerChannelName, videoId, author, likes, thumbnails
+    }
 }
 
 struct Author: Codable {

@@ -11,7 +11,8 @@ import Swinject
 extension SwiftDI {
     func setupDependencyInjection() {
         SwiftDI.shared.setup(assemblies: [
-            SerivceAssembly()
+            SerivceAssembly(),
+            ViewModelAssembly()
         ], inContainer: Container())
     }
 }
