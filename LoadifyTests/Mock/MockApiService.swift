@@ -11,7 +11,11 @@ import Foundation
 final class MockApiService: DataService, Mockable {
     
     func getVideoDetails(for url: String) async throws -> VideoDetails {
-        loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
+        if url == "https://www.youtube.com/watch?v=66XwG1CLHuU" {
+            return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
+        } else {
+            throw DetailsError.notVaildYouTubeUrl
+        }
     }
     
     func downloadVideo(for url: String, quality: VideoQuality) async throws {

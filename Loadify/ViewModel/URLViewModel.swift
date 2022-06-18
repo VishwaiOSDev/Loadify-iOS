@@ -11,14 +11,17 @@ import SwiftDI
 final class URLViewModel: Detailable {
     
     // Wrappers
-    @Published var url: String = ""
     @Published var shouldNavigateToDownload: Bool = false
     @Published var detailsError: Error? = nil
     @Published var showLoader: Bool = false
-    @Inject var apiService: DataService
     
     // Properties
+    var apiService: DataService
     var details: VideoDetails? = nil
+    
+    init(apiService: DataService = ApiService()) {
+        self.apiService = apiService
+    }
     
     func getVideoDetails(for url: String) async {
         do {

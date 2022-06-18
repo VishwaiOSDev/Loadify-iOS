@@ -17,9 +17,3 @@ class SerivceAssembly: Assembly {
         container.autoregister(PhotosServiceProtocol.self, initializer: PhotosService.init).inObjectScope(.discardedOnLogout)
     }
 }
-
-class ViewModelAssembly: Assembly {
-    func assemble(container: Container) {
-        container.autoregister(URLViewModel.self, initializer: URLViewModel.init).inObjectScope(.discardedOnLogout)
-    }
-}

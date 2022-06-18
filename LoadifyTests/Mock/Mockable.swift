@@ -13,6 +13,7 @@ protocol Mockable: AnyObject {
 }
 
 extension Mockable {
+    
     var bundle: Bundle {
         return Bundle(for: type(of: self))
     }
@@ -21,7 +22,6 @@ extension Mockable {
         guard let path = bundle.url(forResource: fileName, withExtension: "json") else {
             fatalError("Failed to load JSON file.")
         }
-        
         do {
             let data = try Data(contentsOf: path)
             let decodedObject = try JSONDecoder().decode(T.self, from: data)
@@ -30,6 +30,5 @@ extension Mockable {
             print("\(error)")
             fatalError("Failed to decode the JSON.")
         }
-        
     }
 }

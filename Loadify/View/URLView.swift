@@ -11,7 +11,8 @@ import LoadifyKit
 
 struct URLView: View {
     
-    @StateObject var urlViewModel: URLViewModel = SwiftDI.shared.resolve()
+    @StateObject var urlViewModel: URLViewModel = URLViewModel()
+    @State var videoUrl: String = ""
     @State var showWebView: Bool = false
     
     var body: some View {
@@ -47,7 +48,7 @@ struct URLView: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL", text: $urlViewModel.url)
+            CustomTextField("Enter YouTube URL", text: $videoUrl)
             NavigationLink(
                 destination: downloadView,
                 isActive: $urlViewModel.shouldNavigateToDownload
@@ -60,9 +61,9 @@ struct URLView: View {
                     Text("Continue")
                         .bold()
                 }
-                .buttonStyle(CustomButtonStyle(isDisabled: urlViewModel.url.checkIsEmpty()))
+                .buttonStyle(CustomButtonStyle(isDisabled: videoUrl.checkIsEmpty()))
             }
-            .disabled(urlViewModel.url.checkIsEmpty())
+            .disabled(videoUrl.checkIsEmpty())
         }
         .showLoader("Loading", isPresented: $showWebView)
     }
@@ -102,7 +103,7 @@ struct URLView: View {
     
     private func didTapContinue() async {
         hideKeyboard()
-        await urlViewModel.getVideoDetails(for: urlViewModel.url)
+        await urlViewModel.getVideoDetails(for: videoUrl)
     }
     
     func webView(url: Api.Web) -> some View {

@@ -8,22 +8,37 @@
 import XCTest
 @testable import Loadify
 
-// TODO: - Rearchitect the DownloadViewModel to make it Testable
 class VideoDetailsTest: XCTestCase {
     
-    var downloaderViewModel: DownloaderViewModel!
+    var urlViewModel: URLViewModel!
+    let videoUrl = "https://www.youtube.com/watch?v=66XwG1CLHuU"
+    let gitHubUrl = "https://github.com/VishwaiOSDev"
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        downloaderViewModel = DownloaderViewModel()
+        urlViewModel = URLViewModel(apiService: MockApiService())
     }
     
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        downloaderViewModel = nil
+        urlViewModel = nil
     }
     
     func testFetchVideoDetailsSuccessfully() async throws {
-        
+        let expectation = XCTestExpectation(description: "Fetched Video Details")
+        await urlViewModel.getVideoDetails(for: videoUrl)
+        expectation.fulfill()
+        wait(for: [expectation], timeout: 0.001)
+        XCTAssertNotNil(urlViewModel.details)
+        XCTAssertNil(urlViewModel.detailsError)
+    }
+    
+    // TODO: - Check how to do Unit Test Task Closure
+    func testInvaildUrlRequest() async {
+        let expectation = XCTestExpectation(description: "No a valild YouTube URL")
+        await urlViewModel.getVideoDetails(for: gitHubUrl)
+        expectation.fulfill()
+        wait(for: [expectation], timeout: 3)
+        XCTAssertNotNil(urlViewModel.details)
+        XCTAssertNotNil(urlViewModel.detailsError)
     }
 }
+
