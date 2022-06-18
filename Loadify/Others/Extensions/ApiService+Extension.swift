@@ -43,6 +43,7 @@ extension ApiService {
         return urlRequest
     }
     
+    // TODO: - Needed to handle this function effectively
     /// This function handles server side errors
     func checkForServerErrors(for urlResponse: URLResponse, with data: Data) async throws {
         if let response = urlResponse as? HTTPURLResponse {

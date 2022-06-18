@@ -118,8 +118,11 @@ struct DownloadView<ViewModel: Downloadable>: View {
     private var videoInfoView: some View {
         HStack(alignment: .center, spacing: 50) {
             InfoView(title: details.likes.toUnits, subTitle: "Likes")
+                .frame(maxWidth: .infinity)
             InfoView(title: details.viewCount.format, subTitle: "Views")
+                .frame(maxWidth: .infinity)
             InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
+                .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
     }
