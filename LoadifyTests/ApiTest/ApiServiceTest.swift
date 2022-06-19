@@ -8,7 +8,7 @@
 import XCTest
 @testable import Loadify
 
-class VideoDetailsTest: XCTestCase {
+class ApiServiceTest: XCTestCase {
     
     var urlViewModel: URLViewModel!
     let videoUrl = "https://www.youtube.com/watch?v=66XwG1CLHuU"
@@ -31,14 +31,19 @@ class VideoDetailsTest: XCTestCase {
         XCTAssertNil(urlViewModel.detailsError)
     }
     
-    // TODO: - Check how to do Unit Test Task Closure
     func testInvaildUrlRequest() async {
+        let mockDataService = MockApiService()
         let expectation = XCTestExpectation(description: "No a valild YouTube URL")
-        await urlViewModel.getVideoDetails(for: gitHubUrl)
-        expectation.fulfill()
-        wait(for: [expectation], timeout: 3)
-        XCTAssertNotNil(urlViewModel.details)
-        XCTAssertNotNil(urlViewModel.detailsError)
+        
+        do {
+            let _ = try await mockDataService.getVideoDetails(for: gitHubUrl)
+            XCTFail()
+        } catch(let error) {
+            expectation.fulfill()
+            if let detailsError = error as? DetailsError {
+                XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
+            }
+        }
+        wait(for: [expectation], timeout: 0.001)
     }
 }
-

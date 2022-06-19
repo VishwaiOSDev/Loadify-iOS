@@ -9,7 +9,7 @@ import Foundation
 
 protocol Mockable: AnyObject {
     var bundle: Bundle { get }
-    func loadJSON<T: Codable>(fileName: String, type: T.Type) -> T
+    func loadJSON<T: Codable>(fileName: String, type: T.Type) -> T 
 }
 
 extension Mockable {
