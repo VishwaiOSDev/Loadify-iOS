@@ -57,7 +57,7 @@ extension ApiService {
                 } else if decodedErrorData.message == ServerError.requestedQualityUnavailable.localizedDescription {
                     throw DownloadError.qualityNotAvailable
                 } else {
-                    throw DetailsError.invaildApiUrl
+                    throw URLError(.badURL)
                 }
             case 500...599:
                 throw ServerError.internalServerError

@@ -35,7 +35,7 @@ final class DownloaderViewModel: Detailable, Downloadable {
             DispatchQueue.main.async {
                 self.showLoader = true
             }
-            let response = try await apiService.getVideoDetails(for: url)
+            let response = try await apiService.fetchVideoDetailsFromApi(for: url)
             DispatchQueue.main.async {
                 self.details = response
                 self.showLoader = false

@@ -10,7 +10,7 @@ import Photos
 import SwiftDI
 
 protocol DataService {
-    func getVideoDetails(for url: String) async throws -> VideoDetails
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }
 
@@ -30,13 +30,11 @@ enum ServerError: Error, LocalizedError {
 
 enum DetailsError: Error, LocalizedError {
     case emptyUrl
-    case invaildApiUrl
     case notVaildYouTubeUrl
     
     var errorDescription: String? {
         switch self {
         case .emptyUrl: return "URL cannot be empty"
-        case .invaildApiUrl: return "This is not valid Url"
         case .notVaildYouTubeUrl: return "This is not a valid YouTube Url"
         }
     }
@@ -58,10 +56,12 @@ enum DownloadError: Error, LocalizedError {
 
 class ApiService: DataService {
     
+    // Do Unit Testing
     @Inject var photoService: PhotosServiceProtocol
     @Inject var fileSerivce: FileServiceProtocol
     
-    func getVideoDetails(for url: String) async throws -> VideoDetails {
+    // TODO: - This function is not testable. Needed to refactor this function to make it more testable
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
         let apiUrl = Api.preAlphaUrl + Api.YouTube.getDetails.rawValue + url
         let url = try getUrl(from: apiUrl)
@@ -95,7 +95,7 @@ class ApiService: DataService {
 extension ApiService {
     
     private func getUrl(from urlString: String) throws ->  URL {
-        guard let url = URL(string: urlString) else { throw DetailsError.invaildApiUrl }
+        guard let url = URL(string: urlString) else { throw DetailsError.notVaildYouTubeUrl }
         return url
     }
     
