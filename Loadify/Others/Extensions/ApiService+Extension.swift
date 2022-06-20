@@ -56,6 +56,8 @@ extension ApiService {
                     throw DetailsError.notVaildYouTubeUrl
                 } else if decodedErrorData.message == ServerError.requestedQualityUnavailable.localizedDescription {
                     throw DownloadError.qualityNotAvailable
+                } else if decodedErrorData.message == ServerError.durationTooHigh.localizedDescription {
+                    throw DownloadError.durationTooHigh
                 } else {
                     throw DetailsError.invaildApiUrl
                 }

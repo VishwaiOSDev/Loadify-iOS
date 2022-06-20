@@ -11,11 +11,10 @@ import LoadifyKit
 
 struct DownloadView<ViewModel: Downloadable>: View {
     
-    // Wrappers
     @State var selectedQuality: VideoQuality = .none
     @EnvironmentObject var viewModel: ViewModel
+    @Environment(\.presentationMode) var presentationMode
     
-    // Properties
     var details: VideoDetails
     
     var body: some View {
@@ -38,6 +37,8 @@ struct DownloadView<ViewModel: Downloadable>: View {
                 }
                 .padding()
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) { error in
@@ -47,14 +48,15 @@ struct DownloadView<ViewModel: Downloadable>: View {
                 AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backButton
+                        .foregroundColor(Colors.blue_accent)
+                }
                 ToolbarItem(placement: .principal) {
-                    Image(Images.loadify_horizontal)
-                        .resizable()
-                        .scaledToFit()
+                    loadifyLogo
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
@@ -158,6 +160,20 @@ struct DownloadView<ViewModel: Downloadable>: View {
             }),
             secondaryButton: .default(Text("Cancel"))
         )
+    }
+    
+    private var backButton: some View {
+        Image(systemName: "chevron.backward")
+            .font(Font.body.weight(.bold))
+            .onTapGesture {
+                presentationMode.wrappedValue.dismiss()
+            }
+    }
+    
+    private var loadifyLogo: some View {
+        Image(Images.loadify_horizontal)
+            .resizable()
+            .scaledToFit()
     }
     
     private func didTapOnQuality(_ quality: VideoQuality) {

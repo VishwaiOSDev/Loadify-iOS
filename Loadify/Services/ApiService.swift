@@ -18,12 +18,14 @@ enum ServerError: Error, LocalizedError {
     case notValidDomain
     case internalServerError
     case requestedQualityUnavailable
+    case durationTooHigh
     
     var errorDescription: String? {
         switch self {
         case .notValidDomain: return "Error: Not a YouTube domain"
         case .internalServerError: return "Something went wrong"
         case .requestedQualityUnavailable: return "The requested quality is not supported"
+        case .durationTooHigh: return "Requested video length is too high"
         }
     }
 }
@@ -46,12 +48,14 @@ enum DownloadError: Error, LocalizedError {
     case notCompatible
     case fatalError
     case qualityNotAvailable
+    case durationTooHigh
     
     var errorDescription: String? {
         switch self {
         case .notCompatible: return "This video is not compatible to save"
         case .fatalError: return "Something went worng. Please try again later"
         case .qualityNotAvailable: return "The request quality is not available"
+        case .durationTooHigh: return "Duration is greater than 15 minutes"
         }
     }
 }
