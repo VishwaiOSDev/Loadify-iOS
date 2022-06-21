@@ -13,6 +13,7 @@ struct LoadifyApp: App {
     
     @StateObject var urlViewModel = DownloaderViewModel()
     @StateObject var reachablilityManager = ReachablityManager()
+    @AppStorage("OnboardingScreen") var isOnboardingScreenShown: Bool = false
     
     init() {
         SwiftDI.shared.setupDependencyInjection()
@@ -26,13 +27,19 @@ struct LoadifyApp: App {
                 .accentColor(Loadify.Colors.blue_accent)
                 .environmentObject(urlViewModel)
                 .preferredColorScheme(.dark)
-                .alert(isPresented: $reachablilityManager.isConnected.invert) {
-                    Alert(
-                        title: Text(Texts.no_internet),
-                        message: Text(Texts.no_internet_message),
-                        dismissButton: .cancel(Text("OK"))
-                    )
+                .alert(isPresented: $reachablilityManager.isConnected.invert) { noNetworkAlert }
+                .sheet(isPresented: $isOnboardingScreenShown.invert) {
+                    OnboardView()
+                        .allowAutoDismiss(false)
                 }
         }
+    }
+    
+    private var noNetworkAlert: Alert {
+        Alert(
+            title: Text(Texts.no_internet),
+            message: Text(Texts.no_internet_message),
+            dismissButton: .cancel(Text("OK"))
+        )
     }
 }
