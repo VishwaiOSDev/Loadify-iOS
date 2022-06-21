@@ -15,8 +15,8 @@ struct InfoView: View {
     var body: some View {
         VStack {
             Text("\(title)")
-                .font(.title2)
-                .bold()
+                .font(.headline)
+                .fontWeight(.heavy)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
             Text("\(subTitle)")
