@@ -18,7 +18,6 @@ struct InfoView: View {
                 .font(.headline)
                 .fontWeight(.heavy)
                 .lineLimit(1)
-                .minimumScaleFactor(0.5)
             Text("\(subTitle)")
                 .font(.footnote)
                 .foregroundColor(Loadify.Colors.grey_text)

@@ -118,15 +118,16 @@ struct DownloadView<ViewModel: Downloadable>: View {
     }
     
     private var videoInfoView: some View {
-        HStack(alignment: .center, spacing: 50) {
+        ZStack(alignment: .center) {
             InfoView(title: details.likes.toUnits, subTitle: "Likes")
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
             InfoView(title: details.viewCount.format, subTitle: "Views")
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .center)
             InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .frame(maxWidth: .infinity)
+        .padding(.all, 4)
     }
     
     private var footerView: some View {
@@ -190,7 +191,7 @@ struct DownloadView_Previews: PreviewProvider {
         let mockData = VideoDetails(
             title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
             lengthSeconds: "109",
-            viewCount: "172442",
+            viewCount: "7876945312 ",
             publishDate: "2022-05-09",
             ownerChannelName: "TrailerSpot",
             videoId: "",
