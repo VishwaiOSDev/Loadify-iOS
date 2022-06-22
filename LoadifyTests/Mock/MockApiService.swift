@@ -18,7 +18,5 @@ final class MockApiService: DataService, Mockable {
         }
     }
     
-    func downloadVideo(for url: String, quality: VideoQuality) async throws {
-        
-    }
+    func downloadVideo(for url: String, quality: VideoQuality) async throws { }
 }

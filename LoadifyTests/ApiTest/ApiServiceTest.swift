@@ -24,9 +24,12 @@ class ApiServiceTest: XCTestCase {
     
     func testFetchVideoDetailsSuccessfully() async throws {
         let expectation = XCTestExpectation(description: "Fetched Video Details")
+        
         await urlViewModel.getVideoDetails(for: videoUrl)
         expectation.fulfill()
+        
         wait(for: [expectation], timeout: 0.001)
+        
         XCTAssertNotNil(urlViewModel.details)
         XCTAssertNil(urlViewModel.detailsError)
     }
@@ -34,6 +37,7 @@ class ApiServiceTest: XCTestCase {
     func testInvaildYouTubeUrlRequest() async {
         let mockDataService = MockApiService()
         let expectation = XCTestExpectation(description: "No a valid YouTube URL")
+        
         do {
             let _ = try await mockDataService.fetchVideoDetailsFromApi(for: gitHubUrl)
             XCTFail("Api Service should throw error")
@@ -43,12 +47,14 @@ class ApiServiceTest: XCTestCase {
                 XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
             }
         }
+        
         wait(for: [expectation], timeout: 0.001)
     }
     
     func testInvaildUrlRequest() async {
         let mockDataService = MockApiService()
         let expectation = XCTestExpectation(description: "No a valid URL")
+        
         do {
             let _ = try await mockDataService.fetchVideoDetailsFromApi(for: "some random text")
             XCTFail("Api Service should throw error")
@@ -58,12 +64,14 @@ class ApiServiceTest: XCTestCase {
                 XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
             }
         }
+        
         wait(for: [expectation], timeout: 0.001)
     }
     
     func testEmptyUrlRequest() async {
         let mockDataService = MockApiService()
         let expectation = XCTestExpectation(description: "Check Empty URL")
+        
         do {
             let _ = try await mockDataService.fetchVideoDetailsFromApi(for: "     ")
             XCTFail("Api Service should throw error")
@@ -73,6 +81,7 @@ class ApiServiceTest: XCTestCase {
                 XCTAssertEqual(detailsError, DetailsError.emptyUrl)
             }
         }
+        
         wait(for: [expectation], timeout: 0.001)
     }
 }
