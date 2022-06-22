@@ -28,7 +28,6 @@ final class ReachablityManager: ObservableObject {
                 self.isConnected = path.status == .satisfied
             }
         }
-        
         monitor.start(queue: queue)
     }
 }

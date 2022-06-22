@@ -27,7 +27,7 @@ struct LoadifyApp: App {
                 .accentColor(Loadify.Colors.blue_accent)
                 .environmentObject(urlViewModel)
                 .preferredColorScheme(.dark)
-                .alert(isPresented: $reachablilityManager.isConnected.invert) { noNetworkAlert }
+                .alert(isPresented: $reachablilityManager.isConnected.invert) { networkAlertView }
                 .sheet(isPresented: $isOnboardingScreenShown.invert) {
                     OnboardView()
                         .allowAutoDismiss(false)
@@ -35,7 +35,7 @@ struct LoadifyApp: App {
         }
     }
     
-    private var noNetworkAlert: Alert {
+    private var networkAlertView: Alert {
         Alert(
             title: Text(Texts.no_internet),
             message: Text(Texts.no_internet_message),

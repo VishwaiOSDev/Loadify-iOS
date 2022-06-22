@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ApiService {
     
@@ -66,6 +67,17 @@ extension ApiService {
             default:
                 throw URLError(.badServerResponse)
             }
+        }
+    }
+    
+    func getUrl(from urlString: String) throws ->  URL {
+        guard let url = URL(string: urlString) else { throw DetailsError.invaildApiUrl }
+        return url
+    }
+    
+    func checkVideoIsCompatible(at filePath: String) throws {
+        if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
+            throw DownloadError.notCompatible
         }
     }
 }

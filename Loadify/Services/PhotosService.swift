@@ -11,18 +11,6 @@ protocol PhotosServiceProtocol {
     func checkForPhotosPermission() async throws
 }
 
-enum PhotosError: Error, LocalizedError {
-    case permissionDenied
-    case insufficientStorage
-    
-    var errorDescription: String? {
-        switch self {
-        case .permissionDenied: return "Please grant permission to photos"
-        case .insufficientStorage: return  "There is no enough storage to save this video"
-        }
-    }
-}
-
 class PhotosService: PhotosServiceProtocol {
     
     func checkForPhotosPermission() async throws {

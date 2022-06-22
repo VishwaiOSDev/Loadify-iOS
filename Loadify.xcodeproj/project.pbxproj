@@ -51,6 +51,8 @@
 		88DB2C3B2856FDA60065BBF9 /* VideoDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* VideoDetailsTest.swift */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConfig.swift */; };
+		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
+		88FDA6E32862C9790028DCE9 /* WebCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		88DB2C3A2856FDA60065BBF9 /* VideoDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConfig.swift; sourceTree = "<group>"; };
+		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				88B1CFA72826BBDA007B19B4 /* Api.swift */,
+				88FDA6DF2862C80D0028DCE9 /* Errors.swift */,
 				882A8BA9282973620094BA6E /* VideoQuality.swift */,
 			);
 			path = Enums;
@@ -257,6 +262,7 @@
 			children = (
 				881D042C2829414F0006C0B7 /* Modifiers */,
 				88A729BF28265A7300B5FE61 /* Components */,
+				88FDA6E12862C96A0028DCE9 /* Coordinators */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
 				882A8BA0282958D80094BA6E /* DownloadView.swift */,
 				8869D83A28616C500000796A /* OnboardView.swift */,
@@ -346,6 +352,14 @@
 				88F341832836549000493544 /* LoadifyConfig.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		88FDA6E12862C96A0028DCE9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +498,7 @@
 				88D1276C2848B63B00D8750B /* InfoView.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
 				88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */,
+				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
 				88327D70285728AB00B6306A /* ReachablityManager.swift in Sources */,
 				88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
@@ -501,6 +516,7 @@
 				88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
+				88FDA6E32862C9790028DCE9 /* WebCoordinator.swift in Sources */,
 				8869D83B28616C500000796A /* OnboardView.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 			);
