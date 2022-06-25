@@ -12,6 +12,7 @@ enum ServerError: Error, LocalizedError {
     case internalServerError
     case requestedQualityUnavailable
     case durationTooHigh
+    case decodeFailed
     
     var errorDescription: String? {
         switch self {
@@ -19,6 +20,7 @@ enum ServerError: Error, LocalizedError {
         case .internalServerError: return "Something went wrong"
         case .requestedQualityUnavailable: return "The requested quality is not supported"
         case .durationTooHigh: return "Requested video length is too high"
+        case .decodeFailed: return "Failed to decode data"
         }
     }
 }

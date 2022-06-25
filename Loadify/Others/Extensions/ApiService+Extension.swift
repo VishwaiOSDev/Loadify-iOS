@@ -23,11 +23,11 @@ extension ApiService {
     ///  ````
     ///  let decodedData = decode(data, to: UserInfo.self)
     ///  ````
-    func decode<T: Codable>(_ data: Data, to type: T.Type) -> T {
+    func decode<T: Codable>(_ data: Data, to type: T.Type) throws -> T {
         do {
             return try JSONDecoder().decode(T.self, from: data)
         } catch {
-            fatalError("Failed to decode the JSON.")
+            throw ServerError.decodeFailed
         }
     }
     
@@ -52,7 +52,7 @@ extension ApiService {
             case 200...299:
                 break
             case 400...499:
-                let decodedErrorData = decode(data, to: ErrorModel.self)
+                let decodedErrorData = try decode(data, to: ErrorModel.self)
                 if decodedErrorData.message == ServerError.notValidDomain.localizedDescription {
                     throw DetailsError.notVaildYouTubeUrl
                 } else if decodedErrorData.message == ServerError.requestedQualityUnavailable.localizedDescription {

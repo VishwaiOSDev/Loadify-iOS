@@ -26,7 +26,7 @@ class ApiService: DataService {
         let request = createUrlRequest(for: url)
         let (data, urlResponse) = try await URLSession.shared.data(from: request)
         try await checkForServerErrors(for: urlResponse, with: data)
-        return decode(data, to: VideoDetails.self)
+        return try decode(data, to: VideoDetails.self)
     }
     
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
