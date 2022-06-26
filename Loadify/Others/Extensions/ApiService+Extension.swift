@@ -60,7 +60,7 @@ extension ApiService {
                 } else if decodedErrorData.message == ServerError.durationTooHigh.localizedDescription {
                     throw DownloadError.durationTooHigh
                 } else {
-                    throw DetailsError.invaildApiUrl
+                    throw URLError(.badURL)
                 }
             case 500...599:
                 throw ServerError.internalServerError

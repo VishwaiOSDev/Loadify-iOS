@@ -31,7 +31,6 @@ class VideoInfoTest: XCTestCase {
         let getCombinedDateForJan = date.formatter()
         let convertedDate = "\(getCombinedDateForJan) \(getPublishedYearForJan)"
         
-        
         XCTAssertEqual(getYearOfPublishedDate, "2022")
         XCTAssertEqual(getMonthOfPublishedDate, "Jun")
         XCTAssertEqual(getDateOfPublishedDate, "10")

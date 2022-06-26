@@ -14,12 +14,11 @@ protocol Detailable: Navigatable {
 
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
-    func downloadVideo(with quality: VideoQuality) async
+    func downloadVideo(url: String, with quality: VideoQuality) async
 }
 
-final class DownloaderViewModel: Detailable, Downloadable {
+final class DownloaderViewModel: Downloadable {
     
-    @Published var url: String = ""
     @Published var details: VideoDetails? = nil
     @Published var showLoader: Bool = false
     @Published var detailsError: Error? = nil
@@ -27,31 +26,13 @@ final class DownloaderViewModel: Detailable, Downloadable {
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
-    @Inject var apiService: DataService
+    let apiService: DataService
     
-    func getVideoDetails(for url: String) async {
-        do {
-            DispatchQueue.main.async {
-                self.showLoader = true
-            }
-            let response = try await apiService.getVideoDetails(for: url)
-            DispatchQueue.main.async {
-                self.details = response
-                self.showLoader = false
-                self.shouldNavigateToDownload = true
-            }
-        } catch {
-            DispatchQueue.main.async {
-                Task {
-                    try await Task.sleep(seconds: 0.3)
-                    self.showLoader = false
-                    self.detailsError = error
-                }
-            }
-        }
+    init(apiService: DataService = ApiService()) {
+        self.apiService = apiService
     }
     
-    func downloadVideo(with quality: VideoQuality) async {
+    func downloadVideo(url: String, with quality: VideoQuality) async {
         do {
             DispatchQueue.main.async {
                 self.showLoader = true

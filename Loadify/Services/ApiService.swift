@@ -10,18 +10,20 @@ import Photos
 import SwiftDI
 
 protocol DataService {
-    func getVideoDetails(for url: String) async throws -> VideoDetails
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }
 
 class ApiService: DataService {
     
+    // Do Unit Testing
     @Inject var photoService: PhotosServiceProtocol
     @Inject var fileSerivce: FileServiceProtocol
     
-    func getVideoDetails(for url: String) async throws -> VideoDetails {
+    // TODO: - This function is not testable. Needed to refactor this function to make it more testable
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
-        let apiUrl = Api.baseUrl + Api.YouTube.getDetails.rawValue + url
+        let apiUrl = Api.preAlphaUrl + Api.YouTube.getDetails.rawValue + url
         let url = try getUrl(from: apiUrl)
         let request = createUrlRequest(for: url)
         let (data, urlResponse) = try await URLSession.shared.data(from: request)
@@ -32,7 +34,7 @@ class ApiService: DataService {
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
         try checkIsValidUrl(url)
         let apiUrl = (
-            Api.baseUrl +
+            Api.preAlphaUrl +
             Api.YouTube.downloadVideo.rawValue +
             url +
             Api.YouTube.videoQuality.rawValue +

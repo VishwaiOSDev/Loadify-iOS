@@ -11,7 +11,6 @@ import SwiftDI
 @main
 struct LoadifyApp: App {
     
-    @StateObject var urlViewModel = DownloaderViewModel()
     @StateObject var reachablilityManager = ReachablityManager()
     @AppStorage("OnboardingScreen") var isOnboardingScreenShown: Bool = false
     
@@ -21,11 +20,10 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView<DownloaderViewModel>()
+            URLView()
                 .embedInNavigation()
                 .navigationViewStyle(StackNavigationViewStyle())
                 .accentColor(Loadify.Colors.blue_accent)
-                .environmentObject(urlViewModel)
                 .preferredColorScheme(.dark)
                 .alert(isPresented: $reachablilityManager.isConnected.invert) { networkAlertView }
                 .sheet(isPresented: $isOnboardingScreenShown.invert) {

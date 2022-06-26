@@ -9,11 +9,13 @@ import Foundation
 
 protocol EndpointFactory {
     static var baseUrl: String { get set }
+    static var preAlphaUrl: String { get set }
 }
 
 enum Api: EndpointFactory {
     
     static var baseUrl: String = "https://api.loadify.app/api"
+    static var preAlphaUrl: String = "https://pre-alpha.loadify.app/api"
     
     enum Web: String {
         case termsOfService = "https://loadify.app/pages/TermsOfService.html"

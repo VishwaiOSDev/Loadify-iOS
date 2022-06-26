@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-protocol Urlable: ObservableObject {
-    var url: String { get set }
-}
-
-protocol Loadable: Urlable {
+protocol Loadable: ObservableObject {
     var showLoader: Bool { get set }
 }
 
