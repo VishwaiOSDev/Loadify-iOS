@@ -13,6 +13,7 @@ struct DownloadView: View {
     
     @State var selectedQuality: VideoQuality = .none
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var details: VideoDetails
     
@@ -181,7 +182,7 @@ struct DownloadView: View {
     }
     
     private func didTapDownload(quality: VideoQuality) async {
-        await viewModel.downloadVideo(with: quality)
+        await viewModel.downloadVideo(url: details.videoUrl, with: quality)
     }
 }
 
