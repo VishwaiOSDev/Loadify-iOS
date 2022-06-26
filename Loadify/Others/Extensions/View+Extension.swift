@@ -14,30 +14,12 @@ extension View {
         NavigationView { self }
     }
     
-    func customAlert<T: View>(item: Binding<Error?>, content: (Error) -> T) ->  some View {
-        ZStack {
-            self.allowsHitTesting(item.wrappedValue != nil ? false : true)
-            if let error = item.wrappedValue {
-                content(error)
-            }
-        }
+    func allowAutoDismiss(_ dismissable: @escaping () -> Bool) -> some View {
+        self.background(ModalDismiss(dismissable: dismissable))
     }
     
-    func customAlert<T: View>(isPresented: Binding<Bool>, content: () -> T) ->  some View {
-        ZStack {
-            self.allowsHitTesting(isPresented.wrappedValue ? false : true)
-            if isPresented.wrappedValue {
-                content()
-            }
-        }
-    }
-    
-    func dismiss(delay: TimeInterval = 2.5, completion: @escaping () -> Void) -> some View {
-        self.onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                completion()
-            }
-        }
+    func allowAutoDismiss(_ dismissable: Bool) -> some View {
+        self.background(ModalDismiss(dismissable: { dismissable }))
     }
     
     func cardView(color: Color, cornerRadius: CGFloat = 10) -> some View {

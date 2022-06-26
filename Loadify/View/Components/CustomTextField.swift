@@ -27,9 +27,7 @@ struct CustomTextField: View {
                     Text("\(placeHolder)")
                         .foregroundColor(Loadify.Colors.grey_text)
                 }
-                TextField("", text: $text)
-                    .foregroundColor(.white)
-                    .autocapitalization(.none)
+                textFieldView
                     .disableAutocorrection(true)
             }
             .frame(maxWidth: .infinity, maxHeight: 56)
@@ -37,6 +35,12 @@ struct CustomTextField: View {
             .background(Loadify.Colors.textfield_background)
             .cornerRadius(10)
         }
+    }
+    
+    private var textFieldView: some View {
+        TextField("", text: $text)
+            .foregroundColor(.white)
+            .autocapitalization(.none)
     }
 }
 

@@ -12,6 +12,7 @@ import SwiftDI
 struct LoadifyApp: App {
     
     @StateObject var reachablilityManager = ReachablityManager()
+    @AppStorage("OnboardingScreen") var isOnboardingScreenShown: Bool = false
     
     init() {
         SwiftDI.shared.setupDependencyInjection()
@@ -24,8 +25,10 @@ struct LoadifyApp: App {
                 .navigationViewStyle(StackNavigationViewStyle())
                 .accentColor(Loadify.Colors.blue_accent)
                 .preferredColorScheme(.dark)
-                .alert(isPresented: $reachablilityManager.isConnected.invert) {
-                    networkAlertView
+                .alert(isPresented: $reachablilityManager.isConnected.invert) { networkAlertView }
+                .sheet(isPresented: $isOnboardingScreenShown.invert) {
+                    OnboardView()
+                        .allowAutoDismiss(false)
                 }
         }
     }

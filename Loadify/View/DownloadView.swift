@@ -11,11 +11,9 @@ import LoadifyKit
 
 struct DownloadView: View {
     
-    // Wrappers
     @State var selectedQuality: VideoQuality = .none
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     
-    // Properties
     var details: VideoDetails
     
     var body: some View {
@@ -38,6 +36,8 @@ struct DownloadView: View {
                 }
                 .padding()
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) { error in
@@ -47,14 +47,15 @@ struct DownloadView: View {
                 AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
             }
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backButton
+                        .foregroundColor(Colors.blue_accent)
+                }
                 ToolbarItem(placement: .principal) {
-                    Image(Images.loadify_horizontal)
-                        .resizable()
-                        .scaledToFit()
+                    loadifyLogo
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
@@ -116,15 +117,16 @@ struct DownloadView: View {
     }
     
     private var videoInfoView: some View {
-        HStack(alignment: .center, spacing: 50) {
+        ZStack(alignment: .center) {
             InfoView(title: details.likes.toUnits, subTitle: "Likes")
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
             InfoView(title: details.viewCount.format, subTitle: "Views")
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .center)
             InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .frame(maxWidth: .infinity)
+        .padding(.all, 4)
     }
     
     private var footerView: some View {
@@ -160,6 +162,20 @@ struct DownloadView: View {
         )
     }
     
+    private var backButton: some View {
+        Image(systemName: "chevron.backward")
+            .font(Font.body.weight(.bold))
+            .onTapGesture {
+                presentationMode.wrappedValue.dismiss()
+            }
+    }
+    
+    private var loadifyLogo: some View {
+        Image(Images.loadify_horizontal)
+            .resizable()
+            .scaledToFit()
+    }
+    
     private func didTapOnQuality(_ quality: VideoQuality) {
         selectedQuality = quality
     }
@@ -174,7 +190,7 @@ struct DownloadView_Previews: PreviewProvider {
         let mockData = VideoDetails(
             title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
             lengthSeconds: "109",
-            viewCount: "172442",
+            viewCount: "7876945312 ",
             publishDate: "2022-05-09",
             ownerChannelName: "TrailerSpot",
             videoId: "",

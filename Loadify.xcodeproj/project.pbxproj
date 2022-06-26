@@ -26,7 +26,10 @@
 		8837993A283A1A6C00DDBA79 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379939283A1A6C00DDBA79 /* Image+Extension.swift */; };
 		88469C0F282B979A009C553C /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88469C0E282B979A009C553C /* Task+Extension.swift */; };
 		8847C1B32834F08400255819 /* SwiftDI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8847C1B22834F08400255819 /* SwiftDI+Extension.swift */; };
+		8849D310286183FE00D32927 /* ModalDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D30F286183FE00D32927 /* ModalDismiss.swift */; };
+		8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D3112861843B00D32927 /* ViewController+Extension.swift */; };
 		88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88684DC62851B69600D7DA1C /* MenuButton.swift */; };
+		8869D83B28616C500000796A /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869D83A28616C500000796A /* OnboardView.swift */; };
 		886CD1CB285314DC00662882 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD1CA285314DC00662882 /* CardView.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -49,6 +52,8 @@
 		88DB2C3B2856FDA60065BBF9 /* ApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConfig.swift */; };
+		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
+		88FDA6E32862C9790028DCE9 /* WebCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +85,10 @@
 		88379939283A1A6C00DDBA79 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		88469C0E282B979A009C553C /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
 		8847C1B22834F08400255819 /* SwiftDI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftDI+Extension.swift"; sourceTree = "<group>"; };
+		8849D30F286183FE00D32927 /* ModalDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismiss.swift; sourceTree = "<group>"; };
+		8849D3112861843B00D32927 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		8869D83A28616C500000796A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -104,6 +112,8 @@
 		88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConfig.swift; sourceTree = "<group>"; };
+		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +185,7 @@
 				88B2C171284FB46D00B9DCF7 /* URLSession+Extension.swift */,
 				88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */,
 				8815691F28579A50009B9730 /* Binding+Extension.swift */,
+				8849D3112861843B00D32927 /* ViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				88B1CFA72826BBDA007B19B4 /* Api.swift */,
+				88FDA6DF2862C80D0028DCE9 /* Errors.swift */,
 				882A8BA9282973620094BA6E /* VideoQuality.swift */,
 			);
 			path = Enums;
@@ -252,8 +264,10 @@
 			children = (
 				881D042C2829414F0006C0B7 /* Modifiers */,
 				88A729BF28265A7300B5FE61 /* Components */,
+				88FDA6E12862C96A0028DCE9 /* Coordinators */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
 				882A8BA0282958D80094BA6E /* DownloadView.swift */,
+				8869D83A28616C500000796A /* OnboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +298,7 @@
 				88D1276D2848CDC000D8750B /* ChannelView.swift */,
 				88684DC62851B69600D7DA1C /* MenuButton.swift */,
 				8815692128579AA4009B9730 /* WebView.swift */,
+				8849D30F286183FE00D32927 /* ModalDismiss.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -340,6 +355,14 @@
 				88F341832836549000493544 /* LoadifyConfig.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		88FDA6E12862C96A0028DCE9 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				88FDA6E22862C9790028DCE9 /* WebCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +488,7 @@
 				8815692028579A50009B9730 /* Binding+Extension.swift in Sources */,
 				8815692228579AA4009B9730 /* WebView.swift in Sources */,
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
+				8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
@@ -472,11 +496,13 @@
 				88F341842836549000493544 /* LoadifyConfig.swift in Sources */,
 				882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */,
 				88097C322830D59A0082E674 /* Assemblies.swift in Sources */,
+				8849D310286183FE00D32927 /* ModalDismiss.swift in Sources */,
 				886CD1CB285314DC00662882 /* CardView.swift in Sources */,
 				88D1276C2848B63B00D8750B /* InfoView.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
 				88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */,
+				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
 				88327D70285728AB00B6306A /* ReachablityManager.swift in Sources */,
 				88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
@@ -494,6 +520,8 @@
 				88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
+				88FDA6E32862C9790028DCE9 /* WebCoordinator.swift in Sources */,
+				8869D83B28616C500000796A /* OnboardView.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,10 +700,11 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need you photos access to store video files";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -688,7 +717,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -703,10 +732,11 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need you photos access to store video files";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -719,7 +749,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

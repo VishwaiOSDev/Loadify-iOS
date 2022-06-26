@@ -106,7 +106,7 @@ struct URLView: View {
         await urlViewModel.getVideoDetails(for: videoUrl)
     }
     
-    func webView(url: Api.Web) -> some View {
+    fileprivate func webView(url: Api.Web) -> some View {
         WebView(url: url.rawValue, showLoading: $showWebView)
             .showLoader("Loading", isPresented: $showWebView)
             .navigationBarTitleDisplayMode(.inline)
