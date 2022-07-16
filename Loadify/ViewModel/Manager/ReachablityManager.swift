@@ -12,8 +12,8 @@ final class ReachablityManager: ObservableObject {
     
     @Published var isConnected = true
     
-    let monitor = NWPathMonitor()
-    let queue = DispatchQueue(label: "ReachablityManager")
+    private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue(label: "ReachablityManager")
     
     var connectionDescription: String? {
         if !isConnected {

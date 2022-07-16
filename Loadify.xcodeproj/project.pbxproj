@@ -208,6 +208,14 @@
 			path = InfoTest;
 			sourceTree = "<group>";
 		};
+		8863A158288307A4008BB0AE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				88327D6F285728AB00B6306A /* ReachablityManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
@@ -283,8 +291,8 @@
 		88A729BE2826507100B5FE61 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8863A158288307A4008BB0AE /* Manager */,
 				88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */,
-				88327D6F285728AB00B6306A /* ReachablityManager.swift */,
 				88220A88285DC9CC008260DE /* URLViewModel.swift */,
 			);
 			path = ViewModel;
