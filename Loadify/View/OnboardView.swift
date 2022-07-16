@@ -41,7 +41,6 @@ struct OnboardView: View {
             NewFeatureCell(icon: "icloud.and.arrow.down.fill", title: "Download videos", subtitle: "Download your favourite YouTube videos")
             NewFeatureCell(icon: "rectangle.stack.badge.play.fill", title: "Choose video quality", subtitle: "Select your own video quality")
             NewFeatureCell(icon: "speedometer", title: "2x Faster Download", subtitle: "We improved the download speed")
-            NewFeatureCell(icon: "lock.shield.fill", title: "Safe, Secure and Privacy", subtitle: "We respect privacy and we won't collect any information")
         }
     }
     

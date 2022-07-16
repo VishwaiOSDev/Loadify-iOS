@@ -78,7 +78,7 @@ class ApiServiceTest: XCTestCase {
         } catch {
             expectation.fulfill()
             if let detailsError = error as? DetailsError {
-                XCTAssertEqual(detailsError, DetailsError.emptyUrl)
+                XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
             }
         }
         

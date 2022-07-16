@@ -19,11 +19,22 @@ class ApiService: DataService {
     // Do Unit Testing
     @Inject var photoService: PhotosServiceProtocol
     @Inject var fileSerivce: FileServiceProtocol
+    private var baseURL: String {
+        get throws {
+            guard let apiURL = _baseURL else { throw DetailsError.invaildApiUrl }
+            return apiURL
+        }
+    }
+    private var _baseURL: String?
+    
+    init(urlType: Api.URLType = .preAlpha) {
+        self._baseURL = Api.getBaseUrl(urlType)
+    }
     
     // TODO: - This function is not testable. Needed to refactor this function to make it more testable
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         try checkIsValidUrl(url)
-        let apiUrl = Api.preAlphaUrl + Api.YouTube.getDetails.rawValue + url
+        let apiUrl = try baseURL + Api.YouTube.getDetails.rawValue + url
         let url = try getUrl(from: apiUrl)
         let request = createUrlRequest(for: url)
         let (data, urlResponse) = try await URLSession.shared.data(from: request)
@@ -34,7 +45,7 @@ class ApiService: DataService {
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
         try checkIsValidUrl(url)
         let apiUrl = (
-            Api.preAlphaUrl +
+            try baseURL +
             Api.YouTube.downloadVideo.rawValue +
             url +
             Api.YouTube.videoQuality.rawValue +
@@ -51,3 +62,6 @@ class ApiService: DataService {
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
     }
 }
+
+
+
