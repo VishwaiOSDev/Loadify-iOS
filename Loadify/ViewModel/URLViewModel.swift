@@ -6,7 +6,10 @@
 //
 
 import Foundation
-import SwiftDI
+
+protocol Detailable: Navigatable {
+    func getVideoDetails(for url: String) async
+}
 
 final class URLViewModel: Detailable {
     

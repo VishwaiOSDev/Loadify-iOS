@@ -8,10 +8,6 @@
 import SwiftUI
 import SwiftDI
 
-protocol Detailable: Navigatable {
-    func getVideoDetails(for url: String) async
-}
-
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
     func downloadVideo(url: String, with quality: VideoQuality) async

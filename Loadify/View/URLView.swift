@@ -9,11 +9,15 @@ import SwiftUI
 import SwiftDI
 import LoadifyKit
 
-struct URLView: View {
+struct URLView<ViewModel>: View where ViewModel: Detailable {
     
-    @StateObject var urlViewModel: URLViewModel = URLViewModel()
+    @ObservedObject var viewModel: ViewModel
     @State var videoUrl: String = ""
     @State var showWebView: Bool = false
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack {
@@ -30,8 +34,9 @@ struct URLView: View {
             .padding()
         }
         .navigationBarHidden(true)
-        .showLoader(Texts.loading, isPresented: $urlViewModel.showLoader)
-        .showAlert(item: $urlViewModel.detailsError) { error in
+        .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
+        .showLoader("Loading", isPresented: $showWebView)
+        .showAlert(item: $viewModel.detailsError) { error in
             AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
         }
     }
@@ -51,7 +56,7 @@ struct URLView: View {
             CustomTextField("Enter YouTube URL", text: $videoUrl)
             NavigationLink(
                 destination: downloadView,
-                isActive: $urlViewModel.shouldNavigateToDownload
+                isActive: $viewModel.shouldNavigateToDownload
             ) {
                 Button {
                     Task {
@@ -65,7 +70,6 @@ struct URLView: View {
             }
             .disabled(videoUrl.checkIsEmpty())
         }
-        .showLoader("Loading", isPresented: $showWebView)
     }
     
     private var termsOfService: some View {
@@ -96,14 +100,14 @@ struct URLView: View {
     
     @ViewBuilder
     private var downloadView: some View {
-        if let details = urlViewModel.details {
+        if let details = viewModel.details {
             DownloadView(details: details)
         }
     }
     
     private func didTapContinue() async {
         hideKeyboard()
-        await urlViewModel.getVideoDetails(for: videoUrl)
+        await viewModel.getVideoDetails(for: videoUrl)
     }
     
     fileprivate func webView(url: Api.Web) -> some View {
@@ -115,16 +119,17 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider{
-    static var previews: some View {
-        Group {
-            URLView()
-                .previewDevice("iPhone 13 Pro Max")
-                .previewDisplayName("iPhone 13 Pro Max")
-            URLView()
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
-        }
-        .preferredColorScheme(.dark)
-    }
-}
+//struct VideoURLView_Previews: PreviewProvider{
+//    static var previews: some View {
+//        let viewModelFactory = ViewModelFactory()
+//        Group {
+//            URLView(urlViewModel: viewModelFactory.getURLViewModel())
+//                .previewDevice("iPhone 13 Pro Max")
+//                .previewDisplayName("iPhone 13 Pro Max")
+//            URLView(urlViewModel: viewModelFactory.getURLViewModel())
+//                .previewDevice("iPhone SE (3rd generation)")
+//                .previewDisplayName("iPhone SE")
+//        }
+//        .preferredColorScheme(.dark)
+//    }
+//}
