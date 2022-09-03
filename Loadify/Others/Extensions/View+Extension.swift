@@ -14,23 +14,11 @@ extension View {
         NavigationView { self }
     }
     
-    func allowAutoDismiss(_ dismissable: @escaping () -> Bool) -> some View {
-        self.background(ModalDismiss(dismissable: dismissable))
-    }
-    
-    func allowAutoDismiss(_ dismissable: Bool) -> some View {
-        self.background(ModalDismiss(dismissable: { dismissable }))
-    }
-    
     func cardView(color: Color, cornerRadius: CGFloat = 10) -> some View {
         modifier(CardView(color: color, cornerRadius: cornerRadius))
     }
     
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-    
-    func eraseToAnyView() -> AnyView {
-        AnyView(self)
     }
 }
