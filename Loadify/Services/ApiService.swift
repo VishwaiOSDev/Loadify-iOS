@@ -11,14 +11,14 @@ import SwiftDI
 
 protocol DataService {
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
+    /// Move downloadVideo to new protocol
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }
 
 class ApiService: DataService {
     
-    // Do Unit Testing
-    @Inject var photoService: PhotosServiceProtocol
-    @Inject var fileSerivce: FileServiceProtocol
+    var photoService: PhotosServiceProtocol
+    var fileService: FileServiceProtocol
     private var baseURL: String {
         get throws {
             guard let apiURL = _baseURL else { throw DetailsError.invaildApiUrl }
@@ -27,8 +27,14 @@ class ApiService: DataService {
     }
     private var _baseURL: String?
     
-    init(urlType: Api.URLType = .preAlpha) {
+    init(
+        urlType: Api.URLType = .preAlpha,
+        photoService: PhotosServiceProtocol = PhotosService(),
+        fileService: FileServiceProtocol = FileService()
+    ) {
         self._baseURL = Api.getBaseUrl(urlType)
+        self.photoService = photoService
+        self.fileService = fileService
     }
     
     // TODO: - This function is not testable. Needed to refactor this function to make it more testable
@@ -54,7 +60,7 @@ class ApiService: DataService {
         let url = try getUrl(from: apiUrl)
         try await photoService.checkForPhotosPermission()
         let request = createUrlRequest(for: url)
-        let filePath = fileSerivce.getTemporaryFilePath()
+        let filePath = fileService.getTemporaryFilePath()
         let (data, urlResponse) = try await URLSession.shared.data(from: request)
         try await checkForServerErrors(for: urlResponse, with: data)
         try data.write(to: filePath)
@@ -62,6 +68,3 @@ class ApiService: DataService {
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
     }
 }
-
-
-

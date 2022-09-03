@@ -1,11 +1,11 @@
 {
   "pins" : [
     {
-      "identity" : "ios-di-kit",
+      "identity" : "fontkit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:Adaptavant/IOS-DI-Kit.git",
+      "location" : "https://github.com/VishwaiOSDev/FontKit",
       "state" : {
-        "revision" : "18f0ac4d6bccf7559229759326c5ef3e0b9ea46b",
+        "revision" : "c0f89b14d0f6dd70b20cda4004b1b120a58429b2",
         "version" : "0.0.5"
       }
     },
@@ -19,21 +19,12 @@
       }
     },
     {
-      "identity" : "swinject",
+      "identity" : "logkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Swinject/Swinject.git",
+      "location" : "https://github.com/VishwaiOSDev/LogKit",
       "state" : {
-        "revision" : "f10b6e9ebff440f985c43008f7c2d097639fcb81",
-        "version" : "2.8.1"
-      }
-    },
-    {
-      "identity" : "swinjectautoregistration",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Swinject/SwinjectAutoregistration.git",
-      "state" : {
-        "revision" : "9936170fd1a5e8c141a21de987c48cc4e0d6c943",
-        "version" : "2.8.1"
+        "revision" : "9dd0dce3dc8ddf8f32a56abad595d4938525d464",
+        "version" : "0.0.9"
       }
     }
   ],

@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import SwiftDI
+import FontKit
+import FontInter
 
 @main
 struct LoadifyApp: App {
@@ -14,7 +15,7 @@ struct LoadifyApp: App {
     @StateObject var reachablilityManager = ReachablityManager()
     
     init() {
-        SwiftDI.shared.setupDependencyInjection()
+        FontKit.registerInter()
     }
     
     var body: some Scene {
