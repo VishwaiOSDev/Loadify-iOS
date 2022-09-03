@@ -188,44 +188,13 @@ struct DownloadView: View {
 
 struct DownloadView_Previews: PreviewProvider {
     static var previews: some View {
-        let mockData = VideoDetails(
-            title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
-            lengthSeconds: "109",
-            viewCount: "7876945312 ",
-            publishDate: "2022-05-09",
-            ownerChannelName: "TrailerSpot",
-            videoId: "",
-            author: .init(
-                id: "",
-                name: "",
-                user: "",
-                channelUrl: "",
-                thumbnails: [
-                    .init(
-                        url: "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj",
-                        width: 120,
-                        height: 12
-                    )
-                ],
-                subscriberCount: nil
-            ),
-            likes: 172442,
-            videoUrl: "https://www.youtube.com/watch?v=66XwG1CLHuU",
-            thumbnails: [
-                .init(
-                    url: "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
-                    width: 12,
-                    height: 12
-                )
-            ]
-        )
         Group {
             NavigationView {
-                DownloadView(details: mockData)
+                DownloadView(details: .previews)
             }
             .previewDevice("iPhone 13 Pro Max")
             NavigationView {
-                DownloadView(details: mockData)
+                DownloadView(details: .previews)
             }
             .navigationBarTitleDisplayMode(.inline)
             .previewDevice("iPhone SE (3rd generation)")

@@ -29,7 +29,6 @@
 		8849D310286183FE00D32927 /* ModalDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D30F286183FE00D32927 /* ModalDismiss.swift */; };
 		8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D3112861843B00D32927 /* ViewController+Extension.swift */; };
 		88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88684DC62851B69600D7DA1C /* MenuButton.swift */; };
-		8869D83B28616C500000796A /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869D83A28616C500000796A /* OnboardView.swift */; };
 		886CD1CB285314DC00662882 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD1CA285314DC00662882 /* CardView.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -88,7 +87,6 @@
 		8849D30F286183FE00D32927 /* ModalDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalDismiss.swift; sourceTree = "<group>"; };
 		8849D3112861843B00D32927 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
-		8869D83A28616C500000796A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				88FDA6E12862C96A0028DCE9 /* Coordinators */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
 				882A8BA0282958D80094BA6E /* DownloadView.swift */,
-				8869D83A28616C500000796A /* OnboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,7 +526,6 @@
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
 				88FDA6E32862C9790028DCE9 /* WebCoordinator.swift in Sources */,
-				8869D83B28616C500000796A /* OnboardView.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
