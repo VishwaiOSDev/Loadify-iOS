@@ -40,7 +40,6 @@ class ApiService: DataService {
     
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         let apiUrl = try baseURL + Api.YouTube.getDetails.rawValue + url
-        Log.debug(apiUrl)
         return try await NetworkKit.shared.request(apiUrl, type: VideoDetails.self)
     }
     
