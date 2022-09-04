@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftDI
 
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }

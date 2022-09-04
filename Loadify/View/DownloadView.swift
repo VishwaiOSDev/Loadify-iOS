@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftDI
 import LoadifyKit
 
 struct DownloadView: View {

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftDI
 import LoadifyKit
 
 struct URLView<ViewModel>: View where ViewModel: Detailable {
