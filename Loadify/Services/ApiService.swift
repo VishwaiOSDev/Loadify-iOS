@@ -39,20 +39,19 @@ class ApiService: DataService {
     }
     
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
-        let apiUrl = try baseURL + Api.YouTube.getDetails.rawValue + url
         return try await NetworkKit.shared.request(Endpoint.details(youtubeURL: url), type: VideoDetails.self)
     }
     
-//    // TODO: - This function is not testable. Needed to refactor this function to make it more testable
-//    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
-//        try checkIsValidUrl(url)
-//        let apiUrl = try baseURL + Api.YouTube.getDetails.rawValue + url
-//        let url = try getUrl(from: apiUrl)
-//        let request = createUrlRequest(for: url)
-//        let (data, urlResponse) = try await URLSession.shared.data(from: request)
-//        try await checkForServerErrors(for: urlResponse, with: data)
-//        return try decode(data, to: VideoDetails.self)
-//    }
+    //    // TODO: - This function is not testable. Needed to refactor this function to make it more testable
+    //    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
+    //        try checkIsValidUrl(url)
+    //        let apiUrl = try baseURL + Api.YouTube.getDetails.rawValue + url
+    //        let url = try getUrl(from: apiUrl)
+    //        let request = createUrlRequest(for: url)
+    //        let (data, urlResponse) = try await URLSession.shared.data(from: request)
+    //        try await checkForServerErrors(for: urlResponse, with: data)
+    //        return try decode(data, to: VideoDetails.self)
+    //    }
     
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
         try checkIsValidUrl(url)
