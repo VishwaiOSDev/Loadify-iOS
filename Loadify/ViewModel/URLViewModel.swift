@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import LogKit
 
 protocol Detailable: Navigatable {
     func getVideoDetails(for url: String) async
@@ -14,8 +15,8 @@ protocol Detailable: Navigatable {
 final class URLViewModel: Detailable {
     
     @Published var shouldNavigateToDownload: Bool = false
-    @Published var detailsError: Error? = nil
     @Published var showLoader: Bool = false
+    @Published var error: Error? = nil
     
     var apiService: DataService
     var details: VideoDetails? = nil
@@ -37,9 +38,10 @@ final class URLViewModel: Detailable {
                 self.shouldNavigateToDownload = true
             }
         } catch {
+            Log.debug(error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.showLoader = false
-                self.detailsError = error
+                self.error = error
             }
         }
     }
