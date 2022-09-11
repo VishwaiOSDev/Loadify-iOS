@@ -45,20 +45,11 @@ class ApiService: DataService {
     }
     
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
-        try checkIsValidUrl(url)
-        let apiUrl = (
-            try baseURL +
-            Api.YouTube.downloadVideo.rawValue +
-            url +
-            Api.YouTube.videoQuality.rawValue +
-            quality.rawValue
-        )
-        let url = try getUrl(from: apiUrl)
         try await photoService.checkForPhotosPermission()
-        let request = createUrlRequest(for: url)
         let filePath = fileService.getTemporaryFilePath()
-        let (data, urlResponse) = try await URLSession.shared.data(from: request)
-        try await checkForServerErrors(for: urlResponse, with: data)
+        let data = try await NetworkKit
+            .shared
+            .requestData(Endpoint.download(youtubeURL: url, quality: quality))
         try data.write(to: filePath)
         try checkVideoIsCompatible(at: filePath.path)
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)

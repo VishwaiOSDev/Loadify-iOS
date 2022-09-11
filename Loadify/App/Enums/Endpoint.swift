@@ -11,6 +11,7 @@ import NetworkKit
 enum Endpoint {
     
     case details(youtubeURL: String)
+    case download(youtubeURL: String, quality: VideoQuality)
     
     var host: String {
         "api.loadify.app"
@@ -31,12 +32,14 @@ extension Endpoint: NetworkRequestable {
         switch self {
         case .details:
             return "/api/yt/details"
+        case .download:
+            return "/api/yt/download/video/mp4"
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .details:
+        case .details, .download:
             return HTTPMethod.get
         }
     }
@@ -45,6 +48,8 @@ extension Endpoint: NetworkRequestable {
         switch self {
         case .details(let url):
             return ["url": url]
+        case .download(let url, let quality):
+            return ["url": url, "video_quality": quality.rawValue]
         }
     }
 }
