@@ -21,7 +21,7 @@ final class URLViewModel: Detailable {
     var apiService: DataService
     var details: VideoDetails? = nil
     
-    init(apiService: DataService = ApiService(urlType: .live)) {
+    init(apiService: DataService = ApiService()) {
         self.apiService = apiService
     }
     

@@ -28,7 +28,7 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
                 textFieldView
                     .padding(.horizontal, 16)
                 Spacer()
-                termsOfService
+//                termsOfService
             }
             .padding()
         }
@@ -71,31 +71,31 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
         }
     }
     
-    private var termsOfService: some View {
-        ZStack {
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 4) {
-                    Text("By continuing, you agree to our")
-                    NavigationLink(destination: webView(url: Api.Web.privacyPolicy)) {
-                        Text("Privacy Policy")
-                            .bold()
-                            .foregroundColor(Loadify.Colors.blue_accent)
-                    }
-                    Text("and")
-                }
-                HStack(spacing: 4) {
-                    Text("our")
-                    NavigationLink(destination: webView(url: Api.Web.termsOfService)) {
-                        Text("Terms of Service")
-                            .bold()
-                            .foregroundColor(Loadify.Colors.blue_accent)
-                    }
-                }
-            }
-        }
-        .foregroundColor(Loadify.Colors.grey_text)
-        .font(.footnote)
-    }
+//    private var termsOfService: some View {
+//        ZStack {
+//            VStack(alignment: .leading, spacing: 0) {
+//                HStack(spacing: 4) {
+//                    Text("By continuing, you agree to our")
+//                    NavigationLink(destination: webView(url: Api.Web.privacyPolicy)) {
+//                        Text("Privacy Policy")
+//                            .bold()
+//                            .foregroundColor(Loadify.Colors.blue_accent)
+//                    }
+//                    Text("and")
+//                }
+//                HStack(spacing: 4) {
+//                    Text("our")
+//                    NavigationLink(destination: webView(url: Api.Web.termsOfService)) {
+//                        Text("Terms of Service")
+//                            .bold()
+//                            .foregroundColor(Loadify.Colors.blue_accent)
+//                    }
+//                }
+//            }
+//        }
+//        .foregroundColor(Loadify.Colors.grey_text)
+//        .font(.footnote)
+//    }
     
     @ViewBuilder
     private var downloadView: some View {
@@ -109,13 +109,13 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
         await viewModel.getVideoDetails(for: videoUrl)
     }
     
-    fileprivate func webView(url: Api.Web) -> some View {
-        WebView(url: url.rawValue, showLoading: $showWebView)
-            .showLoader("Loading", isPresented: $showWebView)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Loadify's Agreement")
-            .accentColor(Colors.blue_accent)
-    }
+//    fileprivate func webView(url: Api.Web) -> some View {
+//        WebView(url: url.rawValue, showLoading: $showWebView)
+//            .showLoader("Loading", isPresented: $showWebView)
+//            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("Loadify's Agreement")
+//            .accentColor(Colors.blue_accent)
+//    }
 }
 
 //struct VideoURLView_Previews: PreviewProvider{

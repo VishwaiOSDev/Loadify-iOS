@@ -8,18 +8,17 @@
 import Foundation
 import NetworkKit
 
-enum Endpoint {
-    
+enum API {
     case details(youtubeURL: String)
     case download(youtubeURL: String, quality: VideoQuality)
+}
+
+extension API: NetworkRequestable {
     
     var host: String {
         "api.loadify.app"
     }
-}
 
-extension Endpoint: NetworkRequestable {
-    
     var url: URL {
         var urlComponent = URLComponents()
         urlComponent.scheme = "https"

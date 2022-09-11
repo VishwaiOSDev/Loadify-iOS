@@ -23,7 +23,7 @@ final class DownloaderViewModel: Downloadable {
     @Published var shouldNavigateToDownload: Bool = false
     let apiService: DataService
     
-    init(apiService: DataService = ApiService(urlType: .live)) {
+    init(apiService: DataService = ApiService()) {
         self.apiService = apiService
     }
     
