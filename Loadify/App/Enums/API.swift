@@ -14,17 +14,9 @@ enum API {
 }
 
 extension API: NetworkRequestable {
-    
+
     var host: String {
         "api.loadify.app"
-    }
-
-    var url: URL {
-        var urlComponent = URLComponents()
-        urlComponent.scheme = "https"
-        urlComponent.host = host
-        urlComponent.path = path
-        return urlComponent.url!
     }
     
     var path: String {
@@ -43,7 +35,7 @@ extension API: NetworkRequestable {
         }
     }
     
-    var queryParameter: [String : Any]? {
+    var queryParameter: [String : AnyHashable]? {
         switch self {
         case .details(let url):
             return ["url": url]

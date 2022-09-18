@@ -26,15 +26,6 @@
         "revision" : "9dd0dce3dc8ddf8f32a56abad595d4938525d464",
         "version" : "0.0.9"
       }
-    },
-    {
-      "identity" : "networkkit",
-      "kind" : "remoteSourceControl",
-      "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
-      "state" : {
-        "revision" : "962e6c302549371bd6f5adb1a8d4eff8770202d4",
-        "version" : "0.0.1"
-      }
     }
   ],
   "version" : 2

@@ -31,7 +31,7 @@ class ApiServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.001)
         
         XCTAssertNotNil(urlViewModel.details)
-        XCTAssertNil(urlViewModel.detailsError)
+        XCTAssertNil(urlViewModel.error)
     }
     
     func testInvaildYouTubeUrlRequest() async {
