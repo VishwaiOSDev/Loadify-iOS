@@ -11,7 +11,7 @@ import LoadifyKit
 struct URLView<ViewModel>: View where ViewModel: Detailable {
     
     @ObservedObject var viewModel: ViewModel
-    @State var videoUrl: String = ""
+    @State var videoURL: String = ""
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -49,7 +49,7 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL", text: $videoUrl)
+            CustomTextField("Enter YouTube URL", text: $videoURL)
             NavigationLink(
                 destination: downloadView,
                 isActive: $viewModel.shouldNavigateToDownload
@@ -62,9 +62,9 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
                     Text("Continue")
                         .bold()
                 }
-                .buttonStyle(CustomButtonStyle(isDisabled: videoUrl.checkIsEmpty()))
+                .buttonStyle(CustomButtonStyle(isDisabled: videoURL.checkIsEmpty()))
             }
-            .disabled(videoUrl.checkIsEmpty())
+            .disabled(videoURL.checkIsEmpty())
         }
     }
     
@@ -77,21 +77,21 @@ struct URLView<ViewModel>: View where ViewModel: Detailable {
     
     private func didTapContinue() async {
         hideKeyboard()
-        await viewModel.getVideoDetails(for: videoUrl)
+        await viewModel.getVideoDetails(for: videoURL)
     }
 }
 
-//struct VideoURLView_Previews: PreviewProvider{
-//    static var previews: some View {
-//        let viewModelFactory = ViewModelFactory()
-//        Group {
-//            URLView(urlViewModel: viewModelFactory.getURLViewModel())
-//                .previewDevice("iPhone 13 Pro Max")
-//                .previewDisplayName("iPhone 13 Pro Max")
-//            URLView(urlViewModel: viewModelFactory.getURLViewModel())
-//                .previewDevice("iPhone SE (3rd generation)")
-//                .previewDisplayName("iPhone SE")
-//        }
-//        .preferredColorScheme(.dark)
-//    }
-//}
+struct VideoURLView_Previews: PreviewProvider{
+    static var previews: some View {
+        let service = ApiService()
+        Group {
+            URLView(viewModel: URLViewModel(apiService: service))
+                .previewDevice("iPhone 13 Pro Max")
+                .previewDisplayName("iPhone 13 Pro Max")
+            URLView(viewModel: URLViewModel(apiService: service))
+                .previewDevice("iPhone SE (3rd generation)")
+                .previewDisplayName("iPhone SE")
+        }
+        .preferredColorScheme(.dark)
+    }
+}
