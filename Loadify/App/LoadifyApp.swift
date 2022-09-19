@@ -26,16 +26,12 @@ struct LoadifyApp: App {
                 .accentColor(Loadify.Colors.blue_accent)
                 .preferredColorScheme(.dark)
                 .alert(isPresented: $reachablilityManager.isConnected.invert) {
-                    networkAlertView
+                    Alert(
+                        title: Text(Texts.no_internet),
+                        message: Text(Texts.no_internet_message),
+                        dismissButton: .cancel(Text("OK"))
+                    )
                 }
         }
-    }
-    
-    private var networkAlertView: Alert {
-        Alert(
-            title: Text(Texts.no_internet),
-            message: Text(Texts.no_internet_message),
-            dismissButton: .cancel(Text("OK"))
-        )
     }
 }
