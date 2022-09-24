@@ -32,7 +32,7 @@ class ApiService: DataService {
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         try await NetworkKit
             .shared
-            .requestJSON(API.details(youtubeURL: url), type: VideoDetails.self)
+            .requestCodable(API.details(youtubeURL: url), type: VideoDetails.self)
     }
     
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
