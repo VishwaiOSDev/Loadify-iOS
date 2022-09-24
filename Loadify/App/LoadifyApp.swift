@@ -8,11 +8,13 @@
 import SwiftUI
 import FontKit
 import FontInter
+import LoadifyKit
 
 @main
 struct LoadifyApp: App {
     
-    @StateObject var reachablilityManager = ReachablityManager()
+    /// `ReachablityManager` is for checking network connection
+    @StateObject var reachablity = ReachablityManager()
     
     init() {
         FontKit.registerInter()
@@ -25,13 +27,7 @@ struct LoadifyApp: App {
                 .navigationViewStyle(StackNavigationViewStyle())
                 .accentColor(Loadify.Colors.blue_accent)
                 .preferredColorScheme(.dark)
-                .alert(isPresented: $reachablilityManager.isConnected.invert) {
-                    Alert(
-                        title: Text(Texts.no_internet),
-                        message: Text(Texts.no_internet_message),
-                        dismissButton: .cancel(Text("OK"))
-                    )
-                }
+                .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)
         }
     }
 }

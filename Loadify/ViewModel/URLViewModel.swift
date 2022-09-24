@@ -18,31 +18,41 @@ final class URLViewModel: Detailable {
     @Published var showLoader: Bool = false
     @Published var error: Error? = nil
     
-    var apiService: DataService
+    var apiService: DataService? = nil
     var details: VideoDetails? = nil
     
     init(apiService: DataService = ApiService()) {
         self.apiService = apiService
+        Log.verbose("Init")
     }
     
     func getVideoDetails(for url: String) async {
         do {
-            DispatchQueue.main.async {
+            guard let apiService else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 self.showLoader = true
             }
-            // TODO: - Restrict the the apiSerivce.downloadVideo() func.
             let response = try await apiService.fetchVideoDetailsFromApi(for: url)
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 self.details = response
                 self.showLoader = false
                 self.shouldNavigateToDownload = true
             }
         } catch {
             Log.debug(error.localizedDescription)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                guard let self else { return }
                 self.showLoader = false
                 self.error = error
             }
         }
+    }
+    
+    deinit {
+        Log.verbose("DeInit")
+        apiService = nil
+        details = nil
     }
 }

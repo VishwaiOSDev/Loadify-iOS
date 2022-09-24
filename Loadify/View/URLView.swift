@@ -86,8 +86,8 @@ struct VideoURLView_Previews: PreviewProvider{
         let service = ApiService()
         Group {
             URLView(viewModel: URLViewModel(apiService: service))
-                .previewDevice("iPhone 13 Pro Max")
-                .previewDisplayName("iPhone 13 Pro Max")
+                .previewDevice("iPhone 14 Pro Max")
+                .previewDisplayName("iPhone 14 Pro Max")
             URLView(viewModel: URLViewModel(apiService: service))
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
