@@ -10,13 +10,15 @@ import LogKit
 import Photos
 import NetworkKit
 
-protocol DataService {
+protocol FetchService {
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
-    /// Move downloadVideo to new protocol
+}
+
+protocol DownloadService {
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }
 
-class ApiService: DataService {
+class ApiService: FetchService, DownloadService {
     
     var photoService: PhotosServiceProtocol
     var fileService: FileServiceProtocol
