@@ -27,3 +27,13 @@ protocol Describable: DetailableError {
 protocol Navigatable: Describable {
     var shouldNavigateToDownload: Bool { get set }
 }
+
+// MARK: - API Service
+
+protocol FetchService {
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
+}
+
+protocol DownloadService {
+    func downloadVideo(for url: String, quality: VideoQuality) async throws
+}

@@ -10,14 +10,6 @@ import LogKit
 import Photos
 import NetworkKit
 
-protocol FetchService {
-    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
-}
-
-protocol DownloadService {
-    func downloadVideo(for url: String, quality: VideoQuality) async throws
-}
-
 class ApiService: FetchService, DownloadService {
     
     var photoService: PhotosServiceProtocol
