@@ -18,8 +18,9 @@ final class URLViewModel: Detailable {
     @Published var showLoader: Bool = false
     @Published var error: Error? = nil
     
-    var apiService: FetchService? = nil
     var details: VideoDetails? = nil
+
+    private var apiService: FetchService? = nil
     
     init(apiService: FetchService = ApiService()) {
         self.apiService = apiService

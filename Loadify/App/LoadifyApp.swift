@@ -22,7 +22,7 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView(viewModel: URLViewModel())
+            URLView()
                 .embedInNavigation()
                 .navigationViewStyle(StackNavigationViewStyle())
                 .accentColor(Loadify.Colors.blue_accent)

@@ -8,14 +8,10 @@
 import SwiftUI
 import LoadifyKit
 
-struct URLView<ViewModel>: View where ViewModel: Detailable {
+struct URLView: View {
     
-    @ObservedObject var viewModel: ViewModel
+    @StateObject var viewModel = URLViewModel()
     @State var videoURL: String = ""
-    
-    init(viewModel: ViewModel) {
-        self.viewModel = viewModel
-    }
     
     var body: some View {
         ZStack {

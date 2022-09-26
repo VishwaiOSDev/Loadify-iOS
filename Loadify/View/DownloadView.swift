@@ -40,8 +40,8 @@ struct DownloadView: View {
             .navigationBarBackButtonHidden(true)
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
-            .showAlert(item: $viewModel.downloadError) { error in
-                AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
+            .showAlert(item: $viewModel.downloadError) {
+                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
             }
             .showAlert(isPresented: $viewModel.isDownloaded) {
                 AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
