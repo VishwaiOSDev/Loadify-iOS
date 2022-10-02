@@ -17,46 +17,50 @@ struct DownloadView: View {
     var details: VideoDetails
     
     var body: some View {
-        GeometryReader { geomentry in
-            ZStack {
-                Colors.app_background
-                    .edgesIgnoringSafeArea(.all)
-                VStack {
-                    Spacer()
-                        .frame(height: geomentry.size.height * 0.032)
+            GeometryReader { geomentry in
+                ZStack {
+                    Colors.app_background
+                        .edgesIgnoringSafeArea(.all)
                     VStack {
+                        Spacer()
+                            .frame(height: geomentry.size.height * 0.032)
                         VStack {
-                            thumbnailView
-                            videoContentView
+                            VStack {
+                                thumbnailView
+                                videoContentView
+                            }
                         }
+                        .cardView(color: Colors.textfield_background)
+                        Spacer()
+                        footerView
                     }
-                    .cardView(color: Colors.textfield_background)
-                    Spacer()
-                    footerView
+                    .padding()
+                    
                 }
-                .padding()
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    backButton
-                        .foregroundColor(Colors.blue_accent)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .if(!viewModel.showLoader, transform: { view in
+                    view
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                backButton
+                                    .foregroundColor(Colors.blue_accent)
+                            }
+                            ToolbarItem(placement: .principal) {
+                                loadifyLogo
+                                    .frame(height: geomentry.size.height * 0.050)
+                            }
+                        }
+                })
+                .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+                .showAlert(item: $viewModel.downloadError) {
+                    AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
                 }
-                ToolbarItem(placement: .principal) {
-                    loadifyLogo
-                        .frame(height: geomentry.size.height * 0.050)
+                .showAlert(isPresented: $viewModel.isDownloaded) {
+                    AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
                 }
-            }
-            .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
-            }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
             }
             .showProgressBar(when: $viewModel.showLoader, progressValue: $viewModel.downloadProgress)
-        }
     }
     
     private var thumbnailView: some View {

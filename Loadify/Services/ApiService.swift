@@ -12,7 +12,7 @@ import Photos
 import NetworkKit
 
 class ApiService: FetchService {
-
+    
     var downloadProgress = CurrentValueSubject<Double, Never>(0.0)
     
     var photoService: PhotosServiceProtocol
@@ -41,7 +41,19 @@ class ApiService: FetchService {
 
 extension ApiService: DownloadService {
     func downloadVideo(for url: String, quality: VideoQuality) async throws {
-        try await photoService.checkForPhotosPermission()
+        photoService.checkForPhotosPermission { permissionStatus in
+            switch permissionStatus {
+            case .success:
+                self.downloadFromTheServer(url: url, quality: quality)
+                break
+            case .failure(let error):
+                break
+            }
+        }
+        
+    }
+    
+    private func downloadFromTheServer(url: String, quality: VideoQuality) {
         let filePath = fileService.getTemporaryFilePath()
         NetworkKit.shared.requestData(API.download(youtubeURL: url, quality: quality)) { [weak self] result in
             guard let self else { return }
@@ -59,14 +71,6 @@ extension ApiService: DownloadService {
             }
         }
         trackDownloadProgress()
-        //        try await photoService.checkForPhotosPermission()
-        //        let filePath = fileService.getTemporaryFilePath()
-        //        let data = try await NetworkKit
-        //            .shared
-        //            .requestData(API.download(youtubeURL: url, quality: quality))
-        //        try data.write(to: filePath)
-        //        try checkVideoIsCompatible(at: filePath.path)
-        //        UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
     }
     
     private func trackDownloadProgress() {

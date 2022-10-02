@@ -42,14 +42,18 @@ final class DownloaderViewModel: Downloadable {
                     Log.verbose("Completion: \($0)")
                     DispatchQueue.main.async { [weak self] in
                         guard let self else { return }
-                        self.showLoader = false
-                        self.isDownloaded = true
+                        withAnimation {
+                            self.showLoader = false
+                            self.isDownloaded = true
+                        }
                     }
                 }, receiveValue: { [weak self] progress in
                     guard let self else { return }
                     DispatchQueue.main.async {
-                        self.showLoader = true
-                        self.downloadProgress = progress
+                        withAnimation {
+                            self.showLoader = true
+                            self.downloadProgress = progress
+                        }
                     }
                 })
                 .store(in: &anyCancellable)
