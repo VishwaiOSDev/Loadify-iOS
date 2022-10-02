@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 protocol Loadable: ObservableObject {
     var showLoader: Bool { get set }
@@ -35,5 +36,7 @@ protocol FetchService {
 }
 
 protocol DownloadService {
+    var downloadProgress: CurrentValueSubject<Double, Never> { get set }
+    
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }

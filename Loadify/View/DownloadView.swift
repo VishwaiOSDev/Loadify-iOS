@@ -35,6 +35,12 @@ struct DownloadView: View {
                     footerView
                 }
                 .padding()
+                if viewModel.downloadProgress != 0.0 {
+                    VStack {
+                        ProgressView(value: viewModel.downloadProgress)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
@@ -118,7 +124,7 @@ struct DownloadView: View {
     
     private var videoInfoView: some View {
         ZStack(alignment: .center) {
-            InfoView(title: details.likes.toUnits, subTitle: "Likes")
+            InfoView(title: details.likes?.toUnits ?? "N/A", subTitle: "Likes")
                 .frame(maxWidth: .infinity, alignment: .leading)
             InfoView(title: details.viewCount.format, subTitle: "Views")
                 .frame(maxWidth: .infinity, alignment: .center)

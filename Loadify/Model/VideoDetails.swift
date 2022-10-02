@@ -15,7 +15,7 @@ struct VideoDetails: Codable {
     var ownerChannelName: String
     var videoId: String
     var author: Author
-    var likes: Int
+    var likes: Int?
     var videoUrl: String
     var thumbnails: [Thumbnail]
     
