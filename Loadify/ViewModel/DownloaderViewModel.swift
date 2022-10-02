@@ -36,22 +36,23 @@ final class DownloaderViewModel: Downloadable {
     
     func downloadVideo(url: String, with quality: VideoQuality) async {
         do {
-            DispatchQueue.main.async {
-                self.showLoader = true
-            }
             try await apiService.downloadVideo(for: url, quality: quality)
             apiService.downloadProgress
-                .sink { [weak self] progress in
+                .sink(receiveCompletion: {
+                    Log.verbose("Completion: \($0)")
+                    DispatchQueue.main.async { [weak self] in
+                        guard let self else { return }
+                        self.showLoader = false
+                        self.isDownloaded = true
+                    }
+                }, receiveValue: { [weak self] progress in
                     guard let self else { return }
                     DispatchQueue.main.async {
+                        self.showLoader = true
                         self.downloadProgress = progress
                     }
-                }
+                })
                 .store(in: &anyCancellable)
-            DispatchQueue.main.async {
-                self.showLoader = false
-                self.isDownloaded = true
-            }
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async {
                 self.showSettingsAlert = true

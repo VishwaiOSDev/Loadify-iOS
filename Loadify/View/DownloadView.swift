@@ -35,23 +35,10 @@ struct DownloadView: View {
                     footerView
                 }
                 .padding()
-                if viewModel.downloadProgress != 0.0 {
-                    VStack {
-                        ProgressView(value: viewModel.downloadProgress)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-            .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
-            .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
-            }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
-            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     backButton
@@ -62,6 +49,13 @@ struct DownloadView: View {
                         .frame(height: geomentry.size.height * 0.050)
                 }
             }
+            .showAlert(item: $viewModel.downloadError) {
+                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
+            }
+            .showAlert(isPresented: $viewModel.isDownloaded) {
+                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
+            }
+            .showProgressBar(when: $viewModel.showLoader, progressValue: $viewModel.downloadProgress)
         }
     }
     

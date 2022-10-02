@@ -72,10 +72,13 @@ extension ApiService: DownloadService {
     private func trackDownloadProgress() {
         NetworkKit.shared.downloadProgress
             .removeDuplicates()
-            .sink { [weak self] progress in
+            .sink(receiveCompletion: { [weak self] _ in
+                guard let self else { return }
+                self.downloadProgress.send(completion: .finished)
+            }, receiveValue: { [weak self] progress in
                 guard let self else { return }
                 self.downloadProgress.send(progress)
-            }
+            })
             .store(in: &anyCancellable)
     }
 }
