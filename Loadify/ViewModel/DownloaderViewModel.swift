@@ -38,13 +38,13 @@ final class DownloaderViewModel: Downloadable {
         do {
             try await apiService.downloadVideo(for: url, quality: quality)
             apiService.downloadProgress
-                .sink(receiveCompletion: {
-                    Log.verbose("Completion: \($0)")
+                .sink(receiveCompletion: { _ in
                     DispatchQueue.main.async { [weak self] in
                         guard let self else { return }
                         withAnimation {
                             self.showLoader = false
                             self.isDownloaded = true
+                            self.downloadProgress = 0.0
                         }
                     }
                 }, receiveValue: { [weak self] progress in

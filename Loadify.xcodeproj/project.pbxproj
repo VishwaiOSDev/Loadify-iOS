@@ -25,7 +25,6 @@
 		8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D3112861843B00D32927 /* ViewController+Extension.swift */; };
 		88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88684DC62851B69600D7DA1C /* MenuButton.swift */; };
 		886CD1CB285314DC00662882 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD1CA285314DC00662882 /* CardView.swift */; };
-		88807CC328CDF6FB00185386 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88807CC228CDF6FB00185386 /* NetworkKit */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
@@ -37,6 +36,7 @@
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
 		88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B2C171284FB46D00B9DCF7 /* URLSession+Extension.swift */; };
+		88B2C4A728F2B82B00E458B1 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88B2C4A628F2B82B00E458B1 /* NetworkKit */; };
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 		88D1276C2848B63B00D8750B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276B2848B63B00D8750B /* InfoView.swift */; };
 		88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1276D2848CDC000D8750B /* ChannelView.swift */; };
@@ -82,7 +82,6 @@
 		8849D3112861843B00D32927 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		8872FEDE28D345F50071D256 /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkKit; path = ../NetworkKit; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
 		88B2C171284FB46D00B9DCF7 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		88B2C4A528F2B81F00E458B1 /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkKit; path = ../NetworkKit; sourceTree = "<group>"; };
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		88D1276B2848B63B00D8750B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		88D1276D2848CDC000D8750B /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				88D9D1EA28C39EED00D6EB79 /* LogKit in Frameworks */,
 				88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
-				88807CC328CDF6FB00185386 /* NetworkKit in Frameworks */,
+				88B2C4A728F2B82B00E458B1 /* NetworkKit in Frameworks */,
 				88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,8 +196,8 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
+				88B2C4A528F2B81F00E458B1 /* NetworkKit */,
 				8823CFC928DF3FE4007B69A3 /* LoadifyKit */,
-				8872FEDE28D345F50071D256 /* NetworkKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				88A729AB28264AD100B5FE61 /* Products */,
@@ -377,7 +377,7 @@
 				88D9D1E528C39EED00D6EB79 /* FontInter */,
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
 				88D9D1E928C39EED00D6EB79 /* LogKit */,
-				88807CC228CDF6FB00185386 /* NetworkKit */,
+				88B2C4A628F2B82B00E458B1 /* NetworkKit */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -797,9 +797,8 @@
 			package = 88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */;
 			productName = LoadifyKit;
 		};
-		88807CC228CDF6FB00185386 /* NetworkKit */ = {
+		88B2C4A628F2B82B00E458B1 /* NetworkKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */;
 			productName = NetworkKit;
 		};
 		88D9D1E528C39EED00D6EB79 /* FontInter */ = {

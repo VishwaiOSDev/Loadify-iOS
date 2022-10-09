@@ -17,50 +17,47 @@ struct DownloadView: View {
     var details: VideoDetails
     
     var body: some View {
-            GeometryReader { geomentry in
-                ZStack {
-                    Colors.app_background
-                        .edgesIgnoringSafeArea(.all)
+        GeometryReader { geomentry in
+            ZStack {
+                Colors.app_background
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Spacer()
+                        .frame(height: geomentry.size.height * 0.032)
                     VStack {
-                        Spacer()
-                            .frame(height: geomentry.size.height * 0.032)
                         VStack {
-                            VStack {
-                                thumbnailView
-                                videoContentView
-                            }
+                            thumbnailView
+                            videoContentView
                         }
-                        .cardView(color: Colors.textfield_background)
-                        Spacer()
-                        footerView
                     }
-                    .padding()
-                    
+                    .cardView(color: Colors.textfield_background)
+                    Spacer()
+                    footerView
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarBackButtonHidden(true)
-                .if(!viewModel.showLoader, transform: { view in
-                    view
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                backButton
-                                    .foregroundColor(Colors.blue_accent)
-                            }
-                            ToolbarItem(placement: .principal) {
-                                loadifyLogo
-                                    .frame(height: geomentry.size.height * 0.050)
-                            }
-                        }
-                })
-                .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
-                .showAlert(item: $viewModel.downloadError) {
-                    AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
+                .padding()
+                
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backButton
+                        .foregroundColor(Colors.blue_accent)
                 }
-                .showAlert(isPresented: $viewModel.isDownloaded) {
-                    AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
+                ToolbarItem(placement: .principal) {
+                    loadifyLogo
+                        .frame(height: geomentry.size.height * 0.050)
                 }
             }
-            .showProgressBar(when: $viewModel.showLoader, progressValue: $viewModel.downloadProgress)
+            .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .showAlert(item: $viewModel.downloadError) {
+                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
+            }
+            .showAlert(isPresented: $viewModel.isDownloaded) {
+                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
+            }
+        }
+        .showProgressBar(when: $viewModel.showLoader, progressValue: $viewModel.downloadProgress)
     }
     
     private var thumbnailView: some View {
