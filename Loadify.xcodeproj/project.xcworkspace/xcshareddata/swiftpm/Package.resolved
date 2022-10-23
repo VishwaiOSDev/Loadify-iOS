@@ -10,12 +10,30 @@
       }
     },
     {
+      "identity" : "loadifykit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:VishwaiOSDev/LoadifyKit.git",
+      "state" : {
+        "revision" : "a48cabfeeb70ccd697cc2b97b07fe66fe9552a66",
+        "version" : "0.1.0"
+      }
+    },
+    {
       "identity" : "logkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/VishwaiOSDev/LogKit",
       "state" : {
-        "revision" : "9dd0dce3dc8ddf8f32a56abad595d4938525d464",
-        "version" : "0.0.9"
+        "revision" : "87284a8a6378f753c0bdee7549b7fc325134421b",
+        "version" : "0.0.10"
+      }
+    },
+    {
+      "identity" : "networkkit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
+      "state" : {
+        "revision" : "8cda0c089719d19a289ffcdb4a618865f7d39676",
+        "version" : "0.0.2"
       }
     }
   ],

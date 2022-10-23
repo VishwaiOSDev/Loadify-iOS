@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct ChannelView: View {
     
@@ -23,8 +24,16 @@ struct ChannelView: View {
     }
     
     private var channelImageView: some View {
-        Image(systemName: "photo.circle.fill")
-            .data(url: profileImage)
+        ImageView(urlString: profileImage) {
+            createImage(image: Image(systemName: "photo.circle.fill"))
+        } image: {
+            createImage(image: $0)
+        }
+    }
+    
+    private func createImage(image: Image) -> some View {
+        image
+            .resizable()
             .frame(width: 40, height: 40)
             .clipShape(Circle())
     }

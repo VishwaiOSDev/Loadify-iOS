@@ -35,8 +35,6 @@ protocol FetchService {
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
 }
 
-protocol DownloadService {
-    var downloadProgress: CurrentValueSubject<Double, Never> { get set }
-    
+protocol DownloadService {    
     func downloadVideo(for url: String, quality: VideoQuality) async throws
 }

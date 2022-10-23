@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LogKit
 import LoadifyKit
 
 struct DownloadView: View {
@@ -56,20 +57,28 @@ struct DownloadView: View {
             .showAlert(isPresented: $viewModel.isDownloaded) {
                 AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
             }
+            .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
         }
-        .showProgressBar(when: $viewModel.showLoader, progressValue: $viewModel.downloadProgress)
     }
     
     private var thumbnailView: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image("not_found")
-                .data(url: details.thumbnails[details.thumbnails.count - 1].url)
-                .frame(minHeight: 188)
-                .scaledToFit()
-                .clipped()
+            ImageView(urlString: details.thumbnails[details.thumbnails.count - 1].url) {
+                thumbnailModifier(image: Image("not_found"))
+            } image: {
+                thumbnailModifier(image: $0)
+            }
             durationView
                 .offset(x: -5, y: -5)
         }
+    }
+    
+    private func thumbnailModifier(image: Image) -> some View {
+        image
+            .resizable()
+            .frame(minHeight: 188)
+            .scaledToFit()
+            .clipped()
     }
     
     private var durationView: some View {
