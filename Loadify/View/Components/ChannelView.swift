@@ -28,6 +28,8 @@ struct ChannelView: View {
             createImage(image: Image(systemName: "photo.circle.fill"))
         } image: {
             createImage(image: $0)
+        } onLoading: {
+            ProgressView()
         }
     }
     

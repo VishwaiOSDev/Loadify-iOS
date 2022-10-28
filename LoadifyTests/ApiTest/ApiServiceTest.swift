@@ -10,12 +10,12 @@ import XCTest
 
 class ApiServiceTest: XCTestCase {
     
-    var urlViewModel: URLViewModel!
+    var urlViewModel: URLMockViewModel!
     let videoUrl = "https://www.youtube.com/watch?v=66XwG1CLHuU"
     let gitHubUrl = "https://github.com/VishwaiOSDev"
     
     override func setUpWithError() throws {
-        urlViewModel = URLViewModel(apiService: MockApiService())
+        urlViewModel = URLMockViewModel(apiService: MockApiService())
     }
     
     override func tearDownWithError() throws {
