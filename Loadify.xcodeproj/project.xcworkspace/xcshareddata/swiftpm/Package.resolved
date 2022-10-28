@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:VishwaiOSDev/LoadifyKit.git",
       "state" : {
-        "revision" : "a48cabfeeb70ccd697cc2b97b07fe66fe9552a66",
-        "version" : "0.1.0"
+        "revision" : "8bb8ff13c3cda65594ceb6c2f7fc798ed4f2c9e5",
+        "version" : "0.2.0"
       }
     },
     {

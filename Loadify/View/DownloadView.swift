@@ -67,6 +67,8 @@ struct DownloadView: View {
                 thumbnailModifier(image: Image("not_found"))
             } image: {
                 thumbnailModifier(image: $0)
+            } onLoading: {
+                ProgressView()
             }
             durationView
                 .offset(x: -5, y: -5)
