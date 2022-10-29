@@ -11,11 +11,11 @@ import LoadifyKit
 struct URLView: View {
     
     @StateObject var viewModel = URLViewModel()
-    @State var videoURL: String = ""
+    @State private var videoURL: String = ""
     
     var body: some View {
         ZStack {
-            Loadify.Colors.app_background
+            LoadifyColors.appBackground
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 headerView
@@ -29,16 +29,16 @@ struct URLView: View {
         .navigationBarHidden(true)
         .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
         .showAlert(item: $viewModel.error) { error in
-            AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
+            AlertUI(title: error.localizedDescription, subtitle: Texts.tryAgain.randomElement())
         }
     }
     
     @ViewBuilder
     private var headerView: some View {
-        Image(Loadify.Images.loadify_icon)
+        LoadifyAssets.loadifyIcon
             .frame(maxWidth: 150, maxHeight: 150)
         Text("The secret of getting ahead is getting started.")
-            .foregroundColor(Loadify.Colors.grey_text)
+            .foregroundColor(LoadifyColors.greyText)
             .font(.subheadline)
             .multilineTextAlignment(.center)
     }
@@ -77,7 +77,7 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider{
+struct VideoURLView_Previews: PreviewProvider {
     static var previews: some View {
         let service = ApiService()
         Group {

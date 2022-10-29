@@ -25,7 +25,7 @@ struct LoadifyApp: App {
             URLView()
                 .embedInNavigation()
                 .navigationViewStyle(StackNavigationViewStyle())
-                .accentColor(Loadify.Colors.blue_accent)
+                .accentColor(LoadifyColors.blueAccent)
                 .preferredColorScheme(.dark)
                 .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)
         }

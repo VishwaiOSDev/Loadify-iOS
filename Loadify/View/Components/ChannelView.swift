@@ -50,7 +50,7 @@ struct ChannelView: View {
             .minimumScaleFactor(0.5)
         subscriberCountView
             .font(.footnote)
-            .foregroundColor(Loadify.Colors.grey_text)
+            .foregroundColor(LoadifyColors.greyText)
     }
     
     @ViewBuilder

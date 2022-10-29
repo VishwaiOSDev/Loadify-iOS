@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct InfoView: View {
     
@@ -20,7 +21,7 @@ struct InfoView: View {
                 .lineLimit(1)
             Text("\(subTitle)")
                 .font(.footnote)
-                .foregroundColor(Loadify.Colors.grey_text)
+                .foregroundColor(LoadifyColors.greyText)
         }
         .foregroundColor(.white)
     }
