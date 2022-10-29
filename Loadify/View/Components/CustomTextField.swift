@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct CustomTextField: View {
     
@@ -25,14 +26,14 @@ struct CustomTextField: View {
             ZStack(alignment: .leading) {
                 if text.isEmpty {
                     Text("\(placeHolder)")
-                        .foregroundColor(Loadify.Colors.grey_text)
+                        .foregroundColor(LoadifyColors.greyText)
                 }
                 textFieldView
                     .disableAutocorrection(true)
             }
             .frame(maxWidth: .infinity, maxHeight: 56)
             .padding(.horizontal, 16)
-            .background(Loadify.Colors.textfield_background)
+            .background(LoadifyColors.textfieldBackground)
             .cornerRadius(10)
         }
     }

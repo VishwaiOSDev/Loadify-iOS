@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct CustomButtonStyle: ButtonStyle {
     
-    var buttonColor: Color = Loadify.Colors.blue_accent
+    var buttonColor: Color = LoadifyColors.blueAccent
     var cornerRadius: CGFloat = 10
     var isDisabled: Bool = false
     
     init(
-        buttonColor: Color = Loadify.Colors.blue_accent,
+        buttonColor: Color = LoadifyColors.blueAccent,
         cornerRadius: CGFloat = 10,
         isDisabled: Bool = false
     ) {

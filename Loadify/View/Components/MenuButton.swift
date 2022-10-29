@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyKit
 
 struct MenuButton: View {
     
@@ -22,7 +23,7 @@ struct MenuButton: View {
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, maxHeight: 56)
         .font(.subheadline)
-        .foregroundColor(Loadify.Colors.grey_text)
+        .foregroundColor(LoadifyColors.greyText)
         .background(Color.black)
         .cornerRadius(10)
     }

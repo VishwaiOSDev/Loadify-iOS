@@ -15,7 +15,7 @@ struct URLView: View {
     
     var body: some View {
         ZStack {
-            Loadify.Colors.app_background
+            LoadifyColors.appBackground
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 headerView
@@ -38,7 +38,7 @@ struct URLView: View {
         Image(Loadify.Images.loadify_icon)
             .frame(maxWidth: 150, maxHeight: 150)
         Text("The secret of getting ahead is getting started.")
-            .foregroundColor(Loadify.Colors.grey_text)
+            .foregroundColor(LoadifyColors.greyText)
             .font(.subheadline)
             .multilineTextAlignment(.center)
     }

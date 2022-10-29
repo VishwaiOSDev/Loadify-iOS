@@ -20,7 +20,7 @@ struct DownloadView: View {
     var body: some View {
         GeometryReader { geomentry in
             ZStack {
-                Colors.app_background
+                LoadifyColors.appBackground
                     .edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
@@ -31,7 +31,7 @@ struct DownloadView: View {
                             videoContentView
                         }
                     }
-                    .cardView(color: Colors.textfield_background)
+                    .cardView(color: LoadifyColors.textfieldBackground)
                     Spacer()
                     footerView
                 }
@@ -150,7 +150,7 @@ struct DownloadView: View {
     private var madeWithSwift: some View {
         Text("Made with 💙 using Swift")
             .font(.footnote)
-            .foregroundColor(Colors.grey_text)
+            .foregroundColor(LoadifyColors.greyText)
     }
     
     private var permissionAlert: Alert {
@@ -181,7 +181,7 @@ struct DownloadView: View {
     @ToolbarContentBuilder
     private func navigationBar(_ geomentry: GeometryProxy) -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            backButton.foregroundColor(Colors.blue_accent)
+            backButton.foregroundColor(LoadifyColors.blueAccent)
         }
         ToolbarItem(placement: .principal) {
             loadifyLogo.frame(height: geomentry.size.height * 0.050)

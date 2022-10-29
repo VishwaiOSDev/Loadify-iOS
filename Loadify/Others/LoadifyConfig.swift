@@ -8,16 +8,9 @@
 import SwiftUI
 
 typealias Texts = Loadify.Texts
-typealias Colors = Loadify.Colors
 typealias Images = Loadify.Images
 
 struct Loadify {
-    struct Colors {
-        static let app_background = Color("app_background")
-        static let grey_text = Color("grey_text")
-        static let textfield_background = Color("textfield_background")
-        static let blue_accent = Color("blue_accent")
-    }
     
     struct Images {
         static let loadify_icon = "loadify_icon"
