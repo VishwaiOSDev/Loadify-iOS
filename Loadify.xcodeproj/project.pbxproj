@@ -77,7 +77,6 @@
 		88379937283A1A0F00DDBA79 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		88469C0E282B979A009C553C /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
 		8849D3112861843B00D32927 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
-		884A760E290D6B9F006A20E8 /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +191,6 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
-				884A760E290D6B9F006A20E8 /* LoadifyKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				88A729AB28264AD100B5FE61 /* Products */,

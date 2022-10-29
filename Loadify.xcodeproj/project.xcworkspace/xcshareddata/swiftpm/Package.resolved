@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "loadifykit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:VishwaiOSDev/LoadifyKit.git",
+      "state" : {
+        "revision" : "eeb5cf91d4baddc40c155a7494f3105022daa88a",
+        "version" : "0.3.0"
+      }
+    },
+    {
       "identity" : "logkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/VishwaiOSDev/LogKit",
