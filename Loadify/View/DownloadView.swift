@@ -11,8 +11,8 @@ import LoadifyKit
 
 struct DownloadView: View {
     
-    @State var selectedQuality: VideoQuality = .none
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
+    @State private var selectedQuality: VideoQuality = .none
     @Environment(\.presentationMode) var presentationMode
     
     var details: VideoDetails
@@ -36,20 +36,10 @@ struct DownloadView: View {
                     footerView
                 }
                 .padding()
-                
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    backButton
-                        .foregroundColor(Colors.blue_accent)
-                }
-                ToolbarItem(placement: .principal) {
-                    loadifyLogo
-                        .frame(height: geomentry.size.height * 0.050)
-                }
-            }
+            .toolbar { navigationBar(geomentry) }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showAlert(item: $viewModel.downloadError) {
                 AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
@@ -186,6 +176,16 @@ struct DownloadView: View {
         Image(Images.loadify_horizontal)
             .resizable()
             .scaledToFit()
+    }
+    
+    @ToolbarContentBuilder
+    private func navigationBar(_ geomentry: GeometryProxy) -> some ToolbarContent {
+        ToolbarItem(placement: .navigationBarLeading) {
+            backButton.foregroundColor(Colors.blue_accent)
+        }
+        ToolbarItem(placement: .principal) {
+            loadifyLogo.frame(height: geomentry.size.height * 0.050)
+        }
     }
     
     private func didTapOnQuality(_ quality: VideoQuality) {

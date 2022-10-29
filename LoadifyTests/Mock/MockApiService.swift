@@ -38,6 +38,4 @@ final class MockApiService: FetchService, Mockable {
             throw DetailsError.notVaildYouTubeUrl
         }
     }
-    
-    func downloadVideo(for url: String, quality: VideoQuality) async throws { }
 }

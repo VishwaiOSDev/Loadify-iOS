@@ -11,7 +11,7 @@ import LoadifyKit
 struct URLView: View {
     
     @StateObject var viewModel = URLViewModel()
-    @State var videoURL: String = ""
+    @State private var videoURL: String = ""
     
     var body: some View {
         ZStack {
@@ -77,7 +77,7 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider{
+struct VideoURLView_Previews: PreviewProvider {
     static var previews: some View {
         let service = ApiService()
         Group {
