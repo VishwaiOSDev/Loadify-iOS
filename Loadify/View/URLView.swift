@@ -29,13 +29,13 @@ struct URLView: View {
         .navigationBarHidden(true)
         .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
         .showAlert(item: $viewModel.error) { error in
-            AlertUI(title: error.localizedDescription, subtitle: Texts.try_again.randomElement())
+            AlertUI(title: error.localizedDescription, subtitle: Texts.tryAgain.randomElement())
         }
     }
     
     @ViewBuilder
     private var headerView: some View {
-        Image(Loadify.Images.loadify_icon)
+        LoadifyAssets.loadifyIcon
             .frame(maxWidth: 150, maxHeight: 150)
         Text("The secret of getting ahead is getting started.")
             .foregroundColor(LoadifyColors.greyText)

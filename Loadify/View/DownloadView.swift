@@ -42,10 +42,10 @@ struct DownloadView: View {
             .toolbar { navigationBar(geomentry) }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: Texts.try_again.randomElement())
+                AlertUI(title: $0.localizedDescription, subtitle: Texts.tryAgain.randomElement())
             }
             .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: Texts.downloaded_title, subtitle: Texts.downloaded_subtitle, alertType: .success)
+                AlertUI(title: Texts.downloadedTitle, subtitle: Texts.downloadedSubtitle, alertType: .success)
             }
             .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
         }
@@ -54,7 +54,7 @@ struct DownloadView: View {
     private var thumbnailView: some View {
         ZStack(alignment: .bottomTrailing) {
             ImageView(urlString: details.thumbnails[details.thumbnails.count - 1].url) {
-                thumbnailModifier(image: Image("not_found"))
+                thumbnailModifier(image: LoadifyAssets.notFound)
             } image: {
                 thumbnailModifier(image: $0)
             } onLoading: {
@@ -155,8 +155,8 @@ struct DownloadView: View {
     
     private var permissionAlert: Alert {
         Alert(
-            title: Text(Texts.photos_access_title),
-            message: Text(Texts.photos_access_subtitle),
+            title: Text(Texts.photosAccessTitle),
+            message: Text(Texts.photosAccessSubtitle),
             primaryButton: .default(Text("Settings"), action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }),
@@ -173,7 +173,7 @@ struct DownloadView: View {
     }
     
     private var loadifyLogo: some View {
-        Image(Images.loadify_horizontal)
+        LoadifyAssets.loadifyHorizontal
             .resizable()
             .scaledToFit()
     }
