@@ -27,9 +27,9 @@ struct URLView: View {
             .padding()
         }
         .navigationBarHidden(true)
-        .showLoader(Texts.loading, isPresented: $viewModel.showLoader)
+        .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
         .showAlert(item: $viewModel.error) { error in
-            AlertUI(title: error.localizedDescription, subtitle: Texts.tryAgain.randomElement())
+            AlertUI(title: error.localizedDescription, subtitle: LoadifyTexts.tryAgain.randomElement())
         }
     }
     
@@ -37,9 +37,9 @@ struct URLView: View {
     private var headerView: some View {
         LoadifyAssets.loadifyIcon
             .frame(maxWidth: 150, maxHeight: 150)
-        Text("The secret of getting ahead is getting started.")
+        Text(LoadifyTexts.loadifySubTitle)
             .foregroundColor(LoadifyColors.greyText)
-            .font(.subheadline)
+            .font(.inter(.regular(size: 16)))
             .multilineTextAlignment(.center)
     }
     
@@ -50,15 +50,8 @@ struct URLView: View {
                 destination: downloadView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
-                Button {
-                    Task {
-                        await didTapContinue()
-                    }
-                } label: {
-                    Text("Continue")
-                        .bold()
-                }
-                .buttonStyle(CustomButtonStyle(isDisabled: videoURL.checkIsEmpty()))
+                continueButton
+                    .buttonStyle(CustomButtonStyle(isDisabled: videoURL.checkIsEmpty()))
             }
             .disabled(videoURL.checkIsEmpty())
         }
@@ -68,6 +61,17 @@ struct URLView: View {
     private var downloadView: some View {
         if let details = viewModel.details {
             DownloadView(details: details)
+        }
+    }
+    
+    private var continueButton: some View {
+        Button {
+            Task {
+                await didTapContinue()
+            }
+        } label: {
+            Text("Continue")
+                .font(.inter(.bold(size: 18)))
         }
     }
     

@@ -10,18 +10,14 @@
 		88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */; };
 		88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88083D642855D7C70027BA0D /* LoadifyKit */; };
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
-		8815692028579A50009B9730 /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8815691F28579A50009B9730 /* Binding+Extension.swift */; };
 		881D042E2829416F0006C0B7 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
-		882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA528296E5F0094BA6E /* View+Extension.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
 		882ECF9B28CDB55E001F4C7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882ECF9A28CDB55E001F4C7D /* API.swift */; };
 		883233872855F34000BF38B5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883233862855F34000BF38B5 /* Double+Extension.swift */; };
 		88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379935283A19F400DDBA79 /* Int+Extension.swift */; };
 		88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379937283A1A0F00DDBA79 /* String+Extension.swift */; };
-		88469C0F282B979A009C553C /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88469C0E282B979A009C553C /* Task+Extension.swift */; };
-		8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849D3112861843B00D32927 /* ViewController+Extension.swift */; };
 		88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88684DC62851B69600D7DA1C /* MenuButton.swift */; };
 		886CD1CB285314DC00662882 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD1CA285314DC00662882 /* CardView.swift */; };
 		888C864B29059F6300E86D85 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 888C864A29059F6300E86D85 /* NetworkKit */; };
@@ -29,8 +25,6 @@
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
 		88A729B528264AD400B5FE61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B428264AD400B5FE61 /* Preview Assets.xcassets */; };
-		88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729C028265A9500B5FE61 /* CustomTextField.swift */; };
-		88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */; };
 		88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A22851E7B900D00040 /* PhotosService.swift */; };
 		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
@@ -65,18 +59,15 @@
 		88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiService+Extension.swift"; sourceTree = "<group>"; };
 		88083D6A2855D95A0027BA0D /* LoadifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88083D732855D9D00027BA0D /* VideoInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoTest.swift; sourceTree = "<group>"; };
-		8815691F28579A50009B9730 /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 		881D042D2829416F0006C0B7 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		88211F35290E8A74006DA3CD /* LoadifyKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = LoadifyKit; path = ../LoadifyKit; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
 		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
-		882A8BA528296E5F0094BA6E /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
 		882ECF9A28CDB55E001F4C7D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		883233862855F34000BF38B5 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		88379935283A19F400DDBA79 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		88379937283A1A0F00DDBA79 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		88469C0E282B979A009C553C /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
-		8849D3112861843B00D32927 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		88684DC62851B69600D7DA1C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		886CD1CA285314DC00662882 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +75,6 @@
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
 		88A729B128264AD400B5FE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88A729B428264AD400B5FE61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		88A729C028265A9500B5FE61 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		88AFF4A22851E7B900D00040 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
@@ -160,12 +149,7 @@
 				883233862855F34000BF38B5 /* Double+Extension.swift */,
 				88379937283A1A0F00DDBA79 /* String+Extension.swift */,
 				88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */,
-				88469C0E282B979A009C553C /* Task+Extension.swift */,
-				882A8BA528296E5F0094BA6E /* View+Extension.swift */,
 				88B2C171284FB46D00B9DCF7 /* URLSession+Extension.swift */,
-				88AFF4A02851E65E00D00040 /* UINavigationController+Extension.swift */,
-				8815691F28579A50009B9730 /* Binding+Extension.swift */,
-				8849D3112861843B00D32927 /* ViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -191,6 +175,7 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
+				88211F35290E8A74006DA3CD /* LoadifyKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				88A729AB28264AD100B5FE61 /* Products */,
@@ -269,7 +254,6 @@
 		88A729BF28265A7300B5FE61 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				88A729C028265A9500B5FE61 /* CustomTextField.swift */,
 				88D1276B2848B63B00D8750B /* InfoView.swift */,
 				88D1276D2848CDC000D8750B /* ChannelView.swift */,
 				88684DC62851B69600D7DA1C /* MenuButton.swift */,
@@ -456,15 +440,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8815692028579A50009B9730 /* Binding+Extension.swift in Sources */,
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
-				8849D3122861843B00D32927 /* ViewController+Extension.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConstants.swift in Sources */,
-				882A8BA628296E5F0094BA6E /* View+Extension.swift in Sources */,
 				886CD1CB285314DC00662882 /* CardView.swift in Sources */,
 				88D1276C2848B63B00D8750B /* InfoView.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
@@ -472,11 +453,9 @@
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
-				88AFF4A12851E65E00D00040 /* UINavigationController+Extension.swift in Sources */,
 				88D1276E2848CDC000D8750B /* ChannelView.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,
-				88A729C128265A9500B5FE61 /* CustomTextField.swift in Sources */,
 				881D042E2829416F0006C0B7 /* CustomButtonStyle.swift in Sources */,
 				88684DC72851B69600D7DA1C /* MenuButton.swift in Sources */,
 				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
@@ -484,7 +463,6 @@
 				883233872855F34000BF38B5 /* Double+Extension.swift in Sources */,
 				88B2C172284FB46D00B9DCF7 /* URLSession+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
-				88469C0F282B979A009C553C /* Task+Extension.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

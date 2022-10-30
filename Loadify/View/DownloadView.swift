@@ -42,12 +42,12 @@ struct DownloadView: View {
             .toolbar { navigationBar(geomentry) }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: Texts.tryAgain.randomElement())
+                AlertUI(title: $0.localizedDescription, subtitle: LoadifyTexts.tryAgain.randomElement())
             }
             .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: Texts.downloadedTitle, subtitle: Texts.downloadedSubtitle, alertType: .success)
+                AlertUI(title: LoadifyTexts.downloadedTitle, subtitle: LoadifyTexts.downloadedSubtitle, alertType: .success)
             }
-            .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
+            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
         }
     }
     
@@ -155,8 +155,8 @@ struct DownloadView: View {
     
     private var permissionAlert: Alert {
         Alert(
-            title: Text(Texts.photosAccessTitle),
-            message: Text(Texts.photosAccessSubtitle),
+            title: Text(LoadifyTexts.photosAccessTitle),
+            message: Text(LoadifyTexts.photosAccessSubtitle),
             primaryButton: .default(Text("Settings"), action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }),
