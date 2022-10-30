@@ -81,7 +81,7 @@ struct DownloadView: View {
     
     private var durationView: some View {
         Text(details.lengthSeconds.getDuration)
-            .font(.caption2)
+            .font(.inter(.regular(size: 10)))
             .foregroundColor(.white)
             .padding(.horizontal, 4)
             .padding(.vertical, 2)
@@ -106,16 +106,6 @@ struct DownloadView: View {
         .padding(.horizontal, 12)
     }
     
-    private var menuView: some View {
-        Menu {
-            Button(VideoQuality.high.description) { didTapOnQuality(.high) }
-            Button(VideoQuality.medium.description) { didTapOnQuality(.medium) }
-            Button(VideoQuality.low.description) { didTapOnQuality(.low) }
-        } label: {
-            MenuButton(title: selectedQuality.description)
-        }
-    }
-    
     private var videoTitleView: some View {
         Text(details.title)
             .foregroundColor(.white)
@@ -129,11 +119,23 @@ struct DownloadView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             InfoView(title: details.viewCount.format, subTitle: "Views")
                 .frame(maxWidth: .infinity, alignment: .center)
-            InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
-                .frame(maxWidth: .infinity, alignment: .trailing)
+            InfoView(
+                title: details.publishDate.formatter(),
+                subTitle: details.publishDate.formatter(.year)
+            ).frame(maxWidth: .infinity, alignment: .trailing)
         }
         .frame(maxWidth: .infinity)
         .padding(.all, 4)
+    }
+    
+    private var menuView: some View {
+        Menu {
+            Button(VideoQuality.high.description) { didTapOnQuality(.high) }
+            Button(VideoQuality.medium.description) { didTapOnQuality(.medium) }
+            Button(VideoQuality.low.description) { didTapOnQuality(.low) }
+        } label: {
+            MenuButton(title: selectedQuality.description)
+        }
     }
     
     private var footerView: some View {
@@ -144,7 +146,7 @@ struct DownloadView: View {
                 }
             } label: {
                 Text("Download")
-                    .bold()
+                    .font(.inter(.bold(size: 18)))
             }
             .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
             .disabled(selectedQuality == .none ? true: false)
@@ -154,7 +156,7 @@ struct DownloadView: View {
     
     private var madeWithSwift: some View {
         Text("Made with 💙 using Swift")
-            .font(.footnote)
+            .font(.inter(.regular(size: 14)))
             .foregroundColor(LoadifyColors.greyText)
     }
     
