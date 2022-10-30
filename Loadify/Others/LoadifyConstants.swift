@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-typealias Texts = Loadify.Texts
+typealias LoadifyTexts = Loadify.Texts
 
 struct Loadify {
     
@@ -16,6 +16,7 @@ struct Loadify {
         static let downloading = "DOWNLOADING"
         static let downloadedTitle = "Downloaded Successfully"
         static let downloadedSubtitle = "Added to photos"
+        static let loadifySubTitle = "The secret of getting ahead is getting started."
         static let photosAccessTitle = "Photos access is required"
         static let photosAccessSubtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
         static let tryAgain: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]

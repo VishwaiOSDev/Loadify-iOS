@@ -8,6 +8,13 @@
 import Foundation
 
 struct VideoDetails: Codable {
+    
+    private enum CodingKeys: String, CodingKey {
+        case videoUrl = "video_url"
+        
+        case title, lengthSeconds, viewCount, publishDate, ownerChannelName, videoId, author, likes, thumbnails
+    }
+    
     var title: String
     var lengthSeconds: String
     var viewCount: String
@@ -18,12 +25,38 @@ struct VideoDetails: Codable {
     var likes: Int?
     var videoUrl: String
     var thumbnails: [Thumbnail]
+}
+
+struct Author: Codable {
+    var id: String
+    var name: String
+    var user: String
+    var channelUrl: String
+    var thumbnails: [Thumbnail]
+    var subscriberCount: Int?
     
     private enum CodingKeys: String, CodingKey {
-        case videoUrl = "video_url"
+        case channelUrl = "channel_url"
+        case subscriberCount = "subscriber_count"
         
-        case title, lengthSeconds, viewCount, publishDate, ownerChannelName, videoId, author, likes, thumbnails
+        case id
+        case name
+        case user
+        case thumbnails
     }
+}
+
+struct Thumbnail: Codable {
+    var url: String
+    var width: Int
+    var height: Int
+}
+
+struct ErrorModel: Codable {
+    var message: String
+}
+
+extension VideoDetails {
     
     static let previews: VideoDetails = VideoDetails(
         title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
@@ -56,33 +89,4 @@ struct VideoDetails: Codable {
             )
         ]
     )
-}
-
-struct Author: Codable {
-    var id: String
-    var name: String
-    var user: String
-    var channelUrl: String
-    var thumbnails: [Thumbnail]
-    var subscriberCount: Int?
-    
-    private enum CodingKeys: String, CodingKey {
-        case channelUrl = "channel_url"
-        case subscriberCount = "subscriber_count"
-        
-        case id
-        case name
-        case user
-        case thumbnails
-    }
-}
-
-struct Thumbnail: Codable {
-    var url: String
-    var width: Int
-    var height: Int
-}
-
-struct ErrorModel: Codable {
-    var message: String
 }

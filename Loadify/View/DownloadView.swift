@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LogKit
 import LoadifyKit
 
 struct DownloadView: View {
@@ -41,13 +40,20 @@ struct DownloadView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar { navigationBar(geomentry) }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: Texts.tryAgain.randomElement())
+                AlertUI(
+                    title: $0.localizedDescription,
+                    subtitle: LoadifyTexts.tryAgain.randomElement()
+                )
             }
             .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: Texts.downloadedTitle, subtitle: Texts.downloadedSubtitle, alertType: .success)
+                AlertUI(
+                    title: LoadifyTexts.downloadedTitle,
+                    subtitle: LoadifyTexts.downloadedSubtitle,
+                    alertType: .success
+                )
             }
-            .showLoader(Texts.downloading, isPresented: $viewModel.showLoader)
         }
     }
     
@@ -75,7 +81,7 @@ struct DownloadView: View {
     
     private var durationView: some View {
         Text(details.lengthSeconds.getDuration)
-            .font(.caption2)
+            .font(.inter(.regular(size: 10)))
             .foregroundColor(.white)
             .padding(.horizontal, 4)
             .padding(.vertical, 2)
@@ -89,7 +95,7 @@ struct DownloadView: View {
             ChannelView(
                 name: details.ownerChannelName,
                 profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
-                subscriberCount: details.author.subscriberCount
+                subscriberCount: details.author.subscriberCount.toUnits
             )
             .padding(.all, 8)
             videoInfoView
@@ -98,6 +104,28 @@ struct DownloadView: View {
                 .padding(.vertical, 8)
         }
         .padding(.horizontal, 12)
+    }
+    
+    private var videoTitleView: some View {
+        Text(details.title)
+            .foregroundColor(.white)
+            .font(.inter(.bold(size: 18)))
+            .lineLimit(2)
+    }
+    
+    private var videoInfoView: some View {
+        ZStack(alignment: .center) {
+            InfoView(title: details.likes.toUnits, subTitle: "Likes")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            InfoView(title: details.viewCount.format, subTitle: "Views")
+                .frame(maxWidth: .infinity, alignment: .center)
+            InfoView(
+                title: details.publishDate.formatter(),
+                subTitle: details.publishDate.formatter(.year)
+            ).frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.all, 4)
     }
     
     private var menuView: some View {
@@ -110,27 +138,6 @@ struct DownloadView: View {
         }
     }
     
-    private var videoTitleView: some View {
-        Text(details.title)
-            .foregroundColor(.white)
-            .font(.title3)
-            .bold()
-            .lineLimit(2)
-    }
-    
-    private var videoInfoView: some View {
-        ZStack(alignment: .center) {
-            InfoView(title: details.likes?.toUnits ?? "N/A", subTitle: "Likes")
-                .frame(maxWidth: .infinity, alignment: .leading)
-            InfoView(title: details.viewCount.format, subTitle: "Views")
-                .frame(maxWidth: .infinity, alignment: .center)
-            InfoView(title: details.publishDate.formatter(), subTitle: details.publishDate.formatter(.year))
-                .frame(maxWidth: .infinity, alignment: .trailing)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.all, 4)
-    }
-    
     private var footerView: some View {
         VStack(spacing: 16) {
             Button {
@@ -139,7 +146,7 @@ struct DownloadView: View {
                 }
             } label: {
                 Text("Download")
-                    .bold()
+                    .font(.inter(.bold(size: 18)))
             }
             .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
             .disabled(selectedQuality == .none ? true: false)
@@ -149,14 +156,14 @@ struct DownloadView: View {
     
     private var madeWithSwift: some View {
         Text("Made with 💙 using Swift")
-            .font(.footnote)
+            .font(.inter(.regular(size: 14)))
             .foregroundColor(LoadifyColors.greyText)
     }
     
     private var permissionAlert: Alert {
         Alert(
-            title: Text(Texts.photosAccessTitle),
-            message: Text(Texts.photosAccessSubtitle),
+            title: Text(LoadifyTexts.photosAccessTitle),
+            message: Text(LoadifyTexts.photosAccessSubtitle),
             primaryButton: .default(Text("Settings"), action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }),
