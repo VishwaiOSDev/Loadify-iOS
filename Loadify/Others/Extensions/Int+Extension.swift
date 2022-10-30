@@ -7,10 +7,11 @@
 
 import Foundation
 
-extension Int {
+extension Optional where Wrapped == Int {
     
     /// ✅ To convert integer into short representation of numbers. For instance, **1500 will be converted to 1.5K**
     var toUnits: String {
+        guard let self else { return "N/A" }
         let num = abs(Double(self))
         let sign = (self < 0) ? "-" : ""
         

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LogKit
 import LoadifyKit
 
 struct DownloadView: View {
@@ -41,13 +40,20 @@ struct DownloadView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar { navigationBar(geomentry) }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
-                AlertUI(title: $0.localizedDescription, subtitle: LoadifyTexts.tryAgain.randomElement())
+                AlertUI(
+                    title: $0.localizedDescription,
+                    subtitle: LoadifyTexts.tryAgain.randomElement()
+                )
             }
             .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(title: LoadifyTexts.downloadedTitle, subtitle: LoadifyTexts.downloadedSubtitle, alertType: .success)
+                AlertUI(
+                    title: LoadifyTexts.downloadedTitle,
+                    subtitle: LoadifyTexts.downloadedSubtitle,
+                    alertType: .success
+                )
             }
-            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
         }
     }
     
@@ -89,7 +95,7 @@ struct DownloadView: View {
             ChannelView(
                 name: details.ownerChannelName,
                 profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
-                subscriberCount: details.author.subscriberCount
+                subscriberCount: details.author.subscriberCount.toUnits
             )
             .padding(.all, 8)
             videoInfoView
@@ -113,14 +119,13 @@ struct DownloadView: View {
     private var videoTitleView: some View {
         Text(details.title)
             .foregroundColor(.white)
-            .font(.title3)
-            .bold()
+            .font(.inter(.bold(size: 18)))
             .lineLimit(2)
     }
     
     private var videoInfoView: some View {
         ZStack(alignment: .center) {
-            InfoView(title: details.likes?.toUnits ?? "N/A", subTitle: "Likes")
+            InfoView(title: details.likes.toUnits, subTitle: "Likes")
                 .frame(maxWidth: .infinity, alignment: .leading)
             InfoView(title: details.viewCount.format, subTitle: "Views")
                 .frame(maxWidth: .infinity, alignment: .center)
