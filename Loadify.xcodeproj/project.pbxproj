@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */; };
 		88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88083D642855D7C70027BA0D /* LoadifyKit */; };
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
@@ -51,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApiService+Extension.swift"; sourceTree = "<group>"; };
 		88083D6A2855D95A0027BA0D /* LoadifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88083D732855D9D00027BA0D /* VideoInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoTest.swift; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				88379935283A19F400DDBA79 /* Int+Extension.swift */,
 				883233862855F34000BF38B5 /* Double+Extension.swift */,
 				88379937283A1A0F00DDBA79 /* String+Extension.swift */,
-				88064FB32850B0BA00D41D56 /* ApiService+Extension.swift */,
 				88B2C171284FB46D00B9DCF7 /* URLSession+Extension.swift */,
 			);
 			path = Extensions;
@@ -416,7 +413,6 @@
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
-				88064FB42850B0BA00D41D56 /* ApiService+Extension.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,

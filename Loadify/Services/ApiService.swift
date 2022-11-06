@@ -5,8 +5,8 @@
 //  Created by Vishweshwaran on 5/8/22.
 //
 
-import LogKit
 import UIKit
+import LogKit
 import NetworkKit
 
 class ApiService: FetchService {
@@ -40,5 +40,11 @@ extension ApiService: DownloadService {
         try data.write(to: filePath)
         try checkVideoIsCompatible(at: filePath.path)
         UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+    }
+    
+    private func checkVideoIsCompatible(at filePath: String) throws {
+        if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
+            throw DownloadError.notCompatible
+        }
     }
 }
