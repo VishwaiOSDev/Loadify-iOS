@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NetworkKit
 @testable import Loadify
 
 class URLMockViewModel: Detailable {
@@ -26,5 +27,17 @@ class URLMockViewModel: Detailable {
             let response = try await apiService.fetchVideoDetailsFromApi(for: url)
             details = response
         } catch { }
+    }
+}
+
+final class MockApiService: FetchService, Mockable {
+    
+    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
+        if url == "https://www.youtube.com/watch?v=66XwG1CLHuU" {
+            return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
+        } else {
+            let badInputError = APIError(statusCode: 400, data: nil)
+            throw NetworkError.badInput(error: badInputError)
+        }
     }
 }
