@@ -144,20 +144,20 @@ class VideoInfoTest: XCTestCase {
     }
     
     func testVideoLikes() {
-        let noLikes = 0
-        let tenLikes = 10
-        let hundredLikes = 100
-        let thousandLikes = 1_000
-        let thousandTwentyLikes = 1_020
-        let thousandTwoHundredLikes = 1_200
-        let thousandTwoFiftyLikes = 1_250
-        let thousandTwoNinetyNineLike = 1_299
-        let fiftyThousandLikes = 50_500
-        let ninetyOneThousandLikes = 91_000
-        let oneMillionLikes = 1_000_000
-        let onePointFiveMillionLikes = 1_500_000
-        let tenBillionLikes = 10_000_000_000
-        let despacitoLikes = 7_867_743_031
+        let noLikes: Int? = 0
+        let tenLikes: Int? = 10
+        let hundredLikes: Int? = 100
+        let thousandLikes: Int? = 1_000
+        let thousandTwentyLikes: Int? = 1_020
+        let thousandTwoHundredLikes: Int? = 1_200
+        let thousandTwoFiftyLikes: Int? = 1_250
+        let thousandTwoNinetyNineLike: Int? = 1_299
+        let fiftyThousandLikes: Int? = 50_500
+        let ninetyOneThousandLikes: Int? = 91_000
+        let oneMillionLikes: Int? = 1_000_000
+        let onePointFiveMillionLikes: Int? = 1_500_000
+        let tenBillionLikes: Int? = 10_000_000_000
+        let despacitoLikes: Int? = 7_867_743_031
         
         let noLikesString = noLikes.toUnits
         let tenLikesString = tenLikes.toUnits

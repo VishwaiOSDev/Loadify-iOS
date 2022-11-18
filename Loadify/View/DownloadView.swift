@@ -188,10 +188,13 @@ struct DownloadView: View {
     @ToolbarContentBuilder
     private func navigationBar(_ geomentry: GeometryProxy) -> some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            backButton.foregroundColor(LoadifyColors.blueAccent)
+            backButton
+                .foregroundColor(LoadifyColors.blueAccent)
+                .disabled(viewModel.showLoader)
         }
         ToolbarItem(placement: .principal) {
-            loadifyLogo.frame(height: geomentry.size.height * 0.050)
+            loadifyLogo
+                .frame(height: geomentry.size.height * 0.050)
         }
     }
     

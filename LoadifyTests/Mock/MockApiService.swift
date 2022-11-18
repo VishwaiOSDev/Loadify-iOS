@@ -28,14 +28,3 @@ class URLMockViewModel: Detailable {
         } catch { }
     }
 }
-
-final class MockApiService: FetchService, Mockable {
-    
-    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
-        if url == "https://www.youtube.com/watch?v=66XwG1CLHuU" {
-            return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
-        } else {
-            throw DetailsError.notVaildYouTubeUrl
-        }
-    }
-}

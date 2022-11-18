@@ -24,6 +24,7 @@ final class DownloaderViewModel: Downloadable {
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var shouldNavigateToDownload: Bool = false
+    
     let apiService: DownloadService
     
     init(apiService: DownloadService = ApiService()) {

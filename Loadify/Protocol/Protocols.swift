@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Combine
 
 protocol Loadable: ObservableObject {
     var showLoader: Bool { get set }
