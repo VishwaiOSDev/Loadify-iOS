@@ -12,9 +12,9 @@ import NetworkKit
 
 class ApiServiceTest: XCTestCase {
     
-    var urlViewModel: URLMockViewModel!
-    let videoUrl = "https://www.youtube.com/watch?v=66XwG1CLHuU"
-    let gitHubUrl = "https://github.com/VishwaiOSDev"
+    private var urlViewModel: URLMockViewModel!
+    fileprivate let youtubeURL = "https://www.youtube.com/watch?v=66XwG1CLHuU"
+    fileprivate let githubURL = "https://github.com/VishwaiOSDev"
     
     override func setUpWithError() throws {
         urlViewModel = URLMockViewModel(apiService: MockApiService())
@@ -25,10 +25,9 @@ class ApiServiceTest: XCTestCase {
     }
     
     func testFetchVideoDetailsSuccessfully() async throws {
-        
         let expectation = XCTestExpectation(description: "Fetched Video Details")
         
-        await urlViewModel.getVideoDetails(for: videoUrl)
+        await urlViewModel.getVideoDetails(for: youtubeURL)
         expectation.fulfill()
         
         wait(for: [expectation], timeout: 0.001)
@@ -38,13 +37,12 @@ class ApiServiceTest: XCTestCase {
     }
     
     func testInvaildYouTubeUrlRequest() async {
-        
         let mockDataService = MockApiService()
         
         let expectation = XCTestExpectation(description: "Should fail with bad input")
         
         do {
-            let _ = try await mockDataService.fetchVideoDetailsFromApi(for: gitHubUrl)
+            let _ = try await mockDataService.fetchVideoDetailsFromApi(for: githubURL)
         } catch(let error) {
             expectation.fulfill()
             let serverError = error as! NetworkError
@@ -53,38 +51,22 @@ class ApiServiceTest: XCTestCase {
         
         wait(for: [expectation], timeout: 0.001)
     }
-    //
-    //    func testInvaildUrlRequest() async {
-    //        let mockDataService = MockApiService()
-    //        let expectation = XCTestExpectation(description: "No a valid URL")
-    //
-    //        do {
-    //            let _ = try await mockDataService.fetchVideoDetailsFromApi(for: "some random text")
-    //            XCTFail("Api Service should throw error")
-    //        } catch {
-    //            expectation.fulfill()
-    //            if let detailsError = error as? DetailsError {
-    //                XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
-    //            }
-    //        }
-    //
-    //        wait(for: [expectation], timeout: 0.001)
-    //    }
-    //
-    //    func testEmptyUrlRequest() async {
-    //        let mockDataService = MockApiService()
-    //        let expectation = XCTestExpectation(description: "Check Empty URL")
-    //
-    //        do {
-    //            let _ = try await mockDataService.fetchVideoDetailsFromApi(for: "     ")
-    //            XCTFail("Api Service should throw error")
-    //        } catch {
-    //            expectation.fulfill()
-    //            if let detailsError = error as? DetailsError {
-    //                XCTAssertEqual(detailsError, DetailsError.notVaildYouTubeUrl)
-    //            }
-    //        }
-    //
-    //        wait(for: [expectation], timeout: 0.001)
-    //    }
+    
+    func testYouTubeVideoDetails() async {
+        await urlViewModel.getVideoDetails(for: youtubeURL)
+        
+        let details = urlViewModel.details
+        
+        XCTAssertNotNil(details)
+        XCTAssertEqual(details?.title, "Every product carbon neutral by 2030 | Apple, Apple is the best")
+        XCTAssertEqual(details?.lengthSeconds.getDuration, "1:16")
+        XCTAssertEqual(details?.viewCount.format, "1,913,450")
+        XCTAssertEqual(details?.publishDate.formatter(), "22 Apr")
+        XCTAssertEqual(details?.publishDate.formatter(.year), "2021")
+        XCTAssertEqual(details?.ownerChannelName, "Apple")
+        XCTAssertEqual(details?.likes.toUnits, "115.7K")
+        XCTAssertEqual(details?.author.subscriberCount.toUnits, "15.8M")
+        XCTAssertNotNil(details?.videoUrl)
+        XCTAssertNotNil(details?.author.channelUrl)
+    }
 }
