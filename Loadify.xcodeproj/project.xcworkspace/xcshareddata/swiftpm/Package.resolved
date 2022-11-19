@@ -26,6 +26,24 @@
         "revision" : "87284a8a6378f753c0bdee7549b7fc325134421b",
         "version" : "0.0.10"
       }
+    },
+    {
+      "identity" : "networkkit",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
+      "state" : {
+        "revision" : "f35efe123fd3b9fdad4a83965d9ce8e9fa205981",
+        "version" : "0.1.1"
+      }
+    },
+    {
+      "identity" : "swiftlintplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukepistrol/SwiftLintPlugin",
+      "state" : {
+        "revision" : "db8dc515d0ba1bbcafc0fcbb6515035427c1ad95",
+        "version" : "0.1.0"
+      }
     }
   ],
   "version" : 2

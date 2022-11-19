@@ -216,8 +216,8 @@
 		88A729BE2826507100B5FE61 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */,
 				88220A88285DC9CC008260DE /* URLViewModel.swift */,
+				88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -694,7 +694,7 @@
 			repositoryURL = "git@github.com:VishwaiOSDev/NetworkKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.2;
+				minimumVersion = 0.1.1;
 			};
 		};
 		88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */ = {

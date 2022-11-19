@@ -11,7 +11,6 @@ struct VideoDetails: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case videoUrl = "video_url"
-        
         case title, lengthSeconds, viewCount, publishDate, ownerChannelName, videoId, author, likes, thumbnails
     }
     
@@ -28,6 +27,7 @@ struct VideoDetails: Codable {
 }
 
 struct Author: Codable {
+    
     var id: String
     var name: String
     var user: String
@@ -38,15 +38,12 @@ struct Author: Codable {
     private enum CodingKeys: String, CodingKey {
         case channelUrl = "channel_url"
         case subscriberCount = "subscriber_count"
-        
-        case id
-        case name
-        case user
-        case thumbnails
+        case id, name, user, thumbnails
     }
 }
 
 struct Thumbnail: Codable {
+    
     var url: String
     var width: Int
     var height: Int

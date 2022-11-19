@@ -45,6 +45,7 @@ class PhotosService: PhotosServiceProtocol {
 }
 
 extension PhotosService {
+    
     fileprivate func requestPermissionForPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
         PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
             switch status {
