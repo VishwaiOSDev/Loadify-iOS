@@ -67,6 +67,7 @@
 		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
+		88B9E1FC292A18E700232C0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88CD83B72827D77B00F520C0 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
@@ -149,6 +150,7 @@
 		88A729A128264AD100B5FE61 = {
 			isa = PBXGroup;
 			children = (
+				88B9E1FC292A18E700232C0D /* README.md */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				88A729AB28264AD100B5FE61 /* Products */,
