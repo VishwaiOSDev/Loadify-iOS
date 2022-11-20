@@ -33,11 +33,9 @@ class URLMockViewModel: Detailable {
 final class MockApiService: FetchService, Mockable {
     
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
-        if url == "https://www.youtube.com/watch?v=66XwG1CLHuU" {
-            return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
-        } else {
-            let badInputError = APIError(statusCode: 400, data: nil)
-            throw NetworkError.badInput(error: badInputError)
+        guard url == "https://www.youtube.com/watch?v=66XwG1CLHuU" else {
+            throw NetworkError.badInput(error: APIError(statusCode: 400, data: nil))
         }
+        return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
     }
 }
