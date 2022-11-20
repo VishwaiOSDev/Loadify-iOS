@@ -688,7 +688,7 @@
 			repositoryURL = "git@github.com:VishwaiOSDev/LoadifyKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 0.4.0;
 			};
 		};
 		88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
@@ -712,7 +712,7 @@
 			repositoryURL = "https://github.com/VishwaiOSDev/LogKit";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.9;
+				minimumVersion = 0.0.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
