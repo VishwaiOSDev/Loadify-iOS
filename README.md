@@ -14,14 +14,14 @@ This application uses [ytdl-core](https://github.com/fent/node-ytdl-core) under 
 
 # Features
 
-There are three download modes available:
+Three download modes available:
 
 - Low (320p)
 - Medium (720p)
 - High (1080p)
 
 > **Note**\
-> Currently, Loadify can only download videos from YouTube. The next iteration will include audio and video downloads from other sites such as Facebook, Instagram, LinkedIn.
+> Currently, Loadify can only download videos from YouTube. The next iteration will include audio and video downloads from other sites such as Facebook, Instagram and LinkedIn.
 
 ## Screenshots
 
