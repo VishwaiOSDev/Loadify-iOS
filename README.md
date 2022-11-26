@@ -23,6 +23,9 @@ Three download modes available:
 > **Note**\
 > Currently, Loadify can only download videos from YouTube. The next iteration will include audio and video downloads from other sites such as Facebook, Instagram and LinkedIn.
 
+> **Warning**\
+> Loadify can only download videos with a duration of 15 minutes or less.
+
 ## Screenshots
 
 <div style="flex-direction: row"> 
@@ -61,5 +64,3 @@ Loadify was made by:
 <a href="#" title="Priyanga Dev">
   <img src="https://avatars.githubusercontent.com/u/102402170?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
 </a>
-
-
