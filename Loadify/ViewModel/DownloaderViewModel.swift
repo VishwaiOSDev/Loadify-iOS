@@ -27,7 +27,7 @@ final class DownloaderViewModel: Downloadable {
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     
-    let apiService: DownloadService
+    private var apiService: DownloadService? = nil
     
     init(apiService: DownloadService = ApiService()) {
         self.apiService = apiService
@@ -35,6 +35,7 @@ final class DownloaderViewModel: Downloadable {
     
     func downloadVideo(url: String, with quality: VideoQuality) async {
         do {
+            guard let apiService else { return }
             DispatchQueue.main.async {
                 self.showLoader = true
             }
@@ -58,5 +59,10 @@ final class DownloaderViewModel: Downloadable {
                 self.downloadStatus = .failed
             }
         }
+    }
+    
+    deinit {
+        Log.verbose("DeInit")
+        apiService = nil
     }
 }
