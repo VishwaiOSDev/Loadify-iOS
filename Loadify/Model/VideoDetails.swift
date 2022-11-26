@@ -11,7 +11,8 @@ struct VideoDetails: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case videoUrl = "video_url"
-        case title, lengthSeconds, viewCount, publishDate, ownerChannelName, videoId, author, likes, thumbnails
+        case title, lengthSeconds, viewCount, publishDate
+        case ownerChannelName, videoId, author, likes, thumbnails
     }
     
     var title: String

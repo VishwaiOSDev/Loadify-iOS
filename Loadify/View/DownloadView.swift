@@ -11,8 +11,8 @@ import LoadifyKit
 struct DownloadView: View {
     
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
-    @State private var selectedQuality: VideoQuality = .none
     @Environment(\.presentationMode) var presentationMode
+    @State private var selectedQuality: VideoQuality = .none
     
     var details: VideoDetails
     
