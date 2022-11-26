@@ -90,6 +90,8 @@ struct DownloadView: View {
     
     private var videoContentView: some View {
         VStack(alignment: .leading, spacing: 0) {
+            downloadedBadge
+                .padding(.top, 2)
             videoTitleView
                 .padding(.vertical, 8)
             ChannelView(
@@ -104,6 +106,30 @@ struct DownloadView: View {
                 .padding(.vertical, 8)
         }
         .padding(.horizontal, 12)
+    }
+    
+    @ViewBuilder
+    private var downloadedBadge: some View {
+        if viewModel.downloadStatus == .downloaded || viewModel.downloadStatus == .failed {
+            HStack(spacing: 0) {
+                Text(viewModel.downloadStatus == .downloaded ? "Downloaded" : "Failed")
+                    .font(.inter(.bold(size: 14)))
+                    .padding(2)
+                    .cornerRadius(4)
+                Image(systemName: "arrow.down.circle.fill")
+            }
+            .padding(.horizontal, 4)
+            .padding(.vertical, 2)
+            .foregroundColor(.white)
+            .background(badgeColor)
+            .cornerRadius(4)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+    
+    private var badgeColor: Color {
+        let status = viewModel.downloadStatus
+        return status == .downloaded ? LoadifyColors.successGreenGradient : LoadifyColors.errorRed
     }
     
     private var videoTitleView: some View {
