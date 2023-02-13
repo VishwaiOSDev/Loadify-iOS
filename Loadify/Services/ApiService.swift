@@ -6,26 +6,26 @@
 //
 
 import UIKit
-import LogKit
+import LoggerKit
 import NetworkKit
 
 class ApiService: FetchService {
     
-    var photoService: PhotosServiceProtocol
-    var fileService: FileServiceProtocol
+    lazy var photoService: PhotosServiceProtocol = PhotosService()
+    lazy var fileService: FileServiceProtocol = FileService()
     
-    init(
-        photoService: PhotosServiceProtocol = PhotosService(),
-        fileService: FileServiceProtocol = FileService()
-    ) {
-        self.photoService = photoService
-        self.fileService = fileService
+    init() {
+        Logger.initialize("ApiService Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
         try await NetworkKit.shared.requestCodable(
             API.details(youtubeURL: url), type: VideoDetails.self
         )
+    }
+    
+    deinit {
+        Logger.teardown("ApiService Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }
 

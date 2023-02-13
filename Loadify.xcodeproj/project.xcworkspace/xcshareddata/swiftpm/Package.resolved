@@ -19,12 +19,12 @@
       }
     },
     {
-      "identity" : "logkit",
+      "identity" : "loggerkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/VishwaiOSDev/LogKit",
+      "location" : "git@github.com:VishwaiOSDev/LoggerKit.git",
       "state" : {
-        "revision" : "87284a8a6378f753c0bdee7549b7fc325134421b",
-        "version" : "0.0.10"
+        "revision" : "aacb930cbb6cb8d78be38c1860cf77fe200f77d3",
+        "version" : "1.0.0"
       }
     },
     {
@@ -32,17 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
       "state" : {
-        "revision" : "f35efe123fd3b9fdad4a83965d9ce8e9fa205981",
-        "version" : "0.1.1"
-      }
-    },
-    {
-      "identity" : "swiftlintplugin",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/lukepistrol/SwiftLintPlugin",
-      "state" : {
-        "revision" : "db8dc515d0ba1bbcafc0fcbb6515035427c1ad95",
-        "version" : "0.1.0"
+        "revision" : "22a9f9ab3aa55c2fb8e89c792c62ab230d0d1fd7",
+        "version" : "0.1.6"
       }
     }
   ],

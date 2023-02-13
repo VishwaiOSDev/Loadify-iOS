@@ -6,6 +6,7 @@
 //
 
 import Photos
+import LoggerKit
 
 protocol PhotosServiceProtocol {
     func checkForPhotosPermission() async throws
@@ -13,6 +14,10 @@ protocol PhotosServiceProtocol {
 }
 
 class PhotosService: PhotosServiceProtocol {
+    
+    init() {
+        Logger.initialize("PhotosService Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+    }
     
     func checkForPhotosPermission() async throws {
         switch PHPhotoLibrary.authorizationStatus(for: .addOnly) {
@@ -41,6 +46,10 @@ class PhotosService: PhotosServiceProtocol {
         default:
             completion(.failure(PhotosError.permissionDenied))
         }
+    }
+    
+    deinit {
+        Logger.teardown("PhotosService Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }
 
