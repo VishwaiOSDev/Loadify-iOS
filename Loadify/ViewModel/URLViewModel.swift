@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import LogKit
+import LoggerKit
 
 protocol Detailable: Navigatable {
     func getVideoDetails(for url: String) async
@@ -19,12 +19,12 @@ final class URLViewModel: Detailable {
     @Published var error: Error? = nil
     
     var details: VideoDetails? = nil
-
+    
     private var apiService: FetchService? = nil
     
     init(apiService: FetchService = ApiService()) {
         self.apiService = apiService
-        Log.verbose("Init")
+        Logger.initialize("URLViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func getVideoDetails(for url: String) async {
@@ -42,7 +42,7 @@ final class URLViewModel: Detailable {
                 self.shouldNavigateToDownload = true
             }
         } catch {
-            Log.debug(error.localizedDescription)
+            Logger.debug("Failed with err: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
@@ -52,8 +52,8 @@ final class URLViewModel: Detailable {
     }
     
     deinit {
-        Log.verbose("DeInit")
         apiService = nil
         details = nil
+        Logger.teardown("URLViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }

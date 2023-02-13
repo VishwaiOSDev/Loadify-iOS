@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Combine
-import LogKit
+import LoggerKit
 
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
@@ -31,6 +31,7 @@ final class DownloaderViewModel: Downloadable {
     
     init(apiService: DownloadService = ApiService()) {
         self.apiService = apiService
+        Logger.initialize("DownloaderViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func downloadVideo(url: String, with quality: VideoQuality) async {
@@ -62,7 +63,7 @@ final class DownloaderViewModel: Downloadable {
     }
     
     deinit {
-        Log.verbose("DeInit")
         apiService = nil
+        Logger.teardown("DownloaderViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }

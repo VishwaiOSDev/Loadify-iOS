@@ -26,10 +26,10 @@
 		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
+		88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88B3FD6A299A95F400112490 /* LoggerKit */; };
 		88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88CD83B72827D77B00F520C0 /* ApiService.swift */; };
 		88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E528C39EED00D6EB79 /* FontInter */; };
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
-		88D9D1EA28C39EED00D6EB79 /* LogKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E928C39EED00D6EB79 /* LogKit */; };
 		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
 		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
 		88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */; };
@@ -92,10 +92,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88D9D1EA28C39EED00D6EB79 /* LogKit in Frameworks */,
 				88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				888C864B29059F6300E86D85 /* NetworkKit in Frameworks */,
+				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,8 +319,8 @@
 				88083D642855D7C70027BA0D /* LoadifyKit */,
 				88D9D1E528C39EED00D6EB79 /* FontInter */,
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
-				88D9D1E928C39EED00D6EB79 /* LogKit */,
 				888C864A29059F6300E86D85 /* NetworkKit */,
+				88B3FD6A299A95F400112490 /* LoggerKit */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -357,8 +357,8 @@
 			packageReferences = (
 				88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */,
 				88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */,
-				88D9D1E428C39EC300D6EB79 /* XCRemoteSwiftPackageReference "LogKit" */,
 				88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */,
+				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
 			);
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
 			projectDirPath = "";
@@ -703,20 +703,20 @@
 				minimumVersion = 0.1.1;
 			};
 		};
+		88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VishwaiOSDev/LoggerKit";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/VishwaiOSDev/FontKit";
 			requirement = {
 				kind = upToNextMinorVersion;
 				minimumVersion = 0.0.5;
-			};
-		};
-		88D9D1E428C39EC300D6EB79 /* XCRemoteSwiftPackageReference "LogKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/VishwaiOSDev/LogKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.10;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -732,6 +732,11 @@
 			package = 88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */;
 			productName = NetworkKit;
 		};
+		88B3FD6A299A95F400112490 /* LoggerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */;
+			productName = LoggerKit;
+		};
 		88D9D1E528C39EED00D6EB79 /* FontInter */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */;
@@ -741,11 +746,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */;
 			productName = FontKit;
-		};
-		88D9D1E928C39EED00D6EB79 /* LogKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88D9D1E428C39EC300D6EB79 /* XCRemoteSwiftPackageReference "LogKit" */;
-			productName = LogKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
