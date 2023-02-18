@@ -20,16 +20,14 @@ final class URLViewModel: Detailable {
     
     var details: VideoDetails? = nil
     
-    private var apiService: FetchService? = nil
+    lazy private var apiService: FetchService = ApiService()
     
-    init(apiService: FetchService = ApiService()) {
-        self.apiService = apiService
+    init() {
         Logger.initialize("URLViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func getVideoDetails(for url: String) async {
         do {
-            guard let apiService else { return }
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
@@ -52,7 +50,6 @@ final class URLViewModel: Detailable {
     }
     
     deinit {
-        apiService = nil
         details = nil
         Logger.teardown("URLViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
