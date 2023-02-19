@@ -27,16 +27,14 @@ final class DownloaderViewModel: Downloadable {
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     
-    private var apiService: DownloadService? = nil
+    private lazy var apiService: DownloadService = ApiService()
     
-    init(apiService: DownloadService = ApiService()) {
-        self.apiService = apiService
+    init() {
         Logger.initialize("DownloaderViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func downloadVideo(url: String, with quality: VideoQuality) async {
         do {
-            guard let apiService else { return }
             DispatchQueue.main.async {
                 self.showLoader = true
             }
@@ -63,7 +61,6 @@ final class DownloaderViewModel: Downloadable {
     }
     
     deinit {
-        apiService = nil
         Logger.teardown("DownloaderViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }

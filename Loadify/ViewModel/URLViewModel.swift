@@ -8,7 +8,11 @@
 import Foundation
 import LoggerKit
 
-protocol Detailable: Navigatable {
+protocol ViewLifyCycle {
+    func onDisappear()
+}
+
+protocol Detailable: Navigatable, ViewLifyCycle {
     func getVideoDetails(for url: String) async
 }
 
@@ -20,21 +24,20 @@ final class URLViewModel: Detailable {
     
     var details: VideoDetails? = nil
     
-    private var apiService: FetchService? = nil
+    private var apiService: FetchService?
     
-    init(apiService: FetchService = ApiService()) {
-        self.apiService = apiService
+    init() {
         Logger.initialize("URLViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
     
     func getVideoDetails(for url: String) async {
         do {
-            guard let apiService else { return }
+            apiService = ApiService()
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
             }
-            let response = try await apiService.fetchVideoDetailsFromApi(for: url)
+            let response = try await apiService!.fetchVideoDetailsFromApi(for: url)
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.details = response
@@ -51,9 +54,12 @@ final class URLViewModel: Detailable {
         }
     }
     
-    deinit {
-        apiService = nil
+    func onDisappear() {
         details = nil
+        apiService = nil
+    }
+    
+    deinit {
         Logger.teardown("URLViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
     }
 }
