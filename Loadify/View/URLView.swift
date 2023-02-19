@@ -27,9 +27,13 @@ struct URLView: View {
             .padding()
         }
         .navigationBarHidden(true)
+        .onDisappear(perform: viewModel.onDisappear)
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
         .showAlert(item: $viewModel.error) { error in
-            AlertUI(title: error.localizedDescription, subtitle: LoadifyTexts.tryAgain.randomElement())
+            AlertUI(
+                title: error.localizedDescription,
+                subtitle: LoadifyTexts.tryAgain.randomElement()
+            )
         }
     }
     
@@ -81,16 +85,16 @@ struct URLView: View {
     }
 }
 
-//struct VideoURLView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            URLView(viewModel: URLViewModel())
-//                .previewDevice("iPhone 14 Pro Max")
-//                .previewDisplayName("iPhone 14 Pro Max")
-//            URLView(viewModel: URLViewModel())
-//                .previewDevice("iPhone SE (3rd generation)")
-//                .previewDisplayName("iPhone SE")
-//        }
-//        .preferredColorScheme(.dark)
-//    }
-//}
+struct VideoURLView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            URLView(viewModel: URLViewModel())
+                .previewDevice("iPhone 14 Pro Max")
+                .previewDisplayName("iPhone 14 Pro Max")
+            URLView(viewModel: URLViewModel())
+                .previewDevice("iPhone SE (3rd generation)")
+                .previewDisplayName("iPhone SE")
+        }
+        .preferredColorScheme(.dark)
+    }
+}
