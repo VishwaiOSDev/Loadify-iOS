@@ -30,7 +30,7 @@ final class DownloaderViewModel: Downloadable {
     private lazy var apiService: DownloadService = ApiService()
     
     init() {
-        Logger.initialize("DownloaderViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.initLifeCycle("DownloaderViewModel init", for: self)
     }
     
     func downloadVideo(url: String, with quality: VideoQuality) async {
@@ -61,6 +61,6 @@ final class DownloaderViewModel: Downloadable {
     }
     
     deinit {
-        Logger.teardown("DownloaderViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.deinitLifeCycle("DownloaderViewModel deinit", for: self)
     }
 }

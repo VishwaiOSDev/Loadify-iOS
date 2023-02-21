@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:VishwaiOSDev/LoggerKit.git",
       "state" : {
-        "revision" : "b35babbc1b649e5a9ad721a8d305f12c306763a8",
-        "version" : "1.1.1"
+        "revision" : "d4c55d28e3eaa620c4a85c0fcf2ae03ffe889edb",
+        "version" : "1.1.2"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
       "state" : {
-        "revision" : "649c23301583c619f44f3e2bd38b406f0a03fbd3",
-        "version" : "0.1.8"
+        "revision" : "bdbc83119e0b31d99599ea8d8bcb1b65c3a77b86",
+        "version" : "0.1.9"
       }
     }
   ],
