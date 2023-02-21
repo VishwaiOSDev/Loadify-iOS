@@ -27,7 +27,7 @@ final class URLViewModel: Detailable {
     private var apiService: FetchService?
     
     init() {
-        Logger.initialize("URLViewModel Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.initLifeCycle("URLViewModel init", for: self)
     }
     
     func getVideoDetails(for url: String) async {
@@ -45,7 +45,7 @@ final class URLViewModel: Detailable {
                 self.shouldNavigateToDownload = true
             }
         } catch {
-            Logger.debug("Failed with err: ", error.localizedDescription)
+            Logger.error("Failed with err: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
@@ -60,6 +60,6 @@ final class URLViewModel: Detailable {
     }
     
     deinit {
-        Logger.teardown("URLViewModel Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.deinitLifeCycle("URLViewModel deinit", for: self)
     }
 }

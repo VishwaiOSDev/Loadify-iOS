@@ -15,7 +15,7 @@ protocol FileServiceProtocol {
 class FileService: FileServiceProtocol {
     
     init() {
-        Logger.initialize("FileService Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.initLifeCycle("FileService init", for: self)
     }
     
     func getTemporaryFilePath() -> URL {
@@ -23,6 +23,6 @@ class FileService: FileServiceProtocol {
     }
     
     deinit {
-        Logger.teardown("FileService Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.deinitLifeCycle("FileService deinit", for: self)
     }
 }

@@ -15,7 +15,7 @@ class ApiService: FetchService {
     lazy var fileService: FileServiceProtocol = FileService()
     
     init() {
-        Logger.initialize("ApiService Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.initLifeCycle("ApiService Init", for: self)
     }
     
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
@@ -25,7 +25,7 @@ class ApiService: FetchService {
     }
     
     deinit {
-        Logger.teardown("ApiService Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.deinitLifeCycle("ApiService Deinit", for: self)
     }
 }
 

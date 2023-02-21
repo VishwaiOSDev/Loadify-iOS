@@ -16,7 +16,7 @@ protocol PhotosServiceProtocol {
 class PhotosService: PhotosServiceProtocol {
     
     init() {
-        Logger.initialize("PhotosService Init - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.initLifeCycle("PhotosService init", for: self)
     }
     
     func checkForPhotosPermission() async throws {
@@ -49,7 +49,7 @@ class PhotosService: PhotosServiceProtocol {
     }
     
     deinit {
-        Logger.teardown("PhotosService Deinit - (\(Unmanaged.passUnretained(self).toOpaque()))")
+        Logger.deinitLifeCycle("PhotosService deinit", for: self)
     }
 }
 
