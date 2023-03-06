@@ -29,7 +29,6 @@ protocol Navigatable: Describable {
 }
 
 // MARK: - API Service
-
 protocol FetchService {
     func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails
 }

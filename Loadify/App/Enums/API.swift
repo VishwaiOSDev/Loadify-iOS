@@ -15,9 +15,7 @@ enum API {
 
 extension API: NetworkRequestable {
 
-    var host: String {
-        "api.loadify.app"
-    }
+    var host: String { "api.loadify.app" }
     
     var path: String {
         switch self {
