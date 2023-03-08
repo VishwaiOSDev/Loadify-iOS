@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "haptific",
+      "kind" : "remoteSourceControl",
+      "location" : "git@github.com:VishwaiOSDev/Haptific.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b443795f1976ddc95fa9badec935db1214038973"
+      }
+    },
+    {
       "identity" : "loadifykit",
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:VishwaiOSDev/LoadifyKit.git",
