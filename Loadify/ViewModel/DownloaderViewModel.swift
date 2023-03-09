@@ -60,7 +60,7 @@ final class DownloaderViewModel: Downloadable {
                 self.downloadError = error
                 self.showLoader = false
                 self.downloadStatus = .failed
-                notifyWithHaptics(for: .success)
+                notifyWithHaptics(for: .error)
             }
         }
     }
