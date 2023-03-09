@@ -43,7 +43,7 @@ final class URLViewModel: Detailable {
                 guard let self else { return }
                 self.details = response
                 self.showLoader = false
-                Haptific.simulate(.notification(style: .success))
+                notifyWithHaptics(for: .success)
                 self.shouldNavigateToDownload = true
             }
         } catch {
@@ -52,7 +52,7 @@ final class URLViewModel: Detailable {
                 guard let self else { return }
                 self.showLoader = false
                 self.error = error
-                Haptific.simulate(.notification(style: .error))
+                notifyWithHaptics(for: .error)
             }
         }
     }

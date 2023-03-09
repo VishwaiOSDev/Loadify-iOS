@@ -5,8 +5,10 @@
 //  Created by Vishweshwaran on 5/7/22.
 //
 
+import UIKit
 import SwiftUI
 import FontKit
+import Haptific
 import FontInter
 import LoadifyKit
 
@@ -31,4 +33,9 @@ struct LoadifyApp: App {
                 .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)
         }
     }
+}
+
+// MARK: - Internal Helpers
+func notifyWithHaptics(for type: UINotificationFeedbackGenerator.FeedbackType) {
+    Haptific.simulate(.notification(style: type))
 }
