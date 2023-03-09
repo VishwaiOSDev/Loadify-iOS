@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import LoggerKit
+import Haptific
 
 protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
@@ -43,12 +44,15 @@ final class DownloaderViewModel: Downloadable {
                 self.showLoader = false
                 self.isDownloaded = true
                 self.downloadStatus = .downloaded
+                notifyWithHaptics(for: .success)
+                Haptific.simulate(.notification(style: .success))
             }
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async {
                 self.showSettingsAlert = true
                 self.showLoader = false
                 self.downloadStatus = .none
+                notifyWithHaptics(for: .warning)
             }
         } catch {
             DispatchQueue.main.async {
@@ -56,6 +60,7 @@ final class DownloaderViewModel: Downloadable {
                 self.downloadError = error
                 self.showLoader = false
                 self.downloadStatus = .failed
+                notifyWithHaptics(for: .error)
             }
         }
     }
