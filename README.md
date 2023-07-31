@@ -1,4 +1,4 @@
-![Loadify](https://images.loadify.app/GitHub/loadify-cover.png)
+![Loadify](https://images.madrasvalley.com/loadify-cover.png)
 
 # Loadify
 
@@ -29,8 +29,8 @@ Three download modes available:
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://images.loadify.app/GitHub/loadify-url-screen.png" height="811" width="375"> 
-    <img src="https://images.loadify.app/GitHub/loadify-download-screen.png" height="811" width="375">
+    <img src="https://images.madrasvalley.com/loadify-url-screen.png" height="811" width="375"> 
+    <img src="https://images.madrasvalley.com/loadify-download-screen.png" height="811" width="375">
 </div>
 
 ## Setup

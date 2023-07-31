@@ -86,6 +86,7 @@ struct URLView: View {
 }
 
 struct VideoURLView_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             URLView(viewModel: URLViewModel())
@@ -94,7 +95,6 @@ struct VideoURLView_Previews: PreviewProvider {
             URLView(viewModel: URLViewModel())
                 .previewDevice("iPhone SE (3rd generation)")
                 .previewDisplayName("iPhone SE")
-        }
-        .preferredColorScheme(.dark)
+        }.preferredColorScheme(.dark)
     }
 }
