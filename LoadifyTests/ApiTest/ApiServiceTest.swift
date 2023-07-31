@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import LogKit
 import NetworkKit
 @testable import Loadify
 

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import LogKit
 
 protocol Mockable: AnyObject {
     var bundle: Bundle { get }
@@ -28,7 +27,6 @@ extension Mockable {
             let decodedObject = try JSONDecoder().decode(T.self, from: data)
             return decodedObject
         } catch {
-            Log.error(error)
             fatalError("Failed to decode the JSON.")
         }
     }
