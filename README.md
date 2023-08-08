@@ -6,9 +6,6 @@ Loadify is an iOS and iPad app for downloading high-quality YouTube videos. You 
 
 This application uses [ytdl-core](https://github.com/fent/node-ytdl-core) under the hood to interact with YouTube.
 
-> **Warning**\
-> Loadify can only download videos that are 15 minutes or less in length. You will be able to download full YouTube videos in the coming interations.
-
 # Requirement
 
 - iOS 14.0+
