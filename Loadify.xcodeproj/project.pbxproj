@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88083D642855D7C70027BA0D /* LoadifyKit */; };
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
-		881D007029B8E11B00C7BDBE /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 881D006F29B8E11B00C7BDBE /* Haptific */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
@@ -19,7 +18,6 @@
 		88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379937283A1A0F00DDBA79 /* String+Extension.swift */; };
 		88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88498D4B29A285BE007303B0 /* Logger+Extension.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
-		888C864B29059F6300E86D85 /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 888C864A29059F6300E86D85 /* NetworkKit */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		889D520629B9AEDB00F61B1E /* Haptific+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889D520529B9AEDB00F61B1E /* Haptific+Extension.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -38,6 +36,8 @@
 		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
 		88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */; };
 		88DB2C3B2856FDA60065BBF9 /* ApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */; };
+		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
+		88EB388F2A835C7A0021A78C /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388E2A835C7A0021A78C /* NetworkKit */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
@@ -83,6 +83,7 @@
 		88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoDetailsResponse.json; sourceTree = "<group>"; };
 		88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		88EF20112A81A98F005E3D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,11 +100,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88EB388F2A835C7A0021A78C /* NetworkKit in Frameworks */,
 				88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
-				881D007029B8E11B00C7BDBE /* Haptific in Frameworks */,
-				888C864B29059F6300E86D85 /* NetworkKit in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
+				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
 				88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,6 +193,7 @@
 		88A729AC28264AD100B5FE61 /* Loadify */ = {
 			isa = PBXGroup;
 			children = (
+				88EF20112A81A98F005E3D69 /* Info.plist */,
 				88B1CFA62826BBA4007B19B4 /* App */,
 				88A729BD2826506B00B5FE61 /* Model */,
 				88A729BC2826506300B5FE61 /* View */,
@@ -338,9 +340,9 @@
 				88083D642855D7C70027BA0D /* LoadifyKit */,
 				88D9D1E528C39EED00D6EB79 /* FontInter */,
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
-				888C864A29059F6300E86D85 /* NetworkKit */,
 				88B3FD6A299A95F400112490 /* LoggerKit */,
-				881D006F29B8E11B00C7BDBE /* Haptific */,
+				88EB388C2A835C5F0021A78C /* Haptific */,
+				88EB388E2A835C7A0021A78C /* NetworkKit */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -377,9 +379,9 @@
 			packageReferences = (
 				88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */,
 				88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */,
-				88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */,
 				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
-				881D006E29B8E11B00C7BDBE /* XCRemoteSwiftPackageReference "Haptific" */,
+				88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */,
+				88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */,
 			);
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
 			projectDirPath = "";
@@ -625,6 +627,7 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Loadify/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -657,6 +660,7 @@
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Loadify/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -719,22 +723,6 @@
 				minimumVersion = 0.4.1;
 			};
 		};
-		881D006E29B8E11B00C7BDBE /* XCRemoteSwiftPackageReference "Haptific" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:VishwaiOSDev/Haptific.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:VishwaiOSDev/NetworkKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.1;
-			};
-		};
 		88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/VishwaiOSDev/LoggerKit";
@@ -751,6 +739,22 @@
 				minimumVersion = 0.0.5;
 			};
 		};
+		88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VishwaiOSDev/NetworkKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+		88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Vignesh-Thangamariappan/Haptific";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,16 +762,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */;
 			productName = LoadifyKit;
-		};
-		881D006F29B8E11B00C7BDBE /* Haptific */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 881D006E29B8E11B00C7BDBE /* XCRemoteSwiftPackageReference "Haptific" */;
-			productName = Haptific;
-		};
-		888C864A29059F6300E86D85 /* NetworkKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88807CC128CDF6FB00185386 /* XCRemoteSwiftPackageReference "NetworkKit" */;
-			productName = NetworkKit;
 		};
 		88B3FD6A299A95F400112490 /* LoggerKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -783,6 +777,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */;
 			productName = FontKit;
+		};
+		88EB388C2A835C5F0021A78C /* Haptific */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */;
+			productName = Haptific;
+		};
+		88EB388E2A835C7A0021A78C /* NetworkKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */;
+			productName = NetworkKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
