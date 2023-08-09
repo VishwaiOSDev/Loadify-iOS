@@ -14,7 +14,7 @@ enum API {
 }
 
 extension API: NetworkRequestable {
-
+    
     var host: String { "api.loadify.app" }
     
     var path: String {
@@ -41,4 +41,9 @@ extension API: NetworkRequestable {
             return ["url": url, "video_quality": quality.rawValue]
         }
     }
+    
+    /// Configuration for `localhost`
+    var shouldRunLocal: Bool { true }
+    
+    var port: Int? { 3200 }
 }

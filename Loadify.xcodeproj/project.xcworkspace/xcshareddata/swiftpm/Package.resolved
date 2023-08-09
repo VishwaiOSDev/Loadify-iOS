@@ -12,10 +12,10 @@
     {
       "identity" : "haptific",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:VishwaiOSDev/Haptific.git",
+      "location" : "https://github.com/Vignesh-Thangamariappan/Haptific",
       "state" : {
-        "branch" : "main",
-        "revision" : "b443795f1976ddc95fa9badec935db1214038973"
+        "revision" : "f8b2e588f2d64a11d98a1c396d11dfaec1e8e7f9",
+        "version" : "1.0.0"
       }
     },
     {
@@ -39,10 +39,10 @@
     {
       "identity" : "networkkit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:VishwaiOSDev/NetworkKit.git",
+      "location" : "https://github.com/VishwaiOSDev/NetworkKit",
       "state" : {
-        "revision" : "bdbc83119e0b31d99599ea8d8bcb1b65c3a77b86",
-        "version" : "0.1.9"
+        "revision" : "9ac3475feb27c5470b1e592ff59b4f6d98dd1be3",
+        "version" : "0.2.0"
       }
     }
   ],
