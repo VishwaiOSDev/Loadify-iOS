@@ -64,7 +64,8 @@ struct DownloadView: View {
             } image: {
                 thumbnailModifier(image: $0)
             } onLoading: {
-                ProgressView()
+                progressView
+                    .frame(minHeight: 188)
             }
             durationView
                 .offset(x: -5, y: -5)
@@ -77,6 +78,12 @@ struct DownloadView: View {
             .frame(minHeight: 188)
             .scaledToFit()
             .clipped()
+    }
+    
+    private var progressView: some View {
+        ZStack {
+            ProgressView()
+        }
     }
     
     private var durationView: some View {
