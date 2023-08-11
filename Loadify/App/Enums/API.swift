@@ -15,7 +15,7 @@ enum API {
 
 extension API: NetworkRequestable {
     
-    var host: String { "api.loadify.app" }
+    var host: String { "loadify.madrasvalley.com" }
     
     var path: String {
         switch self {
@@ -43,7 +43,7 @@ extension API: NetworkRequestable {
     }
     
     /// Configuration for `localhost`
-    var shouldRunLocal: Bool { true }
+    var shouldRunLocal: Bool { false }
     
     var port: Int? { 3200 }
 }

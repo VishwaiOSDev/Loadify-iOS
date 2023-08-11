@@ -74,8 +74,8 @@ struct URLView: View {
                 await didTapContinue()
             }
         } label: {
-            Text("Continue")
-                .font(.inter(.bold(size: 18)))
+            Text("Convert")
+                .font(.inter(.light(size: 16)))
         }
     }
     

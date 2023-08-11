@@ -111,15 +111,14 @@ struct DownloadView: View {
     @ViewBuilder
     private var downloadedBadge: some View {
         if viewModel.downloadStatus == .downloaded || viewModel.downloadStatus == .failed {
-            HStack(spacing: 0) {
+            HStack(spacing: 4) {
+                Image(systemName: "arrow.down.circle.fill")
                 Text(viewModel.downloadStatus == .downloaded ? "Downloaded" : "Failed")
                     .font(.inter(.bold(size: 14)))
                     .padding(2)
                     .cornerRadius(4)
-                Image(systemName: "arrow.down.circle.fill")
             }
-            .padding(.horizontal, 4)
-            .padding(.vertical, 2)
+            .padding(.all, 4)
             .foregroundColor(.white)
             .background(badgeColor)
             .cornerRadius(4)
@@ -172,7 +171,7 @@ struct DownloadView: View {
                 }
             } label: {
                 Text("Download")
-                    .font(.inter(.bold(size: 18)))
+                    .font(.inter(.light(size: 16)))
             }
             .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
             .disabled(selectedQuality == .none ? true: false)
