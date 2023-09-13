@@ -23,6 +23,8 @@
 		884BDAEB2AB14B2100A4828B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAE92AB14B2100A4828B /* CardView.swift */; };
 		884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAEA2AB14B2100A4828B /* CustomButtonStyle.swift */; };
 		884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */; };
+		884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */; };
+		884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAF12AB14C3700A4828B /* NetworkAlert.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -76,6 +78,8 @@
 		884BDAE92AB14B2100A4828B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		884BDAEA2AB14B2100A4828B /* CustomButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachablityManager.swift; sourceTree = "<group>"; };
+		884BDAF12AB14C3700A4828B /* NetworkAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAlert.swift; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +183,7 @@
 				884BDAE42AB14AF200A4828B /* InfoView.swift */,
 				884BDAE32AB14AF100A4828B /* MenuButton.swift */,
 				884BDAE02AB14A9F00A4828B /* CustomTextField.swift */,
+				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				88CD83B72827D77B00F520C0 /* ApiService.swift */,
 				88AFF4A428521F1300D00040 /* FileService.swift */,
 				88AFF4A22851E7B900D00040 /* PhotosService.swift */,
+				884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -463,12 +469,14 @@
 				884BDAE62AB14AF200A4828B /* MenuButton.swift in Sources */,
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
 				884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */,
+				884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConstants.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
+				884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
