@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LoadifyKit
 
 struct URLView: View {
     

@@ -10,7 +10,6 @@ import SwiftUI
 import FontKit
 import Haptific
 import FontInter
-import LoadifyKit
 
 @main
 struct LoadifyApp: App {
