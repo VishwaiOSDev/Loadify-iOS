@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88083D642855D7C70027BA0D /* LoadifyKit */; };
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
@@ -101,7 +100,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EB388F2A835C7A0021A78C /* NetworkKit in Frameworks */,
-				88083D652855D7C70027BA0D /* LoadifyKit in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -337,7 +335,6 @@
 			);
 			name = Loadify;
 			packageProductDependencies = (
-				88083D642855D7C70027BA0D /* LoadifyKit */,
 				88D9D1E528C39EED00D6EB79 /* FontInter */,
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
 				88B3FD6A299A95F400112490 /* LoggerKit */,
@@ -377,7 +374,6 @@
 			);
 			mainGroup = 88A729A128264AD100B5FE61;
 			packageReferences = (
-				88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */,
 				88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */,
 				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
 				88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */,
@@ -715,14 +711,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:VishwaiOSDev/LoadifyKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.4.1;
-			};
-		};
 		88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/VishwaiOSDev/LoggerKit";
@@ -758,11 +746,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		88083D642855D7C70027BA0D /* LoadifyKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88083D632855D7C70027BA0D /* XCRemoteSwiftPackageReference "LoadifyKit" */;
-			productName = LoadifyKit;
-		};
 		88B3FD6A299A95F400112490 /* LoggerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */;

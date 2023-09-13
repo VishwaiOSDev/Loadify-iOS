@@ -8,6 +8,8 @@
 import SwiftUI
 
 typealias LoadifyTexts = Loadify.Texts
+typealias LoadifyColors = LoadifyKit.ColorKit
+typealias LoadifyAssets = LoadifyKit.AssetKit
 
 struct Loadify {
     
@@ -22,5 +24,25 @@ struct Loadify {
         static let tryAgain: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
+    }
+}
+
+struct LoadifyKit {
+    
+    struct AssetKit {
+        public static let loadifyHorizontal = Image("loadify_horizontal")
+        public static let loadifyIcon = Image("loadify_icon")
+        public static let notFound = Image("not_found")
+    }
+    
+    struct ColorKit {
+        public static let appBackground = Color("app_background")
+        public static let greyText = Color("grey_text")
+        public static let textfieldBackground = Color("textfield_background")
+        public static let blueAccent = Color("blue_accent")
+        public static let errorRedGradient = Color("error_red_gradient")
+        public static let errorRed = Color("error_red")
+        public static let successGreenGradient = Color("success_green_gradient")
+        public static let successGreen = Color("success_green")
     }
 }

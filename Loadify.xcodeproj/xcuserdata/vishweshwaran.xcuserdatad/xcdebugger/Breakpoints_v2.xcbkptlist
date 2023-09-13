@@ -3,4 +3,99 @@
    uuid = "3060FD4B-BC5F-4B01-9BBA-9EF176B0168D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Loadify/ViewModel/URLViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "URLViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A - 5cda3936c3a98b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loadify.URLViewModel.autoPasteURL() -&gt; ()"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/ViewModel/URLViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A - 5cda3936c3a98b8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loadify.URLViewModel.autoPasteURL() -&gt; ()"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/ViewModel/URLViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A - 5cda3936c3a98b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loadify.URLViewModel.autoPasteURL() -&gt; ()"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/ViewModel/URLViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A - 5cda3936c3a98b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loadify.URLViewModel.autoPasteURL() -&gt; ()"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/ViewModel/URLViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "464">
+               </Location>
+               <Location
+                  uuid = "65367738-1B9E-4870-9745-43DEB10DFC0A - 5cda3936c3a98b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Loadify.URLViewModel.autoPasteURL() -&gt; ()"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/ViewModel/URLViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "504">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
