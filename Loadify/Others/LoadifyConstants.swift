@@ -8,6 +8,8 @@
 import SwiftUI
 
 typealias LoadifyTexts = Loadify.Texts
+typealias LoadifyColors = LoadifyKit.ColorKit
+typealias LoadifyAssets = LoadifyKit.AssetKit
 
 struct Loadify {
     
@@ -23,4 +25,29 @@ struct Loadify {
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
     }
+}
+
+struct LoadifyKit {
+    
+    struct AssetKit {
+        static let loadifyHorizontal = Image("loadify_horizontal")
+        static let loadifyIcon = Image("loadify_icon")
+        static let notFound = Image("not_found")
+    }
+    
+    struct ColorKit {
+        static let appBackground = Color("app_background")
+        static let greyText = Color("grey_text")
+        static let textfieldBackground = Color("textfield_background")
+        static let blueAccent = Color("blue_accent")
+        static let errorRedGradient = Color("error_red_gradient")
+        static let errorRed = Color("error_red")
+        static let successGreenGradient = Color("success_green_gradient")
+        static let successGreen = Color("success_green")
+    }
+}
+
+struct Constants {
+    
+    static let iMacURL =  "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-refurb-about-201810?wid=984&hei=859&fmt=jpeg&qlt=90&.v=1541530952135"
 }

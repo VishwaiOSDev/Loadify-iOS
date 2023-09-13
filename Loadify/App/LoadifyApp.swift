@@ -10,7 +10,6 @@ import SwiftUI
 import FontKit
 import Haptific
 import FontInter
-import LoadifyKit
 
 @main
 struct LoadifyApp: App {
@@ -36,6 +35,7 @@ struct LoadifyApp: App {
 }
 
 // MARK: - Internal Helpers
+
 func notifyWithHaptics(for type: UINotificationFeedbackGenerator.FeedbackType) {
     Haptific.simulate(.notification(style: type))
 }
