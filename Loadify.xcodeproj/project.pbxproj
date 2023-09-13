@@ -40,6 +40,7 @@
 		884BDB142AB14DA200A4828B /* LoaderViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB122AB14DA200A4828B /* LoaderViewAction.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB182AB14E7600A4828B /* HUDComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB172AB14E7600A4828B /* HUDComponents.swift */; };
+		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -110,6 +111,7 @@
 		884BDB122AB14DA200A4828B /* LoaderViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewAction.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB172AB14E7600A4828B /* HUDComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDComponents.swift; sourceTree = "<group>"; };
+		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,8 +184,9 @@
 				883233862855F34000BF38B5 /* Double+Extension.swift */,
 				88379937283A1A0F00DDBA79 /* String+Extension.swift */,
 				88498D4B29A285BE007303B0 /* Logger+Extension.swift */,
-				884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */,
 				884BDB152AB14E0000A4828B /* View+Extension.swift */,
+				884BDB192AB14EB400A4828B /* Task+Extension.swift */,
+				884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				884BDB132AB14DA200A4828B /* AlertViewAction.swift in Sources */,
 				883233872855F34000BF38B5 /* Double+Extension.swift in Sources */,
 				884BDB022AB14CF500A4828B /* AlertView.swift in Sources */,
+				884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */,
 				884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,

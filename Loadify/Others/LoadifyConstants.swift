@@ -8,7 +8,7 @@
 import SwiftUI
 
 typealias LoadifyTexts = Loadify.Texts
-typealias LoadifyColors = LoadifyKit.ColorKit
+public typealias LoadifyColors = LoadifyKit.ColorKit
 typealias LoadifyAssets = LoadifyKit.AssetKit
 
 struct Loadify {
@@ -27,15 +27,15 @@ struct Loadify {
     }
 }
 
-struct LoadifyKit {
+public struct LoadifyKit {
     
-    struct AssetKit {
-        public static let loadifyHorizontal = Image("loadify_horizontal")
-        public static let loadifyIcon = Image("loadify_icon")
-        public static let notFound = Image("not_found")
+    public struct AssetKit {
+        static let loadifyHorizontal = Image("loadify_horizontal")
+        static let loadifyIcon = Image("loadify_icon")
+        static let notFound = Image("not_found")
     }
     
-    struct ColorKit {
+    public struct ColorKit {
         public static let appBackground = Color("app_background")
         public static let greyText = Color("grey_text")
         public static let textfieldBackground = Color("textfield_background")
@@ -45,4 +45,9 @@ struct LoadifyKit {
         public static let successGreenGradient = Color("success_green_gradient")
         public static let successGreen = Color("success_green")
     }
+}
+
+struct Constants {
+
+    static let iMacURL =  "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-refurb-about-201810?wid=984&hei=859&fmt=jpeg&qlt=90&.v=1541530952135"
 }
