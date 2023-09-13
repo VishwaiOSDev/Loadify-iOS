@@ -22,9 +22,9 @@
 		884BDAE72AB14AF200A4828B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAE42AB14AF200A4828B /* InfoView.swift */; };
 		884BDAEB2AB14B2100A4828B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAE92AB14B2100A4828B /* CardView.swift */; };
 		884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAEA2AB14B2100A4828B /* CustomButtonStyle.swift */; };
+		884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
-		889D520629B9AEDB00F61B1E /* Haptific+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889D520529B9AEDB00F61B1E /* Haptific+Extension.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
@@ -75,9 +75,9 @@
 		884BDAE42AB14AF200A4828B /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		884BDAE92AB14B2100A4828B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		884BDAEA2AB14B2100A4828B /* CustomButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
-		889D520529B9AEDB00F61B1E /* Haptific+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Haptific+Extension.swift"; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				883233862855F34000BF38B5 /* Double+Extension.swift */,
 				88379937283A1A0F00DDBA79 /* String+Extension.swift */,
 				88498D4B29A285BE007303B0 /* Logger+Extension.swift */,
-				889D520529B9AEDB00F61B1E /* Haptific+Extension.swift */,
+				884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -482,10 +482,10 @@
 				884BDAE12AB14A9F00A4828B /* CustomTextField.swift in Sources */,
 				882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */,
 				883233872855F34000BF38B5 /* Double+Extension.swift in Sources */,
+				884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */,
 				88CD83B82827D77B00F520C0 /* ApiService.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 				889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */,
-				889D520629B9AEDB00F61B1E /* Haptific+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
