@@ -25,6 +25,8 @@
 		884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */; };
 		884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */; };
 		884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAF12AB14C3700A4828B /* NetworkAlert.swift */; };
+		884BDAF42AB14C6D00A4828B /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAF32AB14C6D00A4828B /* ImageLoaderService.swift */; };
+		884BDAF62AB14C7500A4828B /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAF52AB14C7500A4828B /* ImageView.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -80,6 +82,8 @@
 		884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
 		884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachablityManager.swift; sourceTree = "<group>"; };
 		884BDAF12AB14C3700A4828B /* NetworkAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAlert.swift; sourceTree = "<group>"; };
+		884BDAF32AB14C6D00A4828B /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		884BDAF52AB14C7500A4828B /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +187,7 @@
 				884BDAE42AB14AF200A4828B /* InfoView.swift */,
 				884BDAE32AB14AF100A4828B /* MenuButton.swift */,
 				884BDAE02AB14A9F00A4828B /* CustomTextField.swift */,
+				884BDAF52AB14C7500A4828B /* ImageView.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
 			);
 			path = Components;
@@ -299,6 +304,7 @@
 				88CD83B72827D77B00F520C0 /* ApiService.swift */,
 				88AFF4A428521F1300D00040 /* FileService.swift */,
 				88AFF4A22851E7B900D00040 /* PhotosService.swift */,
+				884BDAF32AB14C6D00A4828B /* ImageLoaderService.swift */,
 				884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */,
 			);
 			path = Services;
@@ -466,10 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884BDAF62AB14C7500A4828B /* ImageView.swift in Sources */,
 				884BDAE62AB14AF200A4828B /* MenuButton.swift in Sources */,
 				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
 				884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */,
 				884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */,
+				884BDAF42AB14C6D00A4828B /* ImageLoaderService.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
