@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View {
+struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View {
     
     @StateObject var imageLoader: ImageLoaderService
     @State private var uiImage: UIImage?
@@ -16,7 +16,7 @@ public struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>
     private let image: (Image) -> ConfiguredImage
     private let onLoading: () -> Loading
     
-    public init(
+    init(
         urlString: String,
         @ViewBuilder placeholder: @escaping () -> Placeholder,
         @ViewBuilder image: @escaping (Image) -> ConfiguredImage,
@@ -28,7 +28,7 @@ public struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>
         self._imageLoader = StateObject(wrappedValue: ImageLoaderService(urlString: urlString))
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack {
             switch imageLoader.imageStatus {
             case .success(let uiImage):
@@ -43,6 +43,7 @@ public struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>
 }
 
 struct ImageView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ImageView(urlString: Constants.iMacURL) {
             Image(systemName: "applelogo")

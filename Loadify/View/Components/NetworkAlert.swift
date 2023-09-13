@@ -7,22 +7,21 @@
 
 import Combine
 import FontKit
-#if canImport(SwiftUI)
 import SwiftUI
 
-public struct NetworkAlert: ViewModifier {
+struct NetworkAlert: ViewModifier {
     
     @State private var isAlertShown: Bool = false
     
     private let isReachable: Bool
     private let message: String
     
-    public init(isReachable: Bool, message: String) {
+    init(isReachable: Bool, message: String) {
         self.isReachable = isReachable
         self.message = message
     }
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         VStack {
             content
             if isAlertShown {
@@ -64,12 +63,14 @@ public struct NetworkAlert: ViewModifier {
 }
 
 extension View {
-    public func showNetworkAlert(when isReachable: Bool, with message: String) -> some View {
+    
+    func showNetworkAlert(when isReachable: Bool, with message: String) -> some View {
         modifier(NetworkAlert(isReachable: isReachable, message: message))
     }
 }
 
 struct NetworkAlert_Previews: PreviewProvider {
+    
     static var previews: some View {
         ZStack {
             Color.blue.edgesIgnoringSafeArea(.all)
@@ -79,5 +80,3 @@ struct NetworkAlert_Previews: PreviewProvider {
         .showNetworkAlert(when: true, with: "Back online")
     }
 }
-#endif
-

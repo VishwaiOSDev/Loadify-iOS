@@ -10,7 +10,7 @@ import UIKit
 
 final class ImageLoaderService: ObservableObject {
     
-    public enum ImageStatus {
+    enum ImageStatus {
         case success(uiImage: UIImage)
         case failure
         case loading

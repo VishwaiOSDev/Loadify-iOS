@@ -8,12 +8,12 @@
 import SwiftUI
 import FontKit
 
-public struct Loader: View {
+struct Loader: View {
     
-    public let title: String
-    public let showOverlay: Bool
+    let title: String
+    let showOverlay: Bool
     
-    public init(
+    init(
         title: String,
         showOverlay: Bool = false
     ) {
@@ -21,7 +21,7 @@ public struct Loader: View {
         self.showOverlay = showOverlay
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack {
             overlayView(showOverlay)
             VStack {
@@ -46,6 +46,7 @@ public struct Loader: View {
 }
 
 struct Loader_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             Loader(title: "LOADING", showOverlay: false)

@@ -8,24 +8,24 @@
 import SwiftUI
 import FontKit
 
-public enum AlertType: String {
+enum AlertType: String {
     case error = "x.circle.fill"
     case success = "checkmark.circle.fill"
 }
 
-public struct AlertUI: View {
+struct AlertUI: View {
     
-    public let title: String
-    public let subtile: String?
-    public let alertType: AlertType
+    let title: String
+    let subtile: String?
+    let alertType: AlertType
     
-    public init(title: String, subtitle: String? = nil, alertType: AlertType = .error) {
+    init(title: String, subtitle: String? = nil, alertType: AlertType = .error) {
         self.title = title
         self.subtile = subtitle
         self.alertType = alertType
     }
     
-    public var body: some View {
+    var body: some View {
         HStack {
             Image(systemName: alertType.rawValue)
                 .font(.title)
@@ -70,6 +70,7 @@ public struct AlertUI: View {
 }
 
 struct AlertUI_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             ZStack {

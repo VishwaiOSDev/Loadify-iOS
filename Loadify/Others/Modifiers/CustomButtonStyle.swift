@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public struct CustomButtonStyle: ButtonStyle {
+struct CustomButtonStyle: ButtonStyle {
     
     var buttonColor: Color
     var cornerRadius: CGFloat = 10
     var isDisabled: Bool = false
     
-    public init(
+    init(
         buttonColor: Color = LoadifyColors.blueAccent,
         cornerRadius: CGFloat = 10,
         isDisabled: Bool = false
@@ -23,7 +23,7 @@ public struct CustomButtonStyle: ButtonStyle {
         self.isDisabled = isDisabled
     }
     
-    public func makeBody(configuration: Configuration) -> some View {
+    func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
             .frame(maxWidth: .infinity, maxHeight: 56)
@@ -34,6 +34,7 @@ public struct CustomButtonStyle: ButtonStyle {
 }
 
 struct CustomButtonStyle_Previews: PreviewProvider {
+    
     static var previews: some View {
         Button(action: {}) {
             Text("Download Now")

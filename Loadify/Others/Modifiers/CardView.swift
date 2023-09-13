@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-public struct CardView: ViewModifier {
+struct CardView: ViewModifier {
     
     private let color: Color
     private let cornerRadius: CGFloat
     
-    public init(color: Color, cornerRadius: CGFloat = 10) {
+    init(color: Color, cornerRadius: CGFloat = 10) {
         self.color = color
         self.cornerRadius = cornerRadius
     }
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .background(color)
             .cornerRadius(cornerRadius)
@@ -25,6 +25,7 @@ public struct CardView: ViewModifier {
 }
 
 struct CardView_Previews: PreviewProvider {
+    
     static var previews: some View {
         VStack {
             Text("Card View")

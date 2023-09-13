@@ -8,17 +8,17 @@
 import SwiftUI
 import FontKit
 
-public struct InfoView: View {
+struct InfoView: View {
     
     private var title: String
     private var subTitle: String
     
-    public init(title: String, subTitle: String) {
+    init(title: String, subTitle: String) {
         self.title = title
         self.subTitle = subTitle
     }
     
-    public var body: some View {
+    var body: some View {
         VStack {
             Text("\(title)")
                 .font(.inter(.bold(size: 18)))
@@ -32,6 +32,7 @@ public struct InfoView: View {
 }
 
 struct InfoView_Previews: PreviewProvider {
+    
     static var previews: some View {
         InfoView(title: "31 lakh", subTitle: "Likes")
             .previewLayout(.sizeThatFits)

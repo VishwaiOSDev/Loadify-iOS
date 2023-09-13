@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-public enum LoaderStyle {
+enum LoaderStyle {
     case vertical, horizontal
 }
 
-public struct LoaderOptions {
-    public var style: LoaderStyle
+struct LoaderOptions {
     
-    public init(style: LoaderStyle = .horizontal) {
+    var style: LoaderStyle
+    
+    init(style: LoaderStyle = .horizontal) {
         self.style = style
     }
 }

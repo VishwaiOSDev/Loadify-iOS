@@ -8,18 +8,18 @@
 import SwiftUI
 import Network
 
-public final class ReachablityManager: ObservableObject {
+final class ReachablityManager: ObservableObject {
     
-    @Published public var isConnected = true
+    @Published var isConnected = true
     
-    public var connectionDescription: String {
+    var connectionDescription: String {
         isConnected ? "Back online" : "No connection"
     }
     
     private let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "ReachablityManager")
     
-    public init() {
+    init() {
         startMonitoring()
     }
     

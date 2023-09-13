@@ -8,17 +8,17 @@
 import SwiftUI
 import FontKit
 
-public struct CustomTextField: View {
+struct CustomTextField: View {
     
     @Binding var text: String
     var placeHolder: String
     
-    public init(_ placeHolder: String, text: Binding<String>) {
+    init(_ placeHolder: String, text: Binding<String>) {
         self.placeHolder = placeHolder
         self._text = text
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
                 if text.isEmpty {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public final class AlertViewAction: ObservableObject {
+final class AlertViewAction: ObservableObject {
     
     @Published var isShowing: Bool = false
     private(set) var title: String
@@ -15,7 +15,7 @@ public final class AlertViewAction: ObservableObject {
     private(set) var showOverlay: Bool
     private(set) var options: AlertOptions
     
-    public init(
+    init(
         title: String = "",
         subTitle: String? = nil,
         showOverlay: Bool = false,
@@ -26,12 +26,8 @@ public final class AlertViewAction: ObservableObject {
         self.showOverlay = showOverlay
         self.options = options
     }
-    
-    deinit {
-        print("LoaderViewAction DeInit")
-    }
-    
-    public func showAlert(
+        
+    func showAlert(
         title: String,
         subTitle: String? = nil,
         duration: Int = 3,

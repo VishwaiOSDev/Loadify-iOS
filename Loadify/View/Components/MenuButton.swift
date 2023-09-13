@@ -8,9 +8,9 @@
 import SwiftUI
 import FontKit
 
-public struct MenuButton: View {
+struct MenuButton: View {
     
-    public enum ArrowDirection: String {
+    enum ArrowDirection: String {
         case up = "chevron.up"
         case right = "chevron.right"
         case down = "chevron.down"
@@ -20,12 +20,12 @@ public struct MenuButton: View {
     private var title: String
     private var arrowDirection: ArrowDirection
     
-    public init(title: String, arrowDirection: ArrowDirection = .down) {
+    init(title: String, arrowDirection: ArrowDirection = .down) {
         self.title = title
         self.arrowDirection = arrowDirection
     }
     
-    public var body: some View {
+    var body: some View {
         HStack {
             Text("\(title)")
                 .font(.inter(.semibold(size: 16)))
@@ -43,6 +43,7 @@ public struct MenuButton: View {
 }
 
 struct SelectView_Previews: PreviewProvider {
+    
     static var previews: some View {
         MenuButton(title: "Select Video Quality", arrowDirection: .down)
             .padding()

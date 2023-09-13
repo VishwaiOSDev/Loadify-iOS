@@ -8,14 +8,14 @@
 import SwiftUI
 
 @available(*, deprecated, message: "use AlertUI instead.")
-public struct AlertView: View {
+struct AlertView: View {
     
-    public let title: String
-    public let subTitle: String?
-    public let showOverlay: Bool
-    public let options: AlertOptions
+    let title: String
+    let subTitle: String?
+    let showOverlay: Bool
+    let options: AlertOptions
     
-    public init(
+    init(
         title: String,
         subTitle: String? = nil,
         showOverlay: Bool = false,
@@ -27,7 +27,7 @@ public struct AlertView: View {
         self.options = options
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack {
             overlayView(showOverlay)
             switch options.style {

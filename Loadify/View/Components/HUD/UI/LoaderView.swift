@@ -8,14 +8,14 @@
 import SwiftUI
 
 @available(*, deprecated, message: "use Loader instead")
-public struct LoaderView: View {
+struct LoaderView: View {
     
-    public let title: String
-    public let subTitle: String?
-    public let showOverlay: Bool
-    public let options: LoaderOptions
+    let title: String
+    let subTitle: String?
+    let showOverlay: Bool
+    let options: LoaderOptions
     
-    public init(
+    init(
         title: String,
         subTitle: String? = nil,
         showOverlay: Bool = false,
@@ -27,7 +27,7 @@ public struct LoaderView: View {
         self.options = options
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack {
             overlayView(showOverlay)
             switch options.style {
@@ -79,6 +79,7 @@ public struct LoaderView: View {
 
 @available(*, deprecated, message: "use Loader_Previews instead")
 struct LoaderView_Previews: PreviewProvider {
+    
     static var previews: some View {
         Group {
             LoaderView(title: "Fetching details...", subTitle: nil, showOverlay: false, options: .init(style: .vertical))

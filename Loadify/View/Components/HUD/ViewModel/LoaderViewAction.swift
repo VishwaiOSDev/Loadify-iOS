@@ -7,21 +7,13 @@
 
 import SwiftUI
 
-public final class LoaderViewAction: ObservableObject {
+final class LoaderViewAction: ObservableObject {
     
     @Published var isLoading: Bool = false
     private(set) var title: String = ""
     private(set) var subTitle: String?
     
-    public init() {
-        print("Loader State Init")
-    }
-    
-    deinit {
-        print("LoaderViewAction DeInit")
-    }
-    
-    public func showLoader(title: String, subTitle: String? = nil) {
+    func showLoader(title: String, subTitle: String? = nil) {
         self.title = title
         self.subTitle = subTitle
         DispatchQueue.main.async {
@@ -29,7 +21,7 @@ public final class LoaderViewAction: ObservableObject {
         }
     }
     
-    public func hideLoader() {
+    func hideLoader() {
         DispatchQueue.main.async {
             self.isLoading = false
         }
