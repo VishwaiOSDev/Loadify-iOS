@@ -13,6 +13,7 @@ enum AlertStyle: String {
 }
 
 struct AlertOptions {
+    
     var alertType: AlertStyle
     var style: LoaderStyle
     

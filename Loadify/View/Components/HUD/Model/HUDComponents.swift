@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-internal typealias Colors = HUDComponents.Colors
+typealias Colors = HUDComponents.Colors
 
-internal struct HUDComponents {
+struct HUDComponents {
     
     struct Colors {
         static let green = Color("success_green")
