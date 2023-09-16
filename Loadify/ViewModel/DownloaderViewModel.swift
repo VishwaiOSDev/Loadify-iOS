@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import NetworkKit
 import LoggerKit
 import Haptific
 
@@ -28,7 +29,8 @@ final class DownloaderViewModel: Downloadable {
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     
-    private lazy var apiService: DownloadService = ApiService()
+    private lazy var photoService: PhotosServiceProtocol = PhotosService()
+    private lazy var fileService: FileServiceProtocol = FileService()
     
     init() {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
@@ -39,7 +41,14 @@ final class DownloaderViewModel: Downloadable {
             DispatchQueue.main.async {
                 self.showLoader = true
             }
-            try await apiService.downloadVideo(for: url, quality: quality)
+            try await photoService.checkForPhotosPermission()
+            let filePath = fileService.getTemporaryFilePath()
+            let data = try await NetworkKit.shared.requestData(
+                API.download(youtubeURL: url, quality: quality)
+            )
+            try data.write(to: filePath)
+            try checkVideoIsCompatible(at: filePath.path)
+            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
             DispatchQueue.main.async {
                 self.showLoader = false
                 self.isDownloaded = true
@@ -62,6 +71,12 @@ final class DownloaderViewModel: Downloadable {
                 self.downloadStatus = .failed
                 notifyWithHaptics(for: .error)
             }
+        }
+    }
+    
+    private func checkVideoIsCompatible(at filePath: String) throws {
+        if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
+            throw DownloadError.notCompatible
         }
     }
     

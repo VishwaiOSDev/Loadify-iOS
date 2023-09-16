@@ -8,6 +8,7 @@
 import Foundation
 import LoggerKit
 import Haptific
+import NetworkKit
 
 protocol ViewLifyCycle {
     func onDisappear()
@@ -24,21 +25,20 @@ final class URLViewModel: Detailable {
     @Published var error: Error? = nil
     
     var details: VideoDetails? = nil
-    
-    private var apiService: FetchService?
-    
+        
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
     
     func getVideoDetails(for url: String) async {
         do {
-            apiService = ApiService()
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
             }
-            let response = try await apiService!.fetchVideoDetailsFromApi(for: url)
+            let response =  try await NetworkKit.shared.requestCodable(
+                API.details(youtubeURL: url), type: VideoDetails.self
+            )
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.details = response
@@ -59,7 +59,6 @@ final class URLViewModel: Detailable {
     
     func onDisappear() {
         details = nil
-        apiService = nil
     }
     
     deinit {
