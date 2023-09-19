@@ -238,18 +238,8 @@ struct DownloadView: View {
     }
 }
 
-struct DownloadView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NavigationView {
-                DownloadView(details: .previews)
-            }
-            .previewDevice("iPhone 13 Pro Max")
-            NavigationView {
-                DownloadView(details: .previews)
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .previewDevice("iPhone SE (3rd generation)")
-        }
+#Preview("iPhone 15 Pro Max") {
+    NavigationView {
+        DownloadView(details: .previews)
     }
 }

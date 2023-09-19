@@ -25,7 +25,9 @@ final class URLViewModel: Detailable {
     @Published var error: Error? = nil
     
     var details: VideoDetails? = nil
-        
+    
+    var fetcher = DetailFetcher()
+    
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
@@ -36,9 +38,7 @@ final class URLViewModel: Detailable {
                 guard let self else { return }
                 self.showLoader = true
             }
-            let response =  try await NetworkKit.shared.requestCodable(
-                API.details(youtubeURL: url), type: VideoDetails.self
-            )
+            let response = try await fetcher.loadDetails(for: url)
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.details = response

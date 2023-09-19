@@ -84,16 +84,7 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            URLView(viewModel: URLViewModel())
-                .previewDevice("iPhone 14 Pro Max")
-                .previewDisplayName("iPhone 14 Pro Max")
-            URLView(viewModel: URLViewModel())
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
-        }.preferredColorScheme(.dark)
-    }
+#Preview("iPhone 15 Pro Max") {
+    URLView(viewModel: URLViewModel())
+        .previewDevice("iPhone 15 Pro Max")
 }

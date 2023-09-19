@@ -43,12 +43,12 @@ final class DownloaderViewModel: Downloadable {
             }
             try await photoService.checkForPhotosPermission()
             let filePath = fileService.getTemporaryFilePath()
-            let data = try await NetworkKit.shared.requestData(
-                API.download(youtubeURL: url, quality: quality)
-            )
-            try data.write(to: filePath)
-            try checkVideoIsCompatible(at: filePath.path)
-            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+//            let data = try await NetworkKit.shared.requestData(
+//                API.download(youtubeURL: url, quality: quality)
+//            )
+//            try data.write(to: filePath)
+//            try checkVideoIsCompatible(at: filePath.path)
+//            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
             DispatchQueue.main.async {
                 self.showLoader = false
                 self.isDownloaded = true
