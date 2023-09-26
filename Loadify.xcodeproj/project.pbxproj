@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
+		880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
@@ -79,6 +80,7 @@
 /* Begin PBXFileReference section */
 		88083D6A2855D95A0027BA0D /* LoadifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88083D732855D9D00027BA0D /* VideoInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoTest.swift; sourceTree = "<group>"; };
+		880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestable.swift; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
 		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 		88A729B128264AD400B5FE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88A729B428264AD400B5FE61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88AA09A72AB7F26C0098FA0D /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		88AA09A92AB7FB8D0098FA0D /* NetworkKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkKit; path = "../../../Swift Packages/NetworkKit"; sourceTree = "<group>"; };
 		88AFF4A22851E7B900D00040 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
@@ -288,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				88B9E1FC292A18E700232C0D /* README.md */,
-				88AA09A92AB7FB8D0098FA0D /* NetworkKit */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				88A729AB28264AD100B5FE61 /* Products */,
@@ -380,6 +380,7 @@
 				88AFF4A22851E7B900D00040 /* PhotosService.swift */,
 				884BDAF32AB14C6D00A4828B /* ImageLoaderService.swift */,
 				884BDAEF2AB14C1500A4828B /* ReachablityManager.swift */,
+				880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -559,6 +560,7 @@
 				884BDB042AB14CF500A4828B /* LoaderView.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
+				880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */,
 				884BDB012AB14CF500A4828B /* AlertUI.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				884BDB182AB14E7600A4828B /* HUDComponents.swift in Sources */,

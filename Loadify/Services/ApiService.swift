@@ -51,6 +51,7 @@ struct DetailFetcher {
     
     func loadDetails(for youtubeURL: String) async throws -> VideoDetails {
         let request = try API.details(youtubeURL: youtubeURL).createRequest()
+        
         let (data, httpResponse) = try await session.fetchData(for: request)
         
         guard let mimeType = httpResponse.mimeType, mimeType.contains("json") else {
