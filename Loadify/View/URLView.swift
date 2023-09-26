@@ -28,11 +28,17 @@ struct URLView: View {
         .navigationBarHidden(true)
         .onDisappear(perform: viewModel.onDisappear)
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-        .showAlert(item: $viewModel.error) { error in
-            AlertUI(
-                title: error.localizedDescription,
-                subtitle: LoadifyTexts.tryAgain.randomElement()
-            )
+        .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
+            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                return AlertUI(title: errorMessage)
+            }
+            return AlertUI(title: errorTitle, subtitle: errorMessage)
+        })
+        .showAlert(item: $viewModel.error) { error -> AlertUI in
+            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                return AlertUI(title: error.localizedDescription)
+            }
+            return AlertUI(title: errorTitle, subtitle: error.localizedDescription)
         }
     }
     
