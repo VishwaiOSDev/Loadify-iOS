@@ -46,7 +46,6 @@ Follow the steps below to setup Loadify on your machine:
 
 The packages listed below are used by loadify:
 
-- [NetworkKit](https://github.com/VishwaiOSDev/NetworkKit) (Will be depricated)
 - [FontKit](https://github.com/VishwaiOSDev/FontKit)
 - [LogKit](https://github.com/VishwaiOSDev/LogKit)
 
