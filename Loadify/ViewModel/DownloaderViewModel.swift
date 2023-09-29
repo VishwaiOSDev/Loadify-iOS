@@ -32,6 +32,8 @@ final class DownloaderViewModel: Downloadable {
     private lazy var photoService: PhotosServiceProtocol = PhotosService()
     private lazy var fileService: FileServiceProtocol = FileService()
     
+    var downloader = Downloader()
+    
     init() {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
     }
@@ -43,12 +45,10 @@ final class DownloaderViewModel: Downloadable {
             }
             try await photoService.checkForPhotosPermission()
             let filePath = fileService.getTemporaryFilePath()
-//            let data = try await NetworkKit.shared.requestData(
-//                API.download(youtubeURL: url, quality: quality)
-//            )
-//            try data.write(to: filePath)
-//            try checkVideoIsCompatible(at: filePath.path)
-//            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+            let tempURL = try await downloader.download(youtubeURL: url, quality: quality)
+            try FileManager.default.moveItem(at: tempURL, to: filePath)
+            try checkVideoIsCompatible(at: filePath.path)
+            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
             DispatchQueue.main.async {
                 self.showLoader = false
                 self.isDownloaded = true
