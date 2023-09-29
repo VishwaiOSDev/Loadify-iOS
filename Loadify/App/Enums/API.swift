@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import NetworkKit
 
 enum API {
     case details(youtubeURL: String)
@@ -15,7 +14,9 @@ enum API {
 
 extension API: NetworkRequestable {
     
-    var host: String { "loadify.madrasvalley.com" }
+    var host: String {
+        "loadify.madrasvalley.com"
+    }
     
     var path: String {
         switch self {
@@ -29,7 +30,7 @@ extension API: NetworkRequestable {
     var httpMethod: HTTPMethod {
         switch self {
         case .details, .download:
-            return HTTPMethod.get
+            return .get
         }
     }
     

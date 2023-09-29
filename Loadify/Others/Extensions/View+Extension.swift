@@ -76,6 +76,23 @@ extension View {
     /// This will return an Alert from LoaderKit.
     /// This functions helps you to present `Alert` on top of the View Hierarchy
     /// - Parameters:
+    ///   - item: Error item to be displayed.
+    ///   - content: Closure to show `Alert` and display error message
+    func showAlert<T: View>(item: Binding<String?>, for duration: TimeInterval = 2.5, content: (String) -> T) -> some View {
+        ZStack {
+            self.allowsHitTesting(item.wrappedValue != nil ? false : true)
+            if let errorMessage = item.wrappedValue {
+                content(errorMessage)
+                    .dismiss(delay: duration) {
+                        item.wrappedValue = nil
+                    }
+            }
+        }
+    }
+    
+    /// This will return an Alert from LoaderKit.
+    /// This functions helps you to present `Alert` on top of the View Hierarchy
+    /// - Parameters:
     ///   - isPresented: Bool to indicate to show Alert on the View heriracy
     ///   - content: Closure to show `Alert` and display alert message
     func showAlert<T: View>(isPresented: Binding<Bool>, for duration: TimeInterval = 2.5, content: () -> T) -> some View {

@@ -27,3 +27,10 @@ protocol Describable: DetailableError {
 protocol Navigatable: Describable {
     var shouldNavigateToDownload: Bool { get set }
 }
+
+// MARK: - Network Service
+
+protocol URLSessionProtocol {
+    func fetchData(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
+    func downloadData(for request: URLRequest) async throws -> (URL, HTTPURLResponse)
+}

@@ -28,11 +28,17 @@ struct URLView: View {
         .navigationBarHidden(true)
         .onDisappear(perform: viewModel.onDisappear)
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-        .showAlert(item: $viewModel.error) { error in
-            AlertUI(
-                title: error.localizedDescription,
-                subtitle: LoadifyTexts.tryAgain.randomElement()
-            )
+        .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
+            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                return AlertUI(title: errorMessage)
+            }
+            return AlertUI(title: errorTitle, subtitle: errorMessage)
+        })
+        .showAlert(item: $viewModel.error) { error -> AlertUI in
+            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                return AlertUI(title: error.localizedDescription)
+            }
+            return AlertUI(title: errorTitle, subtitle: error.localizedDescription)
         }
     }
     
@@ -84,16 +90,7 @@ struct URLView: View {
     }
 }
 
-struct VideoURLView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        Group {
-            URLView(viewModel: URLViewModel())
-                .previewDevice("iPhone 14 Pro Max")
-                .previewDisplayName("iPhone 14 Pro Max")
-            URLView(viewModel: URLViewModel())
-                .previewDevice("iPhone SE (3rd generation)")
-                .previewDisplayName("iPhone SE")
-        }.preferredColorScheme(.dark)
-    }
+#Preview("iPhone 15 Pro Max") {
+    URLView(viewModel: URLViewModel())
+        .previewDevice("iPhone 15 Pro Max")
 }

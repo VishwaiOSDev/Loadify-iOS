@@ -44,7 +44,6 @@ struct Author: Codable {
 }
 
 struct Thumbnail: Codable {
-    
     var url: String
     var width: Int
     var height: Int
@@ -55,6 +54,9 @@ struct ErrorModel: Codable {
 }
 
 extension VideoDetails {
+    
+    static let channelThumbnail = "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj"
+    static let videoThumbnail = "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA"
     
     static let previews: VideoDetails = VideoDetails(
         title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
@@ -70,7 +72,7 @@ extension VideoDetails {
             channelUrl: "",
             thumbnails: [
                 .init(
-                    url: "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj",
+                    url: channelThumbnail,
                     width: 120,
                     height: 12
                 )
@@ -81,7 +83,7 @@ extension VideoDetails {
         videoUrl: "https://www.youtube.com/watch?v=66XwG1CLHuU",
         thumbnails: [
             .init(
-                url: "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA",
+                url: videoThumbnail,
                 width: 12,
                 height: 12
             )
