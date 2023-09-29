@@ -62,7 +62,6 @@
 		88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */; };
 		88DB2C3B2856FDA60065BBF9 /* ApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */; };
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
-		88EB388F2A835C7A0021A78C /* NetworkKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388E2A835C7A0021A78C /* NetworkKit */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
@@ -150,7 +149,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88EB388F2A835C7A0021A78C /* NetworkKit in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -463,7 +461,6 @@
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
 				88B3FD6A299A95F400112490 /* LoggerKit */,
 				88EB388C2A835C5F0021A78C /* Haptific */,
-				88EB388E2A835C7A0021A78C /* NetworkKit */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -500,7 +497,6 @@
 			packageReferences = (
 				88D9D1E328C39EAB00D6EB79 /* XCRemoteSwiftPackageReference "FontKit" */,
 				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
-				88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */,
 				88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */,
 			);
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
@@ -879,14 +875,6 @@
 				minimumVersion = 0.0.5;
 			};
 		};
-		88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/VishwaiOSDev/NetworkKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
 		88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Vignesh-Thangamariappan/Haptific";
@@ -917,11 +905,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */;
 			productName = Haptific;
-		};
-		88EB388E2A835C7A0021A78C /* NetworkKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 88EB388A2A835C430021A78C /* XCRemoteSwiftPackageReference "NetworkKit" */;
-			productName = NetworkKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

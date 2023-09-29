@@ -19,7 +19,6 @@ struct LoadifyApp: App {
     
     init() {
         FontKit.registerInter()
-        Logger.configure()
     }
     
     var body: some Scene {

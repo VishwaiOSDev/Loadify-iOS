@@ -8,7 +8,6 @@
 import Foundation
 import LoggerKit
 import Haptific
-import NetworkKit
 
 protocol ViewLifyCycle {
     func onDisappear()

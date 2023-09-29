@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import NetworkKit
 import LoggerKit
 import Haptific
 
