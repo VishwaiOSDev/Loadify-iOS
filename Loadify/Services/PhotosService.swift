@@ -13,11 +13,7 @@ protocol PhotosServiceProtocol {
     func checkForPhotosPermission(completion: @escaping (Result<Void, Error>) -> Void)
 }
 
-class PhotosService: PhotosServiceProtocol {
-    
-    init() {
-        Logger.initLifeCycle("PhotosService init", for: self)
-    }
+struct PhotosService: PhotosServiceProtocol {
     
     func checkForPhotosPermission() async throws {
         switch PHPhotoLibrary.authorizationStatus(for: .addOnly) {
@@ -46,10 +42,6 @@ class PhotosService: PhotosServiceProtocol {
         default:
             completion(.failure(PhotosError.permissionDenied))
         }
-    }
-    
-    deinit {
-        Logger.deinitLifeCycle("PhotosService deinit", for: self)
     }
 }
 

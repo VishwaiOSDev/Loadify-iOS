@@ -45,7 +45,7 @@ final class DownloaderViewModel: Downloadable {
             try await photoService.checkForPhotosPermission()
             let filePath = fileService.getTemporaryFilePath()
             let tempURL = try await downloader.download(youtubeURL: url, quality: quality)
-            try FileManager.default.moveItem(at: tempURL, to: filePath)
+            try fileService.moveFile(from: tempURL, to: filePath)
             try checkVideoIsCompatible(at: filePath.path)
             UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
             DispatchQueue.main.async {

@@ -6,23 +6,19 @@
 //
 
 import Foundation
-import LoggerKit
 
 protocol FileServiceProtocol {
     func getTemporaryFilePath() -> URL
+    func moveFile(from tempURL: URL, to path: URL) throws
 }
 
-class FileService: FileServiceProtocol {
-    
-    init() {
-        Logger.initLifeCycle("FileService init", for: self)
-    }
+struct FileService: FileServiceProtocol {
     
     func getTemporaryFilePath() -> URL {
         FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).mp4")
     }
     
-    deinit {
-        Logger.deinitLifeCycle("FileService deinit", for: self)
+    func moveFile(from tempURL: URL, to path: URL) throws {
+        try FileManager.default.moveItem(at: tempURL, to: path)
     }
 }
