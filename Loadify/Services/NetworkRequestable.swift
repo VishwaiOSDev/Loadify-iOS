@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPMethod: String, Equatable {
+enum HTTPMethod: String {
     case delete = "DELETE"
     case get = "GET"
     case post = "POST"
@@ -16,14 +16,13 @@ enum HTTPMethod: String, Equatable {
 }
 
 protocol NetworkRequestable {
-    var url: URL { get throws }
     var host: String { get }
     var path: String { get }
     var port: Int? { get }
     var isSecure: Bool { get }
     var shouldRunLocal: Bool { get }
     var httpMethod: HTTPMethod { get }
-    var queryParameter: [String: AnyHashable]? { get }
+    var queryParameters: [String: AnyHashable]? { get }
 }
 
 /// Protocol Extension for constructing `URL`
@@ -32,13 +31,17 @@ extension NetworkRequestable {
     /// Computed property to construct the URL based on the configuration.
     var url: URL {
         get throws {
-            var urlComponent = URLComponents()
-            urlComponent.path = path
-            urlComponent.port = shouldRunLocal ? port : nil
-            urlComponent.host = shouldRunLocal ? "localhost" : host
-            urlComponent.scheme = isSecure && !shouldRunLocal ? "https" : "http"
-            guard let url = urlComponent.url else { throw URLError(.badURL) }
-            return url.addQueryParamIfNeeded(queryParameter)
+            var urlComponents = URLComponents()
+            urlComponents.path = path
+            urlComponents.port = shouldRunLocal ? port : nil
+            urlComponents.host = shouldRunLocal ? "localhost" : host
+            urlComponents.scheme = isSecure && !shouldRunLocal ? "https" : "http"
+            
+            guard let url = urlComponents.url else {
+                throw URLError(.badURL)
+            }
+            
+            return url.addQueryParametersIfNeeded(queryParameters)
         }
     }
     
@@ -61,13 +64,12 @@ extension NetworkRequestable {
 }
 
 fileprivate extension URL {
-    
-    func addQueryParamIfNeeded(_ queryParams: [String: Any]?) -> URL {
-        guard let queryParams = queryParams,
+    func addQueryParametersIfNeeded(_ queryParameters: [String: AnyHashable]?) -> URL {
+        guard let queryParameters = queryParameters,
               var urlComponents = URLComponents(string: absoluteString) else {
             return absoluteURL
         }
-        let queryItems = queryParams.map { URLQueryItem(name: $0, value: "\($1)") }
+        let queryItems = queryParameters.map { URLQueryItem(name: $0, value: "\($1)") }
         urlComponents.queryItems = queryItems
         return urlComponents.url!
     }

@@ -34,7 +34,7 @@ extension API: NetworkRequestable {
         }
     }
     
-    var queryParameter: [String : AnyHashable]? {
+    var queryParameters: [String : AnyHashable]? {
         switch self {
         case .details(let url):
             return ["url": url]
