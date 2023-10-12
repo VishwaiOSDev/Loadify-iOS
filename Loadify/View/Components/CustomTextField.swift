@@ -1,6 +1,6 @@
 //
 //  CustomTextField.swift
-//  
+//
 //
 //  Created by Vishweshwaran on 30/10/22.
 //
@@ -21,16 +21,18 @@ struct CustomTextField: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .leading) {
-                if text.isEmpty {
-                    Text("\(placeHolder)")
-                        .font(.inter(.regular(size: 16)))
-                        .foregroundColor(LoadifyColors.greyText)
+                Group {
+                    if text.isEmpty {
+                        Text("\(placeHolder)")
+                            .font(.inter(.regular(size: 16)))
+                            .foregroundColor(LoadifyColors.greyText)
+                    }
+                    textFieldView
+                        .disableAutocorrection(true)
                 }
-                textFieldView
-                    .disableAutocorrection(true)
+                .padding(.horizontal, 16)
             }
-            .frame(maxWidth: .infinity, maxHeight: 56)
-            .padding(.horizontal, 16)
+            .frame(maxWidth: Loadify.maxWidth, maxHeight: 56)
             .background(LoadifyColors.textfieldBackground)
             .cornerRadius(10)
         }

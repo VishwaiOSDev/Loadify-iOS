@@ -30,7 +30,9 @@ struct DownloadView: View {
                         }
                     }
                     .cardView(color: LoadifyColors.textfieldBackground)
-                    Spacer()
+                    if !Device.iPad {
+                        Spacer()
+                    }
                     footerView
                 }
                 .padding()
@@ -56,6 +58,7 @@ struct DownloadView: View {
         }
     }
     
+    @ViewBuilder
     private var thumbnailView: some View {
         ZStack(alignment: .bottomTrailing) {
             ImageView(urlString: details.thumbnails[details.thumbnails.count - 1].url) {
@@ -65,7 +68,7 @@ struct DownloadView: View {
             } onLoading: {
                 progressView
                     .frame(minHeight: 188)
-            }
+            }.frame(maxWidth: Loadify.maxWidth)
             durationView
                 .offset(x: -5, y: -5)
         }
@@ -75,7 +78,7 @@ struct DownloadView: View {
         image
             .resizable()
             .frame(minHeight: 188)
-            .scaledToFit()
+            .scaleImageBasedOnDevice()
             .clipped()
     }
     
@@ -238,8 +241,23 @@ struct DownloadView: View {
     }
 }
 
-#Preview("iPhone 15 Pro Max") {
+extension View {
+    
+    @ViewBuilder
+    func scaleImageBasedOnDevice() -> some View {
+        if Device.iPad {
+            self.scaledToFill()
+        } else {
+            self.scaledToFit()
+        }
+    }
+}
+
+#Preview("iPad Pro") {
     NavigationView {
         DownloadView(details: .previews)
+            .previewDevice("iPad Pro (12.9-inch) (6th generation)")
+            .previewInterfaceOrientation(.landscapeRight)
     }
+    .navigationViewStyle(StackNavigationViewStyle())
 }

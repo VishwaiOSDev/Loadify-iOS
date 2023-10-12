@@ -1,6 +1,6 @@
 //
 //  CardView.swift
-//  
+//
 //
 //  Created by Vishweshwaran on 30/10/22.
 //
@@ -19,6 +19,10 @@ struct CardView: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .frame(maxWidth: Loadify.maxWidth)
+            .if(Device.iPad) {
+                $0.frame(maxHeight: 650)
+            }
             .background(color)
             .cornerRadius(cornerRadius)
     }
