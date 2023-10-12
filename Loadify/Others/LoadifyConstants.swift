@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+typealias Device = Loadify.Device
 typealias LoadifyTexts = Loadify.Texts
 typealias LoadifyColors = LoadifyKit.ColorKit
 typealias LoadifyAssets = LoadifyKit.AssetKit
 
 struct Loadify {
+    
+    
+    static let maxWidth: CGFloat = switch UIDevice.current.userInterfaceIdiom {
+    case .phone:
+            .infinity
+    case .pad:
+        500
+    default:
+        600
+    }
+    
+    struct Device {
+        static let iPad = UIDevice.current.userInterfaceIdiom == .pad
+        static let isLandscape: Bool = UIDevice.current.orientation.isLandscape
+    }
     
     struct Texts {
         static let loading = "LOADING"

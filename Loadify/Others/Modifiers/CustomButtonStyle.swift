@@ -26,7 +26,7 @@ struct CustomButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
-            .frame(maxWidth: .infinity, maxHeight: 56)
+            .frame(maxWidth: Loadify.maxWidth, maxHeight: 56)
             .background(isDisabled ? buttonColor.opacity(0.5) : buttonColor)
             .cornerRadius(cornerRadius)
             .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
