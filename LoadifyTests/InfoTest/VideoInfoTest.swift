@@ -10,103 +10,87 @@ import XCTest
 
 class VideoInfoTest: XCTestCase {
     
-    func testPublishedDate() {
-        let publishedDateFromYT = "2022-06-10"
-        let publishedDateVariationTwo = "1999-04-30"
-        let date = "2000-01-01"
+    func testFormattedDate() {
+        let publishedDateFromYT = "2022-12-12T07:05:08-08:00"
+        let publishedDateVariationTwo = "2023-11-25T14:30:00-05:00"
+        let date = "2021-08-18T10:45:20-03:00"
+        let randomDate = "2024-04-30T08:15:55+02:00"
         
-        let getYearOfPublishedDate = publishedDateFromYT.formatter(.year)
-        let getMonthOfPublishedDate = publishedDateFromYT.formatter(.month)
-        let getDateOfPublishedDate = publishedDateFromYT.formatter(.date)
-        let getPublishedDate = publishedDateFromYT.formatter()
+        // Test cases for the new format (YYYY-MM-DDTHH:MM:SS-TZ)
+        XCTAssertEqual(publishedDateFromYT.formattedDate(.year), "2022")
+        XCTAssertEqual(publishedDateFromYT.formattedDate(.month), "December")
+        XCTAssertEqual(publishedDateFromYT.formattedDate(.date), "12")
+        XCTAssertEqual(publishedDateFromYT.formattedDate(), "12 Dec")
         
-        let getYearOfVariationDate = publishedDateVariationTwo.formatter(.year)
-        let getMonthOfVariationDate = publishedDateVariationTwo.formatter(.month)
-        let getDateOfVariationDate = publishedDateVariationTwo.formatter(.date)
-        let getPublishedVariationDate = publishedDateVariationTwo.formatter()
+        XCTAssertEqual(publishedDateVariationTwo.formattedDate(.year), "2023")
+        XCTAssertEqual(publishedDateVariationTwo.formattedDate(.month), "November")
+        XCTAssertEqual(publishedDateVariationTwo.formattedDate(.date), "25")
+        XCTAssertEqual(publishedDateVariationTwo.formattedDate(), "25 Nov")
         
-        let getPublishedYearForJan = date.formatter(.year)
-        let getPublishedMonthForJan = date.formatter(.month)
-        let getPublishedDateForJan = date.formatter(.date)
-        let getCombinedDateForJan = date.formatter()
-        let convertedDate = "\(getCombinedDateForJan) \(getPublishedYearForJan)"
+        XCTAssertEqual(date.formattedDate(.year), "2021")
+        XCTAssertEqual(date.formattedDate(.month), "August")
+        XCTAssertEqual(date.formattedDate(.date), "18")
+        XCTAssertEqual(date.formattedDate(), "18 Aug")
         
-        XCTAssertEqual(getYearOfPublishedDate, "2022")
-        XCTAssertEqual(getMonthOfPublishedDate, "Jun")
-        XCTAssertEqual(getDateOfPublishedDate, "10")
-        XCTAssertEqual(getPublishedDate, "10 Jun")
-        
-        XCTAssertEqual(getYearOfVariationDate, "1999")
-        XCTAssertEqual(getMonthOfVariationDate, "Apr")
-        XCTAssertEqual(getDateOfVariationDate, "30")
-        XCTAssertEqual(getPublishedVariationDate, "30 Apr")
-        
-        XCTAssertEqual(getPublishedYearForJan, "2000")
-        XCTAssertEqual(getPublishedMonthForJan, "Jan")
-        XCTAssertEqual(getPublishedDateForJan, "1")
-        XCTAssertEqual(getCombinedDateForJan, "1 Jan")
-        XCTAssertEqual(convertedDate, "1 Jan 2000")
+        XCTAssertEqual(randomDate.formattedDate(.year), "2024")
+        XCTAssertEqual(randomDate.formattedDate(.month), "April")
+        XCTAssertEqual(randomDate.formattedDate(.date), "30")
+        XCTAssertEqual(randomDate.formattedDate(), "30 Apr")
     }
     
-    func testPublishedDateWithWrongInputs() {
-        let invaildSingleRangeDate = "20220610"
-        let invaildTwoRange = "2022-06"
+    
+    func testFormattedDateWithWrongInputs() {
+        let invalidSingleRangeDate = "20220610"
+        let invalidTwoRange = "2022-06"
         let wrongInput = "applle-marg-wqrq"
         let publishedDateWithTwoCorrectValues = "2022-06-13fh"
-        let dateWithInvaildInputs = "20222-12-12"
-        let dateWithInvaildMonthRange = "20222-126-12"
-        let dateWithInvaildDateRange = "20222-01-64"
+        let dateWithInvalidInputs = "20222-12-12"
+        let dateWithInvalidMonthRange = "20222-126-12"
+        let dateWithInvalidDateRange = "20222-01-64"
         
-        let getInvaildRangeDateYear = invaildSingleRangeDate.formatter(.year)
-        let getInvaildSingleRaneDateMonth = invaildSingleRangeDate.formatter(.month)
-        let getInvaildSingleRangeDateDate = invaildSingleRangeDate.formatter(.date)
-        let getInvaildSingleRangeDate = invaildSingleRangeDate.formatter()
+        // Invalid single-range date
+        XCTAssertEqual(invalidSingleRangeDate.formattedDate(.year), "N/A")
+        XCTAssertEqual(invalidSingleRangeDate.formattedDate(.month), "N/A")
+        XCTAssertEqual(invalidSingleRangeDate.formattedDate(.date), "N/A")
+        XCTAssertEqual(invalidSingleRangeDate.formattedDate(), "N/A")
         
-        let getInvaildTwoRangeDateYear = invaildTwoRange.formatter(.year)
-        let getInvaildTwoRangeDateMonth = invaildTwoRange.formatter(.month)
-        let getInvaildTwoRangeDateDate = invaildTwoRange.formatter(.date)
-        let getInvaildTwoRangeDate = invaildTwoRange.formatter()
+        // Invalid two-range date
+        XCTAssertEqual(invalidTwoRange.formattedDate(.year), "N/A")
+        XCTAssertEqual(invalidTwoRange.formattedDate(.month), "N/A")
+        XCTAssertEqual(invalidTwoRange.formattedDate(.date), "N/A")
+        XCTAssertEqual(invalidTwoRange.formattedDate(), "N/A")
         
-        let getDateWithInvaildInputs = dateWithInvaildInputs.formatter(.year)
-        let getMonthWithInvaildInputs = dateWithInvaildInputs.formatter(.month)
-        let getYearWithInvaildInputs = dateWithInvaildInputs.formatter(.date)
-        let getFullDateWithInvaildInputs = dateWithInvaildInputs.formatter()
+        // Invalid input
+        XCTAssertEqual(wrongInput.formattedDate(.year), "N/A")
+        XCTAssertEqual(wrongInput.formattedDate(.month), "N/A")
+        XCTAssertEqual(wrongInput.formattedDate(.date), "N/A")
+        XCTAssertEqual(wrongInput.formattedDate(), "N/A")
         
-        XCTAssertEqual(getInvaildRangeDateYear, "Not Mentioned")
-        XCTAssertEqual(getInvaildSingleRaneDateMonth, "Not Mentioned")
-        XCTAssertEqual(getInvaildSingleRangeDateDate, "Not Mentioned")
-        XCTAssertEqual(getInvaildSingleRangeDate, "Not Mentioned")
+        // Date with mixed valid and invalid characters
+        XCTAssertEqual(publishedDateWithTwoCorrectValues.formattedDate(.year), "N/A")
+        XCTAssertEqual(publishedDateWithTwoCorrectValues.formattedDate(.month), "N/A")
+        XCTAssertEqual(publishedDateWithTwoCorrectValues.formattedDate(.date), "N/A")
+        XCTAssertEqual(publishedDateWithTwoCorrectValues.formattedDate(), "N/A")
         
-        XCTAssertEqual(getInvaildTwoRangeDateYear, "Not Mentioned")
-        XCTAssertEqual(getInvaildTwoRangeDateMonth, "Not Mentioned")
-        XCTAssertEqual(getInvaildTwoRangeDateDate, "Not Mentioned")
-        XCTAssertEqual(getInvaildTwoRangeDate, "Not Mentioned")
+        // Date with invalid year format
+        XCTAssertEqual(dateWithInvalidInputs.formattedDate(.year), "N/A")
+        XCTAssertEqual(dateWithInvalidInputs.formattedDate(.month), "N/A")
+        XCTAssertEqual(dateWithInvalidInputs.formattedDate(.date), "N/A")
+        XCTAssertEqual(dateWithInvalidInputs.formattedDate(), "N/A")
         
-        XCTAssertEqual(wrongInput.formatter(.year), "Not Mentioned")
-        XCTAssertEqual(wrongInput.formatter(.month), "Not Mentioned")
-        XCTAssertEqual(wrongInput.formatter(.date), "Not Mentioned")
-        XCTAssertEqual(wrongInput.formatter(), "Not Mentioned")
+        // Date with invalid month range
+        XCTAssertEqual(dateWithInvalidMonthRange.formattedDate(.year), "N/A")
+        XCTAssertEqual(dateWithInvalidMonthRange.formattedDate(.month), "N/A")
+        XCTAssertEqual(dateWithInvalidMonthRange.formattedDate(.date), "N/A")
+        XCTAssertEqual(dateWithInvalidMonthRange.formattedDate(), "N/A")
         
-        XCTAssertEqual(publishedDateWithTwoCorrectValues.formatter(.year), "Not Mentioned")
-        XCTAssertEqual(publishedDateWithTwoCorrectValues.formatter(.month), "Not Mentioned")
-        XCTAssertEqual(publishedDateWithTwoCorrectValues.formatter(.date), "Not Mentioned")
-        XCTAssertEqual(publishedDateWithTwoCorrectValues.formatter(), "Not Mentioned")
-        
-        XCTAssertEqual(getDateWithInvaildInputs, "Not Mentioned")
-        XCTAssertEqual(getMonthWithInvaildInputs, "Not Mentioned")
-        XCTAssertEqual(getYearWithInvaildInputs, "Not Mentioned")
-        XCTAssertEqual(getFullDateWithInvaildInputs, "Not Mentioned")
-        
-        XCTAssertEqual(dateWithInvaildMonthRange.formatter(.year), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildMonthRange.formatter(.month), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildMonthRange.formatter(.date), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildMonthRange.formatter(), "Not Mentioned")
-        
-        XCTAssertEqual(dateWithInvaildDateRange.formatter(.year), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildDateRange.formatter(.month), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildDateRange.formatter(.date), "Not Mentioned")
-        XCTAssertEqual(dateWithInvaildDateRange.formatter(), "Not Mentioned")
+        // Date with invalid date range
+        XCTAssertEqual(dateWithInvalidDateRange.formattedDate(.year), "N/A")
+        XCTAssertEqual(dateWithInvalidDateRange.formattedDate(.month), "N/A")
+        XCTAssertEqual(dateWithInvalidDateRange.formattedDate(.date), "N/A")
+        XCTAssertEqual(dateWithInvalidDateRange.formattedDate(), "N/A")
     }
+    
     
     func testViewsFormatter() {
         let noViews = "0"
