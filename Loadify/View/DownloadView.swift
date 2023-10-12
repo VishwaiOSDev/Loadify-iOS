@@ -151,8 +151,8 @@ struct DownloadView: View {
             InfoView(title: details.viewCount.format, subTitle: "Views")
                 .frame(maxWidth: .infinity, alignment: .center)
             InfoView(
-                title: details.publishDate.formatter(),
-                subTitle: details.publishDate.formatter(.year)
+                title: details.publishDate.formattedDate(),
+                subTitle: details.publishDate.formattedDate(.year)
             ).frame(maxWidth: .infinity, alignment: .trailing)
         }
         .frame(maxWidth: .infinity)

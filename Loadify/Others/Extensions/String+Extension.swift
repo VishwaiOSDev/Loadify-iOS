@@ -41,24 +41,39 @@ extension String {
     }
     
     /// ✅ To convert the date string into formatted date. For example, 2000-01-01 will be converted to 1 Jan 2000
-    func formatter(_ component: NeededComponent? = nil) -> String {
-        let splittedDate = self.split(separator: "-")
-        let dateArray = splittedDate.compactMap { Int($0) }
-        if dateArray.count <= 2 { return "Not Mentioned" }
-        guard let month = Month(rawValue: dateArray[1]) else { return "Not Mentioned" }
-        guard 1...31 ~= dateArray[2] else { return "Not Mentioned" }
-        guard 1000...9999 ~= dateArray[0] else { return "Not Mentioned" }
-        if let neededComponent = component {
-            switch neededComponent {
-            case .year: return String(dateArray[0])
-            case .month: return getMonthNotation(for: month)
-            case .date: return String(dateArray[2])
-            }
-        } else {
-            return combineDateAndMonth(date: dateArray[2], month: month)
+    func formattedDate(_ component: NeededComponent? = nil) -> String {
+        let isoDateFormatter = ISO8601DateFormatter()
+        isoDateFormatter.formatOptions = [
+            .withFullDate,
+            .withDashSeparatorInDate,
+            .withTime,
+            .withColonSeparatorInTime,
+            .withTimeZone
+        ]
+        
+        guard let date = isoDateFormatter.date(from: self) else {
+            return "N/A"
+        }
+        
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        switch component {
+        case .year:
+            return String(dateComponents.year ?? 0)
+        case .month:
+            let monthFormatter = DateFormatter()
+            monthFormatter.dateFormat = "MMMM"
+            return monthFormatter.string(from: date)
+        case .date:
+            return String(dateComponents.day ?? 0)
+        default:
+            let day = dateComponents.day ?? 0
+            let month = Month(rawValue: dateComponents.month ?? 0) ?? .january
+            return "\(day) \(getMonthNotation(for: month))"
         }
     }
-    
+        
     func checkIsEmpty() -> Bool {
         let text = self.trimmingCharacters(in: .whitespacesAndNewlines)
         return text.isEmpty ? true : false
