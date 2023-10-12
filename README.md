@@ -10,7 +10,6 @@ This application uses [ytdl-core](https://github.com/fent/node-ytdl-core) under 
 
 - iOS 14.0+
 - iPadOS 14.0+
-- MacOS 12.0+
 
 # Features
 
@@ -47,7 +46,7 @@ Follow the steps below to setup Loadify on your machine:
 The packages listed below are used by loadify:
 
 - [FontKit](https://github.com/VishwaiOSDev/FontKit)
-- [LoggerKit](https://github.com/VishwaiOSDev/LogKit)
+- [LoggerKit](https://github.com/VishwaiOSDev/LoggerKit)
 
 ## Author
 
@@ -56,6 +55,6 @@ Loadify was made by:
 <a href="https://github.com/VishwaiOSDev" title="VishwaiOSDev">
   <img src="https://avatars.githubusercontent.com/u/71421776?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
 </a>
-<a href="#" title="Priyanga Dev">
-  <img src="https://avatars.githubusercontent.com/u/102402170?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
+<a href="#" title="Priyanga Rani">
+  <img src="https://avatars.githubusercontent.com/u/75720806?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
 </a>
