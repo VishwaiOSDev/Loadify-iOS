@@ -38,9 +38,7 @@ struct Downloader {
     
     func download(youtubeURL: String, quality: VideoQuality) async throws -> URL  {
         let request = try API.download(youtubeURL: youtubeURL, quality: quality).createRequest()
-        
         let (url, _) = try await session.downloadData(for: request)
-        
         return url
     }
 }
