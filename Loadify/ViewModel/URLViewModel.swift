@@ -21,13 +21,10 @@ final class URLViewModel: Detailable {
     
     @Published var shouldNavigateToDownload: Bool = false
     @Published var showLoader: Bool = false
-    @Published var error: Error? = nil
     @Published var errorMessage: String? = nil
     
     var platformType: PlatformType? = nil
-    var details: VideoDetails? = nil
-    
-    var videoDetails: Decodable? = nil
+    var details: Decodable? = nil
         
     var fetcher = DetailFetcher()
     
@@ -45,10 +42,10 @@ final class URLViewModel: Detailable {
             switch platformType {
             case .youtube:
                 let response: VideoDetails = try await fetcher.loadDetails(for: url, to: .youtube)
-                self.videoDetails = response
+                self.details = response
             case .instagram:
                 let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
-                self.videoDetails = response
+                self.details = response
             case .none:
                 fatalError("I won't download")
             }
@@ -85,7 +82,7 @@ final class URLViewModel: Detailable {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
-                self.error = error
+                self.errorMessage = error.localizedDescription
                 notifyWithHaptics(for: .error)
             }
         }

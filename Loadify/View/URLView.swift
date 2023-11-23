@@ -34,12 +34,6 @@ struct URLView: View {
             }
             return AlertUI(title: errorTitle, subtitle: errorMessage)
         })
-        .showAlert(item: $viewModel.error) { error -> AlertUI in
-            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
-                return AlertUI(title: error.localizedDescription)
-            }
-            return AlertUI(title: errorTitle, subtitle: error.localizedDescription)
-        }
     }
     
     @ViewBuilder
@@ -68,7 +62,7 @@ struct URLView: View {
     
     @ViewBuilder
     private var downloaderView: some View {
-        if let details = viewModel.videoDetails {
+        if let details = viewModel.details {
             switch viewModel.platformType {
             case .youtube:
                 if let videoDetails = details as? VideoDetails {
