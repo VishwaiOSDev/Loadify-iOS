@@ -9,8 +9,9 @@ import SwiftUI
 
 struct InstagramDownloaderView: View {
     
-    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     @Environment(\.presentationMode) var presentationMode
+
+    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     
     var details: [InstagramDetails]
     
@@ -44,7 +45,9 @@ struct InstagramDownloaderView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar { navigationBar(geometry) }
+            .toolbar {
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: viewModel.showLoader)
+            }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
@@ -78,20 +81,6 @@ struct InstagramDownloaderView: View {
             .clipped()
     }
     
-    private var loadifyLogo: some View {
-        LoadifyAssets.loadifyHorizontal
-            .resizable()
-            .scaledToFit()
-    }
-    
-    private var backButton: some View {
-        Image(systemName: "chevron.backward")
-            .font(Font.body.weight(.bold))
-            .onTapGesture {
-                presentationMode.wrappedValue.dismiss()
-            }
-    }
-    
     private var footerView: some View {
         VStack(spacing: 16) {
             Button {
@@ -110,20 +99,6 @@ struct InstagramDownloaderView: View {
         Text("Made with 💙 using Swift")
             .font(.inter(.regular(size: 14)))
             .foregroundColor(LoadifyColors.greyText)
-    }
-    
-    // TODO: - Make this as generic
-    @ToolbarContentBuilder
-    private func navigationBar(_ geometry: GeometryProxy) -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            backButton
-                .foregroundColor(LoadifyColors.blueAccent)
-                .disabled(viewModel.showLoader)
-        }
-        ToolbarItem(placement: .principal) {
-            loadifyLogo
-                .frame(height: geometry.size.height * 0.050)
-        }
     }
     
     private var permissionAlert: Alert {

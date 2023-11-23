@@ -16,6 +16,7 @@ struct URLView: View {
         ZStack {
             LoadifyColors.appBackground
                 .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 headerView
                 Spacer()

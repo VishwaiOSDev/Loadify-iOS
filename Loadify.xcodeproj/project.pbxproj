@@ -65,6 +65,7 @@
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
+		88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +137,7 @@
 		88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
+		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +226,7 @@
 				884BDAE02AB14A9F00A4828B /* CustomTextField.swift */,
 				884BDAF72AB14CC300A4828B /* Blur.swift */,
 				884BDAF52AB14C7500A4828B /* ImageView.swift */,
+				88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
 			);
 			path = Components;
@@ -584,6 +587,7 @@
 				884BDAEB2AB14B2100A4828B /* CardView.swift in Sources */,
 				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
 				884BDAE52AB14AF200A4828B /* ChannelView.swift in Sources */,
+				88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */,
 				884BDB032AB14CF500A4828B /* Loader.swift in Sources */,
 				884BDAE72AB14AF200A4828B /* InfoView.swift in Sources */,
 				884BDAE12AB14A9F00A4828B /* CustomTextField.swift in Sources */,

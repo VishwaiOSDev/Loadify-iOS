@@ -9,21 +9,21 @@ import SwiftUI
 
 struct YouTubeDownloaderView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     @State private var selectedQuality: VideoQuality = .none
     
     var details: VideoDetails
     
     var body: some View {
-        GeometryReader { geomentry in
+        GeometryReader { geometry in
             ZStack {
                 LoadifyColors.appBackground
                     .edgesIgnoringSafeArea(.all)
+                
                 VStack {
                     Spacer()
-                        .frame(height: geomentry.size.height * 0.032)
+                        .frame(height: geometry.size.height * 0.032)
+                    
                     VStack {
                         VStack {
                             thumbnailView
@@ -31,16 +31,20 @@ struct YouTubeDownloaderView: View {
                         }
                     }
                     .cardView(color: LoadifyColors.textfieldBackground)
+                    
                     if !Device.iPad {
                         Spacer()
                     }
+                    
                     footerView
                 }
                 .padding()
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar { navigationBar(geomentry) }
+            .toolbar {
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: viewModel.showLoader)
+            }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
@@ -204,33 +208,6 @@ struct YouTubeDownloaderView: View {
             }),
             secondaryButton: .default(Text("Cancel"))
         )
-    }
-    
-    private var backButton: some View {
-        Image(systemName: "chevron.backward")
-            .font(Font.body.weight(.bold))
-            .onTapGesture {
-                presentationMode.wrappedValue.dismiss()
-            }
-    }
-    
-    private var loadifyLogo: some View {
-        LoadifyAssets.loadifyHorizontal
-            .resizable()
-            .scaledToFit()
-    }
-    
-    @ToolbarContentBuilder
-    private func navigationBar(_ geomentry: GeometryProxy) -> some ToolbarContent {
-        ToolbarItem(placement: .navigationBarLeading) {
-            backButton
-                .foregroundColor(LoadifyColors.blueAccent)
-                .disabled(viewModel.showLoader)
-        }
-        ToolbarItem(placement: .principal) {
-            loadifyLogo
-                .frame(height: geomentry.size.height * 0.050)
-        }
     }
     
     private func didTapOnQuality(_ quality: VideoQuality) {
