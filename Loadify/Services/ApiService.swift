@@ -36,14 +36,20 @@ struct Downloader {
         self.session = session
     }
     
-    func download(_ url: String, for platform: PlatformType, withQuality quality: VideoQuality) async throws -> URL  {
+    func download(
+        _ url: String,
+        for platform: PlatformType,
+        withQuality quality: VideoQuality
+    ) async throws -> URL  {
         let request: URLRequest
         
         switch platform {
         case .youtube:
             request = try API.download(url: url, quality: quality).createRequest()
         case .instagram:
-            guard let url = URL(string: url) else { throw URLError(.badURL) }
+            guard let url = URL(string: url) else {
+                throw URLError(.badURL)
+            }
             request = URLRequest(url: url)
         }
         

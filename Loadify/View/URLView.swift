@@ -42,7 +42,7 @@ struct URLView: View {
             .frame(maxWidth: 150, maxHeight: 150)
         Text(LoadifyTexts.loadifySubTitle)
             .foregroundColor(LoadifyColors.greyText)
-            .font(.inter(.regular(size: 16)))
+            .font(.inter(.regular(size: 14)))
             .multilineTextAlignment(.center)
     }
     

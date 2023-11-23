@@ -20,10 +20,8 @@ protocol Downloadable: Loadable, DownloadableError {
 final class DownloaderViewModel: Downloadable {
     
     @Published var showLoader: Bool = false
-    @Published var detailsError: Error? = nil
     @Published var downloadError: Error? = nil
     @Published var showSettingsAlert: Bool = false
-    @Published var shouldNavigateToDownload: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     
