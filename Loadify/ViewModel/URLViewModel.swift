@@ -26,7 +26,7 @@ final class URLViewModel: Detailable {
     var platformType: PlatformType? = nil
     var details: Decodable? = nil
     
-    var fetcher = DetailFetcher()
+    var fetcher = DetailsFetcher()
     
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)

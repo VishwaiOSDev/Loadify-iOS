@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DetailFetcher {
+struct DetailsFetcher {
     
     private var session: URLSessionProtocol
     
@@ -16,14 +16,14 @@ struct DetailFetcher {
     }
     
     func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T {
-        let request = try API.details(platformType: platform, url: url).createRequest()
-
+        let request = try API.details(forPlatform: platform, url: url).createRequest()
+        
         let (data, httpResponse) = try await session.fetchData(for: request)
-
+        
         guard let mimeType = httpResponse.mimeType, mimeType.contains("json") else {
             throw NetworkError.invalidResponse(message: "Invalid MIMEType")
         }
-
+        
         return try JSONDecoder().decode(T.self, from: data)
     }
 }
@@ -38,6 +38,7 @@ struct Downloader {
     
     func download(_ url: String, for platform: PlatformType, withQuality quality: VideoQuality) async throws -> URL  {
         let request: URLRequest
+        
         switch platform {
         case .youtube:
             request = try API.download(url: url, quality: quality).createRequest()
@@ -45,7 +46,9 @@ struct Downloader {
             guard let url = URL(string: url) else { throw URLError(.badURL) }
             request = URLRequest(url: url)
         }
+        
         let (url, _) = try await session.downloadData(for: request)
+        
         return url
     }
 }

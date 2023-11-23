@@ -7,17 +7,13 @@
 
 import Foundation
 
-/*
-https://www.instagram.com/reel/CwcXvDgtTMQ/?igshid=MzRlODBiNWFlZA==
- */
-
 enum PlatformType: String {
     case youtube = "yt"
     case instagram = "ig"
 }
 
 enum API {
-    case details(platformType: PlatformType, url: String)
+    case details(forPlatform: PlatformType, url: String)
     case download(url: String, quality: VideoQuality)
 }
 
