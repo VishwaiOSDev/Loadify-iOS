@@ -48,7 +48,7 @@ struct URLView: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL", text: $videoURL)
+            CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
             NavigationLink(
                 destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
@@ -65,19 +65,19 @@ struct URLView: View {
         if let details = viewModel.details {
             switch viewModel.platformType {
             case .youtube:
-                if let videoDetails = details as? VideoDetails {
-                    YouTubeDownloaderView(details: videoDetails)
+                if let youtubeDetails = details as? VideoDetails {
+                    YouTubeDownloaderView(details: youtubeDetails)
                 } else {
-                    EmptyView()
+                    fatalError("Youtube details cannot be nil")
                 }
             case .instagram:
                 if let instagramDetails = details as? [InstagramDetails] {
-                    InstagramDownloaderView(videoDetails: instagramDetails)
+                    InstagramDownloaderView(details: instagramDetails)
                 } else {
-                    EmptyView()
+                    fatalError("Instagram details cannot be nil")
                 }
             case .none:
-                EmptyView()
+                fatalError("Platform type not available")
             }
         }
     }

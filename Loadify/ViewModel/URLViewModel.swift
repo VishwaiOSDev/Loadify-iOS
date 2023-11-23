@@ -20,12 +20,12 @@ protocol Detailable: Navigatable, ViewLifyCycle {
 final class URLViewModel: Detailable {
     
     @Published var shouldNavigateToDownload: Bool = false
-    @Published var showLoader: Bool = false
     @Published var errorMessage: String? = nil
+    @Published var showLoader: Bool = false
     
     var platformType: PlatformType? = nil
     var details: Decodable? = nil
-        
+    
     var fetcher = DetailFetcher()
     
     init() {
@@ -33,7 +33,9 @@ final class URLViewModel: Detailable {
     }
     
     func getVideoDetails(for url: String) async {
-        platformType = url.contains("instagram") ? .instagram : .youtube
+        let pattern = Loadify.RegEx.instagram
+        let isInstagram = url.doesMatchExist(pattern, inputText: url)
+        platformType = isInstagram ? .instagram : .youtube
         do {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }

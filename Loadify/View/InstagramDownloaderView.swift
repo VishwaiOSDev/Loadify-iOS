@@ -12,7 +12,7 @@ struct InstagramDownloaderView: View {
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-    var videoDetails: [InstagramDetails]
+    var details: [InstagramDetails]
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,8 +24,8 @@ struct InstagramDownloaderView: View {
                         .frame(height: geometry.size.height * 0.032)
                     VStack {
                         TabView {
-                            ForEach(videoDetails, id: \.self) {
-                                ImageView(urlString: $0.thumbnailURL) {
+                            ForEach(details, id: \.self) { detail in
+                                ImageView(urlString: detail.thumbnailURL) {
                                     thumbnailModifier(image: LoadifyAssets.notFound)
                                 } image: {
                                     thumbnailModifier(image: $0)
@@ -138,13 +138,13 @@ struct InstagramDownloaderView: View {
     }
     
     private func didTapDownload() async {
-        await viewModel.downloadVideo(url: videoDetails.first!.videoURL, for: .instagram, with: .high)
+        await viewModel.downloadVideo(url: details.first!.videoURL, for: .instagram, with: .high)
     }
 }
 
 #Preview {
     NavigationView {
-        InstagramDownloaderView(videoDetails: InstagramDetails.previews)
+        InstagramDownloaderView(details: InstagramDetails.previews)
     }
     .preferredColorScheme(.dark)
 }

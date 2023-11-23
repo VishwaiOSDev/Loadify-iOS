@@ -1,6 +1,6 @@
 //
 //  ImageView.swift
-//  
+//
 //
 //  Created by Vishweshwaran on 23/10/22.
 //
@@ -33,6 +33,13 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
             switch imageLoader.imageStatus {
             case .success(let uiImage):
                 image(Image(uiImage: uiImage))
+                    .contextMenu {
+                        Button {
+                            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+                        } label: {
+                            Label("Save to Photos", systemImage: "square.and.arrow.down")
+                        }
+                    }
             case .failure:
                 placeholder()
             case .loading:

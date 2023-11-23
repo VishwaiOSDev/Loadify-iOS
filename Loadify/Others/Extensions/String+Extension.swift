@@ -79,6 +79,14 @@ extension String {
         return text.isEmpty ? true : false
     }
     
+    
+    func doesMatchExist(_ regularExpression: String, inputText: String) -> Bool {
+        guard let regex = try? NSRegularExpression(pattern: regularExpression) else {
+            return false
+        }
+        return regex.firstMatch(in: inputText, range: NSRange(inputText.startIndex..., in: inputText)) != nil
+    }
+    
     /// Helper function for combined the date and month in String
     private func combineDateAndMonth(date: Int, month: Month) -> String {
         let convertedMonth = getMonthNotation(for: month)

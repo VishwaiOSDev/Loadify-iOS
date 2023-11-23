@@ -41,6 +41,10 @@ struct Loadify {
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
     }
+    
+    struct RegEx {
+        static let instagram = #"(https?:\/\/(?:www\.)?instagram\.com\/p\/([^/?#&]+)).*"#
+    }
 }
 
 struct LoadifyKit {
