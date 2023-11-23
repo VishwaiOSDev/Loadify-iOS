@@ -189,16 +189,11 @@ struct YouTubeDownloaderView: View {
             }
             .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
             .disabled(selectedQuality == .none ? true: false)
-            madeWithSwift
+        
+            MadeWithSwiftLabel()
         }
     }
-    
-    private var madeWithSwift: some View {
-        Text("Made with 💙 using Swift")
-            .font(.inter(.regular(size: 14)))
-            .foregroundColor(LoadifyColors.greyText)
-    }
-    
+        
     private var permissionAlert: Alert {
         Alert(
             title: Text(LoadifyTexts.photosAccessTitle),

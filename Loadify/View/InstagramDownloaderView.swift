@@ -10,7 +10,7 @@ import SwiftUI
 struct InstagramDownloaderView: View {
     
     @Environment(\.presentationMode) var presentationMode
-
+    
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     
     var details: [InstagramDetails]
@@ -91,14 +91,9 @@ struct InstagramDownloaderView: View {
                 Text("Download")
                     .font(.inter(.light(size: 16)))
             }.buttonStyle(CustomButtonStyle())
-            madeWithSwift
+            
+            MadeWithSwiftLabel()
         }
-    }
-    
-    private var madeWithSwift: some View {
-        Text("Made with 💙 using Swift")
-            .font(.inter(.regular(size: 14)))
-            .foregroundColor(LoadifyColors.greyText)
     }
     
     private var permissionAlert: Alert {

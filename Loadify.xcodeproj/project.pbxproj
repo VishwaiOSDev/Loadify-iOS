@@ -66,6 +66,8 @@
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
 		88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */; };
+		88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */; };
+		88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609582B101DDF001EC3C4 /* InstagramDetails.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +140,8 @@
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
 		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
+		88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeWithSwiftLabel.swift; sourceTree = "<group>"; };
+		88F609582B101DDF001EC3C4 /* InstagramDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetails.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +232,7 @@
 				884BDAF52AB14C7500A4828B /* ImageView.swift */,
 				88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
+				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -356,7 +361,8 @@
 		88A729BD2826506B00B5FE61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */,
+				88F609572B101DD0001EC3C4 /* Instagram */,
+				88F609562B101DC4001EC3C4 /* YouTube */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -426,6 +432,22 @@
 				88F341832836549000493544 /* LoadifyConstants.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		88F609562B101DC4001EC3C4 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		88F609572B101DD0001EC3C4 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				88F609582B101DDF001EC3C4 /* InstagramDetails.swift */,
+			);
+			path = Instagram;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -565,12 +587,14 @@
 				884BDB042AB14CF500A4828B /* LoaderView.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
+				88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */,
 				880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */,
 				884BDB012AB14CF500A4828B /* AlertUI.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				884BDB182AB14E7600A4828B /* HUDComponents.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConstants.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
+				88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */,
 				884BDAFB2AB14CD400A4828B /* FontReducer.swift in Sources */,
 				884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
