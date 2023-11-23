@@ -23,15 +23,21 @@ struct InstagramDownloaderView: View {
                     Spacer()
                         .frame(height: geometry.size.height * 0.032)
                     VStack {
-                        ImageView(urlString: videoDetails.first!.thumbnailURL) {
-                            thumbnailModifier(image: LoadifyAssets.notFound)
-                        } image: {
-                            thumbnailModifier(image: $0)
-                        } onLoading: {
-                            progressView
-                                .frame(minHeight: 188)
+                        TabView {
+                            ForEach(videoDetails, id: \.self) {
+                                ImageView(urlString: $0.thumbnailURL) {
+                                    thumbnailModifier(image: LoadifyAssets.notFound)
+                                } image: {
+                                    thumbnailModifier(image: $0)
+                                } onLoading: {
+                                    progressView
+                                        .frame(minHeight: 188)
+                                }
+                            }
                         }
+                        .tabViewStyle(.page)
                     }
+                    .padding(.horizontal, 26)
                     footerView
                         .padding(.horizontal, 26)
                 }
@@ -136,8 +142,9 @@ struct InstagramDownloaderView: View {
     }
 }
 
-//#Preview {
-//    NavigationView {
-//        InstagramDownloaderView()
-//    }
-//}
+#Preview {
+    NavigationView {
+        InstagramDownloaderView(videoDetails: InstagramDetails.previews)
+    }
+    .preferredColorScheme(.dark)
+}

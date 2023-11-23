@@ -1,6 +1,6 @@
 //
 //  Loader.swift
-//  
+//
 //
 //  Created by Vishweshwaran on 11/06/22.
 //
@@ -26,10 +26,11 @@ struct Loader: View {
             overlayView(showOverlay)
             VStack {
                 ProgressView()
+                    .tint(.white)
                 loaderTitle
                     .padding(.top, 6)
-                
             }
+            .foregroundStyle(.white)
             .loaderBackground()
         }
     }
@@ -37,7 +38,6 @@ struct Loader: View {
     private var loaderTitle: some View {
         Text(title)
             .font(.inter(.regular(size: 12)))
-            .foregroundColor(.gray)
     }
     
     private func overlayView(_ canShowOverlay: Bool) -> some View {

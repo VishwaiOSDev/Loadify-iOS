@@ -46,7 +46,7 @@ struct AlertUI: View {
             if let subtitle = subtile {
                 Text(subtitle)
                     .font(.inter(.medium(size: 14)))
-                    .foregroundColor(.gray)
+                    .foregroundColor(.white)
                     .reduceFontSize(for: 2)
             }
         }
