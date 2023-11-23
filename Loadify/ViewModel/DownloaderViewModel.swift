@@ -14,12 +14,11 @@ protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
     var downloadStatus: DownloadStatus { get set }
     
-    func downloadVideo(url: String, with quality: VideoQuality) async
+    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async
 }
 
 final class DownloaderViewModel: Downloadable {
     
-    @Published var details: VideoDetails? = nil
     @Published var showLoader: Bool = false
     @Published var detailsError: Error? = nil
     @Published var downloadError: Error? = nil
@@ -37,14 +36,14 @@ final class DownloaderViewModel: Downloadable {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
     }
     
-    func downloadVideo(url: String, with quality: VideoQuality) async {
+    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
         do {
             DispatchQueue.main.async {
                 self.showLoader = true
             }
             try await photoService.checkForPhotosPermission()
             let filePath = fileService.getTemporaryFilePath()
-            let tempURL = try await downloader.download(youtubeURL: url, quality: quality)
+            let tempURL = try await downloader.download(url, for: platform, withQuality: quality)
             try fileService.moveFile(from: tempURL, to: filePath)
             try checkVideoIsCompatible(at: filePath.path)
             UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)

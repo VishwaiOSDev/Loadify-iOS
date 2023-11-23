@@ -15,16 +15,16 @@ struct DetailFetcher {
         self.session = session
     }
     
-    func loadDetails(for youtubeURL: String) async throws -> VideoDetails {
-        let request = try API.details(youtubeURL: youtubeURL).createRequest()
-        
+    func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T {
+        let request = try API.details(platformType: platform, url: url).createRequest()
+
         let (data, httpResponse) = try await session.fetchData(for: request)
-        
+
         guard let mimeType = httpResponse.mimeType, mimeType.contains("json") else {
             throw NetworkError.invalidResponse(message: "Invalid MIMEType")
         }
-        
-        return try JSONDecoder().decode(VideoDetails.self, from: data)
+
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
 
@@ -36,8 +36,15 @@ struct Downloader {
         self.session = session
     }
     
-    func download(youtubeURL: String, quality: VideoQuality) async throws -> URL  {
-        let request = try API.download(youtubeURL: youtubeURL, quality: quality).createRequest()
+    func download(_ url: String, for platform: PlatformType, withQuality quality: VideoQuality) async throws -> URL  {
+        let request: URLRequest
+        switch platform {
+        case .youtube:
+            request = try API.download(url: url, quality: quality).createRequest()
+        case .instagram:
+            guard let url = URL(string: url) else { throw URLError(.badURL) }
+            request = URLRequest(url: url)
+        }
         let (url, _) = try await session.downloadData(for: request)
         return url
     }

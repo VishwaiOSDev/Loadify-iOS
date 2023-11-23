@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DownloadView: View {
+struct YouTubeDownloaderView: View {
     
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -237,7 +237,7 @@ struct DownloadView: View {
     }
     
     private func didTapDownload(quality: VideoQuality) async {
-        await viewModel.downloadVideo(url: details.videoUrl, with: quality)
+        await viewModel.downloadVideo(url: details.videoUrl, for: .youtube, with: quality)
     }
 }
 
@@ -255,7 +255,7 @@ extension View {
 
 #Preview("iPad Pro") {
     NavigationView {
-        DownloadView(details: .previews)
+        YouTubeDownloaderView(details: .previews)
             .previewDevice("iPad Pro (12.9-inch) (6th generation)")
             .previewInterfaceOrientation(.landscapeRight)
     }

@@ -56,7 +56,7 @@ struct URLView: View {
         VStack(spacing: 12) {
             CustomTextField("Enter YouTube URL", text: $videoURL)
             NavigationLink(
-                destination: downloadView,
+                destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
                 continueButton
@@ -67,9 +67,24 @@ struct URLView: View {
     }
     
     @ViewBuilder
-    private var downloadView: some View {
-        if let details = viewModel.details {
-            DownloadView(details: details)
+    private var downloaderView: some View {
+        if let details = viewModel.videoDetails {
+            switch viewModel.platformType {
+            case .youtube:
+                if let videoDetails = details as? VideoDetails {
+                    YouTubeDownloaderView(details: videoDetails)
+                } else {
+                    EmptyView()
+                }
+            case .instagram:
+                if let instagramDetails = details as? [InstagramDetails] {
+                    InstagramDownloaderView(videoDetails: instagramDetails)
+                } else {
+                    EmptyView()
+                }
+            case .none:
+                EmptyView()
+            }
         }
     }
     

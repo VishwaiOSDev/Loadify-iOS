@@ -24,7 +24,11 @@ final class URLViewModel: Detailable {
     @Published var error: Error? = nil
     @Published var errorMessage: String? = nil
     
+    var platformType: PlatformType? = nil
     var details: VideoDetails? = nil
+    
+    var videoDetails: Decodable? = nil
+        
     var fetcher = DetailFetcher()
     
     init() {
@@ -32,15 +36,24 @@ final class URLViewModel: Detailable {
     }
     
     func getVideoDetails(for url: String) async {
+        platformType = url.contains("instagram") ? .instagram : .youtube
         do {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
             }
-            let response = try await fetcher.loadDetails(for: url)
+            switch platformType {
+            case .youtube:
+                let response: VideoDetails = try await fetcher.loadDetails(for: url, to: .youtube)
+                self.videoDetails = response
+            case .instagram:
+                let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
+                self.videoDetails = response
+            case .none:
+                fatalError("I won't download")
+            }
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                self.details = response
                 self.showLoader = false
                 notifyWithHaptics(for: .success)
                 self.shouldNavigateToDownload = true

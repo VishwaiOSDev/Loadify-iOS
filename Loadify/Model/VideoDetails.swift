@@ -53,6 +53,17 @@ struct ErrorModel: Codable {
     var message: String
 }
 
+struct InstagramDetails: Codable {
+    
+    let thumbnailURL: String
+    let videoURL: String
+    
+    enum CodingKeys: String, CodingKey {
+        case thumbnailURL = "thumbnail_link"
+        case videoURL = "download_link"
+    }
+}
+
 extension VideoDetails {
     
     static let channelThumbnail = "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj"

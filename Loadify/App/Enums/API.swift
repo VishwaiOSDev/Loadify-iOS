@@ -7,9 +7,18 @@
 
 import Foundation
 
+/*
+https://www.instagram.com/reel/CwcXvDgtTMQ/?igshid=MzRlODBiNWFlZA==
+ */
+
+enum PlatformType: String {
+    case youtube = "yt"
+    case instagram = "ig"
+}
+
 enum API {
-    case details(youtubeURL: String)
-    case download(youtubeURL: String, quality: VideoQuality)
+    case details(platformType: PlatformType, url: String)
+    case download(url: String, quality: VideoQuality)
 }
 
 extension API: NetworkRequestable {
@@ -20,8 +29,8 @@ extension API: NetworkRequestable {
     
     var path: String {
         switch self {
-        case .details:
-            return "/api/yt/details"
+        case .details(let platformType, _):
+            return "/api/\(platformType.rawValue)/details"
         case .download:
             return "/api/yt/download/video/mp4"
         }
@@ -36,7 +45,7 @@ extension API: NetworkRequestable {
     
     var queryParameters: [String : AnyHashable]? {
         switch self {
-        case .details(let url):
+        case .details(_ , let url):
             return ["url": url]
         case .download(let url, let quality):
             return ["url": url, "video_quality": quality.rawValue]
@@ -44,7 +53,7 @@ extension API: NetworkRequestable {
     }
     
     /// Configuration for `localhost`
-    var shouldRunLocal: Bool { false }
+    var shouldRunLocal: Bool { true }
     
     var port: Int? { 3200 }
 }
