@@ -79,7 +79,6 @@ extension String {
         return text.isEmpty ? true : false
     }
     
-    
     func doesMatchExist(_ regularExpression: String, inputText: String) -> Bool {
         guard let regex = try? NSRegularExpression(pattern: regularExpression) else {
             return false
