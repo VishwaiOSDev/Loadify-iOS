@@ -95,7 +95,7 @@ struct InstagramDownloaderView: View {
     }
 }
 
-#Preview {
+#Preview("iPad Pro") {
     NavigationView {
         InstagramDownloaderView(details: InstagramDetails.previews)
             .previewDevice("iPad Pro (12.9-inch) (6th generation)")
