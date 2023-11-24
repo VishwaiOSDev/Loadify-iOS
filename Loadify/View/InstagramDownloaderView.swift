@@ -96,6 +96,9 @@ struct InstagramDownloaderView: View {
 #Preview {
     NavigationView {
         InstagramDownloaderView(details: InstagramDetails.previews)
+            .previewDevice("iPad Pro (12.9-inch) (6th generation)")
+            .previewInterfaceOrientation(.landscapeRight)
     }
+    .navigationViewStyle(StackNavigationViewStyle())
     .preferredColorScheme(.dark)
 }
