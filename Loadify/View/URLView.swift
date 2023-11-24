@@ -48,6 +48,7 @@ struct URLView: View {
         LoadifyAssets.loadifyIcon
             .frame(maxWidth: 150, maxHeight: 150)
         Text(LoadifyTexts.loadifySubTitle)
+            .padding(.vertical, 8)
             .foregroundColor(LoadifyColors.greyText)
             .font(.inter(.regular(size: 14)))
             .multilineTextAlignment(.center)
