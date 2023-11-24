@@ -46,25 +46,31 @@ final class DownloaderViewModel: Downloadable {
             try checkVideoIsCompatible(at: filePath.path)
             UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
             DispatchQueue.main.async {
-                self.showLoader = false
-                self.isDownloaded = true
-                self.downloadStatus = .downloaded
+                withAnimation {
+                    self.showLoader = false
+                    self.isDownloaded = true
+                    self.downloadStatus = .downloaded
+                }
                 notifyWithHaptics(for: .success)
                 Haptific.simulate(.notification(style: .success))
             }
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async {
-                self.showSettingsAlert = true
-                self.showLoader = false
-                self.downloadStatus = .none
+                withAnimation {
+                    self.showSettingsAlert = true
+                    self.showLoader = false
+                    self.downloadStatus = .none
+                }
                 notifyWithHaptics(for: .warning)
             }
         } catch {
             DispatchQueue.main.async {
-                self.isDownloaded = false
-                self.downloadError = error
-                self.showLoader = false
-                self.downloadStatus = .failed
+                withAnimation {
+                    self.isDownloaded = false
+                    self.downloadError = error
+                    self.showLoader = false
+                    self.downloadStatus = .failed
+                }
                 notifyWithHaptics(for: .error)
             }
         }

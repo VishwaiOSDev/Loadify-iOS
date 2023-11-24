@@ -10,6 +10,12 @@ import SwiftUI
 struct DownloadBadge: View {
     
     let downloadStatus: DownloadStatus
+    let alignment: Alignment
+    
+    init(downloadStatus: DownloadStatus, alignment: Alignment = .leading) {
+        self.downloadStatus = downloadStatus
+        self.alignment = alignment
+    }
     
     var body: some View {
         if downloadStatus == .downloaded || downloadStatus == .failed {
@@ -24,7 +30,7 @@ struct DownloadBadge: View {
             .foregroundColor(.white)
             .background(badgeColor)
             .cornerRadius(4)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: alignment)
         }
     }
     
