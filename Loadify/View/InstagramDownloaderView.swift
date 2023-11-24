@@ -41,7 +41,7 @@ struct InstagramDownloaderView: View {
                     .padding(.horizontal, 26)
                     
                     DownloadBadge(downloadStatus: viewModel.downloadStatus, alignment: .center)
-
+                    
                     footerView
                         .padding(.horizontal, 26)
                 }

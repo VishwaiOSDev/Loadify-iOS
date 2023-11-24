@@ -30,7 +30,7 @@ struct NetworkAlert: ViewModifier {
             }
         }
         .onReceive(Just(isReachable)) { toggleAlert(when: $0) }
-        .animation(.linear(duration: 0.2))
+        .animation(.linear, value: 0.2)
     }
     
     private var toastView: some View {
