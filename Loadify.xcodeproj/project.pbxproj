@@ -69,6 +69,7 @@
 		88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */; };
 		88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609582B101DDF001EC3C4 /* InstagramDetails.swift */; };
 		88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095A2B102019001EC3C4 /* DownloadBadge.swift */; };
+		88F6095D2B106F96001EC3C4 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095C2B106F96001EC3C4 /* DownloadButton.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeWithSwiftLabel.swift; sourceTree = "<group>"; };
 		88F609582B101DDF001EC3C4 /* InstagramDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetails.swift; sourceTree = "<group>"; };
 		88F6095A2B102019001EC3C4 /* DownloadBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBadge.swift; sourceTree = "<group>"; };
+		88F6095C2B106F96001EC3C4 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
 				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
 				88F6095A2B102019001EC3C4 /* DownloadBadge.swift */,
+				88F6095C2B106F96001EC3C4 /* DownloadButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
 				88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */,
 				880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */,
+				88F6095D2B106F96001EC3C4 /* DownloadButton.swift in Sources */,
 				884BDB012AB14CF500A4828B /* AlertUI.swift in Sources */,
 				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
 				884BDB182AB14E7600A4828B /* HUDComponents.swift in Sources */,

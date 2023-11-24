@@ -49,7 +49,7 @@ struct YouTubeDownloaderView: View {
                     isBackButtonDisabled: viewModel.showLoader
                 )
             }
-            .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .permissionAlert(isPresented: $viewModel.showSettingsAlert)
             .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
                 AlertUI(
@@ -161,31 +161,17 @@ struct YouTubeDownloaderView: View {
     }
     
     private var footerView: some View {
-        VStack(spacing: 16) {
-            Button {
+        let isDownloadButtonDisabled = selectedQuality == .none
+
+        return VStack(spacing: 16) {
+            DownloadButton(isDisabled: isDownloadButtonDisabled) {
                 Task {
                     await didTapDownload(quality: selectedQuality)
                 }
-            } label: {
-                Text("Download")
-                    .font(.inter(.light(size: 16)))
             }
-            .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
-            .disabled(selectedQuality == .none ? true: false)
             
             MadeWithSwiftLabel()
         }
-    }
-    
-    private var permissionAlert: Alert {
-        Alert(
-            title: Text(LoadifyTexts.photosAccessTitle),
-            message: Text(LoadifyTexts.photosAccessSubtitle),
-            primaryButton: .default(Text("Settings"), action: {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }),
-            secondaryButton: .default(Text("Cancel"))
-        )
     }
     
     private func didTapOnQuality(_ quality: VideoQuality) {

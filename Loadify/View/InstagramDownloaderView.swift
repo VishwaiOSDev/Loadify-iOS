@@ -9,8 +9,6 @@ import SwiftUI
 
 struct InstagramDownloaderView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     
     var details: [InstagramDetails]
@@ -20,9 +18,11 @@ struct InstagramDownloaderView: View {
             ZStack {
                 LoadifyColors.appBackground
                     .ignoresSafeArea(edges: .all)
+                
                 VStack {
                     Spacer()
                         .frame(height: geometry.size.height * 0.032)
+                    
                     VStack {
                         TabView {
                             ForEach(details, id: \.self) { detail in
@@ -31,14 +31,15 @@ struct InstagramDownloaderView: View {
                                 } image: {
                                     thumbnailModifier(image: $0)
                                 } onLoading: {
-                                    progressView
-                                        .frame(minHeight: 188)
+                                    ZStack {
+                                        ProgressView()
+                                    }.frame(minHeight: 188)
                                 }
                             }
-                        }
-                        .tabViewStyle(.page)
+                        }.tabViewStyle(.page)
                     }
                     .padding(.horizontal, 26)
+                    
                     footerView
                         .padding(.horizontal, 26)
                 }
@@ -63,12 +64,6 @@ struct InstagramDownloaderView: View {
                     alertType: .success
                 )
             }
-        }
-    }
-    
-    private var progressView: some View {
-        ZStack {
-            ProgressView()
         }
     }
     
