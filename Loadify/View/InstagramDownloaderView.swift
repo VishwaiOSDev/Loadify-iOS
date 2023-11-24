@@ -49,7 +49,7 @@ struct InstagramDownloaderView: View {
             .toolbar {
                 LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: viewModel.showLoader)
             }
-            .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
+            .permissionAlert(isPresented: $viewModel.showSettingsAlert)
             .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
                 AlertUI(
@@ -78,28 +78,14 @@ struct InstagramDownloaderView: View {
     
     private var footerView: some View {
         VStack(spacing: 16) {
-            Button {
+            DownloadButton(isDisabled: false) {
                 Task {
                     await didTapDownload()
                 }
-            } label: {
-                Text("Download")
-                    .font(.inter(.light(size: 16)))
-            }.buttonStyle(CustomButtonStyle())
+            }
             
             MadeWithSwiftLabel()
         }
-    }
-    
-    private var permissionAlert: Alert {
-        Alert(
-            title: Text(LoadifyTexts.photosAccessTitle),
-            message: Text(LoadifyTexts.photosAccessSubtitle),
-            primaryButton: .default(Text("Settings"), action: {
-                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-            }),
-            secondaryButton: .default(Text("Cancel"))
-        )
     }
     
     private func didTapDownload() async {
