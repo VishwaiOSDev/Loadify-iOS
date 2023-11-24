@@ -33,10 +33,11 @@ final class URLViewModel: Detailable {
     }
     
     func getVideoDetails(for url: String) async {
-        let pattern = Loadify.RegEx.instagram
-        let isInstagram = url.doesMatchExist(pattern, inputText: url)
-        platformType = isInstagram ? .instagram : .youtube
         do {
+            try checkInputTextIsValidURL(text: url)
+            let pattern = Loadify.RegEx.instagram
+            let isInstagram = url.doesMatchExist(pattern, inputText: url)
+            platformType = isInstagram ? .instagram : .youtube
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
@@ -87,6 +88,13 @@ final class URLViewModel: Detailable {
                 self.errorMessage = error.localizedDescription
                 notifyWithHaptics(for: .error)
             }
+        }
+    }
+    
+    private func checkInputTextIsValidURL(text: String) throws {
+        guard text.doesMatchExist(Loadify.RegEx.url, inputText: text) else {
+            let errorMessage = "The URL you entered is not valid"
+            throw NetworkError.badRequest(message: errorMessage)
         }
     }
     
