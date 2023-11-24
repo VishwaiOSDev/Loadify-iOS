@@ -12,7 +12,7 @@ struct YouTubeDownloaderView: View {
     @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
     @State private var selectedQuality: VideoQuality = .none
     
-    var details: VideoDetails
+    var details: YouTubeDetails
     
     var body: some View {
         GeometryReader { geometry in

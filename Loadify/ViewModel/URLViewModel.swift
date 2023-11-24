@@ -44,7 +44,7 @@ final class URLViewModel: Detailable {
             }
             switch platformType {
             case .youtube:
-                let response: VideoDetails = try await fetcher.loadDetails(for: url, to: .youtube)
+                let response: YouTubeDetails = try await fetcher.loadDetails(for: url, to: .youtube)
                 self.details = response
             case .instagram:
                 let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)

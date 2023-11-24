@@ -8,6 +8,7 @@
 import Foundation
 
 enum DownloadError: Error, LocalizedError {
+    
     case notCompatible
     
     var errorDescription: String? {
@@ -18,6 +19,7 @@ enum DownloadError: Error, LocalizedError {
 }
 
 enum PhotosError: Error, LocalizedError {
+    
     case permissionDenied
     case insufficientStorage
     
@@ -28,4 +30,3 @@ enum PhotosError: Error, LocalizedError {
         }
     }
 }
-

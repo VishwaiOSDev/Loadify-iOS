@@ -43,7 +43,7 @@ struct Loadify {
     }
     
     struct RegEx {
-        static let url = #"^((http|https)://)[-a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)$"#
+        static let url = #"^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"#
         static let instagram = #"https?:\/\/(?:www\.)?instagram\.com\/(?:p\/([^\/?#&]+)|reel\/([^\/?#&]+)|stories\/([^\/?#&]+)\/([^\/?#&]+)).*"#
     }
 }
