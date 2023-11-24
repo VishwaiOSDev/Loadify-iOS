@@ -68,6 +68,7 @@
 		88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */; };
 		88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */; };
 		88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609582B101DDF001EC3C4 /* InstagramDetails.swift */; };
+		88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095A2B102019001EC3C4 /* DownloadBadge.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
 		88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeWithSwiftLabel.swift; sourceTree = "<group>"; };
 		88F609582B101DDF001EC3C4 /* InstagramDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetails.swift; sourceTree = "<group>"; };
+		88F6095A2B102019001EC3C4 /* DownloadBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBadge.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 				88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
 				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
+				88F6095A2B102019001EC3C4 /* DownloadBadge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
+				88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */,
 				884BDB142AB14DA200A4828B /* LoaderViewAction.swift in Sources */,
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,

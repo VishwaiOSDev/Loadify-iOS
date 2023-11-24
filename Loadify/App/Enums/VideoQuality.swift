@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum VideoQuality: String {
+enum VideoQuality: String, CaseIterable {
     case none
     case low = "Low"
     case medium = "Medium"
@@ -21,4 +21,6 @@ enum VideoQuality: String {
         case .high: return "High - 1080p"
         }
     }
+    
+    static var allCases: [VideoQuality] = [.high, .medium, .low]
 }

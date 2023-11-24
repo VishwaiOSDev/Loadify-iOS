@@ -166,4 +166,13 @@ extension View {
     func reduceFontSize(for line: Int) -> some View {
         modifier(FontReducer(line: line))
     }
+    
+    @ViewBuilder
+    func scaleImageBasedOnDevice() -> some View {
+        if Device.iPad {
+            self.scaledToFill()
+        } else {
+            self.scaledToFit()
+        }
+    }
 }

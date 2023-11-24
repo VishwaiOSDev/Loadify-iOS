@@ -28,6 +28,7 @@ struct YouTubeDownloaderView: View {
                         VStack {
                             thumbnailView
                             videoContentView
+                                .padding(.horizontal, 12)
                         }
                     }
                     .cardView(color: LoadifyColors.textfieldBackground)
@@ -43,7 +44,10 @@ struct YouTubeDownloaderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: viewModel.showLoader)
+                LoadifyNavigationBar(
+                    geometry.size.height,
+                    isBackButtonDisabled: viewModel.showLoader
+                )
             }
             .alert(isPresented: $viewModel.showSettingsAlert, content: { permissionAlert })
             .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
@@ -71,9 +75,11 @@ struct YouTubeDownloaderView: View {
             } image: {
                 thumbnailModifier(image: $0)
             } onLoading: {
-                progressView
-                    .frame(minHeight: 188)
+                ZStack {
+                    ProgressView()
+                }.frame(minHeight: 188)
             }.frame(maxWidth: Loadify.maxWidth)
+            
             durationView
                 .offset(x: -5, y: -5)
         }
@@ -87,12 +93,6 @@ struct YouTubeDownloaderView: View {
             .clipped()
     }
     
-    private var progressView: some View {
-        ZStack {
-            ProgressView()
-        }
-    }
-    
     private var durationView: some View {
         Text(details.lengthSeconds.getDuration)
             .font(.inter(.regular(size: 10)))
@@ -104,45 +104,24 @@ struct YouTubeDownloaderView: View {
     
     private var videoContentView: some View {
         VStack(alignment: .leading, spacing: 0) {
-            downloadedBadge
+            DownloadBadge(downloadStatus: viewModel.downloadStatus)
                 .padding(.top, 2)
+            
             videoTitleView
                 .padding(.vertical, 8)
+            
             ChannelView(
                 name: details.ownerChannelName,
                 profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
                 subscriberCount: details.author.subscriberCount.toUnits
-            )
-            .padding(.all, 8)
+            ).padding(.all, 8)
+            
             videoInfoView
                 .padding(.all, 8)
+            
             menuView
                 .padding(.vertical, 8)
         }
-        .padding(.horizontal, 12)
-    }
-    
-    @ViewBuilder
-    private var downloadedBadge: some View {
-        if viewModel.downloadStatus == .downloaded || viewModel.downloadStatus == .failed {
-            HStack(spacing: 4) {
-                Image(systemName: "arrow.down.circle.fill")
-                Text(viewModel.downloadStatus == .downloaded ? "Downloaded" : "Failed")
-                    .font(.inter(.bold(size: 14)))
-                    .padding(2)
-                    .cornerRadius(4)
-            }
-            .padding(.all, 4)
-            .foregroundColor(.white)
-            .background(badgeColor)
-            .cornerRadius(4)
-            .frame(maxWidth: .infinity, alignment: .leading)
-        }
-    }
-    
-    private var badgeColor: Color {
-        let status = viewModel.downloadStatus
-        return status == .downloaded ? LoadifyColors.successGreenGradient : LoadifyColors.errorRed
     }
     
     private var videoTitleView: some View {
@@ -156,8 +135,10 @@ struct YouTubeDownloaderView: View {
         ZStack(alignment: .center) {
             InfoView(title: details.likes.toUnits, subTitle: "Likes")
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
             InfoView(title: details.viewCount.format, subTitle: "Views")
                 .frame(maxWidth: .infinity, alignment: .center)
+            
             InfoView(
                 title: details.publishDate.formattedDate(),
                 subTitle: details.publishDate.formattedDate(.year)
@@ -169,9 +150,11 @@ struct YouTubeDownloaderView: View {
     
     private var menuView: some View {
         Menu {
-            Button(VideoQuality.high.description) { didTapOnQuality(.high) }
-            Button(VideoQuality.medium.description) { didTapOnQuality(.medium) }
-            Button(VideoQuality.low.description) { didTapOnQuality(.low) }
+            ForEach(VideoQuality.allCases, id: \.self) { quality in
+                Button(quality.description) {
+                    didTapOnQuality(quality)
+                }
+            }
         } label: {
             MenuButton(title: selectedQuality.description)
         }
@@ -189,11 +172,11 @@ struct YouTubeDownloaderView: View {
             }
             .buttonStyle(CustomButtonStyle(isDisabled: selectedQuality == .none ? true: false))
             .disabled(selectedQuality == .none ? true: false)
-        
+            
             MadeWithSwiftLabel()
         }
     }
-        
+    
     private var permissionAlert: Alert {
         Alert(
             title: Text(LoadifyTexts.photosAccessTitle),
@@ -211,18 +194,6 @@ struct YouTubeDownloaderView: View {
     
     private func didTapDownload(quality: VideoQuality) async {
         await viewModel.downloadVideo(url: details.videoUrl, for: .youtube, with: quality)
-    }
-}
-
-extension View {
-    
-    @ViewBuilder
-    func scaleImageBasedOnDevice() -> some View {
-        if Device.iPad {
-            self.scaledToFill()
-        } else {
-            self.scaledToFit()
-        }
     }
 }
 
