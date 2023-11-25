@@ -2,14 +2,14 @@
 
 # Loadify
 
-Loadify is an iOS and iPad app for downloading high-quality YouTube videos. You can copy and paste the URL of any video or shorts and download it in the quality of your choice.
+Loadify is an iOS and iPad app designed for downloading high-quality content from YouTube, including videos and shorts, as well as Instagram reels and posts. Simply copy and paste the URL of the desired video or post, and Download it in the quality of your choice.
 
 This application uses [ytdl-core](https://github.com/fent/node-ytdl-core) under the hood to interact with YouTube.
 
 # Requirement
 
-- iOS 14.0+
-- iPadOS 14.0+
+- iOS 15.0+
+- iPadOS 15.0+
 
 # Features
 
@@ -20,7 +20,7 @@ Three download modes available:
 - High (1080p)
 
 > **Note**\
-> Currently, Loadify can only download videos from YouTube. The next iteration will include audio and video downloads from other sites such as Facebook, Instagram and LinkedIn.
+> Loadify now supports downloading videos from both YouTube and Instagram. Download YouTube videos and shorts, as well as Instagram reels and posts. Stay tuned for more enhancements and broader platform compatibility!
 
 ## Screenshots
 
