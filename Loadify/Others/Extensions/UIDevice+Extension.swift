@@ -11,8 +11,9 @@ extension UIDevice {
     
     /// Returns `true` if the device has a notch
     var hasNotch: Bool {
-        guard #available(iOS 11.0, *),
-              let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
+        let firstScene = UIApplication.shared.connectedScenes.first as! UIWindowScene
+
+        guard let window = firstScene.windows.first else {
             return false
         }
         

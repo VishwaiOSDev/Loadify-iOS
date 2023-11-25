@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct VideoDetails: Codable {
+struct YouTubeDetails: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case videoUrl = "video_url"
@@ -53,12 +53,12 @@ struct ErrorModel: Codable {
     var message: String
 }
 
-extension VideoDetails {
+extension YouTubeDetails {
     
     static let channelThumbnail = "1https://yt3.ggpht.com/wzh-BL3_M_uugIXZ_ANSSzzBbi_w5XnNSRl4F5DbLAxKdTfXkjgx-kWM1mChdrrMkADRQyB-nQ=s176-c-k-c0x00ffffff-no-rj"
     static let videoThumbnail = "1https://i.ytimg.com/vi/CYYtLXfquy0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&;amp;rs=AOn4CLCo3jfFz7jTmuiffAP7oetxwNgEbA"
     
-    static let previews: VideoDetails = VideoDetails(
+    static let previews: YouTubeDetails = YouTubeDetails(
         title: "AVATAR 2 THE #WAY OF WATER Trailer (4K ULTRA HD) 2022",
         lengthSeconds: "109",
         viewCount: "7876945312 ",
@@ -90,3 +90,4 @@ extension VideoDetails {
         ]
     )
 }
+

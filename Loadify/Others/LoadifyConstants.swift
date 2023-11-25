@@ -34,12 +34,17 @@ struct Loadify {
         static let downloading = "DOWNLOADING"
         static let downloadedTitle = "Downloaded Successfully"
         static let downloadedSubtitle = "Added to photos"
-        static let loadifySubTitle = "The secret of getting ahead is getting started."
+        static let loadifySubTitle = "Download YouTube Videos, Shorts, Instagram Reels, and Posts with Ease!"
         static let photosAccessTitle = "Photos access is required"
         static let photosAccessSubtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
         static let tryAgain: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
+    }
+    
+    struct RegEx {
+        static let url = #"^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"#
+        static let instagram = #"https?:\/\/(?:www\.)?instagram\.com\/(?:p\/([^\/?#&]+)|reel\/([^\/?#&]+)|stories\/([^\/?#&]+)\/([^\/?#&]+)).*"#
     }
 }
 

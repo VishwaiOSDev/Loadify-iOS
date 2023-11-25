@@ -11,11 +11,13 @@ struct URLView: View {
     
     @StateObject var viewModel = URLViewModel()
     @State private var videoURL: String = ""
+    @State private var isConvertButtonDisabled: Bool = true
     
     var body: some View {
         ZStack {
             LoadifyColors.appBackground
                 .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 headerView
                 Spacer()
@@ -28,18 +30,17 @@ struct URLView: View {
         .navigationBarHidden(true)
         .onDisappear(perform: viewModel.onDisappear)
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
+        .onChange(of: videoURL, perform: { _ in
+            withAnimation {
+                isConvertButtonDisabled = videoURL.isEmpty
+            }
+        })
         .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
             guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
                 return AlertUI(title: errorMessage)
             }
             return AlertUI(title: errorTitle, subtitle: errorMessage)
         })
-        .showAlert(item: $viewModel.error) { error -> AlertUI in
-            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
-                return AlertUI(title: error.localizedDescription)
-            }
-            return AlertUI(title: errorTitle, subtitle: error.localizedDescription)
-        }
     }
     
     @ViewBuilder
@@ -47,29 +48,48 @@ struct URLView: View {
         LoadifyAssets.loadifyIcon
             .frame(maxWidth: 150, maxHeight: 150)
         Text(LoadifyTexts.loadifySubTitle)
+            .padding(.vertical, 8)
             .foregroundColor(LoadifyColors.greyText)
-            .font(.inter(.regular(size: 16)))
+            .font(.inter(.regular(size: 14)))
             .multilineTextAlignment(.center)
     }
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube URL", text: $videoURL)
+            CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
+            
             NavigationLink(
-                destination: downloadView,
+                destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
-                continueButton
-                    .buttonStyle(CustomButtonStyle(isDisabled: videoURL.checkIsEmpty()))
-            }
-            .disabled(videoURL.checkIsEmpty())
+                DownloadButton(label: "Convert", isDisabled: isConvertButtonDisabled) {
+                    Task {
+                        await didTapContinue()
+                    }
+                }
+            }.disabled(isConvertButtonDisabled)
         }
     }
     
     @ViewBuilder
-    private var downloadView: some View {
+    private var downloaderView: some View {
         if let details = viewModel.details {
-            DownloadView(details: details)
+            switch viewModel.platformType {
+            case .youtube:
+                if let youtubeDetails = details as? YouTubeDetails {
+                    YouTubeDownloaderView(details: youtubeDetails)
+                } else {
+                    fatalError("Youtube details cannot be nil")
+                }
+            case .instagram:
+                if let instagramDetails = details as? [InstagramDetails] {
+                    InstagramDownloaderView(details: instagramDetails)
+                } else {
+                    fatalError("Instagram details cannot be nil")
+                }
+            case .none:
+                fatalError("Platform type not available")
+            }
         }
     }
     
@@ -86,7 +106,8 @@ struct URLView: View {
     
     private func didTapContinue() async {
         hideKeyboard()
-        await viewModel.getVideoDetails(for: videoURL)
+        let trimmedURL = videoURL.trimmingCharacters(in: .whitespacesAndNewlines)
+        await viewModel.getVideoDetails(for: trimmedURL)
     }
 }
 

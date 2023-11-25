@@ -11,10 +11,11 @@
 		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
 		880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
-		882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* DownloadView.swift */; };
+		882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
 		882ECF9B28CDB55E001F4C7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882ECF9A28CDB55E001F4C7D /* API.swift */; };
 		883233872855F34000BF38B5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883233862855F34000BF38B5 /* Double+Extension.swift */; };
+		883672D42B116743001F5325 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883672D32B116743001F5325 /* Launch Screen.storyboard */; };
 		88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379935283A19F400DDBA79 /* Int+Extension.swift */; };
 		88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379937283A1A0F00DDBA79 /* String+Extension.swift */; };
 		88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88498D4B29A285BE007303B0 /* Logger+Extension.swift */; };
@@ -53,8 +54,9 @@
 		88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A22851E7B900D00040 /* PhotosService.swift */; };
 		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
-		88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */; };
+		88B1CFAC2826C2D7007B19B4 /* YouTubeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */; };
 		88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88B3FD6A299A95F400112490 /* LoggerKit */; };
+		88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */; };
 		88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E528C39EED00D6EB79 /* FontInter */; };
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
 		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
@@ -64,7 +66,13 @@
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
+		88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */; };
+		88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */; };
+		88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F609582B101DDF001EC3C4 /* InstagramDetails.swift */; };
+		88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095A2B102019001EC3C4 /* DownloadBadge.swift */; };
+		88F6095D2B106F96001EC3C4 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095C2B106F96001EC3C4 /* DownloadButton.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
+		88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +91,11 @@
 		88083D732855D9D00027BA0D /* VideoInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoTest.swift; sourceTree = "<group>"; };
 		880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestable.swift; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
-		882A8BA0282958D80094BA6E /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDownloaderView.swift; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
 		882ECF9A28CDB55E001F4C7D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		883233862855F34000BF38B5 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		883672D32B116743001F5325 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		88379935283A19F400DDBA79 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		88379937283A1A0F00DDBA79 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		88498D4B29A285BE007303B0 /* Logger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extension.swift"; sourceTree = "<group>"; };
@@ -126,15 +135,22 @@
 		88AFF4A22851E7B900D00040 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
-		88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetails.swift; sourceTree = "<group>"; };
+		88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDetails.swift; sourceTree = "<group>"; };
 		88B9E1FC292A18E700232C0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDownloaderView.swift; sourceTree = "<group>"; };
 		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoDetailsResponse.json; sourceTree = "<group>"; };
 		88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
+		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
+		88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeWithSwiftLabel.swift; sourceTree = "<group>"; };
+		88F609582B101DDF001EC3C4 /* InstagramDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDetails.swift; sourceTree = "<group>"; };
+		88F6095A2B102019001EC3C4 /* DownloadBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBadge.swift; sourceTree = "<group>"; };
+		88F6095C2B106F96001EC3C4 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +205,7 @@
 				884BDB192AB14EB400A4828B /* Task+Extension.swift */,
 				884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */,
 				88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */,
+				88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,7 +239,11 @@
 				884BDAE02AB14A9F00A4828B /* CustomTextField.swift */,
 				884BDAF72AB14CC300A4828B /* Blur.swift */,
 				884BDAF52AB14C7500A4828B /* ImageView.swift */,
+				88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
+				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
+				88F6095A2B102019001EC3C4 /* DownloadBadge.swift */,
+				88F6095C2B106F96001EC3C4 /* DownloadButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -332,6 +353,7 @@
 		88A729BB2826505500B5FE61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				883672D32B116743001F5325 /* Launch Screen.storyboard */,
 				88A729B128264AD400B5FE61 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -342,7 +364,8 @@
 			children = (
 				884BDADF2AB14A6700A4828B /* Components */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
-				882A8BA0282958D80094BA6E /* DownloadView.swift */,
+				882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */,
+				88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,7 +373,8 @@
 		88A729BD2826506B00B5FE61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				88B1CFAB2826C2D7007B19B4 /* VideoDetails.swift */,
+				88F609572B101DD0001EC3C4 /* Instagram */,
+				88F609562B101DC4001EC3C4 /* YouTube */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,6 +444,22 @@
 				88F341832836549000493544 /* LoadifyConstants.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		88F609562B101DC4001EC3C4 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		88F609572B101DD0001EC3C4 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				88F609582B101DDF001EC3C4 /* InstagramDetails.swift */,
+			);
+			path = Instagram;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +564,7 @@
 			files = (
 				88A729B528264AD400B5FE61 /* Preview Assets.xcassets in Resources */,
 				88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */,
+				883672D42B116743001F5325 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +589,7 @@
 			files = (
 				884BDAF62AB14C7500A4828B /* ImageView.swift in Sources */,
 				884BDAE62AB14AF200A4828B /* MenuButton.swift in Sources */,
-				882A8BA1282958D80094BA6E /* DownloadView.swift in Sources */,
+				882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */,
 				884BDAF82AB14CC300A4828B /* Blur.swift in Sources */,
 				884BDB0F2AB14D8400A4828B /* AlertOptions.swift in Sources */,
 				884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */,
@@ -559,20 +600,26 @@
 				884BDB042AB14CF500A4828B /* LoaderView.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
+				88F609592B101DDF001EC3C4 /* InstagramDetails.swift in Sources */,
 				880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */,
+				88F6095D2B106F96001EC3C4 /* DownloadButton.swift in Sources */,
 				884BDB012AB14CF500A4828B /* AlertUI.swift in Sources */,
-				88B1CFAC2826C2D7007B19B4 /* VideoDetails.swift in Sources */,
+				88B1CFAC2826C2D7007B19B4 /* YouTubeDetails.swift in Sources */,
 				884BDB182AB14E7600A4828B /* HUDComponents.swift in Sources */,
 				88F341842836549000493544 /* LoadifyConstants.swift in Sources */,
 				88A729B028264AD100B5FE61 /* URLView.swift in Sources */,
+				88F609552B101D88001EC3C4 /* MadeWithSwiftLabel.swift in Sources */,
 				884BDAFB2AB14CD400A4828B /* FontReducer.swift in Sources */,
 				884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
+				88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */,
 				884BDB142AB14DA200A4828B /* LoaderViewAction.swift in Sources */,
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
+				88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
+				88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,
 				88007D502AC3B146007A5004 /* URLSession+Extension.swift in Sources */,
 				884BDB0E2AB14D8400A4828B /* LoaderOptions.swift in Sources */,
@@ -580,6 +627,7 @@
 				884BDAEB2AB14B2100A4828B /* CardView.swift in Sources */,
 				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
 				884BDAE52AB14AF200A4828B /* ChannelView.swift in Sources */,
+				88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */,
 				884BDB032AB14CF500A4828B /* Loader.swift in Sources */,
 				884BDAE72AB14AF200A4828B /* InfoView.swift in Sources */,
 				884BDAE12AB14A9F00A4828B /* CustomTextField.swift in Sources */,
@@ -772,10 +820,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loadify/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Loadify;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -788,6 +839,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -806,10 +858,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Loadify/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Loadify;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need your photos access to save the downloaded files";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -822,6 +877,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

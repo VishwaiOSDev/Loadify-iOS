@@ -2,14 +2,12 @@
 
 # Loadify
 
-Loadify is an iOS and iPad app for downloading high-quality YouTube videos. You can copy and paste the URL of any video or shorts and download it in the quality of your choice.
-
-This application uses [ytdl-core](https://github.com/fent/node-ytdl-core) under the hood to interact with YouTube.
+Loadify is an iOS and iPad app designed for downloading high-quality content from YouTube, including videos and shorts, as well as Instagram reels and posts. Simply copy and paste the URL of the desired video or post, and Download it in the quality of your choice.
 
 # Requirement
 
-- iOS 14.0+
-- iPadOS 14.0+
+- iOS 15.0+
+- iPadOS 15.0+
 
 # Features
 
@@ -19,14 +17,13 @@ Three download modes available:
 - Medium (720p)
 - High (1080p)
 
-> **Note**\
-> Currently, Loadify can only download videos from YouTube. The next iteration will include audio and video downloads from other sites such as Facebook, Instagram and LinkedIn.
+> **📘 Note**\
+> Loadify now downloads videos from YouTube and Instagram, including shorts, reels, and posts. Stay tuned for more updates and expanded platform compatibility!
 
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://images.madrasvalley.com/loadify-url-screen.png" height="811" width="375"> 
-    <img src="https://images.madrasvalley.com/loadify-download-screen.png" height="811" width="375">
+    <img src="https://images.madrasvalley.com/loadify-background.png"> 
 </div>
 
 ## Setup
@@ -38,7 +35,7 @@ Follow the steps below to setup Loadify on your machine:
 - Open `Loadify.xcodeproj` file
 - Run the app after packages have been fetched
 
-> **Warning**\
+> **⚠️ Warning**\
 > If Xcode was unable to resolve the package version or if you are experiencing package issues, reset the package cache once.
 
 ## Packages Dependency
@@ -47,6 +44,7 @@ The packages listed below are used by loadify:
 
 - [FontKit](https://github.com/VishwaiOSDev/FontKit)
 - [LoggerKit](https://github.com/VishwaiOSDev/LoggerKit)
+- [Haptific](https://github.com/Vignesh-Thangamariappan/Haptific)
 
 ## Author
 

@@ -12,7 +12,7 @@ protocol Loadable: ObservableObject {
 }
 
 protocol DetailableError: Loadable {
-    var error: Error? { get set }
+    var errorMessage: String? { get set }
 }
 
 protocol DownloadableError: ObservableObject {
@@ -21,7 +21,7 @@ protocol DownloadableError: ObservableObject {
 }
 
 protocol Describable: DetailableError {
-    var details: VideoDetails? { get set }
+    var details: Decodable? { get set }
 }
 
 protocol Navigatable: Describable {

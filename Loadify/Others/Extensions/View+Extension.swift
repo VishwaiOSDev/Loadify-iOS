@@ -107,6 +107,20 @@ extension View {
         }
     }
     
+    func permissionAlert(isPresented: Binding<Bool>) -> some View {
+        let title = LoadifyTexts.photosAccessTitle
+        let message = LoadifyTexts.photosAccessSubtitle
+        
+        return self.alert(title, isPresented: isPresented, actions: {
+            Button("Cancel", role: .cancel) { }
+            Button("Settings") {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+        }, message: {
+            Text(message)
+        })
+    }
+    
     func dismiss(delay: TimeInterval, completion: @escaping () -> Void) -> some View {
         self.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
@@ -165,5 +179,14 @@ extension View {
     /// Limits the font size for selected lines
     func reduceFontSize(for line: Int) -> some View {
         modifier(FontReducer(line: line))
+    }
+    
+    @ViewBuilder
+    func scaleImageBasedOnDevice() -> some View {
+        if Device.iPad {
+            self.scaledToFill()
+        } else {
+            self.scaledToFit()
+        }
     }
 }

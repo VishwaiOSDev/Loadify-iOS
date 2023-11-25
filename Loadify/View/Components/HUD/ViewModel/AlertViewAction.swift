@@ -10,6 +10,7 @@ import SwiftUI
 final class AlertViewAction: ObservableObject {
     
     @Published var isShowing: Bool = false
+    
     private(set) var title: String
     private(set) var subTitle: String?
     private(set) var showOverlay: Bool
@@ -37,6 +38,7 @@ final class AlertViewAction: ObservableObject {
         self.title = title
         self.subTitle = subTitle
         self.options = options
+        
         DispatchQueue.main.async {
             self.isShowing = true
         }

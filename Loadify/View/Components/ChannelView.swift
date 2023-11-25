@@ -23,6 +23,7 @@ struct ChannelView: View {
     var body: some View {
         HStack {
             channelImageView
+            
             VStack(alignment: .leading) {
                 channelInfoView
             }
@@ -53,6 +54,7 @@ struct ChannelView: View {
             .font(.inter(.bold(size: 16)))
             .lineLimit(2)
             .minimumScaleFactor(0.5)
+        
         subscriberCountView
             .foregroundColor(LoadifyColors.greyText)
     }
