@@ -18,7 +18,7 @@ Three download modes available:
 - High (1080p)
 
 > **📘 Note**\
-> Loadify now supports downloading videos from both YouTube and Instagram. Download YouTube videos and shorts, as well as Instagram reels and posts. Stay tuned for more enhancements and broader platform compatibility!
+> Loadify now downloads videos from YouTube and Instagram, including shorts, reels, and posts. Stay tuned for more updates and expanded platform compatibility!
 
 ## Screenshots
 
