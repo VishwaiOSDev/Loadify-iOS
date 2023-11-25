@@ -17,14 +17,13 @@ Three download modes available:
 - Medium (720p)
 - High (1080p)
 
-> **Note**\
+> **📘 Note**\
 > Loadify now supports downloading videos from both YouTube and Instagram. Download YouTube videos and shorts, as well as Instagram reels and posts. Stay tuned for more enhancements and broader platform compatibility!
 
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://images.madrasvalley.com/loadify-url-screen.png" height="811" width="375"> 
-    <img src="https://images.madrasvalley.com/loadify-download-screen.png" height="811" width="375">
+    <img src="https://images.madrasvalley.com/loadify-background.png"> 
 </div>
 
 ## Setup
@@ -36,7 +35,7 @@ Follow the steps below to setup Loadify on your machine:
 - Open `Loadify.xcodeproj` file
 - Run the app after packages have been fetched
 
-> **Warning**\
+> **⚠️ Warning**\
 > If Xcode was unable to resolve the package version or if you are experiencing package issues, reset the package cache once.
 
 ## Packages Dependency
@@ -45,6 +44,7 @@ The packages listed below are used by loadify:
 
 - [FontKit](https://github.com/VishwaiOSDev/FontKit)
 - [LoggerKit](https://github.com/VishwaiOSDev/LoggerKit)
+- [Haptific](https://github.com/Vignesh-Thangamariappan/Haptific)
 
 ## Author
 
