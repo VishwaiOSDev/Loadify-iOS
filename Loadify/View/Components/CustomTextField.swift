@@ -34,8 +34,7 @@ struct CustomTextField: View {
                         textFieldView
                             .disableAutocorrection(true)
                         
-                    }
-                    .padding(.horizontal, 16)
+                    }.padding(.leading, 16)
                 }
                 
                 if !text.isEmpty {
