@@ -23,7 +23,7 @@ struct DownloadButton: View {
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.inter(.light(size: 16)))
+                .font(.inter(.semibold(size: 16)))
         }
         .buttonStyle(CustomButtonStyle(isDisabled: isDisabled ? true: false))
         .disabled(isDisabled ? true: false)

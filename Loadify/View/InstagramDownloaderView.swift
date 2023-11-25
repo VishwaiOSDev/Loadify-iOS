@@ -37,8 +37,7 @@ struct InstagramDownloaderView: View {
                                 }
                             }
                         }.tabViewStyle(.page)
-                    }
-                    .padding(.horizontal, 26)
+                    }.padding(.horizontal, 26)
                     
                     DownloadBadge(downloadStatus: viewModel.downloadStatus, alignment: .center)
                     
