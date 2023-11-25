@@ -72,6 +72,7 @@
 		88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095A2B102019001EC3C4 /* DownloadBadge.swift */; };
 		88F6095D2B106F96001EC3C4 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6095C2B106F96001EC3C4 /* DownloadButton.swift */; };
 		88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FDA6DF2862C80D0028DCE9 /* Errors.swift */; };
+		88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		88F6095A2B102019001EC3C4 /* DownloadBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadBadge.swift; sourceTree = "<group>"; };
 		88F6095C2B106F96001EC3C4 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		88FDA6DF2862C80D0028DCE9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				884BDB192AB14EB400A4828B /* Task+Extension.swift */,
 				884BDAED2AB14B8200A4828B /* UIDevice+Extension.swift */,
 				88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */,
+				88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */,
 				884BDB142AB14DA200A4828B /* LoaderViewAction.swift in Sources */,
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
+				88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
 				88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,

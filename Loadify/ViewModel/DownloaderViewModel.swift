@@ -14,7 +14,12 @@ protocol Downloadable: Loadable, DownloadableError {
     var isDownloaded: Bool { get set }
     var downloadStatus: DownloadStatus { get set }
     
-    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async
+    func downloadVideo(
+        url: String,
+        for platform: PlatformType,
+        with quality: VideoQuality,
+        isLastElement: Bool
+    ) async
 }
 
 final class DownloaderViewModel: Downloadable {
@@ -34,22 +39,28 @@ final class DownloaderViewModel: Downloadable {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
     }
     
-    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
+    func downloadVideo(
+        url: String,
+        for platform: PlatformType,
+        with quality: VideoQuality,
+        isLastElement: Bool = true
+    ) async {
         do {
             DispatchQueue.main.async {
                 self.showLoader = true
             }
             try await photoService.checkForPhotosPermission()
             let filePath = fileService.getTemporaryFilePath()
-            let tempURL = try await downloader.download(url, for: platform, withQuality: quality)
+            let (tempURL, downloadType) = try await downloader.download(url, for: platform, withQuality: quality)
             try fileService.moveFile(from: tempURL, to: filePath)
-            try checkVideoIsCompatible(at: filePath.path)
-            UISaveVideoAtPathToSavedPhotosAlbum(filePath.path, nil, nil, nil)
+            try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: downloadType)
+            guard isLastElement else { return }
             DispatchQueue.main.async {
                 withAnimation {
                     self.showLoader = false
                     self.isDownloaded = true
                     self.downloadStatus = .downloaded
+                    Logger.debug("Download Status Updated")
                 }
                 notifyWithHaptics(for: .success)
                 Haptific.simulate(.notification(style: .success))
@@ -76,9 +87,21 @@ final class DownloaderViewModel: Downloadable {
         }
     }
     
-    private func checkVideoIsCompatible(at filePath: String) throws {
-        if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
-            throw DownloadError.notCompatible
+    private func saveMediaToPhotosAlbumIfCompatiable(
+        at filePath: String,
+        downloadType: Downloader.DownloadType
+    ) throws {
+        switch downloadType {
+        case .video:
+            if !UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(filePath) {
+                throw DownloadError.notCompatible
+            }
+            UISaveVideoAtPathToSavedPhotosAlbum(filePath, nil, nil, nil)
+        case .photo:
+            guard let image = UIImage(contentsOfFile: filePath) else {
+                throw DownloadError.notCompatible
+            }
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
     }
     

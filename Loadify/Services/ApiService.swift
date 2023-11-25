@@ -30,17 +30,22 @@ struct DetailsFetcher {
 
 struct Downloader {
     
+    enum DownloadType {
+        case video, photo
+    }
+    
     private var session: URLSessionProtocol
+    private var downloadType: DownloadType = .video
     
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
-    func download(
+    mutating func download(
         _ url: String,
         for platform: PlatformType,
         withQuality quality: VideoQuality
-    ) async throws -> URL  {
+    ) async throws -> (URL, DownloadType)  {
         let request: URLRequest
         
         switch platform {
@@ -48,13 +53,27 @@ struct Downloader {
             request = try API.download(url: url, quality: quality).createRequest()
         case .instagram:
             guard let url = URL(string: url) else {
-                throw URLError(.badURL)
+                let errorMessage = "This is not a valid Instagram URL"
+                throw NetworkError.badRequest(message: errorMessage)
             }
             request = URLRequest(url: url)
         }
         
-        let (url, _) = try await session.downloadData(for: request)
+        let (url, httpResponse) = try await session.downloadData(for: request)
         
-        return url
+        switch httpResponse.mimeType {
+        case "video/mp4":
+            setDownloadType(.video)
+        case "image/jpeg":
+            setDownloadType(.photo)
+        default:
+            setDownloadType(.video)
+        }
+        
+        return (url, downloadType)
+    }
+    
+    mutating private func setDownloadType(_ newType: DownloadType) {
+        downloadType = newType
     }
 }

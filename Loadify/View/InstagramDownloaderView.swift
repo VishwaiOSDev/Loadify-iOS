@@ -13,6 +13,13 @@ struct InstagramDownloaderView: View {
     
     var details: [InstagramDetails]
     
+    private var lastIndex: Int
+    
+    init(details: [InstagramDetails]) {
+        self.details = details
+        self.lastIndex = details.count
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -90,7 +97,14 @@ struct InstagramDownloaderView: View {
     }
     
     private func didTapDownload() async {
-        await viewModel.downloadVideo(url: details.first!.videoURL, for: .instagram, with: .high)
+        await details.asyncForEach { (detail, index) in
+            await viewModel.downloadVideo(
+                url: detail.videoURL,
+                for: .instagram,
+                with: .high,
+                isLastElement: (index + 1) == lastIndex
+            )
+        }
     }
 }
 
