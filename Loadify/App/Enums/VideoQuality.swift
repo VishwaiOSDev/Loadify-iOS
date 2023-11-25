@@ -8,6 +8,7 @@
 import Foundation
 
 enum VideoQuality: String, CaseIterable {
+    
     case none
     case low = "Low"
     case medium = "Medium"

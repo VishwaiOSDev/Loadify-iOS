@@ -30,6 +30,7 @@ struct AlertUI: View {
             Image(systemName: alertType.rawValue)
                 .font(.title)
                 .foregroundColor(alertType == .success ? Colors.green : Colors.red)
+            
             alertContentView
                 .padding(.all, 6)
         }
@@ -43,6 +44,7 @@ struct AlertUI: View {
                 .font(.inter(.semibold(size: 16)))
                 .foregroundColor(alertType == .success ? Colors.green : Colors.red)
                 .reduceFontSize(for: 1)
+            
             if let subtitle = subtile {
                 Text(subtitle)
                     .font(.inter(.medium(size: 14)))

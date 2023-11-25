@@ -24,6 +24,7 @@ struct Loader: View {
     var body: some View {
         ZStack {
             overlayView(showOverlay)
+            
             VStack {
                 ProgressView()
                     .tint(.white)

@@ -24,9 +24,9 @@ struct NetworkAlert: ViewModifier {
     func body(content: Content) -> some View {
         VStack {
             content
+            
             if isAlertShown {
-                toastView
-                    .background(backgroundColor)
+                toastView.background(backgroundColor)
             }
         }
         .onReceive(Just(isReachable)) { toggleAlert(when: $0) }
@@ -52,6 +52,7 @@ struct NetworkAlert: ViewModifier {
     
     private func toggleAlert(when networkStatus: Bool) {
         guard isAlertShown == networkStatus else { return }
+        
         if networkStatus {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 withAnimation { isAlertShown = false }

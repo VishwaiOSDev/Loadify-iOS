@@ -35,13 +35,16 @@ final class URLViewModel: Detailable {
     func getVideoDetails(for url: String) async {
         do {
             try checkInputTextIsValidURL(text: url)
+            
             let pattern = Loadify.RegEx.instagram
             let isInstagram = url.doesMatchExist(pattern, inputText: url)
             platformType = isInstagram ? .instagram : .youtube
+            
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
             }
+            
             switch platformType {
             case .youtube:
                 let response: YouTubeDetails = try await fetcher.loadDetails(for: url, to: .youtube)
@@ -52,16 +55,20 @@ final class URLViewModel: Detailable {
             case .none:
                 fatalError("I won't download")
             }
+            
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
-                notifyWithHaptics(for: .success)
                 self.shouldNavigateToDownload = true
+                
+                notifyWithHaptics(for: .success)
             }
         } catch let error as NetworkError {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
+                
                 self.showLoader = false
+                
                 switch error {
                 case .invalidResponse(let message):
                     self.errorMessage = message
@@ -78,12 +85,14 @@ final class URLViewModel: Detailable {
                 case .unknownError(let message):
                     self.errorMessage = message
                 }
+                
                 notifyWithHaptics(for: .error)
             }
         } catch {
             Logger.error("Failed with err: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
+                
                 self.showLoader = false
                 self.errorMessage = error.localizedDescription
                 notifyWithHaptics(for: .error)

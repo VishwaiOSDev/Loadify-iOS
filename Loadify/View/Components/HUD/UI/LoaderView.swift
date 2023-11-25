@@ -30,6 +30,7 @@ struct LoaderView: View {
     var body: some View {
         ZStack {
             overlayView(showOverlay)
+            
             switch options.style {
             case .horizontal:
                 horizontalLoader
@@ -62,6 +63,7 @@ struct LoaderView: View {
             Text("\(title)")
                 .font(.headline)
                 .foregroundColor(.white)
+            
             subTitle.map({
                 Text($0)
                     .fixedSize(horizontal: false, vertical: true)

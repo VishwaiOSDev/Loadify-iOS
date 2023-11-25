@@ -30,6 +30,7 @@ struct AlertView: View {
     var body: some View {
         ZStack {
             overlayView(showOverlay)
+            
             switch options.style {
             case .horizontal:
                 horizontalLoader.loaderBackground()
@@ -44,6 +45,7 @@ struct AlertView: View {
             Image(systemName: options.alertType.rawValue)
                 .font(.largeTitle)
                 .foregroundColor(options.alertType == .error ? .red : .yellow)
+            
             contentView
         }
         .frame(maxWidth: .infinity)
@@ -54,6 +56,7 @@ struct AlertView: View {
             Image(systemName: options.alertType.rawValue)
                 .font(.largeTitle)
                 .foregroundColor(options.alertType == .error ? .red : .green)
+            
             contentView
         }
     }
@@ -66,6 +69,7 @@ struct AlertView: View {
                 .foregroundColor(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.5)
+            
             subTitle.map({
                 Text($0)
                     .fixedSize(horizontal: false, vertical: true)

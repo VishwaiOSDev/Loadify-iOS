@@ -46,42 +46,56 @@ final class DownloaderViewModel: Downloadable {
         isLastElement: Bool = true
     ) async {
         do {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
                 self.showLoader = true
             }
+            
             try await photoService.checkForPhotosPermission()
+            
             let filePath = fileService.getTemporaryFilePath()
             let (tempURL, downloadType) = try await downloader.download(url, for: platform, withQuality: quality)
             try fileService.moveFile(from: tempURL, to: filePath)
+            
             try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: downloadType)
+            
             guard isLastElement else { return }
-            DispatchQueue.main.async {
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+
                 withAnimation {
                     self.showLoader = false
                     self.isDownloaded = true
                     self.downloadStatus = .downloaded
                     Logger.debug("Download Status Updated")
                 }
+                
                 notifyWithHaptics(for: .success)
-                Haptific.simulate(.notification(style: .success))
             }
         } catch PhotosError.permissionDenied {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                
                 withAnimation {
                     self.showSettingsAlert = true
                     self.showLoader = false
                     self.downloadStatus = .none
                 }
+                
                 notifyWithHaptics(for: .warning)
             }
         } catch {
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                
                 withAnimation {
                     self.isDownloaded = false
                     self.downloadError = error
                     self.showLoader = false
                     self.downloadStatus = .failed
                 }
+                
                 notifyWithHaptics(for: .error)
             }
         }

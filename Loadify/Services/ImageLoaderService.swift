@@ -36,6 +36,7 @@ final class ImageLoaderService: ObservableObject {
         
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
+                
                 guard let uiImage = UIImage(data: data) else {
                     return self.setImageStatus(to: .failure)
                 }
