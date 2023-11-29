@@ -1,39 +1,11 @@
 //
-//  ApiService.swift
+//  Downloader.swift
 //  Loadify
 //
-//  Created by Vishweshwaran on 2023-09-17.
+//  Created by Vishweshwaran on 2023-11-29.
 //
 
 import Foundation
-
-struct DetailsFetcher {
-    
-    // URLSessionProtocol allows for dependency injection, making testing easier
-    private var session: URLSessionProtocol
-    
-    // Initializer with a default URLSession.shared
-    init(session: URLSessionProtocol = URLSession.shared) {
-        self.session = session
-    }
-    
-    // Asynchronously loads details from a URL for a specific platform
-    func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T {
-        // Create a URLRequest using the API details endpoint for the specified platform and URL
-        let request = try API.details(forPlatform: platform, url: url).createRequest()
-        
-        // Fetch data asynchronously for the created request
-        let (data, httpResponse) = try await session.fetch(for: request)
-        
-        // Check if the response contains a valid MIME type indicating JSON
-        guard let mimeType = httpResponse.mimeType, mimeType.contains("json") else {
-            throw NetworkError.invalidResponse(message: "Invalid MIMEType")
-        }
-        
-        // Decode the received JSON data into the specified generic type
-        return try JSONDecoder().decode(T.self, from: data)
-    }
-}
 
 protocol DownloaderDelegate: AnyObject {
     func downloader(didUpdateProgress progress: CGFloat)
@@ -56,14 +28,12 @@ final class Downloader: NSObject {
         return .background(withIdentifier: id)
     }
 
-    // URLSessionProtocol allows for dependency injection, making testing easier
     private lazy var session: URLSessionProtocol = URLSession(
         configuration: config,
         delegate: self,
         delegateQueue: OperationQueue()
     )
     
-    // Initializer with a default URLSession.shared
     override init() {
         super.init()
         Logger.initLifeCycle("Downloader Service init", for: self)
@@ -75,14 +45,12 @@ final class Downloader: NSObject {
         for platform: PlatformType,
         withQuality quality: VideoQuality
     ) throws {
-        // Create a URLRequest based on the specified platform and URL
         let request: URLRequest
         
         switch platform {
         case .youtube:
             request = try API.download(url: url, quality: quality).createRequest()
         case .instagram:
-            // For Instagram, create a basic URLRequest using the provided URL string
             guard let url = URL(string: url) else {
                 let errorMessage = "This is not a valid Instagram URL"
                 throw NetworkError.badRequest(message: errorMessage)
@@ -108,8 +76,9 @@ extension Downloader: URLSessionDownloadDelegate {
         defer { session.finishTasksAndInvalidate() }
         do {
             let URLResponse = downloadTask.response
+            
             guard let httpResponse = try URLResponse?.handleStatusCodeAndReturnHTTPResponse() else {
-                /// throw error using delegate
+                delegate?.downloader(didFailWithError: NetworkError.invalidResponse(message: nil))
                 return
             }
             
