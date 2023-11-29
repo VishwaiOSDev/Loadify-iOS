@@ -31,13 +31,15 @@ final class DownloaderViewModel: Downloadable {
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
+    @Published var progress: Double = 0.0
     
     // Services for handling photos and file operations
     private lazy var photoService: PhotosServiceProtocol = PhotosService()
     private lazy var fileService: FileServiceProtocol = FileService()
     
     // Object responsible for downloading
-    var downloader = Downloader()
+    //    var downloader = Downloader()
+    private var downloader = Downloader()
     
     // Initializer for the ViewModel
     init() {
@@ -63,11 +65,11 @@ final class DownloaderViewModel: Downloadable {
             
             // Get temporary file path and download video
             let filePath = fileService.getTemporaryFilePath()
-            let (tempURL, downloadType) = try await downloader.download(url, for: platform, withQuality: quality)
-            try fileService.moveFile(from: tempURL, to: filePath)
-            
-            // Save media to Photos album if compatible
-            try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: downloadType)
+            try downloader.download(url, for: platform, withQuality: quality)
+//            try fileService.moveFile(from: tempURL, to: filePath)
+//            
+//            // Save media to Photos album if compatible
+//            try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: downloadType)
             
             // If it's not the last element, return
             guard isLastElement else { return }

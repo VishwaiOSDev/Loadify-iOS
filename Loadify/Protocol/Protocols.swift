@@ -31,6 +31,6 @@ protocol Navigatable: Describable {
 // MARK: - Network Service
 
 protocol URLSessionProtocol {
-    func fetchData(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
-    func downloadData(for request: URLRequest) async throws -> (URL, HTTPURLResponse)
+    func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
+    func download(for request: URLRequest)
 }

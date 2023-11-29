@@ -121,6 +121,10 @@ struct YouTubeDownloaderView: View {
             
             menuView
                 .padding(.vertical, 8)
+            
+            if viewModel.progress != 0.0 {
+                ProgressView(value: viewModel.progress)
+            }
         }
     }
     

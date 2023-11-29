@@ -23,7 +23,7 @@ struct DetailsFetcher {
         let request = try API.details(forPlatform: platform, url: url).createRequest()
         
         // Fetch data asynchronously for the created request
-        let (data, httpResponse) = try await session.fetchData(for: request)
+        let (data, httpResponse) = try await session.fetch(for: request)
         
         // Check if the response contains a valid MIME type indicating JSON
         guard let mimeType = httpResponse.mimeType, mimeType.contains("json") else {
@@ -35,29 +35,46 @@ struct DetailsFetcher {
     }
 }
 
-struct Downloader {
+protocol DownloaderDelegate: AnyObject {
+    func downloader(didUpdateProgress progress: CGFloat)
+    func downloader(didCompleteDownloadWithURL url: URL, forType: Downloader.DownloadType)
+    func downloader(didFailWithError error: Error)
+}
+
+final class Downloader: NSObject {
     
     // Enum defining the types of content that can be downloaded
     enum DownloadType {
         case video, photo
     }
     
+    weak var delegate: DownloaderDelegate?
+    
+    private let id = "\(Bundle.main.bundleIdentifier!).background"
+    
+    private var config: URLSessionConfiguration  {
+        return .background(withIdentifier: id)
+    }
+
     // URLSessionProtocol allows for dependency injection, making testing easier
-    private var session: URLSessionProtocol
-    // Variable to store the type of content being downloaded
-    private var downloadType: DownloadType = .video
+    private lazy var session: URLSessionProtocol = URLSession(
+        configuration: config,
+        delegate: self,
+        delegateQueue: OperationQueue()
+    )
     
     // Initializer with a default URLSession.shared
-    init(session: URLSessionProtocol = URLSession.shared) {
-        self.session = session
+    override init() {
+        super.init()
+        Logger.initLifeCycle("Downloader Service init", for: self)
     }
     
     // Asynchronously downloads content from a URL for a specific platform with a given quality
-    mutating func download(
+    func download(
         _ url: String,
         for platform: PlatformType,
         withQuality quality: VideoQuality
-    ) async throws -> (URL, DownloadType)  {
+    ) throws {
         // Create a URLRequest based on the specified platform and URL
         let request: URLRequest
         
@@ -72,26 +89,54 @@ struct Downloader {
             }
             request = URLRequest(url: url)
         }
-        
-        // Fetch data asynchronously for the created request
-        let (url, httpResponse) = try await session.downloadData(for: request)
-        
-        // Determine the type of content based on the received MIME type
-        switch httpResponse.mimeType {
-        case "video/mp4":
-            setDownloadType(.video)
-        case "image/jpeg":
-            setDownloadType(.photo)
-        default:
-            setDownloadType(.video)
+
+        session.download(for: request)
+    }
+
+    deinit {
+        Logger.deinitLifeCycle("Downloader Service deinit", for: self)
+    }
+}
+
+extension Downloader: URLSessionDownloadDelegate {
+    
+    func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didFinishDownloadingTo location: URL
+    ) {
+        defer { session.finishTasksAndInvalidate() }
+        do {
+            let URLResponse = downloadTask.response
+            guard let httpResponse = try URLResponse?.handleStatusCodeAndReturnHTTPResponse() else {
+                /// throw error using delegate
+                return
+            }
+            
+            // Determine the type of content based on the received MIME type
+            let downloadType: DownloadType = switch httpResponse.mimeType {
+            case "video/mp4":
+                DownloadType.video
+            case "image/jpeg":
+                DownloadType.photo
+            default:
+                DownloadType.video
+            }
+            
+            delegate?.downloader(didCompleteDownloadWithURL: location, forType: downloadType)
+        } catch {
+            delegate?.downloader(didFailWithError: error)
         }
-        
-        // Return the downloaded URL and the determined content type
-        return (url, downloadType)
     }
     
-    // Private method to set the type of content being downloaded
-    mutating private func setDownloadType(_ newType: DownloadType) {
-        downloadType = newType
+    func urlSession(
+        _ session: URLSession,
+        downloadTask: URLSessionDownloadTask,
+        didWriteData bytesWritten: Int64,
+        totalBytesWritten: Int64,
+        totalBytesExpectedToWrite: Int64
+    ) {
+        let progress = downloadTask.progress.fractionCompleted
+        delegate?.downloader(didUpdateProgress: progress)
     }
 }
