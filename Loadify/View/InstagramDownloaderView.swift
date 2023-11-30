@@ -65,13 +65,6 @@ struct InstagramDownloaderView: View {
                     subtitle: LoadifyTexts.tryAgain.randomElement()
                 )
             }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(
-                    title: LoadifyTexts.downloadedTitle,
-                    subtitle: LoadifyTexts.downloadedSubtitle,
-                    alertType: .success
-                )
-            }
         }
     }
     

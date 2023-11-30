@@ -45,11 +45,7 @@ struct YouTubeDownloaderView: View {
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 let shouldDisable = (viewModel.showLoader || viewModel.isDownloading)
-                
-                LoadifyNavigationBar(
-                    geometry.size.height,
-                    isBackButtonDisabled: shouldDisable
-                )
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: shouldDisable)
             }
             .permissionAlert(isPresented: $viewModel.showSettingsAlert)
             .showAlert(item: $viewModel.downloadError) {
@@ -57,6 +53,11 @@ struct YouTubeDownloaderView: View {
                     title: $0.localizedDescription,
                     subtitle: LoadifyTexts.tryAgain.randomElement()
                 )
+            }
+            .onChange(of: selectedQuality) { _ in
+                withAnimation(.linear(duration: 0.4)) {
+                    viewModel.errorMessage = nil
+                }
             }
             .allowsHitTesting(!viewModel.showLoader && !viewModel.isDownloading)
         }

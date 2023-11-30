@@ -85,7 +85,8 @@ extension Downloader: URLSessionDownloadDelegate {
             let URLResponse = downloadTask.response
             
             guard let httpResponse = try URLResponse?.handleStatusCodeAndReturnHTTPResponse() else {
-                delegate?.downloader(didFailWithError: NetworkError.invalidResponse(message: nil))
+                let error = NetworkError.invalidResponse(message: nil)
+                delegate?.downloader(didFailWithError: error)
                 return
             }
             
@@ -116,6 +117,7 @@ extension Downloader: URLSessionDownloadDelegate {
                 (200...299).contains(response.statusCode) else {
             return
         }
+        
         let progress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
         delegate?.downloader(didUpdateProgress: progress)
     }

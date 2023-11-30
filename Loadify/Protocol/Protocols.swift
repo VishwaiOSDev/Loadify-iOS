@@ -17,6 +17,7 @@ protocol DetailableError: Loadable {
 
 protocol DownloadableError: ObservableObject {
     var downloadError: Error? { get set }
+    var isDownloading: Bool { get set }
     var showSettingsAlert: Bool { get set }
 }
 

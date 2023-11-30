@@ -12,7 +12,6 @@ import Haptific
 
 // Protocol combining loading, downloading, and error-handling capabilities
 protocol Downloadable: Loadable, DownloadableError {
-    var isDownloaded: Bool { get set }
     var downloadStatus: DownloadStatus { get set }
     
     func downloadVideo(
@@ -30,7 +29,6 @@ final class DownloaderViewModel: Downloadable {
     @Published var downloadError: Error? = nil
     @Published var errorMessage: String? = nil
     @Published var showSettingsAlert: Bool = false
-    @Published var isDownloaded: Bool = false
     @Published var isDownloading: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     @Published var progress: Double = .zero
@@ -92,7 +90,6 @@ final class DownloaderViewModel: Downloadable {
                 guard let self else { return }
                 
                 withAnimation {
-                    self.isDownloaded = false
                     self.downloadError = error
                     self.showLoader = false
                 }
