@@ -60,6 +60,7 @@ fileprivate struct DownloadButtonContent: View {
             if showLoader {
                 ProgressView()
                     .controlSize(.regular)
+                    .tint(LoadifyColors.textfieldBackground)
             } else {
                 DownloadLabel(label: label, progress: progress)
             }
@@ -73,21 +74,36 @@ fileprivate struct DownloadLabel: View {
     let progress: Binding<Double>?
     
     var body: some View {
-        if let currentProgress = progress?.wrappedValue, currentProgress > 0.0 && currentProgress < 1.0 {
-            VStack(spacing: 4) {
-                Text("Downloading...")
-                    .font(.inter(.semibold(size: 16)))
-                Text("Please keep the app open. This may take a moment.")
+        let (title, message) = downloadLabelText
+        
+        VStack(spacing: 4) {
+            Text(title)
+                .font(.inter(.semibold(size: 16)))
+            
+            if let message {
+                Text(message)
                     .font(.inter(.regular(size: 10)))
                     .opacity(0.8)
             }
-        } else {
-            Text(label)
-                .font(.inter(.semibold(size: 16)))
         }
+    }
+    
+    private var downloadLabelText: (String, String?) {
+        if let currentProgess = progress?.wrappedValue {
+            switch currentProgess {
+            case 0.001..<1.0:
+                return ("Downloading...", "Please keep the app open. This may take a moment")
+            case 1.0:
+                return ("Downloaded Successfully", nil)
+            default:
+                break
+            }
+        }
+        
+        return (label, nil)
     }
 }
 
 #Preview {
-    DownloadButton(progress: .constant(0.5), isDisabled: false, showLoader: false) { }
+    DownloadButton(progress: .constant(0.3), isDisabled: false, showLoader: true) { }
 }
