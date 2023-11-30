@@ -90,7 +90,7 @@ fileprivate struct DownloadLabel: View {
             
             if let message {
                 Text(message)
-                    .font(.inter(.regular(size: 12)))
+                    .font(.inter(.regular(size: 10)))
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                     .opacity(0.8)
@@ -116,11 +116,9 @@ fileprivate struct DownloadLabel: View {
 
 #Preview {
     DownloadButton(
-        progress: .constant(
-            0.3
-        ),
+        progress: .constant(0.3),
         showLoader: false,
         isDisabled: false,
-        downloadFailed: true
+        downloadFailed: false
     ) { }
 }

@@ -40,6 +40,12 @@ final class URLViewModel: Detailable {
     
     // Async function to get video details for a given URL
     func getVideoDetails(for url: String) async {
+        // Show loader while fetching details
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.showLoader = true
+        }
+        
         do {
             // Validate if the input URL is a valid URL
             try checkInputTextIsValidURL(text: url)
@@ -48,12 +54,6 @@ final class URLViewModel: Detailable {
             let pattern = Loadify.RegEx.instagram
             let isInstagram = url.doesMatchExist(pattern, inputText: url)
             platformType = isInstagram ? .instagram : .youtube
-            
-            // Show loader while fetching details
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.showLoader = true
-            }
             
             // Fetch details based on the platform type
             switch platformType {
@@ -64,7 +64,7 @@ final class URLViewModel: Detailable {
                 let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
                 self.details = response
             case .none:
-                fatalError("I won't download")
+                fatalError("Platform type not available")
             }
             
             // Update UI on the main thread after fetching details
@@ -73,9 +73,10 @@ final class URLViewModel: Detailable {
                 self.showLoader = false
                 self.shouldNavigateToDownload = true
                 
-                // Notify success with haptics
-                notifyWithHaptics(for: .success)
             }
+
+            // Notify success with haptics
+            notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
             // Handle network errors and update UI on the main thread
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
@@ -113,8 +114,9 @@ final class URLViewModel: Detailable {
                 self.showLoader = false
                 self.errorMessage = error.localizedDescription
                 // Notify error with haptics
-                notifyWithHaptics(for: .error)
             }
+
+            notifyWithHaptics(for: .error)
         }
     }
     

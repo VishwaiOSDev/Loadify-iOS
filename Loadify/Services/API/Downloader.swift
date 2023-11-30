@@ -29,8 +29,7 @@ final class Downloader: NSObject {
         super.init()
         Logger.initLifeCycle("Downloader Service init", for: self)
         
-        let id = "\(Bundle.main.bundleIdentifier!).background"
-        let config: URLSessionConfiguration = URLSessionConfiguration.background(withIdentifier: id)
+        let config = URLSessionConfiguration.default
         session = URLSession(
             configuration: config,
             delegate: self,
@@ -71,6 +70,11 @@ final class Downloader: NSObject {
 }
 
 extension Downloader: URLSessionDownloadDelegate {
+        
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        guard let error else { return }
+        delegate?.downloader(didFailWithError: error)
+    }
     
     func urlSession(
         _ session: URLSession,
@@ -108,7 +112,11 @@ extension Downloader: URLSessionDownloadDelegate {
         totalBytesWritten: Int64,
         totalBytesExpectedToWrite: Int64
     ) {
-        let progress = downloadTask.progress.fractionCompleted
+        guard let response = try? downloadTask.response?.httpResponse, 
+                (200...299).contains(response.statusCode) else {
+            return
+        }
+        let progress = CGFloat(totalBytesWritten) / CGFloat(totalBytesExpectedToWrite)
         delegate?.downloader(didUpdateProgress: progress)
     }
 }

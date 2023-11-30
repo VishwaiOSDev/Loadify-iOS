@@ -36,10 +36,10 @@ struct CustomButtonStyle: ButtonStyle {
         let button = label
             .foregroundColor(foregroundColor)
             .frame(maxWidth: Loadify.maxWidth, maxHeight: 56)
-            .background(downloadFailed ? Color.red: Color.clear)
+            .background(downloadFailed ? LoadifyColors.errorRed : Color.clear)
             .background(
                 progress.map { ProgressBar(progress: $0.wrappedValue) }
-                    .foregroundStyle(.green)
+                    .foregroundStyle(LoadifyColors.successGreen)
             )
             .background(isDisabled ? buttonColor.opacity(0.5) : buttonColor)
             .cornerRadius(cornerRadius)

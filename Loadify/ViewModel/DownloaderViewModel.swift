@@ -31,6 +31,7 @@ final class DownloaderViewModel: Downloadable {
     @Published var errorMessage: String? = nil
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
+    @Published var isDownloading: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
     @Published var progress: Double = .zero
     
@@ -39,11 +40,12 @@ final class DownloaderViewModel: Downloadable {
     private lazy var fileService: FileServiceProtocol = FileService()
     
     // Object responsible for downloading
-    private lazy var downloader = Downloader()
+    private var downloader: Downloader?
     
     // Initializer for the ViewModel
     init() {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
+        self.downloader = Downloader()
     }
     
     // Async function to download a video
@@ -53,7 +55,7 @@ final class DownloaderViewModel: Downloadable {
         with quality: VideoQuality,
         isLastElement: Bool = true
     ) async {
-        downloader.delegate = self
+        downloader?.delegate = self
         do {
             // Show loader while downloading
             DispatchQueue.main.async { [weak self] in
@@ -69,25 +71,7 @@ final class DownloaderViewModel: Downloadable {
             try await photoService.checkForPhotosPermission()
             
             // Get temporary file path and download video
-            try downloader.download(url, for: platform, withQuality: quality)
-            
-            // If it's not the last element, return
-            guard isLastElement else { return }
-            
-            // Update UI on the main thread after successful download
-            //            DispatchQueue.main.async { [weak self] in
-            //                guard let self else { return }
-            //
-            //                withAnimation {
-            //                    self.showLoader = false
-            //                    self.isDownloaded = true
-            //                    self.downloadStatus = .downloaded
-            //                    Logger.debug("Download Status Updated")
-            //                }
-            //
-            //                // Notify success with haptics
-            //                notifyWithHaptics(for: .success)
-            //            }
+            try downloader?.download(url, for: platform, withQuality: quality)
         } catch PhotosError.permissionDenied {
             // Handle Photos permission denied error and update UI
             DispatchQueue.main.async { [weak self] in
@@ -111,8 +95,8 @@ final class DownloaderViewModel: Downloadable {
                     self.isDownloaded = false
                     self.downloadError = error
                     self.showLoader = false
-                    self.downloadStatus = .failed
                 }
+                self.downloadStatus = .failed
                 
                 // Notify with haptics for an error
                 notifyWithHaptics(for: .error)
@@ -142,7 +126,7 @@ final class DownloaderViewModel: Downloadable {
     }
     
     deinit {
-        downloader.invalidateTasks()
+        downloader?.invalidateTasks()
         Logger.deinitLifeCycle("DownloaderViewModel deinit", for: self)
     }
 }
@@ -155,8 +139,9 @@ extension DownloaderViewModel: DownloaderDelegate {
             
             if self.showLoader {
                 self.showLoader = false
+                self.isDownloading = true
             }
-            
+
             self.progress = progress
         }
     }
@@ -171,15 +156,15 @@ extension DownloaderViewModel: DownloaderDelegate {
             
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-                
-                withAnimation {
-                    self.downloadStatus = .downloaded
-                }
-             
-                notifyWithHaptics(for: .success)
+                self.isDownloading = false
+                self.downloadStatus = .downloaded
             }
+            
+            notifyWithHaptics(for: .success)
         } catch {
-            withAnimation {
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.showLoader = false
                 self.downloadStatus = .failed
             }
         }
@@ -188,18 +173,23 @@ extension DownloaderViewModel: DownloaderDelegate {
     func downloader(didFailWithError error: Error) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            
-            withAnimation {
-                self.downloadStatus = .failed
-                self.errorMessage = "Failed to Download"
-            }
+            self.showLoader = false
+            self.downloadStatus = .failed
+            self.errorMessage = errorMessage
+            self.errorMessage = "Failed to Download"
         }
+        
+        notifyWithHaptics(for: .error)
     }
     
     func downloader(didFailWithErrorMessage errorMessage: String) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
+            self.showLoader = false
+            self.downloadStatus = .failed
             self.errorMessage = errorMessage
         }
+        
+        notifyWithHaptics(for: .error)
     }
 }

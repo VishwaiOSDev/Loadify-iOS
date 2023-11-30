@@ -44,9 +44,11 @@ struct YouTubeDownloaderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
+                let shouldDisable = (viewModel.showLoader || viewModel.isDownloading)
+                
                 LoadifyNavigationBar(
                     geometry.size.height,
-                    isBackButtonDisabled: viewModel.showLoader
+                    isBackButtonDisabled: shouldDisable
                 )
             }
             .permissionAlert(isPresented: $viewModel.showSettingsAlert)
@@ -56,6 +58,7 @@ struct YouTubeDownloaderView: View {
                     subtitle: LoadifyTexts.tryAgain.randomElement()
                 )
             }
+            .allowsHitTesting(!viewModel.showLoader && !viewModel.isDownloading)
         }
     }
     
@@ -190,4 +193,3 @@ struct YouTubeDownloaderView: View {
     .preferredColorScheme(.dark)
     .navigationViewStyle(StackNavigationViewStyle())
 }
-

@@ -29,12 +29,20 @@ extension URLSession: URLSessionProtocol {
 
 extension URLResponse {
     
-    func handleStatusCodeAndReturnHTTPResponse() throws -> HTTPURLResponse {
-        guard let httpResponse = self as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse(message: nil)
+    var httpResponse: HTTPURLResponse {
+        get throws {
+            guard let httpResponse = self as? HTTPURLResponse else {
+                throw NetworkError.unknownError(message: nil)
+            }
+            
+            return httpResponse
         }
+    }
+    
+    func handleStatusCodeAndReturnHTTPResponse() throws -> HTTPURLResponse {
+        let response = try httpResponse
         
-        switch httpResponse.statusCode {
+        switch response.statusCode {
         case 200...299:
             break
         case 400:
@@ -51,6 +59,6 @@ extension URLResponse {
             throw NetworkError.unknownError(message: "An unknown error occurred.")
         }
         
-        return httpResponse
+        return response
     }
 }
