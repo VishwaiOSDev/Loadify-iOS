@@ -31,7 +31,7 @@ final class DownloaderViewModel: Downloadable {
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
-    @Published var progress: Double = 0.0
+    @Published var progress: Double = .zero
     
     // Services for handling photos and file operations
     private lazy var photoService: PhotosServiceProtocol = PhotosService()
@@ -70,19 +70,19 @@ final class DownloaderViewModel: Downloadable {
             guard isLastElement else { return }
             
             // Update UI on the main thread after successful download
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                
-                withAnimation {
-                    self.showLoader = false
-                    self.isDownloaded = true
-                    self.downloadStatus = .downloaded
-                    Logger.debug("Download Status Updated")
-                }
-                
-                // Notify success with haptics
-                notifyWithHaptics(for: .success)
-            }
+            //            DispatchQueue.main.async { [weak self] in
+            //                guard let self else { return }
+            //
+            //                withAnimation {
+            //                    self.showLoader = false
+            //                    self.isDownloaded = true
+            //                    self.downloadStatus = .downloaded
+            //                    Logger.debug("Download Status Updated")
+            //                }
+            //
+            //                // Notify success with haptics
+            //                notifyWithHaptics(for: .success)
+            //            }
         } catch PhotosError.permissionDenied {
             // Handle Photos permission denied error and update UI
             DispatchQueue.main.async { [weak self] in
@@ -147,7 +147,12 @@ extension DownloaderViewModel: DownloaderDelegate {
     func downloader(didUpdateProgress progress: CGFloat) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            self.progress = progress            
+            
+            if self.showLoader {
+                self.showLoader = false
+            }
+            
+            self.progress = progress
         }
     }
     

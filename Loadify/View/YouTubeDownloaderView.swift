@@ -41,26 +41,26 @@ struct YouTubeDownloaderView: View {
                 }
                 .padding()
                 
-//                VStack(alignment: .leading, spacing: 4) {
-//                    Text("Downloading...")
-//                        .font(.inter(.bold(size: 20)))
-//                    
-//                    Text("Please keep the app open. This may take a moment.")
-//                        .font(.inter(.medium(size: 12)))
-//                        .foregroundColor(.white)
-//                        .opacity(0.5)
-//                    
-//                    ProgressView(value: 0.45)
-//                        .progressViewStyle(LinearProgressViewStyle(tint: LoadifyColors.blueAccent))
-//                        .frame(height: 8)
-//                        .scaleEffect(x: 1, y: 2, anchor: .center)
-//                        .clipShape(RoundedRectangle(cornerRadius: 6))
-//                        .padding(.top, 14)
-//                        .padding(.bottom, 4)
-//                }
-//                .padding(.all, 16)
-//                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
-//                .padding()
+                //                VStack(alignment: .leading, spacing: 4) {
+                //                    Text("Downloading...")
+                //                        .font(.inter(.bold(size: 20)))
+                //
+                //                    Text("Please keep the app open. This may take a moment.")
+                //                        .font(.inter(.medium(size: 12)))
+                //                        .foregroundColor(.white)
+                //                        .opacity(0.5)
+                //
+                //                    ProgressView(value: 0.45)
+                //                        .progressViewStyle(LinearProgressViewStyle(tint: LoadifyColors.blueAccent))
+                //                        .frame(height: 8)
+                //                        .scaleEffect(x: 1, y: 2, anchor: .center)
+                //                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                //                        .padding(.top, 14)
+                //                        .padding(.bottom, 4)
+                //                }
+                //                .padding(.all, 16)
+                //                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14))
+                //                .padding()
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
@@ -185,7 +185,11 @@ struct YouTubeDownloaderView: View {
         let isDownloadButtonDisabled = selectedQuality == .none
         
         return VStack(spacing: 16) {
-            DownloadButton(progress: $viewModel.progress, isDisabled: isDownloadButtonDisabled) {
+            DownloadButton(
+                progress: $viewModel.progress,
+                isDisabled: isDownloadButtonDisabled,
+                showLoader: viewModel.showLoader
+            ) {
                 Task {
                     await didTapDownload(quality: selectedQuality)
                 }
