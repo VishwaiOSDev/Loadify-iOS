@@ -49,7 +49,7 @@ extension API: NetworkRequestable {
     }
     
     /// Configuration for `localhost`
-    var shouldRunLocal: Bool { false }
+    var shouldRunLocal: Bool { true }
     
     var port: Int? { 3200 }
 }

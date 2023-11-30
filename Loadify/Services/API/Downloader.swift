@@ -10,6 +10,7 @@ import Foundation
 protocol DownloaderDelegate: AnyObject {
     func downloader(didUpdateProgress progress: CGFloat)
     func downloader(didCompleteDownloadWithURL url: URL, forType: Downloader.DownloadType)
+    func downloader(didFailWithErrorMessage errorMessage: String)
     func downloader(didFailWithError error: Error)
 }
 
@@ -93,6 +94,8 @@ extension Downloader: URLSessionDownloadDelegate {
             }
             
             delegate?.downloader(didCompleteDownloadWithURL: location, forType: downloadType)
+        } catch _ as NetworkError {
+            delegate?.downloader(didFailWithErrorMessage: "Download Failed")
         } catch {
             delegate?.downloader(didFailWithError: error)
         }

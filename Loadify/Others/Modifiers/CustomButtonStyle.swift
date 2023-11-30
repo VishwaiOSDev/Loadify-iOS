@@ -12,18 +12,21 @@ struct CustomButtonStyle: ButtonStyle {
     var progress: Binding<Double>?
     var buttonColor: Color
     var cornerRadius: CGFloat = 10
-    var isDisabled: Bool = false
+    var isDisabled: Bool
+    var downloadFailed: Bool
     
     init(
         progress: Binding<Double>? = nil,
         buttonColor: Color = LoadifyColors.blueAccent,
         cornerRadius: CGFloat = 10,
-        isDisabled: Bool = false
+        isDisabled: Bool = false,
+        downloadFailed: Bool
     ) {
         self.progress = progress
         self.buttonColor = buttonColor
         self.cornerRadius = cornerRadius
         self.isDisabled = isDisabled
+        self.downloadFailed = downloadFailed
     }
     
     func makeBody(configuration: Configuration) -> some View {
@@ -33,6 +36,7 @@ struct CustomButtonStyle: ButtonStyle {
         let button = label
             .foregroundColor(foregroundColor)
             .frame(maxWidth: Loadify.maxWidth, maxHeight: 56)
+            .background(downloadFailed ? Color.red: Color.clear)
             .background(
                 progress.map { ProgressBar(progress: $0.wrappedValue) }
                     .foregroundStyle(.green)
@@ -81,6 +85,12 @@ struct CustomButtonStyle_Previews: PreviewProvider {
             Text("Download Now")
         }
         .padding()
-        .buttonStyle(CustomButtonStyle(progress: .constant(0.2), isDisabled: false))
+        .buttonStyle(
+            CustomButtonStyle(
+                progress: .constant(0.2),
+                isDisabled: false,
+                downloadFailed: true
+            )
+        )
     }
 }

@@ -56,13 +56,6 @@ struct YouTubeDownloaderView: View {
                     subtitle: LoadifyTexts.tryAgain.randomElement()
                 )
             }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(
-                    title: LoadifyTexts.downloadedTitle,
-                    subtitle: LoadifyTexts.downloadedSubtitle,
-                    alertType: .success
-                )
-            }
         }
     }
     
@@ -164,9 +157,11 @@ struct YouTubeDownloaderView: View {
         
         return VStack(spacing: 16) {
             DownloadButton(
+                viewModel.errorMessage ?? "Download",
                 progress: $viewModel.progress,
+                showLoader: viewModel.showLoader,
                 isDisabled: isDownloadButtonDisabled,
-                showLoader: viewModel.showLoader
+                downloadFailed: viewModel.errorMessage != nil
             ) {
                 Task {
                     await didTapDownload(quality: selectedQuality)

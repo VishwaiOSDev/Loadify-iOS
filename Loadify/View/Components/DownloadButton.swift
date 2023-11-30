@@ -12,32 +12,40 @@ struct DownloadButton: View {
     
     let label: String
     let progress: Binding<Double>?
-    let isDisabled: Bool
     let showLoader: Bool
+    let isDisabled: Bool
+    let downloadFailed: Bool
     let action: () -> Void
     
     init(
         _ label: String = "Download",
         progress: Binding<Double>? = nil,
-        isDisabled: Bool,
         showLoader: Bool = false,
+        isDisabled: Bool,
+        downloadFailed: Bool = false,
         action: @escaping () -> Void
     ) {
         self.label = label
         self.progress = progress
-        self.isDisabled = isDisabled
         self.showLoader = showLoader
+        self.isDisabled = isDisabled
+        self.downloadFailed = downloadFailed
         self.action = action
     }
     
     var body: some View {
         Button(action: action) {
-            DownloadButtonContent(label: label, progress: progress, showLoader: showLoader)
+            DownloadButtonContent(
+                label: label,
+                progress: progress,
+                showLoader: showLoader
+            )
         }
         .buttonStyle(
             CustomButtonStyle(
                 progress: progress.map { $0 },
-                isDisabled: isDisabled ? true: false
+                isDisabled: isDisabled ? true: false,
+                downloadFailed: downloadFailed
             )
         )
         .disabled(isDisabled ? true: false)
@@ -107,5 +115,12 @@ fileprivate struct DownloadLabel: View {
 }
 
 #Preview {
-    DownloadButton(progress: .constant(0.3), isDisabled: false, showLoader: false) { }
+    DownloadButton(
+        progress: .constant(
+            0.3
+        ),
+        showLoader: false,
+        isDisabled: false,
+        downloadFailed: true
+    ) { }
 }

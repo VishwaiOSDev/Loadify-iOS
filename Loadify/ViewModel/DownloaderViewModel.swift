@@ -28,6 +28,7 @@ final class DownloaderViewModel: Downloadable {
     // Published properties for observing changes
     @Published var showLoader: Bool = false
     @Published var downloadError: Error? = nil
+    @Published var errorMessage: String? = nil
     @Published var showSettingsAlert: Bool = false
     @Published var isDownloaded: Bool = false
     @Published var downloadStatus: DownloadStatus = .none
@@ -58,6 +59,10 @@ final class DownloaderViewModel: Downloadable {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
+                
+                withAnimation(.linear(duration: 0.5)) {
+                    self.errorMessage = nil
+                }
             }
             
             // Check for necessary permissions (in this case, Photos permission)
@@ -163,12 +168,38 @@ extension DownloaderViewModel: DownloaderDelegate {
             
             // Save media to Photos album if compatible
             try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: forType)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                
+                withAnimation {
+                    self.downloadStatus = .downloaded
+                }
+             
+                notifyWithHaptics(for: .success)
+            }
         } catch {
-            Logger.error("Failed with error: \(error.localizedDescription)")
+            withAnimation {
+                self.downloadStatus = .failed
+            }
         }
     }
     
     func downloader(didFailWithError error: Error) {
-        Logger.debug("Failed with error: \(error.localizedDescription)")
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            
+            withAnimation {
+                self.downloadStatus = .failed
+                self.errorMessage = "Failed to Download"
+            }
+        }
+    }
+    
+    func downloader(didFailWithErrorMessage errorMessage: String) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.errorMessage = errorMessage
+        }
     }
 }
