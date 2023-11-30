@@ -42,7 +42,7 @@ struct CustomButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
             .onChange(of: progress?.wrappedValue) {
                 if $0 == 1.0 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         self.progress?.wrappedValue = .zero
                     }
                 }
