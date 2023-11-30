@@ -62,7 +62,7 @@ struct URLView: View {
                 destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
-                DownloadButton(label: "Convert", isDisabled: isConvertButtonDisabled) {
+                DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
                     Task {
                         await didTapContinue()
                     }

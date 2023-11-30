@@ -33,4 +33,5 @@ protocol Navigatable: Describable {
 protocol URLSessionProtocol {
     func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
     func download(for request: URLRequest)
+    func finishAndInvalidate()
 }

@@ -86,7 +86,7 @@ struct InstagramDownloaderView: View {
     
     private var footerView: some View {
         VStack(spacing: 16) {
-            DownloadButton(isDisabled: false) {
+            DownloadButton(progress: $viewModel.progress, isDisabled: false) {
                 Task {
                     await didTapDownload()
                 }

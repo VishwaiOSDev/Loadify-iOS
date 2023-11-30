@@ -21,6 +21,10 @@ extension URLSession: URLSessionProtocol {
         let task = downloadTask(with: request)
         task.resume()
     }
+    
+    func finishAndInvalidate() {
+        self.finishTasksAndInvalidate()
+    }
 }
 
 extension URLResponse {

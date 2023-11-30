@@ -38,8 +38,7 @@ final class DownloaderViewModel: Downloadable {
     private lazy var fileService: FileServiceProtocol = FileService()
     
     // Object responsible for downloading
-    //    var downloader = Downloader()
-    private var downloader = Downloader()
+    private lazy var downloader = Downloader()
     
     // Initializer for the ViewModel
     init() {
@@ -53,6 +52,7 @@ final class DownloaderViewModel: Downloadable {
         with quality: VideoQuality,
         isLastElement: Bool = true
     ) async {
+        downloader.delegate = self
         do {
             // Show loader while downloading
             DispatchQueue.main.async { [weak self] in
@@ -64,12 +64,7 @@ final class DownloaderViewModel: Downloadable {
             try await photoService.checkForPhotosPermission()
             
             // Get temporary file path and download video
-            let filePath = fileService.getTemporaryFilePath()
             try downloader.download(url, for: platform, withQuality: quality)
-//            try fileService.moveFile(from: tempURL, to: filePath)
-//            
-//            // Save media to Photos album if compatible
-//            try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: downloadType)
             
             // If it's not the last element, return
             guard isLastElement else { return }
@@ -77,7 +72,7 @@ final class DownloaderViewModel: Downloadable {
             // Update UI on the main thread after successful download
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
-
+                
                 withAnimation {
                     self.showLoader = false
                     self.isDownloaded = true
@@ -141,8 +136,34 @@ final class DownloaderViewModel: Downloadable {
         }
     }
     
-    // Deinitializer for the ViewModel
     deinit {
+        downloader.invalidateTasks()
         Logger.deinitLifeCycle("DownloaderViewModel deinit", for: self)
+    }
+}
+
+extension DownloaderViewModel: DownloaderDelegate {
+    
+    func downloader(didUpdateProgress progress: CGFloat) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.progress = progress            
+        }
+    }
+    
+    func downloader(didCompleteDownloadWithURL url: URL, forType: Downloader.DownloadType) {
+        do {
+            let filePath = fileService.getTemporaryFilePath()
+            try fileService.moveFile(from: url, to: filePath)
+            
+            // Save media to Photos album if compatible
+            try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: forType)
+        } catch {
+            Logger.error("Failed with error: \(error.localizedDescription)")
+        }
+    }
+    
+    func downloader(didFailWithError error: Error) {
+        Logger.debug("Failed with error: \(error.localizedDescription)")
     }
 }

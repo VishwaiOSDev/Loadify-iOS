@@ -22,21 +22,19 @@ final class Downloader: NSObject {
     
     weak var delegate: DownloaderDelegate?
     
-    private let id = "\(Bundle.main.bundleIdentifier!).background"
-    
-    private var config: URLSessionConfiguration  {
-        return .background(withIdentifier: id)
-    }
-
-    private lazy var session: URLSessionProtocol = URLSession(
-        configuration: config,
-        delegate: self,
-        delegateQueue: OperationQueue()
-    )
+    private var session: URLSession?
     
     override init() {
         super.init()
         Logger.initLifeCycle("Downloader Service init", for: self)
+        
+        let id = "\(Bundle.main.bundleIdentifier!).background"
+        let config: URLSessionConfiguration = URLSessionConfiguration.background(withIdentifier: id)
+        session = URLSession(
+            configuration: config,
+            delegate: self,
+            delegateQueue: OperationQueue()
+        )
     }
     
     // Asynchronously downloads content from a URL for a specific platform with a given quality
@@ -57,11 +55,16 @@ final class Downloader: NSObject {
             }
             request = URLRequest(url: url)
         }
-
-        session.download(for: request)
+        
+        session?.download(for: request)
     }
-
+    
+    func invalidateTasks() {
+        session?.finishTasksAndInvalidate()
+    }
+    
     deinit {
+        session?.finishTasksAndInvalidate()
         Logger.deinitLifeCycle("Downloader Service deinit", for: self)
     }
 }
@@ -73,7 +76,6 @@ extension Downloader: URLSessionDownloadDelegate {
         downloadTask: URLSessionDownloadTask,
         didFinishDownloadingTo location: URL
     ) {
-        defer { session.finishTasksAndInvalidate() }
         do {
             let URLResponse = downloadTask.response
             
@@ -84,8 +86,6 @@ extension Downloader: URLSessionDownloadDelegate {
             
             // Determine the type of content based on the received MIME type
             let downloadType: DownloadType = switch httpResponse.mimeType {
-            case "video/mp4":
-                DownloadType.video
             case "image/jpeg":
                 DownloadType.photo
             default:

@@ -47,6 +47,7 @@
 		888945022B17F47300814D8D /* DetailsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945012B17F47300814D8D /* DetailsFetcher.swift */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
+		888DAAB52B1813AD0099460D /* ProgressUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888DAAB42B1813AD0099460D /* ProgressUI.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -128,6 +129,7 @@
 		888945012B17F47300814D8D /* DetailsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcher.swift; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
+		888DAAB42B1813AD0099460D /* ProgressUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressUI.swift; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
 				88F6095A2B102019001EC3C4 /* DownloadBadge.swift */,
 				88F6095C2B106F96001EC3C4 /* DownloadButton.swift */,
+				888DAAB42B1813AD0099460D /* ProgressUI.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
 				88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */,
+				888DAAB52B1813AD0099460D /* ProgressUI.swift in Sources */,
 				884BDB142AB14DA200A4828B /* LoaderViewAction.swift in Sources */,
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
 				88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */,
