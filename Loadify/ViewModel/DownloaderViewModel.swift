@@ -14,12 +14,7 @@ import Haptific
 protocol Downloadable: Loadable, DownloadableError {
     var downloadStatus: DownloadStatus { get set }
     
-    func downloadVideo(
-        url: String,
-        for platform: PlatformType,
-        with quality: VideoQuality,
-        isLastElement: Bool
-    ) async
+    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async
 }
 
 final class DownloaderViewModel: Downloadable {
@@ -47,12 +42,7 @@ final class DownloaderViewModel: Downloadable {
     }
     
     // Async function to download a video
-    func downloadVideo(
-        url: String,
-        for platform: PlatformType,
-        with quality: VideoQuality,
-        isLastElement: Bool = true
-    ) async {
+    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
         downloader?.delegate = self
         do {
             // Show loader while downloading
@@ -92,8 +82,8 @@ final class DownloaderViewModel: Downloadable {
                 withAnimation {
                     self.downloadError = error
                     self.showLoader = false
+                    self.downloadStatus = .failed
                 }
-                self.downloadStatus = .failed
                 
                 // Notify with haptics for an error
                 notifyWithHaptics(for: .error)
@@ -128,6 +118,8 @@ final class DownloaderViewModel: Downloadable {
     }
 }
 
+// MARK: - Downloader delegation
+
 extension DownloaderViewModel: DownloaderDelegate {
     
     func downloader(didUpdateProgress progress: CGFloat) {
@@ -150,11 +142,13 @@ extension DownloaderViewModel: DownloaderDelegate {
             
             // Save media to Photos album if compatible
             try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: forType)
-            
+                        
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.isDownloading = false
-                self.downloadStatus = .downloaded
+                withAnimation {
+                    self.downloadStatus = .downloaded
+                }
             }
             
             notifyWithHaptics(for: .success)
@@ -162,7 +156,9 @@ extension DownloaderViewModel: DownloaderDelegate {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
-                self.downloadStatus = .failed
+                withAnimation {
+                    self.downloadStatus = .failed
+                }
             }
         }
     }
@@ -171,9 +167,11 @@ extension DownloaderViewModel: DownloaderDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.showLoader = false
-            self.downloadStatus = .failed
             self.errorMessage = errorMessage
             self.errorMessage = "Failed to Download"
+            withAnimation {
+                self.downloadStatus = .failed
+            }
         }
         
         notifyWithHaptics(for: .error)
@@ -183,8 +181,10 @@ extension DownloaderViewModel: DownloaderDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.showLoader = false
-            self.downloadStatus = .failed
             self.errorMessage = errorMessage
+            withAnimation {
+                self.downloadStatus = .failed
+            }
         }
         
         notifyWithHaptics(for: .error)

@@ -21,7 +21,7 @@ struct DownloadButton: View {
         _ label: String = "Download",
         progress: Binding<Double>? = nil,
         showLoader: Bool = false,
-        isDisabled: Bool,
+        isDisabled: Bool = false,
         downloadFailed: Bool = false,
         action: @escaping () -> Void
     ) {
