@@ -17,6 +17,7 @@ protocol DetailableError: Loadable {
 
 protocol DownloadableError: ObservableObject {
     var downloadError: Error? { get set }
+    var isDownloading: Bool { get set }
     var showSettingsAlert: Bool { get set }
 }
 
@@ -31,6 +32,7 @@ protocol Navigatable: Describable {
 // MARK: - Network Service
 
 protocol URLSessionProtocol {
-    func fetchData(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
-    func downloadData(for request: URLRequest) async throws -> (URL, HTTPURLResponse)
+    func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
+    func download(for request: URLRequest)
+    func finishAndInvalidate()
 }

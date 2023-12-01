@@ -3,4 +3,84 @@
    uuid = "3060FD4B-BC5F-4B01-9BBA-9EF176B0168D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4EBE5E0-9EBF-4910-9F55-AA444CED162B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Loadify/Services/API/DetailsFetcher.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "loadDetails(for:to:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C4EBE5E0-9EBF-4910-9F55-AA444CED162B - 5f19f898d5295893"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Loadify.DetailsFetcher.loadDetails&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(for: Swift.String, to: Loadify.PlatformType) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/Services/API/DetailsFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "C4EBE5E0-9EBF-4910-9F55-AA444CED162B - cebad7a4497636b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Loadify.DetailsFetcher.loadDetails&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(for: Swift.String, to: Loadify.PlatformType) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/Services/API/DetailsFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "C4EBE5E0-9EBF-4910-9F55-AA444CED162B - bf9608eb03561c95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Loadify.DetailsFetcher.loadDetails&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(for: Swift.String, to: Loadify.PlatformType) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/Services/API/DetailsFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "C4EBE5E0-9EBF-4910-9F55-AA444CED162B - 8fce7123ea697e94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Loadify.DetailsFetcher.loadDetails&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(for: Swift.String, to: Loadify.PlatformType) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "Loadify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishweshwaran/Developer/iOS/SwiftUI/Loadify-iOS/Loadify/Services/API/DetailsFetcher.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

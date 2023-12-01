@@ -22,6 +22,7 @@ struct Blur: UIViewRepresentable {
 }
 
 struct Blur_Previews: PreviewProvider {
+    
     static var previews: some View {
         Blur()
     }

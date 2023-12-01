@@ -9,32 +9,40 @@ import Foundation
 
 extension URLSession: URLSessionProtocol {
     
-    func fetchData(for request: URLRequest) async throws -> (Data, HTTPURLResponse) {
+    func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse) {
         let (data, response) = try await data(for: request)
         
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse(message: nil)
-        }
-        
-        try handleStateBasedOnStatusCode(for: httpResponse.statusCode)
+        let httpResponse = try response.handleStatusCodeAndReturnHTTPResponse()
         
         return (data, httpResponse)
     }
     
-    func downloadData(for request: URLRequest) async throws -> (URL, HTTPURLResponse) {
-        let (data, response) = try await download(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.invalidResponse(message: nil)
-        }
-        
-        try handleStateBasedOnStatusCode(for: httpResponse.statusCode)
-        
-        return (data, httpResponse)
+    func download(for request: URLRequest) {
+        let task = downloadTask(with: request)
+        task.resume()
     }
     
-    private func handleStateBasedOnStatusCode(for statusCode: Int) throws {
-        switch statusCode {
+    func finishAndInvalidate() {
+        self.finishTasksAndInvalidate()
+    }
+}
+
+extension URLResponse {
+    
+    var httpResponse: HTTPURLResponse {
+        get throws {
+            guard let httpResponse = self as? HTTPURLResponse else {
+                throw NetworkError.unknownError(message: nil)
+            }
+            
+            return httpResponse
+        }
+    }
+    
+    func handleStatusCodeAndReturnHTTPResponse() throws -> HTTPURLResponse {
+        let response = try httpResponse
+        
+        switch response.statusCode {
         case 200...299:
             break
         case 400:
@@ -50,5 +58,7 @@ extension URLSession: URLSessionProtocol {
         default:
             throw NetworkError.unknownError(message: "An unknown error occurred.")
         }
+        
+        return response
     }
 }

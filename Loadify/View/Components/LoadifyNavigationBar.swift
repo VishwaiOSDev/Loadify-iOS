@@ -11,8 +11,8 @@ struct LoadifyNavigationBar: ToolbarContent {
     
     @Environment(\.presentationMode) var presentationMode
     
-    private let screenHeight: CGFloat
-    private let shouldDisableBackButton: Bool
+    let screenHeight: CGFloat
+    let shouldDisableBackButton: Bool
     
     init(_ screenHeight: CGFloat, isBackButtonDisabled: Bool) {
         self.screenHeight = screenHeight
@@ -21,13 +21,14 @@ struct LoadifyNavigationBar: ToolbarContent {
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
-            Image(systemName: "chevron.backward")
-                .font(Font.body.weight(.bold))
-                .foregroundColor(LoadifyColors.blueAccent)
-                .disabled(shouldDisableBackButton)
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
+            Button {
+                presentationMode.wrappedValue.dismiss()
+            } label: {
+                Image(systemName: "chevron.backward")
+                    .font(Font.body.weight(.bold))
+                    .foregroundColor(LoadifyColors.blueAccent)
+            }
+            .disabled(shouldDisableBackButton)
         }
         
         ToolbarItem(placement: .principal) {

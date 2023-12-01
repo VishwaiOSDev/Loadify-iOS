@@ -45,9 +45,9 @@ struct PhotosService: PhotosServiceProtocol {
     }
 }
 
-extension PhotosService {
+fileprivate extension PhotosService {
     
-    fileprivate func requestPermissionForPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
+    func requestPermissionForPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
         PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
             switch status {
             case .authorized, .limited:
@@ -58,7 +58,7 @@ extension PhotosService {
         }
     }
     
-    fileprivate func requestPermissionForPhotos() async throws {
+    func requestPermissionForPhotos() async throws {
         switch await PHPhotoLibrary.requestAuthorization(for: .addOnly) {
         case .authorized, .limited:
             break

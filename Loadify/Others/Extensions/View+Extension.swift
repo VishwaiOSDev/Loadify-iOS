@@ -18,7 +18,12 @@ extension View {
     }
     
     func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil
+        )
     }
     
     /// Applies the given transform if the given condition evaluates to `true`.
@@ -90,23 +95,6 @@ extension View {
         }
     }
     
-    /// This will return an Alert from LoaderKit.
-    /// This functions helps you to present `Alert` on top of the View Hierarchy
-    /// - Parameters:
-    ///   - isPresented: Bool to indicate to show Alert on the View heriracy
-    ///   - content: Closure to show `Alert` and display alert message
-    func showAlert<T: View>(isPresented: Binding<Bool>, for duration: TimeInterval = 2.5, content: () -> T) -> some View {
-        ZStack {
-            self.allowsHitTesting(!isPresented.wrappedValue)
-            if isPresented.wrappedValue {
-                content()
-                    .dismiss(delay: duration) {
-                        isPresented.wrappedValue = false
-                    }
-            }
-        }
-    }
-    
     func permissionAlert(isPresented: Binding<Bool>) -> some View {
         let title = LoadifyTexts.photosAccessTitle
         let message = LoadifyTexts.photosAccessSubtitle
@@ -125,48 +113,6 @@ extension View {
         self.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 completion()
-            }
-        }
-    }
-    
-    /// This will return a loader from LoaderKit.
-    /// This functions helps you to register loader in the rootView and can be acessible by creating and instance of the **LoaderViewAction**
-    /// - Parameters:
-    ///   - loaderAction: Lifecycle of the loaderAction
-    ///   - showOverlay: Bool property to add black background behind the loader when it is active. By default it is false
-    ///   - options: This gives some View of type LoaderView
-    @available(*, deprecated, message: "use showLoader instead.")
-    func addLoaderView(
-        for loaderAction: LoaderViewAction,
-        showOverlay: Bool = false,
-        options: LoaderOptions = LoaderOptions()
-    ) -> some View {
-        ZStack {
-            self
-            if loaderAction.isLoading {
-                LoaderView(
-                    title: loaderAction.title,
-                    subTitle: loaderAction.subTitle,
-                    showOverlay: showOverlay,
-                    options: options
-                )
-            }
-        }
-    }
-    
-    @available(*, deprecated, message: "use showAlert instead.")
-    func addAlertView(
-        for alertAction: AlertViewAction
-    ) -> some View {
-        ZStack {
-            self
-            if alertAction.isShowing {
-                AlertView(
-                    title: alertAction.title,
-                    subTitle: alertAction.subTitle,
-                    showOverlay: alertAction.showOverlay,
-                    options: alertAction.options
-                )
             }
         }
     }

@@ -24,6 +24,11 @@ struct URLView: View {
                 textFieldView
                     .padding(.horizontal, 16)
                 Spacer()
+                
+                AppInformationView(
+                    version: AppVersionProvider.appVersion(),
+                    buildVersion: AppVersionProvider.buildVersion()
+                )
             }
             .padding()
         }
@@ -62,7 +67,7 @@ struct URLView: View {
                 destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
             ) {
-                DownloadButton(label: "Convert", isDisabled: isConvertButtonDisabled) {
+                DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
                     Task {
                         await didTapContinue()
                     }

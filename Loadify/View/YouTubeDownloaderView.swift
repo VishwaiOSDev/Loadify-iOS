@@ -44,25 +44,20 @@ struct YouTubeDownloaderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                LoadifyNavigationBar(
-                    geometry.size.height,
-                    isBackButtonDisabled: viewModel.showLoader
-                )
+                let shouldDisable = (viewModel.showLoader || viewModel.isDownloading)
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: shouldDisable)
             }
             .permissionAlert(isPresented: $viewModel.showSettingsAlert)
-            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
                 AlertUI(
                     title: $0.localizedDescription,
                     subtitle: LoadifyTexts.tryAgain.randomElement()
                 )
             }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(
-                    title: LoadifyTexts.downloadedTitle,
-                    subtitle: LoadifyTexts.downloadedSubtitle,
-                    alertType: .success
-                )
+            .onChange(of: selectedQuality) { _ in
+                withAnimation(.linear(duration: 0.4)) {
+                    viewModel.errorMessage = nil
+                }
             }
         }
     }
@@ -70,7 +65,7 @@ struct YouTubeDownloaderView: View {
     @ViewBuilder
     private var thumbnailView: some View {
         ZStack(alignment: .bottomTrailing) {
-            ImageView(urlString: details.thumbnails[details.thumbnails.count - 1].url) {
+            ImageView(urlString: details.thumbnails.last!.url) {
                 thumbnailModifier(image: LoadifyAssets.notFound)
             } image: {
                 thumbnailModifier(image: $0)
@@ -112,7 +107,7 @@ struct YouTubeDownloaderView: View {
             
             ChannelView(
                 name: details.ownerChannelName,
-                profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
+                profileImage: details.author.thumbnails.last!.url,
                 subscriberCount: details.author.subscriberCount.toUnits
             ).padding(.all, 8)
             
@@ -121,6 +116,7 @@ struct YouTubeDownloaderView: View {
             
             menuView
                 .padding(.vertical, 8)
+                .allowsHitTesting(!viewModel.showLoader && !viewModel.isDownloading)
         }
     }
     
@@ -162,9 +158,15 @@ struct YouTubeDownloaderView: View {
     
     private var footerView: some View {
         let isDownloadButtonDisabled = selectedQuality == .none
-
+        
         return VStack(spacing: 16) {
-            DownloadButton(isDisabled: isDownloadButtonDisabled) {
+            DownloadButton(
+                viewModel.errorMessage ?? "Download",
+                progress: $viewModel.progress,
+                showLoader: viewModel.showLoader,
+                isDisabled: isDownloadButtonDisabled,
+                downloadFailed: viewModel.errorMessage != nil
+            ) {
                 Task {
                     await didTapDownload(quality: selectedQuality)
                 }
@@ -189,5 +191,6 @@ struct YouTubeDownloaderView: View {
             .previewDevice("iPad Pro (12.9-inch) (6th generation)")
             .previewInterfaceOrientation(.landscapeRight)
     }
+    .preferredColorScheme(.dark)
     .navigationViewStyle(StackNavigationViewStyle())
 }

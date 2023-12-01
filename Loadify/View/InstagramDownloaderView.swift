@@ -13,11 +13,8 @@ struct InstagramDownloaderView: View {
     
     var details: [InstagramDetails]
     
-    private var lastIndex: Int
-    
     init(details: [InstagramDetails]) {
         self.details = details
-        self.lastIndex = details.count
     }
     
     var body: some View {
@@ -32,7 +29,7 @@ struct InstagramDownloaderView: View {
                     
                     VStack {
                         TabView {
-                            ForEach(details, id: \.self) { detail in
+                            ForEach(details.prefix(3), id: \.self) { detail in
                                 ImageView(urlString: detail.thumbnailURL) {
                                     thumbnailModifier(image: LoadifyAssets.notFound)
                                 } image: {
@@ -41,6 +38,9 @@ struct InstagramDownloaderView: View {
                                     ZStack {
                                         ProgressView()
                                     }.frame(minHeight: 188)
+                                }
+                                .if(details.count > 1) {
+                                    $0.padding(.horizontal, 8)
                                 }
                             }
                         }.tabViewStyle(.page)
@@ -55,21 +55,14 @@ struct InstagramDownloaderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: viewModel.showLoader)
+                let shouldDisable = (viewModel.showLoader || viewModel.isDownloading)
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: shouldDisable)
             }
             .permissionAlert(isPresented: $viewModel.showSettingsAlert)
-            .showLoader(LoadifyTexts.downloading, isPresented: $viewModel.showLoader)
             .showAlert(item: $viewModel.downloadError) {
                 AlertUI(
                     title: $0.localizedDescription,
                     subtitle: LoadifyTexts.tryAgain.randomElement()
-                )
-            }
-            .showAlert(isPresented: $viewModel.isDownloaded) {
-                AlertUI(
-                    title: LoadifyTexts.downloadedTitle,
-                    subtitle: LoadifyTexts.downloadedSubtitle,
-                    alertType: .success
                 )
             }
         }
@@ -86,7 +79,12 @@ struct InstagramDownloaderView: View {
     
     private var footerView: some View {
         VStack(spacing: 16) {
-            DownloadButton(isDisabled: false) {
+            DownloadButton(
+                viewModel.errorMessage ?? "Download",
+                progress: $viewModel.progress,
+                showLoader: viewModel.showLoader,
+                downloadFailed: viewModel.errorMessage != nil
+            ) {
                 Task {
                     await didTapDownload()
                 }
@@ -98,12 +96,7 @@ struct InstagramDownloaderView: View {
     
     private func didTapDownload() async {
         await details.asyncForEach { (detail, index) in
-            await viewModel.downloadVideo(
-                url: detail.videoURL,
-                for: .instagram,
-                with: .high,
-                isLastElement: (index + 1) == lastIndex
-            )
+            await viewModel.downloadVideo(url: detail.videoURL, for: .instagram, with: .high)
         }
     }
 }
