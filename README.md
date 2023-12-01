@@ -17,7 +17,7 @@ Three download modes available:
 - Medium (720p)
 - High (1080p)
 
-- **🌈 Beautiful Progress Bar:** Immerse yourself in the download experience with our vibrant progress bar. Watch as your video downloads in real-time, colorfully indicating the progress at a glance.
+**🌈 Beautiful Progress Bar:** Immerse yourself in the download experience with our vibrant progress bar. Watch as your video downloads in real-time, colorfully indicating the progress at a glance.
 
 > **📘 Note**\
 > Loadify now downloads videos from YouTube and Instagram, including shorts, reels, and posts. Stay tuned for more updates and expanded platform compatibility!
