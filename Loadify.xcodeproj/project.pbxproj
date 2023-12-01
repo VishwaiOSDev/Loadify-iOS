@@ -15,6 +15,7 @@
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
 		882ECF9B28CDB55E001F4C7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882ECF9A28CDB55E001F4C7D /* API.swift */; };
 		883233872855F34000BF38B5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883233862855F34000BF38B5 /* Double+Extension.swift */; };
+		883492832B19A99100F9CF74 /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883492822B19A99100F9CF74 /* AppInformationView.swift */; };
 		883672D42B116743001F5325 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883672D32B116743001F5325 /* Launch Screen.storyboard */; };
 		88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379935283A19F400DDBA79 /* Int+Extension.swift */; };
 		88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88379937283A1A0F00DDBA79 /* String+Extension.swift */; };
@@ -89,6 +90,7 @@
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
 		882ECF9A28CDB55E001F4C7D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		883233862855F34000BF38B5 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		883492822B19A99100F9CF74 /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 		883672D32B116743001F5325 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		88379935283A19F400DDBA79 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		88379937283A1A0F00DDBA79 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				88F609542B101D88001EC3C4 /* MadeWithSwiftLabel.swift */,
 				88F6095A2B102019001EC3C4 /* DownloadBadge.swift */,
 				88F6095C2B106F96001EC3C4 /* DownloadButton.swift */,
+				883492822B19A99100F9CF74 /* AppInformationView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				884BDAE52AB14AF200A4828B /* ChannelView.swift in Sources */,
 				88F609532B101BA1001EC3C4 /* LoadifyNavigationBar.swift in Sources */,
 				884BDB032AB14CF500A4828B /* Loader.swift in Sources */,
+				883492832B19A99100F9CF74 /* AppInformationView.swift in Sources */,
 				884BDAE72AB14AF200A4828B /* InfoView.swift in Sources */,
 				884BDAE12AB14A9F00A4828B /* CustomTextField.swift in Sources */,
 				882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */,
@@ -774,7 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Loadify/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
@@ -794,7 +798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.VishwaiOSDev.Loadify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -812,7 +816,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Loadify/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q2G7C7C3U;
 				ENABLE_PREVIEWS = YES;
@@ -832,7 +836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.VishwaiOSDev.Loadify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

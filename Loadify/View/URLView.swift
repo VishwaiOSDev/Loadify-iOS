@@ -24,6 +24,11 @@ struct URLView: View {
                 textFieldView
                     .padding(.horizontal, 16)
                 Spacer()
+                
+                AppInformationView(
+                    version: AppVersionProvider.appVersion(),
+                    buildVersion: AppVersionProvider.buildVersion()
+                )
             }
             .padding()
         }
