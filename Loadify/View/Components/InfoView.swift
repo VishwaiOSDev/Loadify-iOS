@@ -23,6 +23,7 @@ struct InfoView: View {
             Text("\(title)")
                 .font(.inter(.bold(size: 18)))
                 .lineLimit(1)
+            
             Text("\(subTitle)")
                 .font(.inter(.regular(size: 14)))
                 .foregroundColor(LoadifyColors.greyText)

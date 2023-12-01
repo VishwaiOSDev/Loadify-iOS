@@ -21,6 +21,7 @@ struct DownloadBadge: View {
         if downloadStatus == .downloaded || downloadStatus == .failed {
             HStack(spacing: 4) {
                 Image(systemName: "arrow.down.circle.fill")
+                
                 Text(downloadStatus == .downloaded ? "Downloaded" : "Failed")
                     .font(.inter(.bold(size: 14)))
                     .padding(2)

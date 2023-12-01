@@ -10,7 +10,6 @@ import Combine
 import LoggerKit
 import Haptific
 
-// Protocol combining loading, downloading, and error-handling capabilities
 protocol Downloadable: Loadable, DownloadableError {
     var downloadStatus: DownloadStatus { get set }
     
@@ -32,10 +31,8 @@ final class DownloaderViewModel: Downloadable {
     private lazy var photoService: PhotosServiceProtocol = PhotosService()
     private lazy var fileService: FileServiceProtocol = FileService()
     
-    // Object responsible for downloading
     private var downloader: Downloader?
     
-    // Initializer for the ViewModel
     init() {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
         self.downloader = Downloader()
@@ -45,7 +42,6 @@ final class DownloaderViewModel: Downloadable {
     func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
         downloader?.delegate = self
         do {
-            // Show loader while downloading
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
@@ -58,10 +54,8 @@ final class DownloaderViewModel: Downloadable {
             // Check for necessary permissions (in this case, Photos permission)
             try await photoService.checkForPhotosPermission()
             
-            // Get temporary file path and download video
             try downloader?.download(url, for: platform, withQuality: quality)
         } catch PhotosError.permissionDenied {
-            // Handle Photos permission denied error and update UI
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 
@@ -71,11 +65,9 @@ final class DownloaderViewModel: Downloadable {
                     self.downloadStatus = .none
                 }
                 
-                // Notify with haptics for a warning
                 notifyWithHaptics(for: .warning)
             }
         } catch {
-            // Handle other errors and update UI
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 
@@ -85,13 +77,11 @@ final class DownloaderViewModel: Downloadable {
                     self.downloadStatus = .failed
                 }
                 
-                // Notify with haptics for an error
                 notifyWithHaptics(for: .error)
             }
         }
     }
     
-    // Private function to save media to Photos album if compatible
     private func saveMediaToPhotosAlbumIfCompatiable(
         at filePath: String,
         downloadType: Downloader.DownloadType

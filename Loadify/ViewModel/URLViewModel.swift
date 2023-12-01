@@ -9,12 +9,10 @@ import Foundation
 import LoggerKit
 import Haptific
 
-// Protocol defining lifecycle events for a view
 protocol ViewLifyCycle {
     func onDisappear()
 }
 
-// Protocol combining navigation and lifecycle events for a detailed view
 protocol Detailable: Navigatable, ViewLifyCycle {
     func getVideoDetails(for url: String) async
 }
@@ -26,21 +24,17 @@ final class URLViewModel: Detailable {
     @Published var errorMessage: String? = nil
     @Published var showLoader: Bool = false
     
-    // Properties for storing platform type and details
     var platformType: PlatformType? = nil
     var details: Decodable? = nil
     
-    // Object responsible for fetching details
     var fetcher = DetailsFetcher()
     
-    // Initializer for the ViewModel
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
     
     // Async function to get video details for a given URL
     func getVideoDetails(for url: String) async {
-        // Show loader while fetching details
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.showLoader = true
@@ -67,7 +61,6 @@ final class URLViewModel: Detailable {
                 fatalError("Platform type not available")
             }
             
-            // Update UI on the main thread after fetching details
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = false
@@ -75,10 +68,8 @@ final class URLViewModel: Detailable {
                 
             }
 
-            // Notify success with haptics
             notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
-            // Handle network errors and update UI on the main thread
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
                 
@@ -102,25 +93,21 @@ final class URLViewModel: Detailable {
                     self.errorMessage = message
                 }
                 
-                // Notify error with haptics
                 notifyWithHaptics(for: .error)
             }
         } catch {
-            // Handle other errors and update UI on the main thread
             Logger.error("Failed with error: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
                 
                 self.showLoader = false
                 self.errorMessage = error.localizedDescription
-                // Notify error with haptics
             }
 
             notifyWithHaptics(for: .error)
         }
     }
     
-    // Private function to check if input text is a valid URL
     private func checkInputTextIsValidURL(text: String) throws {
         guard text.doesMatchExist(Loadify.RegEx.url, inputText: text) else {
             let errorMessage = "The URL you entered is not valid"
@@ -128,12 +115,10 @@ final class URLViewModel: Detailable {
         }
     }
     
-    // Function called on view disappearance to reset details
     func onDisappear() {
         details = nil
     }
     
-    // Deinitializer for the ViewModel
     deinit {
         Logger.deinitLifeCycle("URLViewModel deinit", for: self)
     }

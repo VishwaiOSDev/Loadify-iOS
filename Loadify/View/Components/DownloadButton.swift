@@ -104,7 +104,7 @@ fileprivate struct DownloadLabel: View {
             case 0.001..<1.0:
                 return ("Downloading...", "Please keep the app open. This may take a moment")
             case 1.0:
-                return ("Downloaded Successfully", nil)
+                return (LoadifyTexts.downloadedTitle, nil)
             default:
                 break
             }

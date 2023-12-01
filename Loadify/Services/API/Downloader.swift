@@ -64,13 +64,14 @@ final class Downloader: NSObject {
     }
     
     deinit {
-        session?.finishTasksAndInvalidate()
         Logger.deinitLifeCycle("Downloader Service deinit", for: self)
     }
 }
 
+// MARK: - URLSessionDownloadDelegate methods
+
 extension Downloader: URLSessionDownloadDelegate {
-        
+    
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let error else { return }
         delegate?.downloader(didFailWithError: error)
@@ -113,8 +114,8 @@ extension Downloader: URLSessionDownloadDelegate {
         totalBytesWritten: Int64,
         totalBytesExpectedToWrite: Int64
     ) {
-        guard let response = try? downloadTask.response?.httpResponse, 
-                (200...299).contains(response.statusCode) else {
+        guard let response = try? downloadTask.response?.httpResponse,
+              (200...299).contains(response.statusCode) else {
             return
         }
         

@@ -15,7 +15,6 @@ struct DetailsFetcher {
         self.session = session
     }
     
-    // Asynchronously loads details from a URL for a specific platform
     func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T {
         let request = try API.details(forPlatform: platform, url: url).createRequest()
         

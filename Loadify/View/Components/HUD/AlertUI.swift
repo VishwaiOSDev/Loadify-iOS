@@ -29,7 +29,9 @@ struct AlertUI: View {
         HStack {
             Image(systemName: alertType.rawValue)
                 .font(.title)
-                .foregroundColor(alertType == .success ? Colors.green : Colors.red)
+                .foregroundColor(
+                    alertType == .success ? LoadifyColors.successGreen : LoadifyColors.errorRed
+                )
             
             alertContentView
                 .padding(.all, 6)
@@ -42,7 +44,9 @@ struct AlertUI: View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.inter(.semibold(size: 16)))
-                .foregroundColor(alertType == .success ? Colors.green : Colors.red)
+                .foregroundColor(
+                    alertType == .success ? LoadifyColors.successGreen : LoadifyColors.errorRed
+                )
                 .reduceFontSize(for: 1)
             
             if let subtitle = subtile {
@@ -57,15 +61,15 @@ struct AlertUI: View {
     private var gradientColors: [Color] {
         if alertType == .success {
             return [
-                Colors.gradient_green.opacity(0.9),
-                Colors.gradient_green.opacity(0.5),
-                Colors.gradient_green.opacity(0.7)
+                LoadifyColors.successGreenGradient.opacity(0.9),
+                LoadifyColors.successGreenGradient.opacity(0.5),
+                LoadifyColors.successGreenGradient.opacity(0.7)
             ]
         } else {
             return [
-                Colors.red_gradient.opacity(0.9),
-                Colors.red_gradient.opacity(0.5),
-                Colors.red_gradient.opacity(0.7)
+                LoadifyColors.errorRedGradient.opacity(0.9),
+                LoadifyColors.errorRedGradient.opacity(0.5),
+                LoadifyColors.errorRedGradient.opacity(0.7)
             ]
         }
     }
