@@ -32,6 +32,7 @@ final class DownloaderViewModel: Downloadable {
     private lazy var fileService: FileServiceProtocol = FileService()
     
     private var downloader: Downloader?
+    private var platformType: PlatformType = .youtube
     
     init() {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
@@ -42,6 +43,7 @@ final class DownloaderViewModel: Downloadable {
     func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
         downloader?.delegate = self
         do {
+            platformType = platform
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
@@ -140,6 +142,9 @@ extension DownloaderViewModel: DownloaderDelegate {
                     self.downloadStatus = .downloaded
                 }
             }
+            
+            // TODO: - Find better way to handle haptics and download status for Instagram
+            guard platformType != .instagram else { return }
             
             notifyWithHaptics(for: .success)
         } catch {
