@@ -59,14 +59,13 @@ struct YouTubeDownloaderView: View {
                     viewModel.errorMessage = nil
                 }
             }
-            .allowsHitTesting(!viewModel.showLoader && !viewModel.isDownloading)
         }
     }
     
     @ViewBuilder
     private var thumbnailView: some View {
         ZStack(alignment: .bottomTrailing) {
-            ImageView(urlString: details.thumbnails[details.thumbnails.count - 1].url) {
+            ImageView(urlString: details.thumbnails.last!.url) {
                 thumbnailModifier(image: LoadifyAssets.notFound)
             } image: {
                 thumbnailModifier(image: $0)
@@ -108,7 +107,7 @@ struct YouTubeDownloaderView: View {
             
             ChannelView(
                 name: details.ownerChannelName,
-                profileImage: details.author.thumbnails[details.author.thumbnails.count - 1].url,
+                profileImage: details.author.thumbnails.last!.url,
                 subscriberCount: details.author.subscriberCount.toUnits
             ).padding(.all, 8)
             
@@ -117,6 +116,7 @@ struct YouTubeDownloaderView: View {
             
             menuView
                 .padding(.vertical, 8)
+                .allowsHitTesting(!viewModel.showLoader && !viewModel.isDownloading)
         }
     }
     
