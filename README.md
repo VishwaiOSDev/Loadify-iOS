@@ -20,6 +20,8 @@ Three download modes available:
 > **📘 Note**\
 > Loadify now downloads videos from YouTube and Instagram, including shorts, reels, and posts. Stay tuned for more updates and expanded platform compatibility!
 
+- **Beautiful Progress Bar:** Enjoy a visually appealing download experience with our newly added progress bar. Easily track and visualize how much of the video has been downloaded in real-time.
+
 ## Screenshots
 
 <div style="flex-direction: row"> 
