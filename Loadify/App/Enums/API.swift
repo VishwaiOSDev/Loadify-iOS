@@ -10,6 +10,7 @@ import Foundation
 enum PlatformType: String {
     case youtube = "yt"
     case instagram = "ig"
+    case tiktok = "tk"
 }
 
 enum API {
@@ -49,7 +50,7 @@ extension API: NetworkRequestable {
     }
     
     /// Configuration for `localhost`
-    var shouldRunLocal: Bool { false }
+    var shouldRunLocal: Bool { true }
     
     var port: Int? { 3200 }
 }

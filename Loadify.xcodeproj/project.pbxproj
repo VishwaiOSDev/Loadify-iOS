@@ -40,6 +40,7 @@
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
 		888945022B17F47300814D8D /* DetailsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945012B17F47300814D8D /* DetailsFetcher.swift */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
+		88895FD62B2D76A2004EEA91 /* TikTokDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88895FD52B2D76A2004EEA91 /* TikTokDetails.swift */; };
 		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -115,6 +116,7 @@
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
 		888945012B17F47300814D8D /* DetailsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcher.swift; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		88895FD52B2D76A2004EEA91 /* TikTokDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokDetails.swift; sourceTree = "<group>"; };
 		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +270,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		88895FD42B2D7695004EEA91 /* TikTok */ = {
+			isa = PBXGroup;
+			children = (
+				88895FD52B2D76A2004EEA91 /* TikTokDetails.swift */,
+			);
+			path = TikTok;
+			sourceTree = "<group>";
+		};
 		888BD4992A784F2600A835C5 /* Others */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 		88A729BD2826506B00B5FE61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88895FD42B2D7695004EEA91 /* TikTok */,
 				88F609572B101DD0001EC3C4 /* Instagram */,
 				88F609562B101DC4001EC3C4 /* YouTube */,
 			);
@@ -483,7 +494,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					88083D692855D95A0027BA0D = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -587,6 +598,7 @@
 				88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,
 				88007D502AC3B146007A5004 /* URLSession+Extension.swift in Sources */,
+				88895FD62B2D76A2004EEA91 /* TikTokDetails.swift in Sources */,
 				884BDAFC2AB14CD400A4828B /* LoaderBackground.swift in Sources */,
 				884BDAEB2AB14B2100A4828B /* CardView.swift in Sources */,
 				88AFF4A528521F1300D00040 /* FileService.swift in Sources */,
@@ -660,6 +672,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -721,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

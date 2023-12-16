@@ -45,9 +45,7 @@ final class URLViewModel: Detailable {
             try checkInputTextIsValidURL(text: url)
             
             // Determine the platform type based on the URL
-            let pattern = Loadify.RegEx.instagram
-            let isInstagram = url.doesMatchExist(pattern, inputText: url)
-            platformType = isInstagram ? .instagram : .youtube
+            try choosePlatformType(for: url)
             
             // Fetch details based on the platform type
             switch platformType {
@@ -56,6 +54,9 @@ final class URLViewModel: Detailable {
                 self.details = response
             case .instagram:
                 let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
+                self.details = response
+            case .tiktok:
+                let response: TikTokDetails = try await fetcher.loadDetails(for: url, to: .tiktok)
                 self.details = response
             case .none:
                 fatalError("Platform type not available")
@@ -67,7 +68,7 @@ final class URLViewModel: Detailable {
                 self.shouldNavigateToDownload = true
                 
             }
-
+            
             notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
@@ -103,7 +104,7 @@ final class URLViewModel: Detailable {
                 self.showLoader = false
                 self.errorMessage = error.localizedDescription
             }
-
+            
             notifyWithHaptics(for: .error)
         }
     }
@@ -114,6 +115,25 @@ final class URLViewModel: Detailable {
             throw NetworkError.badRequest(message: errorMessage)
         }
     }
+    
+    private func choosePlatformType(for url: String) throws {
+        let regexes: [String: PlatformType] = [
+            Loadify.RegEx.youtube: .youtube,
+            Loadify.RegEx.instagram: .instagram,
+            Loadify.RegEx.tiktok: .tiktok
+        ]
+
+        for (pattern, type) in regexes {
+            if url.doesMatchExist(pattern, inputText: url) {
+                platformType = type
+                return
+            }
+        }
+
+        let errorMessage = "The URL you entered is not valid"
+        throw NetworkError.badRequest(message: errorMessage)
+    }
+
     
     func onDisappear() {
         details = nil

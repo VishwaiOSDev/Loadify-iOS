@@ -92,6 +92,8 @@ struct URLView: View {
                 } else {
                     fatalError("Instagram details cannot be nil")
                 }
+            case .tiktok:
+                EmptyView()
             case .none:
                 fatalError("Platform type not available")
             }

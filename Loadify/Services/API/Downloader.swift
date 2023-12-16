@@ -48,7 +48,7 @@ final class Downloader: NSObject {
         switch platform {
         case .youtube:
             request = try API.download(url: url, quality: quality).createRequest()
-        case .instagram:
+        case .instagram, .tiktok:
             guard let url = URL(string: url) else {
                 let errorMessage = "This is not a valid Instagram URL"
                 throw NetworkError.badRequest(message: errorMessage)
