@@ -61,18 +61,22 @@ struct URLView: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
-            
-            NavigationLink(
-                destination: downloaderView,
-                isActive: $viewModel.shouldNavigateToDownload
-            ) {
-                DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
-                    Task {
-                        await didTapContinue()
-                    }
+                CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
+                Button(action: {
+                    self.videoURL = UIPasteboard.general.string ?? ""
+                }) {
+                    Text("Paste from Clipboard")
                 }
-            }.disabled(isConvertButtonDisabled)
+                NavigationLink(
+                    destination: downloaderView,
+                    isActive: $viewModel.shouldNavigateToDownload
+                ) {
+                    DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
+                        Task {
+                            await didTapContinue()
+                        }
+                    }
+                }.disabled(isConvertButtonDisabled)
         }
     }
     
