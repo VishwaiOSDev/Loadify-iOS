@@ -13,10 +13,12 @@ struct CustomTextField: View {
     @Binding var text: String
     
     var placeHolder: String
+    var onPaste: () -> Void // Add a closure to handle paste action
     
-    init(_ placeHolder: String, text: Binding<String>) {
+    init(_ placeHolder: String, text: Binding<String>, onPaste: @escaping () -> Void) {
         self.placeHolder = placeHolder
         self._text = text
+        self.onPaste = onPaste // Initialize the closure
     }
     
     var body: some View {
@@ -36,8 +38,14 @@ struct CustomTextField: View {
                         
                     }.padding(.leading, 16)
                 }
-                
-                if !text.isEmpty {
+                if text.isEmpty {
+                    Button(action: onPaste, label: { // Use the onPaste closure here
+                        Image(systemName: "doc.on.clipboard") // Use the appropriate system image for paste
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 10)
+                            .foregroundStyle(.white)
+                    })
+                } else {
                     Button(action: didTapClearIcon, label: {
                         Image(systemName: "xmark.circle.fill")
                             .frame(maxHeight: .infinity)
@@ -67,7 +75,7 @@ struct CustomTextField: View {
 struct CustomTextField_Previews: PreviewProvider {
     
     static var previews: some View {
-        CustomTextField("Enter YouTube or Instagram URL", text: .constant(""))
+        CustomTextField("Enter YouTube or Instagram URL", text: .constant(""), onPaste: {})
             .previewLayout(.sizeThatFits)
     }
 }
