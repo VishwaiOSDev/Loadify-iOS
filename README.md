@@ -25,7 +25,7 @@ Three download modes available:
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://images.madrasvalley.com/loadify-background.png"> 
+    <img src="https://images.madrasvalley.com/loadify-bg.png"> 
 </div>
 
 ## Setup
@@ -57,4 +57,10 @@ Loadify was made by:
 </a>
 <a href="#" title="Priyanga Rani">
   <img src="https://avatars.githubusercontent.com/u/75720806?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
+</a>
+
+## Contributors
+
+<a href="https://github.com/jimjimrao" title="Jimmy Rao">
+  <img src="https://avatars.githubusercontent.com/u/32654532?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
 </a>
