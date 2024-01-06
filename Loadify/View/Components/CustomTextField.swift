@@ -13,6 +13,7 @@ struct CustomTextField: View {
     @Binding var text: String
     
     var placeHolder: String
+    
     init(_ placeHolder: String, text: Binding<String>) {
         self.placeHolder = placeHolder
         self._text = text
@@ -33,11 +34,14 @@ struct CustomTextField: View {
                         textFieldView
                             .disableAutocorrection(true)
                         
+                        
+                        
                     }.padding(.leading, 16)
                 }
+                
                 if text.isEmpty {
                     Button(action: didTapOnPasteIcon, label: {
-                        Image(systemName: "doc.on.clipboard") // Use the appropriate system image for paste
+                        Image(systemName: "doc.on.clipboard")
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 10)
                             .foregroundStyle(.white)
@@ -67,9 +71,11 @@ struct CustomTextField: View {
     private func didTapClearIcon() {
         text.removeAll()
     }
-
+    
     private func didTapOnPasteIcon() {
-        text = UIPasteboard.general.string ?? ""
+        if UIPasteboard.general.hasStrings {
+            text = UIPasteboard.general.string ?? ""
+        }
     }
 }
 
