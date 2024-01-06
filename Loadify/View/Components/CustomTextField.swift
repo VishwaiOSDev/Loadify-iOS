@@ -13,7 +13,6 @@ struct CustomTextField: View {
     @Binding var text: String
     
     var placeHolder: String
-    
     init(_ placeHolder: String, text: Binding<String>) {
         self.placeHolder = placeHolder
         self._text = text
@@ -36,8 +35,14 @@ struct CustomTextField: View {
                         
                     }.padding(.leading, 16)
                 }
-                
-                if !text.isEmpty {
+                if text.isEmpty {
+                    Button(action: didTapOnPasteIcon, label: {
+                        Image(systemName: "doc.on.clipboard") // Use the appropriate system image for paste
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 10)
+                            .foregroundStyle(.white)
+                    })
+                } else {
                     Button(action: didTapClearIcon, label: {
                         Image(systemName: "xmark.circle.fill")
                             .frame(maxHeight: .infinity)
@@ -61,6 +66,10 @@ struct CustomTextField: View {
     
     private func didTapClearIcon() {
         text.removeAll()
+    }
+
+    private func didTapOnPasteIcon() {
+        text = UIPasteboard.general.string ?? ""
     }
 }
 
