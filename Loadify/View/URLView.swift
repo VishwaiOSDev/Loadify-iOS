@@ -61,9 +61,7 @@ struct URLView: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter YouTube or Instagram URL", text: $videoURL, onPaste: {
-                self.videoURL = UIPasteboard.general.string ?? ""
-            })
+            CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
             NavigationLink(
                 destination: downloaderView,
                 isActive: $viewModel.shouldNavigateToDownload
