@@ -8,33 +8,50 @@
 import Foundation
 @testable import Loadify
 
-//class URLMockViewModel: Detailable {
-//    
-//    var details: VideoDetails? = nil
-//    var showLoader: Bool = false
-//    var error: Error? = nil
-//    var shouldNavigateToDownload: Bool = false
-//    
-//    private var apiService: FetchService
-//    
-//    init(apiService: FetchService) {
-//        self.apiService = apiService
-//    }
-//    
-//    func getVideoDetails(for url: String) async {
-//        do {
-//            let response = try await apiService.fetchVideoDetailsFromApi(for: url)
-//            details = response
-//        } catch { }
-//    }
-//}
-//
-//final class MockApiService: FetchService, Mockable {
-//    
-//    func fetchVideoDetailsFromApi(for url: String) async throws -> VideoDetails {
-//        guard url == "https://www.youtube.com/watch?v=66XwG1CLHuU" else {
-//            throw NetworkError.badInput(error: APIError(statusCode: 400, data: nil))
-//        }
-//        return loadJSON(fileName: "VideoDetailsResponse", type: VideoDetails.self)
-//    }
-//}
+class URLMockViewModel: Detailable {
+    
+    var details: Decodable? = nil
+    var errorMessage: String?
+    var showLoader: Bool = false
+    var shouldNavigateToDownload: Bool = false
+    
+    private var fetcher: DetailsFetching
+    
+    init(fetcher: DetailsFetching) {
+        self.fetcher = fetcher
+    }
+    
+    func getVideoDetails(for url: String) async {
+        do {
+            switch url {
+            case "instagram_response":
+                let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
+                details = response
+            default:
+                let response: YouTubeDetails = try await fetcher.loadDetails(for: url, to: .youtube)
+                details = response
+            }
+        } catch {
+            Logger.error("Failed with err: \(error.localizedDescription)")
+            errorMessage = error.localizedDescription
+        }
+    }
+}
+
+class DetailsFetcherMock: DetailsFetching, Mockable {
+    
+    func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T {
+        do {
+            return try loadJSON(fileName: url, type: T.self)
+        } catch {
+            throw NetworkError.badRequest(message: "The request was invalid. Please check your input.")
+        }
+    }
+}
+
+// MARK: - Detailable+Extension
+
+extension Detailable {
+    
+    func onDisappear() {}
+}

@@ -1,5 +1,5 @@
 //
-//  VideoDetailsTest.swift
+//  DetailsFetcherTest.swift
 //  LoadifyTests
 //
 //  Created by Vishweshwaran on 13/06/22.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import Loadify
 
-class ApiServiceTest: XCTestCase {
+class DetailsFetcherTest: XCTestCase {
     
     private var viewModel: URLMockViewModel!
     
@@ -20,9 +20,9 @@ class ApiServiceTest: XCTestCase {
         viewModel = nil
     }
     
-    func testFetchVideoDetailsSuccessfully() async throws {
+    func test_fetchVideoDetailsSuccessfully_fromYouTube() async {
         let url = "youtube_response"
-        let expectation = XCTestExpectation(description: "Successfully fetched video details from YouTube")
+        let expectation = XCTestExpectation(description: "Successfully fetch video details from YouTube")
         
         await viewModel.getVideoDetails(for: url)
         expectation.fulfill()
@@ -33,7 +33,7 @@ class ApiServiceTest: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
     
-    func testYouTubeVideoDetails() async {
+    func test_fetchYouTubeVideoDetails() async {
         let url = "youtube_response"
         
         await viewModel.getVideoDetails(for: url)
@@ -53,7 +53,7 @@ class ApiServiceTest: XCTestCase {
         XCTAssertNotNil(details?.author.channelUrl)
     }
     
-    func testInvaildYouTubeUrlRequest() async {
+    func test_failYouTubeUrlRequest_withInvalidInput() async {
         let invalidURL = "https://github.com/VishwaiOSDev"
         let expectedErrorMessage = "The request was invalid. Please check your input."
         let expectation = XCTestExpectation(description: "Should fail with bad input error")
@@ -77,5 +77,34 @@ class ApiServiceTest: XCTestCase {
         }
         
         await fulfillment(of: [expectation], timeout: 0.001)
+    }
+}
+
+// MARK: - Instagram Unit Test Cases
+
+extension DetailsFetcherTest {
+    
+    func test_fetchInstagramVideoDetailsSuccessfully() async {
+        let url = "instagram_response"
+        let expectation = XCTestExpectation(description: "Successfully fetch video details from Instagram")
+        
+        await viewModel.getVideoDetails(for: url)
+        expectation.fulfill()
+        
+        await fulfillment(of: [expectation], timeout: 0.001)
+        
+        XCTAssertNotNil(viewModel.details)
+        XCTAssertNil(viewModel.errorMessage)
+    }
+    
+    func test_fetchInstagramVideoDetails() async {
+        let url = "instagram_response"
+        
+        await viewModel.getVideoDetails(for: url)
+        
+        let details = viewModel.details as? [InstagramDetails]
+        
+        XCTAssertNotNil(details)
+        XCTAssertTrue(details?.count != 0)
     }
 }

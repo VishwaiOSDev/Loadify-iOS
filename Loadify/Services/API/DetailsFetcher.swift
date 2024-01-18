@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct DetailsFetcher {
+protocol DetailsFetching {
+    func loadDetails<T: Decodable>(for url: String, to platform: PlatformType) async throws -> T
+}
+
+struct DetailsFetcher: DetailsFetching {
     
     private var session: URLSessionProtocol
     
