@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct InstagramDetails: Codable, Hashable {
+struct InstagramDetails: Decodable, Hashable {
     
     let thumbnailURL: String
     let videoURL: String

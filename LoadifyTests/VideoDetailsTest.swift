@@ -8,7 +8,7 @@
 import XCTest
 @testable import Loadify
 
-class VideoInfoTest: XCTestCase {
+class VideoDetailsTest: XCTestCase {
     
     func testFormattedDate() {
         let publishedDateFromYT = "2022-12-12T07:05:08-08:00"

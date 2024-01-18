@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88007D502AC3B146007A5004 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */; };
-		88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoInfoTest.swift */; };
+		88083D742855D9D00027BA0D /* VideoDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoDetailsTest.swift */; };
 		880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */; };
@@ -38,9 +38,9 @@
 		884BDB032AB14CF500A4828B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAFF2AB14CF500A4828B /* Loader.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
+		888236452B58B4E2003B787F /* instagram_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 888236442B58B4E2003B787F /* instagram_response.json */; };
 		888945022B17F47300814D8D /* DetailsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945012B17F47300814D8D /* DetailsFetcher.swift */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
-		888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -56,8 +56,8 @@
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
 		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
 		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
-		88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */; };
-		88DB2C3B2856FDA60065BBF9 /* ApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */; };
+		88DB2C382856F7820065BBF9 /* youtube_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* youtube_response.json */; };
+		88DB2C3B2856FDA60065BBF9 /* DetailsFetcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */; };
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
@@ -83,7 +83,7 @@
 /* Begin PBXFileReference section */
 		88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		88083D6A2855D95A0027BA0D /* LoadifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88083D732855D9D00027BA0D /* VideoInfoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoInfoTest.swift; sourceTree = "<group>"; };
+		88083D732855D9D00027BA0D /* VideoDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsTest.swift; sourceTree = "<group>"; };
 		880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestable.swift; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
 		882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDownloaderView.swift; sourceTree = "<group>"; };
@@ -113,9 +113,9 @@
 		884BDAFF2AB14CF500A4828B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
+		888236442B58B4E2003B787F /* instagram_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instagram_response.json; sourceTree = "<group>"; };
 		888945012B17F47300814D8D /* DetailsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcher.swift; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
-		888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detailable+Extension.swift"; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 		88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDownloaderView.swift; sourceTree = "<group>"; };
 		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
-		88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = VideoDetailsResponse.json; sourceTree = "<group>"; };
-		88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTest.swift; sourceTree = "<group>"; };
+		88DB2C372856F7820065BBF9 /* youtube_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = youtube_response.json; sourceTree = "<group>"; };
+		88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcherTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
 		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
@@ -168,11 +168,9 @@
 		88083D6B2855D95A0027BA0D /* LoadifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				88DB2C322856F24F0065BBF9 /* ApiTest */,
-				8832338828560CED00BF38B5 /* InfoTest */,
+				88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */,
+				88083D732855D9D00027BA0D /* VideoDetailsTest.swift */,
 				88DB2C392856FD7C0065BBF9 /* Mock */,
-				888BD4992A784F2600A835C5 /* Others */,
-				88DB2C372856F7820065BBF9 /* VideoDetailsResponse.json */,
 			);
 			path = LoadifyTests;
 			sourceTree = "<group>";
@@ -209,14 +207,6 @@
 				889714F72932618200D8B1B7 /* DownloadStatus.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		8832338828560CED00BF38B5 /* InfoTest */ = {
-			isa = PBXGroup;
-			children = (
-				88083D732855D9D00027BA0D /* VideoInfoTest.swift */,
-			);
-			path = InfoTest;
 			sourceTree = "<group>";
 		};
 		884BDADF2AB14A6700A4828B /* Components */ = {
@@ -266,14 +256,6 @@
 				888945032B17F4A800814D8D /* Downloader.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		888BD4992A784F2600A835C5 /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				888BD49A2A784F3900A835C5 /* Detailable+Extension.swift */,
-			);
-			path = Others;
 			sourceTree = "<group>";
 		};
 		88A729A128264AD100B5FE61 = {
@@ -379,17 +361,19 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		88DB2C322856F24F0065BBF9 /* ApiTest */ = {
+		88BB76F92B58B46200F16B72 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				88DB2C3A2856FDA60065BBF9 /* ApiServiceTest.swift */,
+				88DB2C372856F7820065BBF9 /* youtube_response.json */,
+				888236442B58B4E2003B787F /* instagram_response.json */,
 			);
-			path = ApiTest;
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		88DB2C392856FD7C0065BBF9 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				88BB76F92B58B46200F16B72 /* JSON */,
 				88DB2C332856F2820065BBF9 /* MockApiService.swift */,
 				88DB2C352856F2BB0065BBF9 /* Mockable.swift */,
 			);
@@ -523,7 +507,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88DB2C382856F7820065BBF9 /* VideoDetailsResponse.json in Resources */,
+				88DB2C382856F7820065BBF9 /* youtube_response.json in Resources */,
+				888236452B58B4E2003B787F /* instagram_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,9 +531,8 @@
 			files = (
 				88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */,
 				88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */,
-				88DB2C3B2856FDA60065BBF9 /* ApiServiceTest.swift in Sources */,
-				88083D742855D9D00027BA0D /* VideoInfoTest.swift in Sources */,
-				888BD49B2A784F3900A835C5 /* Detailable+Extension.swift in Sources */,
+				88DB2C3B2856FDA60065BBF9 /* DetailsFetcherTest.swift in Sources */,
+				88083D742855D9D00027BA0D /* VideoDetailsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

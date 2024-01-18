@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct YouTubeDetails: Codable {
+struct YouTubeDetails: Decodable {
     
     private enum CodingKeys: String, CodingKey {
         case videoUrl = "video_url"
