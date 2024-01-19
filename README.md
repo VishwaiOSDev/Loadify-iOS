@@ -32,7 +32,7 @@ Three download modes available:
 
 Follow the steps below to setup Loadify on your machine:
 
-- Download and install [**Xcode 14**](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
+- Download and install [**Xcode 15**](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
 - Clone [**Loadify-iOS**](https://github.com/VishwaiOSDev/Loadify-iOS) from GitHub
 - Open `Loadify.xcodeproj` file
 - Run the app after packages have been fetched
