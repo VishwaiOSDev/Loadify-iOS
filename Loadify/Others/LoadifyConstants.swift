@@ -32,14 +32,14 @@ struct Loadify {
     struct Texts {
         static let loading = "LOADING"
         static let downloadedTitle = "Downloaded Successfully"
-
+        
         static let loadifySubTitle = "Download YouTube Videos, Shorts, Instagram Reels, and Posts with Ease!"
-
+        
         static let photosAccessTitle = "Photos access is required"
         static let photosAccessSubtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
-
+        
         static let tryAgain: [String] = ["Please try again later", "Oops, something went wrong", "There was an error. Please try again later"]
-
+        
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
     }
@@ -53,20 +53,20 @@ struct Loadify {
 struct LoadifyKit {
     
     struct AssetKit {
-        static let loadifyHorizontal = Image("loadify_horizontal")
-        static let loadifyIcon = Image("loadify_icon")
-        static let notFound = Image("not_found")
+        static let loadifyHorizontal = Image(.loadifyHorizontal)
+        static let loadifyIcon = Image(.loadifyIcon)
+        static let notFound = Image(.notFound)
     }
     
     struct ColorKit {
-        static let appBackground = Color("app_background")
-        static let greyText = Color("grey_text")
-        static let textfieldBackground = Color("textfield_background")
-        static let blueAccent = Color("blue_accent")
-        static let errorRedGradient = Color("error_red_gradient")
-        static let errorRed = Color("error_red")
-        static let successGreenGradient = Color("success_green_gradient")
-        static let successGreen = Color("success_green")
+        static let appBackground = Color(.appBackground)
+        static let greyText = Color(.greyText)
+        static let textfieldBackground = Color(.textfieldBackground)
+        static let blueAccent = Color(.blueAccent)
+        static let errorRedGradient = Color(.errorRedGradient)
+        static let errorRed = Color(.errorRed)
+        static let successGreenGradient = Color(.successGreenGradient)
+        static let successGreen = Color(.successGreen)
     }
 }
 
