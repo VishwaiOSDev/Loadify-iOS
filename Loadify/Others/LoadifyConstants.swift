@@ -42,6 +42,9 @@ struct Loadify {
         
         static let noInternet = "No Internet Connection"
         static let noInternetMessage = "Make sure your device is connected to the internet"
+        
+        static let shareExtensionTitle = "Success!"
+        static let shareExtensionSubtitle = "The link was successfully transferred to Loadify"
     }
     
     struct RegEx {

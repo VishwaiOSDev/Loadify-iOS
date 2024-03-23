@@ -123,3 +123,18 @@ final class URLViewModel: Detailable {
         Logger.deinitLifeCycle("URLViewModel deinit", for: self)
     }
 }
+
+// MARK: - DeepLink For Share Extension
+
+extension URLViewModel {
+    func extractURLStringFromDeepLink(url: URL) -> String? {
+        guard let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems else {
+            return nil
+        }
+        
+        guard let urlQueryItem = queryItems.first(where: { $0.name == "url" }) else {
+            return nil
+        }
+        return urlQueryItem.value
+    }
+}

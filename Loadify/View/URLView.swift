@@ -46,6 +46,13 @@ struct URLView: View {
             }
             return AlertUI(title: errorTitle, subtitle: errorMessage)
         })
+        .onOpenURL {
+            guard let url = viewModel.extractURLStringFromDeepLink(url: $0) else { return }
+            self.videoURL = url
+            Task {
+                await didTapContinue()
+            }
+        }
     }
     
     @ViewBuilder
