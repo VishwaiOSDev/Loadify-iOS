@@ -5,7 +5,6 @@
 //  Created by Vishweshwaran on 5/7/22.
 //
 
-import UIKit
 import SwiftUI
 import FontKit
 import Haptific
