@@ -12,6 +12,7 @@ struct URLView: View {
     @StateObject var viewModel = URLViewModel()
     @State private var videoURL: String = ""
     @State private var isConvertButtonDisabled: Bool = true
+    @State private var observerWillEnterForeground: NSObjectProtocol?
     
     var body: some View {
         ZStack {
@@ -36,7 +37,10 @@ struct URLView: View {
             setupPasteboardObserver()
         })
         .navigationBarHidden(true)
-        .onDisappear(perform: viewModel.onDisappear)
+        .onDisappear(perform: {
+            deinitPasteboardObserver()
+            viewModel.onDisappear()
+        })
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
         .onChange(of: videoURL, perform: { _ in
             withAnimation {
@@ -127,7 +131,7 @@ struct URLView: View {
         Task {
             await checkPasteboard()
         }
-        NotificationCenter.default.addObserver(
+        observerWillEnterForeground = NotificationCenter.default.addObserver(
             forName: UIApplication.willEnterForegroundNotification,
             object: nil,
             queue: .main
@@ -135,6 +139,12 @@ struct URLView: View {
             Task {
                 await checkPasteboard()
             }
+        }
+    }
+    
+    private func deinitPasteboardObserver() {
+        if let observerWillEnterForeground = observerWillEnterForeground {
+            NotificationCenter.default.removeObserver(observerWillEnterForeground)
         }
     }
 }
