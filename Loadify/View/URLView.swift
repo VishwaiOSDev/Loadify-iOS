@@ -33,14 +33,7 @@ struct URLView: View {
             .padding()
         }
         .onAppear(perform: {
-            Task {
-                await checkPasteboard()
-            }
-            NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main) { _ in
-                Task {
-                    await checkPasteboard()
-                }
-            }
+            setupPasteboardObserver()
         })
         .navigationBarHidden(true)
         .onDisappear(perform: viewModel.onDisappear)
@@ -127,6 +120,21 @@ struct URLView: View {
     private func checkPasteboard() async {
         if let pasteboardString = UIPasteboard.general.string {
             videoURL = pasteboardString
+        }
+    }
+    
+    private func setupPasteboardObserver() {
+        Task {
+            await checkPasteboard()
+        }
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: .main
+        ) { _ in
+            Task {
+                await checkPasteboard()
+            }
         }
     }
 }

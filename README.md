@@ -64,3 +64,6 @@ Loadify was made by:
 <a href="https://github.com/jimjimrao" title="Jimmy Rao">
   <img src="https://avatars.githubusercontent.com/u/32654532?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
 </a>
+<a href="https://github.com/PinkeshGjr" title="Pinkesh Gajera">
+  <img src="https://avatars.githubusercontent.com/u/16368009?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
+</a>
