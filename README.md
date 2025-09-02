@@ -1,4 +1,4 @@
-![Loadify](https://images.madrasvalley.com/loadify-cover.png)
+![Loadify](https://vishwaiosdev.github.io/global-images/loadify-cover.png)
 
 # Loadify
 
@@ -25,7 +25,7 @@ Three download modes available:
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://images.madrasvalley.com/loadify-bg.png"> 
+    <img src="https://vishwaiosdev.github.io/global-images/loadify-bg.png"> 
 </div>
 
 ## Setup
