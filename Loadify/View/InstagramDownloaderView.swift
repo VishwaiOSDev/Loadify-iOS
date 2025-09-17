@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
+import LoadifyEngine
 
 struct InstagramDownloaderView: View {
     
-    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
+    @State var viewModel: DownloaderViewModel
     
-    var details: [InstagramDetails]
-    
-    init(details: [InstagramDetails]) {
-        self.details = details
+    init(viewModel: DownloaderViewModel) {
+        _viewModel = State(initialValue: viewModel)
     }
     
     var body: some View {
@@ -28,22 +27,22 @@ struct InstagramDownloaderView: View {
                         .frame(height: geometry.size.height * 0.032)
                     
                     VStack {
-                        TabView {
-                            ForEach(details.prefix(3), id: \.self) { detail in
-                                ImageView(urlString: detail.thumbnailURL) {
-                                    thumbnailModifier(image: LoadifyAssets.notFound)
-                                } image: {
-                                    thumbnailModifier(image: $0)
-                                } onLoading: {
-                                    ZStack {
-                                        ProgressView()
-                                    }.frame(minHeight: 188)
-                                }
-                                .if(details.count > 1) {
-                                    $0.padding(.horizontal, 8)
-                                }
-                            }
-                        }.tabViewStyle(.page)
+                        ImageView(urlString: viewModel.details!.video.thumbnail) {
+                            thumbnailModifier(image: LoadifyAssets.notFound)
+                        } image: {
+                            thumbnailModifier(image: $0)
+                        } onLoading: {
+                            ZStack {
+                                ProgressView()
+                            }.frame(minHeight: 188)
+                        }
+                        //                        TabView {
+                        //                            ForEach(details.prefix(3), id: \.self) { detail in
+                        //                                .if(details.count > 1) {
+                        //                                    $0.padding(.horizontal, 8)
+                        //                                }
+                        //                            }
+                        //                        }.tabViewStyle(.page)
                     }.padding(.horizontal, 26)
                     
                     DownloadBadge(downloadStatus: viewModel.downloadStatus, alignment: .center)
@@ -95,24 +94,6 @@ struct InstagramDownloaderView: View {
     }
     
     private func didTapDownload() async {
-        await details.asyncForEach { (detail, index) in
-            await viewModel.downloadVideo(url: detail.videoURL, for: .instagram, with: .high)
-        }
-    }
-}
-
-#Preview("iPad Pro") {
-    NavigationView {
-        InstagramDownloaderView(details: InstagramDetails.previews)
-            .previewDevice("iPad Pro (12.9-inch) (6th generation)")
-            .previewInterfaceOrientation(.landscapeRight)
-    }
-    .navigationViewStyle(StackNavigationViewStyle())
-    .preferredColorScheme(.dark)
-}
-
-#Preview {
-    NavigationView {
-        InstagramDownloaderView(details: InstagramDetails.previews)
+        await viewModel.downloadVideo(url: viewModel.details!.video.url, for: .instagram, with: .high)
     }
 }

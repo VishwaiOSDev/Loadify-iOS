@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import LoadifyEngine
 
 struct URLView: View {
     
-    @StateObject var viewModel = URLViewModel()
+    @State var viewModel = URLViewModel()
     @State private var videoURL: String = ""
     @State private var isConvertButtonDisabled: Bool = true
     
@@ -36,9 +37,8 @@ struct URLView: View {
             setupPasteboardObserver()
         })
         .navigationBarHidden(true)
-        .onDisappear(perform: viewModel.onDisappear)
         .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-        .onChange(of: videoURL, perform: { _ in
+        .onChange(of: videoURL, {
             withAnimation {
                 isConvertButtonDisabled = videoURL.isEmpty
             }
@@ -49,6 +49,9 @@ struct URLView: View {
             }
             return AlertUI(title: errorTitle, subtitle: errorMessage)
         })
+        .navigationDestination(isPresented: $viewModel.shouldNavigateToDownload) {
+            downloaderView
+        }
     }
     
     @ViewBuilder
@@ -65,16 +68,13 @@ struct URLView: View {
     private var textFieldView: some View {
         VStack(spacing: 12) {
             CustomTextField("Enter YouTube or Instagram URL", text: $videoURL)
-            NavigationLink(
-                destination: downloaderView,
-                isActive: $viewModel.shouldNavigateToDownload
-            ) {
-                DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
-                    Task {
-                        await didTapContinue()
-                    }
+            DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
+                Task {
+                    await didTapContinue()
                 }
-            }.disabled(isConvertButtonDisabled)
+            }
+            .disabled(isConvertButtonDisabled)
+            
         }
     }
     
@@ -89,8 +89,8 @@ struct URLView: View {
                     fatalError("Youtube details cannot be nil")
                 }
             case .instagram:
-                if let instagramDetails = details as? [InstagramDetails] {
-                    InstagramDownloaderView(details: instagramDetails)
+                if let instagramDetails = details as? LoadifyResponse {
+                    InstagramDownloaderView(viewModel: DownloaderViewModel(details: instagramDetails))
                 } else {
                     fatalError("Instagram details cannot be nil")
                 }
@@ -141,5 +141,4 @@ struct URLView: View {
 
 #Preview("iPhone 15 Pro Max") {
     URLView(viewModel: URLViewModel())
-        .previewDevice("iPhone 15 Pro Max")
 }
