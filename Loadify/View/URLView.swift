@@ -75,23 +75,13 @@ struct URLView: View {
     
     @ViewBuilder
     private var downloaderView: some View {
-        if let details = viewModel.details {
-            switch viewModel.platformType {
-            case .youtube:
-                if let youtubeDetails = details as? YouTubeDetails {
-                    YouTubeDownloaderView(details: youtubeDetails)
-                } else {
-                    fatalError("Youtube details cannot be nil")
-                }
-            case .instagram:
-                if let instagramDetails = details as? LoadifyResponse {
-                    InstagramDownloaderView(viewModel: DownloaderViewModel(details: instagramDetails))
-                } else {
-                    fatalError("Instagram details cannot be nil")
-                }
-            case .none:
-                fatalError("Platform type not available")
-            }
+        if let loadifyResponse = viewModel.details {
+            let downloaderViewModel = DownloaderViewModel(details: loadifyResponse)
+            InstagramDownloaderView(viewModel: downloaderViewModel)
+        } else {
+            // Fallback view in case navigation is triggered without details
+            Text("Please reach out to vishwa3001@gmail.com for feature request.")
+                .font(.headline)
         }
     }
     
