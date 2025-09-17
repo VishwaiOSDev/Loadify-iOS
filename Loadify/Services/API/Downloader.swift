@@ -38,23 +38,15 @@ final class Downloader: NSObject {
     }
     
     // Asynchronously downloads content from a URL for a specific platform with a given quality
-    func download(
-        _ url: String,
-        for platform: PlatformType,
-        withQuality quality: VideoQuality
-    ) throws {
+    func download(_ url: String) throws {
         let request: URLRequest
         
-        switch platform {
-        case .youtube:
-            request = try API.download(url: url, quality: quality).createRequest()
-        case .instagram:
-            guard let url = URL(string: url) else {
-                let errorMessage = "This is not a valid Instagram URL"
-                throw NetworkError.badRequest(message: errorMessage)
-            }
-            request = URLRequest(url: url)
+        guard let url = URL(string: url) else {
+            let errorMessage = "This is not a valid URL"
+            throw NetworkError.badRequest(message: errorMessage)
         }
+        
+        request = URLRequest(url: url)
         
         session?.download(for: request)
     }

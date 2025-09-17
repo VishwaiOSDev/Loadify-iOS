@@ -15,7 +15,7 @@ import LoadifyEngine
 protocol Downloadable: Loadable, DownloadableError {
     var downloadStatus: DownloadStatus { get set }
     
-    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async
+    func downloadVideo(url: String) async
 }
 
 @MainActor
@@ -37,9 +37,7 @@ protocol Downloadable: Loadable, DownloadableError {
     @ObservationIgnored private lazy var fileService: FileServiceProtocol = FileService()
     
     @ObservationIgnored nonisolated(unsafe) private var downloader: Downloader?
-    
-    private var platformType: PlatformType = .youtube
-    
+        
     init(details: LoadifyResponse? = nil) {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
         self.details = details
@@ -47,10 +45,9 @@ protocol Downloadable: Loadable, DownloadableError {
     }
     
     // Async function to download a video
-    func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async {
+    func downloadVideo(url: String) async {
         downloader?.delegate = self
         do {
-            platformType = platform
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.showLoader = true
@@ -63,7 +60,7 @@ protocol Downloadable: Loadable, DownloadableError {
             // Check for necessary permissions (in this case, Photos permission)
             try await photoService.checkForPhotosPermission()
             
-            try downloader?.download(url, for: platform, withQuality: quality)
+            try downloader?.download(url)
         } catch PhotosError.permissionDenied {
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
@@ -149,10 +146,7 @@ extension DownloaderViewModel: DownloaderDelegate {
                     self.downloadStatus = .downloaded
                 }
             }
-            
-            // TODO: - Find better way to handle haptics and download status for Instagram
-            guard platformType != .instagram else { return }
-            
+                        
             notifyWithHaptics(for: .success)
         } catch {
             DispatchQueue.main.async { [weak self] in

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LoadifyEngine
 
 @MainActor
 protocol Loadable {
@@ -26,7 +27,7 @@ protocol DownloadableError {
 
 @MainActor
 protocol Describable: DetailableError {
-    var details: Decodable? { get set }
+    var details: LoadifyResponse? { get set }
 }
 
 @MainActor

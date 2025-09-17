@@ -22,10 +22,10 @@ protocol Detailable: Navigatable {
     var errorMessage: String? = nil
     var showLoader: Bool = false
     
-    private let loadifyEngine = LoadifyEngine(isMockEnabled: true)
+    private let loadifyEngine = LoadifyEngine()
     
     var platformType: PlatformType? = nil
-    var details: Decodable? = nil
+    var details: LoadifyResponse? = nil
     
     var fetcher: DetailsFetching = DetailsFetcher()
     
