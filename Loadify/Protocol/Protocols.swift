@@ -17,6 +17,7 @@ protocol DetailableError: Loadable {
     var errorMessage: String? { get set }
 }
 
+@MainActor
 protocol DownloadableError {
     var downloadError: Error? { get set }
     var isDownloading: Bool { get set }

@@ -26,6 +26,8 @@ struct InstagramDownloaderView: View {
                     Spacer()
                         .frame(height: geometry.size.height * 0.032)
                     
+                    Spacer()
+                    
                     VStack {
                         ImageView(urlString: viewModel.details!.video.thumbnail) {
                             thumbnailModifier(image: LoadifyAssets.notFound)
@@ -36,16 +38,11 @@ struct InstagramDownloaderView: View {
                                 ProgressView()
                             }.frame(minHeight: 188)
                         }
-                        //                        TabView {
-                        //                            ForEach(details.prefix(3), id: \.self) { detail in
-                        //                                .if(details.count > 1) {
-                        //                                    $0.padding(.horizontal, 8)
-                        //                                }
-                        //                            }
-                        //                        }.tabViewStyle(.page)
                     }.padding(.horizontal, 26)
                     
                     DownloadBadge(downloadStatus: viewModel.downloadStatus, alignment: .center)
+                    
+                    Spacer()
                     
                     footerView
                         .padding(.horizontal, 26)
@@ -95,5 +92,11 @@ struct InstagramDownloaderView: View {
     
     private func didTapDownload() async {
         await viewModel.downloadVideo(url: viewModel.details!.video.url, for: .instagram, with: .high)
+    }
+}
+
+#Preview {
+    NavigationStack {
+        InstagramDownloaderView(viewModel: DownloaderViewModel(details: LoadifyResponse.mockInstagram))
     }
 }

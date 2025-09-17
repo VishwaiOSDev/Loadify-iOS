@@ -11,30 +11,33 @@ import LoggerKit
 import Haptific
 import LoadifyEngine
 
+@MainActor
 protocol Downloadable: Loadable, DownloadableError {
     var downloadStatus: DownloadStatus { get set }
     
     func downloadVideo(url: String, for platform: PlatformType, with quality: VideoQuality) async
 }
 
-final class DownloaderViewModel: Downloadable {
+@MainActor
+@Observable final class DownloaderViewModel: Downloadable {
     
     // Published properties for observing changes
-    @Published var showLoader: Bool = false
-    @Published var downloadError: Error? = nil
-    @Published var errorMessage: String? = nil
-    @Published var showSettingsAlert: Bool = false
-    @Published var isDownloading: Bool = false
-    @Published var downloadStatus: DownloadStatus = .none
-    @Published var progress: Double = .zero
+    var showLoader: Bool = false
+    var downloadError: Error? = nil
+    var errorMessage: String? = nil
+    var showSettingsAlert: Bool = false
+    var isDownloading: Bool = false
+    var downloadStatus: DownloadStatus = .none
+    var progress: Double = .zero
     
     var details: LoadifyResponse? = nil
     
     // Services for handling photos and file operations
-    private lazy var photoService: PhotosServiceProtocol = PhotosService()
-    private lazy var fileService: FileServiceProtocol = FileService()
+    @ObservationIgnored private lazy var photoService: PhotosServiceProtocol = PhotosService()
+    @ObservationIgnored private lazy var fileService: FileServiceProtocol = FileService()
     
-    private var downloader: Downloader?
+    @ObservationIgnored nonisolated(unsafe) private var downloader: Downloader?
+    
     private var platformType: PlatformType = .youtube
     
     init(details: LoadifyResponse? = nil) {
@@ -126,7 +129,7 @@ extension DownloaderViewModel: DownloaderDelegate {
                 self.showLoader = false
                 self.isDownloading = true
             }
-
+            
             self.progress = progress
         }
     }
@@ -138,7 +141,7 @@ extension DownloaderViewModel: DownloaderDelegate {
             
             // Save media to Photos album if compatible
             try saveMediaToPhotosAlbumIfCompatiable(at: filePath.path, downloadType: forType)
-                        
+            
             DispatchQueue.main.async { [weak self] in
                 guard let self else { return }
                 self.isDownloading = false
