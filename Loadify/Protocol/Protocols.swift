@@ -7,24 +7,28 @@
 
 import SwiftUI
 
-protocol Loadable: ObservableObject {
+@MainActor
+protocol Loadable {
     var showLoader: Bool { get set }
 }
 
+@MainActor
 protocol DetailableError: Loadable {
     var errorMessage: String? { get set }
 }
 
-protocol DownloadableError: ObservableObject {
+protocol DownloadableError {
     var downloadError: Error? { get set }
     var isDownloading: Bool { get set }
     var showSettingsAlert: Bool { get set }
 }
 
+@MainActor
 protocol Describable: DetailableError {
     var details: Decodable? { get set }
 }
 
+@MainActor
 protocol Navigatable: Describable {
     var shouldNavigateToDownload: Bool { get set }
 }

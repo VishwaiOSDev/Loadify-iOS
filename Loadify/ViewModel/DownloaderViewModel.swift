@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 import LoggerKit
 import Haptific
+import LoadifyEngine
 
 protocol Downloadable: Loadable, DownloadableError {
     var downloadStatus: DownloadStatus { get set }
@@ -27,6 +28,8 @@ final class DownloaderViewModel: Downloadable {
     @Published var downloadStatus: DownloadStatus = .none
     @Published var progress: Double = .zero
     
+    var details: LoadifyResponse? = nil
+    
     // Services for handling photos and file operations
     private lazy var photoService: PhotosServiceProtocol = PhotosService()
     private lazy var fileService: FileServiceProtocol = FileService()
@@ -34,8 +37,9 @@ final class DownloaderViewModel: Downloadable {
     private var downloader: Downloader?
     private var platformType: PlatformType = .youtube
     
-    init() {
+    init(details: LoadifyResponse? = nil) {
         Logger.initLifeCycle("DownloaderViewModel init", for: self)
+        self.details = details
         self.downloader = Downloader()
     }
     

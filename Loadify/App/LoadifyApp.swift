@@ -23,12 +23,13 @@ struct LoadifyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            URLView()
-                .embedInNavigation()
-                .navigationViewStyle(StackNavigationViewStyle())
-                .accentColor(LoadifyColors.blueAccent)
-                .preferredColorScheme(.dark)
-                .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)
+            NavigationStack {
+                URLView()
+                    .navigationViewStyle(StackNavigationViewStyle())
+                    .accentColor(LoadifyColors.blueAccent)
+                    .preferredColorScheme(.dark)
+                    .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct YouTubeDownloaderView: View {
     
-    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
+    @State var viewModel: DownloaderViewModel = DownloaderViewModel()
     @State private var selectedQuality: VideoQuality = .none
     
     var details: YouTubeDetails
