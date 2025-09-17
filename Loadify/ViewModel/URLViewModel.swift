@@ -24,11 +24,8 @@ protocol Detailable: Navigatable {
     
     private let loadifyEngine = LoadifyEngine()
     
-    var platformType: PlatformType? = nil
     var details: LoadifyResponse? = nil
-    
-    var fetcher: DetailsFetching = DetailsFetcher()
-    
+        
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
@@ -42,26 +39,7 @@ protocol Detailable: Navigatable {
         do {
             // Validate if the input URL is a valid URL
             try checkInputTextIsValidURL(text: url)
-            
-            // Determine the platform type based on the URL
-            //            let pattern = Loadify.RegEx.instagram
-            //            let isInstagram = url.doesMatchExist(pattern, inputText: url)
-            //            platformType = isInstagram ? .instagram : .youtube
-            //
-            // Fetch details based on the platform type
-            //            switch platformType {
-            //            case .youtube:
-            //                let response: YouTubeDetails = try await fetcher.loadDetails(for: url, to: .youtube)
-            //                self.details = response
-            //            case .instagram:
-            //                let response: [InstagramDetails] = try await fetcher.loadDetails(for: url, to: .instagram)
-            //                self.details = response
-            //            case .none:
-            //                fatalError("Platform type not available")
-            //            }
-            
-            self.platformType = .instagram
-            
+                    
             let response: LoadifyResponse = try await loadifyEngine.fetchVideoDetails(for: url)
             self.details = response
             

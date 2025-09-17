@@ -15,7 +15,7 @@ import FontInter
 struct LoadifyApp: App {
     
     /// `ReachablityManager` is for checking network connection
-    @StateObject var reachablity = ReachablityManager()
+    @State var reachablity = ReachablityManager()
     
     init() {
         FontKit.registerInter()
