@@ -56,6 +56,9 @@ struct LoadifyKit {
         static let loadifyHorizontal = Image(.loadifyHorizontal)
         static let loadifyIcon = Image(.loadifyIcon)
         static let notFound = Image(.notFound)
+        static let instagram = Image(.instagram)
+        static let tiktok = Image(.tikTok)
+        static let twitter = Image(.twitter)
     }
     
     struct ColorKit {

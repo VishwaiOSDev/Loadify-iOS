@@ -181,7 +181,7 @@ struct YouTubeDownloaderView: View {
     }
     
     private func didTapDownload(quality: VideoQuality) async {
-        await viewModel.downloadVideo(url: details.videoUrl, for: .youtube, with: quality)
+        await viewModel.downloadVideo(url: details.videoUrl)
     }
 }
 
