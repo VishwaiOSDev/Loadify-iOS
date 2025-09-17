@@ -44,7 +44,7 @@ struct CustomTextField: View {
                         Image(systemName: "doc.on.clipboard")
                             .frame(maxHeight: .infinity)
                             .padding(.horizontal, 10)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.white.opacity(0.8))
                     })
                 } else {
                     Button(action: didTapClearIcon, label: {

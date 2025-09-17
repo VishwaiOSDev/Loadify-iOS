@@ -25,11 +25,6 @@ struct URLView: View {
                 textFieldView
                     .padding(.horizontal, 16)
                 Spacer()
-                
-                AppInformationView(
-                    version: AppVersionProvider.appVersion(),
-                    buildVersion: AppVersionProvider.buildVersion()
-                )
             }
             .padding()
         }
@@ -139,6 +134,6 @@ struct URLView: View {
     }
 }
 
-#Preview("iPhone 15 Pro Max") {
+#Preview {
     URLView(viewModel: URLViewModel())
 }

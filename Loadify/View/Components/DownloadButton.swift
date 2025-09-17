@@ -116,7 +116,7 @@ fileprivate struct DownloadLabel: View {
 
 #Preview {
     DownloadButton(
-        progress: .constant(0.3),
+        progress: .constant(0.5),
         showLoader: false,
         isDisabled: false,
         downloadFailed: false
