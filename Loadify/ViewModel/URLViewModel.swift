@@ -15,7 +15,7 @@ protocol ViewLifeCycle {
     func onDisappear()
 }
 
-protocol Detailable: ViewLifeCycle {
+protocol Detailable {
     func getVideoDetails(for url: String) async
 }
 
@@ -26,7 +26,6 @@ enum LoadifyNavigationPath: Hashable {
 @MainActor
 @Observable final class URLViewModel: Detailable {
     
-    // Published properties for observing changes
     var errorMessage: String? = nil
     var showLoader: Bool = false
     
@@ -34,50 +33,44 @@ enum LoadifyNavigationPath: Hashable {
     
     private let loadifyEngine = LoadifyEngine(isMockEnabled: true)
     
-    @ObservationIgnored var details: LoadifyResponse? = nil
-    
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
     
-    // Async function to get video details for a given URL
     func getVideoDetails(for url: String) async {
         showLoader = true
         
         do {
             // Validate if the input URL is a valid URL
             try checkInputTextIsValidURL(text: url)
-            
-            Logger.debug("Fetching Video Details...")
-            
+                    
             let response: LoadifyResponse = try await loadifyEngine.fetchVideoDetails(for: url)
-            self.details = response
-            self.showLoader = false
-//            shouldNavigateToDownload = true
+            showLoader = false
             
-            path.append(LoadifyNavigationPath.downloader(details: response))
+            let downloaderPath = LoadifyNavigationPath.downloader(details: response)
+            path.append(downloaderPath)
             
             notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
             
-            self.showLoader = false
+            showLoader = false
             
-            // Map specific network errors to error messages
+            // Mapping the specific network errors to error messages
             switch error {
             case .invalidResponse(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .badRequest(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .unauthorized(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .forbidden(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .notFound(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .serverError(let message):
-                self.errorMessage = message
+                errorMessage = message
             case .unknownError(let message):
-                self.errorMessage = message
+                errorMessage = message
             }
             
             notifyWithHaptics(for: .error)
@@ -85,17 +78,12 @@ enum LoadifyNavigationPath: Hashable {
             Logger.error("Failed with error: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self else { return }
-                
                 self.showLoader = false
                 self.errorMessage = error.localizedDescription
             }
             
             notifyWithHaptics(for: .error)
         }
-    }
-    
-    func onDisappear() {
-        details = nil
     }
     
     private func checkInputTextIsValidURL(text: String) throws {
