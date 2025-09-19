@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadifyNavigationBar: ToolbarContent {
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     let screenHeight: CGFloat
     let shouldDisableBackButton: Bool
@@ -22,7 +22,7 @@ struct LoadifyNavigationBar: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigationBarLeading) {
             Button {
-                presentationMode.wrappedValue.dismiss()
+                dismiss()
             } label: {
                 Image(systemName: "chevron.backward")
                     .font(Font.body.weight(.bold))

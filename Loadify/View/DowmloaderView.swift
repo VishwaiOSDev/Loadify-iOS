@@ -1,5 +1,5 @@
 //
-//  InstagramDownloaderView.swift
+//  DowmloaderView.swift
 //  Loadify
 //
 //  Created by Vishweshwaran on 2023-11-22.
@@ -8,12 +8,12 @@
 import SwiftUI
 import LoadifyEngine
 
-struct InstagramDownloaderView: View {
+struct DowmloaderView: View {
     
     @State var viewModel: DownloaderViewModel
     
-    init(viewModel: DownloaderViewModel) {
-        _viewModel = State(initialValue: viewModel)
+    init(details: LoadifyResponse) {
+        self.viewModel = DownloaderViewModel(details: details)
     }
     
     var body: some View {
@@ -100,6 +100,6 @@ struct InstagramDownloaderView: View {
 
 #Preview {
     NavigationStack {
-        InstagramDownloaderView(viewModel: .init(details: LoadifyResponse.mockTwitter))
+        DowmloaderView(details: LoadifyResponse.mockInstagram)
     }
 }

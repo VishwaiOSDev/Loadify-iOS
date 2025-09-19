@@ -27,7 +27,7 @@ protocol DownloadableError {
 
 @MainActor
 protocol Describable: DetailableError {
-    var details: LoadifyResponse? { get set }
+    var details: LoadifyResponse? { get }
 }
 
 @MainActor
