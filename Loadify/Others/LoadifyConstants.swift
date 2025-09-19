@@ -33,7 +33,7 @@ struct Loadify {
         static let loading = "LOADING"
         static let downloadedTitle = "Downloaded Successfully"
         
-        static let loadifySubTitle = "Download YouTube Videos, Shorts, Instagram Reels, and Posts with Ease!"
+        static let loadifySubTitle = "Download Instagram Reels, Posts, Stories and TikTok Video with Ease!"
         
         static let photosAccessTitle = "Photos access is required"
         static let photosAccessSubtitle = "To enable access, go to Settings > Privacy > Photos and turn on All Photos access for this app."
