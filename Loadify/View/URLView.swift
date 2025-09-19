@@ -33,7 +33,6 @@ struct URLView: View {
                 setupPasteboardObserver()
             })
             .navigationBarHidden(true)
-            .onDisappear(perform: viewModel.onDisappear)
             .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
             .onChange(of: videoURL, {
                 withAnimation {
