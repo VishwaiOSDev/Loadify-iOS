@@ -15,7 +15,7 @@ protocol ViewLifeCycle {
     func onDisappear()
 }
 
-protocol Detailable: Navigatable, ViewLifeCycle {
+protocol Detailable: ViewLifeCycle {
     func getVideoDetails(for url: String) async
 }
 
@@ -29,7 +29,6 @@ enum LoadifyNavigationPath: Hashable {
     // Published properties for observing changes
     var errorMessage: String? = nil
     var showLoader: Bool = false
-    var shouldNavigateToDownload: Bool = false
     
     var path = NavigationPath()
     

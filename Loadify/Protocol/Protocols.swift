@@ -30,13 +30,7 @@ protocol Describable: DetailableError {
     var details: LoadifyResponse? { get }
 }
 
-@MainActor
-protocol Navigatable: Describable {
-    var shouldNavigateToDownload: Bool { get set }
-}
-
 // MARK: - Network Service
-
 protocol URLSessionProtocol {
     func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse)
     func download(for request: URLRequest)
