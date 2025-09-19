@@ -8,44 +8,55 @@
 import SwiftUI
 import LoadifyEngine
 
+enum LoadifyNavigationPath: Hashable {
+    case downloader(details: LoadifyResponse)
+}
+
 struct URLView: View {
     
     @State var viewModel = URLViewModel()
     @State private var videoURL: String = ""
-    @State private var isConvertButtonDisabled: Bool = true
+    @State private var isConvertButtonDisabled: Bool = false
+    @State private var shouldNavigateToDownload = false
     
     var body: some View {
-        ZStack {
-            LoadifyColors.appBackground
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack {
-                headerView
-                Spacer()
-                textFieldView
-                    .padding(.horizontal, 16)
-                Spacer()
+        NavigationStack(path: $viewModel.path) {
+            ZStack {
+                LoadifyColors.appBackground
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    headerView
+                    Spacer()
+                    textFieldView
+                        .padding(.horizontal, 16)
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
-        }
-        .onAppear(perform: {
-            setupPasteboardObserver()
-        })
-        .navigationBarHidden(true)
-        .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-        .onChange(of: videoURL, {
-            withAnimation {
-                isConvertButtonDisabled = videoURL.isEmpty
+            .onAppear(perform: {
+                setupPasteboardObserver()
+            })
+            .navigationBarHidden(true)
+            .onDisappear(perform: viewModel.onDisappear)
+            .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
+            .onChange(of: videoURL, {
+                withAnimation {
+                    isConvertButtonDisabled = videoURL.isEmpty
+                }
+            })
+            .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
+                guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                    return AlertUI(title: errorMessage)
+                }
+                return AlertUI(title: errorTitle, subtitle: errorMessage)
+            })
+            .navigationDestination(for: LoadifyNavigationPath.self) { path in
+                switch path {
+                case .downloader(let details):
+                    InstagramDownloaderView(details: details)
+                }
             }
-        })
-        .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
-            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
-                return AlertUI(title: errorMessage)
-            }
-            return AlertUI(title: errorTitle, subtitle: errorMessage)
-        })
-        .navigationDestination(isPresented: $viewModel.shouldNavigateToDownload) {
-            downloaderView
         }
     }
     
@@ -73,18 +84,6 @@ struct URLView: View {
         }
     }
     
-    @ViewBuilder
-    private var downloaderView: some View {
-        if let loadifyResponse = viewModel.details {
-            let downloaderViewModel = DownloaderViewModel(details: loadifyResponse)
-            InstagramDownloaderView(viewModel: downloaderViewModel)
-        } else {
-            // Fallback view in case navigation is triggered without details
-            Text("Please reach out to vishwa3001@gmail.com for feature request.")
-                .font(.headline)
-        }
-    }
-    
     private var continueButton: some View {
         Button {
             Task {
@@ -100,6 +99,8 @@ struct URLView: View {
         hideKeyboard()
         let trimmedURL = videoURL.trimmingCharacters(in: .whitespacesAndNewlines)
         await viewModel.getVideoDetails(for: trimmedURL)
+        Logger.debug("Go to DownloaderView...")
+        //        shouldNavigateToDownload = true
     }
     
     private func checkPasteboard() async {
