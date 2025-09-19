@@ -8,16 +8,11 @@
 import SwiftUI
 import LoadifyEngine
 
-enum LoadifyNavigationPath: Hashable {
-    case downloader(details: LoadifyResponse)
-}
-
 struct URLView: View {
     
     @State var viewModel = URLViewModel()
     @State private var videoURL: String = ""
     @State private var isConvertButtonDisabled: Bool = false
-    @State private var shouldNavigateToDownload = false
     
     var body: some View {
         NavigationStack(path: $viewModel.path) {
@@ -45,6 +40,11 @@ struct URLView: View {
                     isConvertButtonDisabled = videoURL.isEmpty
                 }
             })
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                Task {
+                    checkPasteboard()
+                }
+            }
             .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
                 guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
                     return AlertUI(title: errorMessage)
@@ -54,7 +54,7 @@ struct URLView: View {
             .navigationDestination(for: LoadifyNavigationPath.self) { path in
                 switch path {
                 case .downloader(let details):
-                    InstagramDownloaderView(details: details)
+                    DowmloaderView(details: details)
                 }
             }
         }
@@ -80,7 +80,6 @@ struct URLView: View {
                 }
             }
             .disabled(isConvertButtonDisabled)
-            
         }
     }
     
@@ -99,11 +98,9 @@ struct URLView: View {
         hideKeyboard()
         let trimmedURL = videoURL.trimmingCharacters(in: .whitespacesAndNewlines)
         await viewModel.getVideoDetails(for: trimmedURL)
-        Logger.debug("Go to DownloaderView...")
-        //        shouldNavigateToDownload = true
     }
     
-    private func checkPasteboard() async {
+    private func checkPasteboard() {
         if let pasteboardString = UIPasteboard.general.string {
             videoURL = pasteboardString
         }
@@ -111,16 +108,7 @@ struct URLView: View {
     
     private func setupPasteboardObserver() {
         Task {
-            await checkPasteboard()
-        }
-        NotificationCenter.default.addObserver(
-            forName: UIApplication.willEnterForegroundNotification,
-            object: nil,
-            queue: .main
-        ) { _ in
-            Task {
-                await checkPasteboard()
-            }
+            checkPasteboard()
         }
     }
 }

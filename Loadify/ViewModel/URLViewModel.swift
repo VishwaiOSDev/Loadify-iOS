@@ -5,78 +5,83 @@
 //  Created by Vishweshwaran on 18/06/22.
 //
 
-import Foundation
+import SwiftUI
 import LoggerKit
 import Haptific
 import LoadifyEngine
 
-protocol Detailable: Navigatable {
+@MainActor
+protocol ViewLifeCycle {
+    func onDisappear()
+}
+
+protocol Detailable: Navigatable, ViewLifeCycle {
     func getVideoDetails(for url: String) async
+}
+
+enum LoadifyNavigationPath: Hashable {
+    case downloader(details: LoadifyResponse)
 }
 
 @MainActor
 @Observable final class URLViewModel: Detailable {
     
     // Published properties for observing changes
-    var shouldNavigateToDownload: Bool = false
     var errorMessage: String? = nil
     var showLoader: Bool = false
+    var shouldNavigateToDownload: Bool = false
     
-    private let loadifyEngine = LoadifyEngine()
+    var path = NavigationPath()
     
-    var details: LoadifyResponse? = nil
-        
+    private let loadifyEngine = LoadifyEngine(isMockEnabled: true)
+    
+    @ObservationIgnored var details: LoadifyResponse? = nil
+    
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
     }
     
     // Async function to get video details for a given URL
     func getVideoDetails(for url: String) async {
-        DispatchQueue.main.async { [weak self] in
-            self?.showLoader = true
-        }
+        showLoader = true
         
         do {
             // Validate if the input URL is a valid URL
             try checkInputTextIsValidURL(text: url)
-                    
+            
+            Logger.debug("Fetching Video Details...")
+            
             let response: LoadifyResponse = try await loadifyEngine.fetchVideoDetails(for: url)
             self.details = response
+            self.showLoader = false
+//            shouldNavigateToDownload = true
             
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                self.showLoader = false
-                self.shouldNavigateToDownload = true
-                
-            }
+            path.append(LoadifyNavigationPath.downloader(details: response))
             
             notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-                guard let self else { return }
-                
-                self.showLoader = false
-                
-                // Map specific network errors to error messages
-                switch error {
-                case .invalidResponse(let message):
-                    self.errorMessage = message
-                case .badRequest(let message):
-                    self.errorMessage = message
-                case .unauthorized(let message):
-                    self.errorMessage = message
-                case .forbidden(let message):
-                    self.errorMessage = message
-                case .notFound(let message):
-                    self.errorMessage = message
-                case .serverError(let message):
-                    self.errorMessage = message
-                case .unknownError(let message):
-                    self.errorMessage = message
-                }
-                
-                notifyWithHaptics(for: .error)
+            
+            self.showLoader = false
+            
+            // Map specific network errors to error messages
+            switch error {
+            case .invalidResponse(let message):
+                self.errorMessage = message
+            case .badRequest(let message):
+                self.errorMessage = message
+            case .unauthorized(let message):
+                self.errorMessage = message
+            case .forbidden(let message):
+                self.errorMessage = message
+            case .notFound(let message):
+                self.errorMessage = message
+            case .serverError(let message):
+                self.errorMessage = message
+            case .unknownError(let message):
+                self.errorMessage = message
             }
+            
+            notifyWithHaptics(for: .error)
         } catch {
             Logger.error("Failed with error: ", error.localizedDescription)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
@@ -88,6 +93,10 @@ protocol Detailable: Navigatable {
             
             notifyWithHaptics(for: .error)
         }
+    }
+    
+    func onDisappear() {
+        details = nil
     }
     
     private func checkInputTextIsValidURL(text: String) throws {
