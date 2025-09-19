@@ -19,7 +19,7 @@ protocol Downloadable: Loadable, DownloadableError {
 }
 
 @MainActor
-@Observable final class DownloaderViewModel: Downloadable {
+@Observable final class DownloaderViewModel: Downloadable, ViewLifeCycle {
     
     // Published properties for observing changes
     var showLoader: Bool = false
@@ -106,6 +106,11 @@ protocol Downloadable: Loadable, DownloadableError {
             }
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         }
+    }
+    
+    func onDisappear() {
+        self.details = nil
+        self.downloader = nil
     }
     
     deinit {
