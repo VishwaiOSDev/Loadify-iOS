@@ -1,5 +1,5 @@
 //
-//  DowmloaderView.swift
+//  DownloaderView.swift
 //  Loadify
 //
 //  Created by Vishweshwaran on 2023-11-22.
@@ -8,12 +8,13 @@
 import SwiftUI
 import LoadifyEngine
 
-struct DowmloaderView: View {
+struct DownloaderView: View {
     
-    @State var viewModel: DownloaderViewModel
+    @State private var response: LoadifyResponse
+    @State var viewModel: DownloaderViewModel = DownloaderViewModel()
     
-    init(details: LoadifyResponse) {
-        self.viewModel = DownloaderViewModel(details: details)
+    init(response: LoadifyResponse) {
+        self.response = response
     }
     
     var body: some View {
@@ -30,8 +31,9 @@ struct DowmloaderView: View {
                     
                     VStack {
                         ImageView(
-                            urlString: viewModel.details!.video.thumbnail,
-                            platformType: viewModel.details!.platform
+                            urlString: response.video.thumbnail,
+                            platformType: response.platform,
+                            fileSize: response.video.size
                         ) {
                             thumbnailModifier(image: LoadifyAssets.notFound)
                         } image: {
@@ -43,8 +45,6 @@ struct DowmloaderView: View {
                         }
                     }.padding(.horizontal, 26)
                     
-                    DownloadBadge(downloadStatus: viewModel.downloadStatus, alignment: .center)
-                    
                     Spacer()
                     
                     footerView
@@ -54,8 +54,8 @@ struct DowmloaderView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                let shouldDisable = (viewModel.showLoader || viewModel.isDownloading)
-                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: shouldDisable)
+                // TODO: - Disable the button while the video file is downloading.
+                LoadifyNavigationBar(geometry.size.height, isBackButtonDisabled: false)
             }
             .permissionAlert(isPresented: $viewModel.showSettingsAlert)
             .showAlert(item: $viewModel.downloadError) {
@@ -78,6 +78,28 @@ struct DowmloaderView: View {
     
     private var footerView: some View {
         VStack(spacing: 16) {
+            if response.platform != .twitter {
+                downloadButton(for: viewModel.downloadStatus)
+            } else {
+                Button(action: {}) {
+                    HStack(alignment: .center) {
+                        Image(systemName: "hammer")
+                            .font(.system(size: 16))
+                        Text("Twitter work in progress...")
+                    }
+                }
+                .buttonStyle(CustomButtonStyle(buttonColor: LoadifyColors.errorRed))
+                .disabled(true)
+            }
+            
+            MadeWithSwiftLabel()
+        }
+    }
+    
+    @ViewBuilder
+    private func downloadButton(for status: DownloadStatus) -> some View {
+        switch status {
+        case .none, .failed:
             DownloadButton(
                 viewModel.errorMessage ?? "Download",
                 progress: $viewModel.progress,
@@ -88,18 +110,20 @@ struct DowmloaderView: View {
                     await didTapDownload()
                 }
             }
-            
-            MadeWithSwiftLabel()
+        case .downloaded:
+            Button("Downloaded", systemImage: "checkmark") { }
+                .buttonStyle(CustomButtonStyle(buttonColor: LoadifyColors.successGreen))
+                .disabled(true)
         }
     }
     
     private func didTapDownload() async {
-        await viewModel.downloadVideo(url: viewModel.details!.video.url)
+        await viewModel.downloadVideo(url: response.video.url)
     }
 }
 
 #Preview {
     NavigationStack {
-        DowmloaderView(details: LoadifyResponse.mockInstagram)
+        DownloaderView(response: LoadifyResponse.mockTwitter)
     }
 }

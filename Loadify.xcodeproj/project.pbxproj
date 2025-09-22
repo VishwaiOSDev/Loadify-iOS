@@ -39,8 +39,8 @@
 		884BDB032AB14CF500A4828B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAFF2AB14CF500A4828B /* Loader.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
+		887C07BA2E7B3555002A200A /* PlatformBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C07B92E7B3555002A200A /* PlatformBadgeView.swift */; };
 		888236452B58B4E2003B787F /* instagram_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 888236442B58B4E2003B787F /* instagram_response.json */; };
-		888945022B17F47300814D8D /* DetailsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945012B17F47300814D8D /* DetailsFetcher.swift */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
@@ -52,7 +52,7 @@
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
 		88B1CFAC2826C2D7007B19B4 /* YouTubeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */; };
 		88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88B3FD6A299A95F400112490 /* LoggerKit */; };
-		88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */; };
+		88D904522B0EE00400566CA3 /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D904512B0EE00400566CA3 /* DownloaderView.swift */; };
 		88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E528C39EED00D6EB79 /* FontInter */; };
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
 		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
@@ -114,8 +114,8 @@
 		884BDAFF2AB14CF500A4828B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
+		887C07B92E7B3555002A200A /* PlatformBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformBadgeView.swift; sourceTree = "<group>"; };
 		888236442B58B4E2003B787F /* instagram_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instagram_response.json; sourceTree = "<group>"; };
-		888945012B17F47300814D8D /* DetailsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcher.swift; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +128,7 @@
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDetails.swift; sourceTree = "<group>"; };
 		88B9E1FC292A18E700232C0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDownloaderView.swift; sourceTree = "<group>"; };
+		88D904512B0EE00400566CA3 /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
 		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		88DB2C372856F7820065BBF9 /* youtube_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = youtube_response.json; sourceTree = "<group>"; };
@@ -220,6 +220,7 @@
 				884BDAE32AB14AF100A4828B /* MenuButton.swift */,
 				884BDAE02AB14A9F00A4828B /* CustomTextField.swift */,
 				884BDAF72AB14CC300A4828B /* Blur.swift */,
+				887C07B92E7B3555002A200A /* PlatformBadgeView.swift */,
 				884BDAF52AB14C7500A4828B /* ImageView.swift */,
 				88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */,
 				884BDAF12AB14C3700A4828B /* NetworkAlert.swift */,
@@ -254,7 +255,6 @@
 		888945002B17F46000814D8D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				888945012B17F47300814D8D /* DetailsFetcher.swift */,
 				888945032B17F4A800814D8D /* Downloader.swift */,
 			);
 			path = API;
@@ -318,7 +318,7 @@
 				884BDADF2AB14A6700A4828B /* Components */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
 				882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */,
-				88D904512B0EE00400566CA3 /* InstagramDownloaderView.swift */,
+				88D904512B0EE00400566CA3 /* DownloaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +551,7 @@
 				884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */,
 				884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */,
 				884BDAF42AB14C6D00A4828B /* ImageLoaderService.swift in Sources */,
+				887C07BA2E7B3555002A200A /* PlatformBadgeView.swift in Sources */,
 				88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */,
 				88379936283A19F400DDBA79 /* Int+Extension.swift in Sources */,
 				88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */,
@@ -571,7 +572,7 @@
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
 				88FF814B2B11CF4B008E6CB1 /* Sequence+Extension.swift in Sources */,
 				88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */,
-				88D904522B0EE00400566CA3 /* InstagramDownloaderView.swift in Sources */,
+				88D904522B0EE00400566CA3 /* DownloaderView.swift in Sources */,
 				88379938283A1A0F00DDBA79 /* String+Extension.swift in Sources */,
 				88007D502AC3B146007A5004 /* URLSession+Extension.swift in Sources */,
 				884BDAFC2AB14CD400A4828B /* LoaderBackground.swift in Sources */,
@@ -589,7 +590,6 @@
 				884BDAEE2AB14B8200A4828B /* UIDevice+Extension.swift in Sources */,
 				88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */,
 				884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */,
-				888945022B17F47300814D8D /* DetailsFetcher.swift in Sources */,
 				889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,7 +702,6 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -760,7 +759,6 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

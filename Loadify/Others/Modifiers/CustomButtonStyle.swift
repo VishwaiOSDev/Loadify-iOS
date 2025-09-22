@@ -20,7 +20,7 @@ struct CustomButtonStyle: ButtonStyle {
         buttonColor: Color = LoadifyColors.blueAccent,
         cornerRadius: CGFloat = 10,
         isDisabled: Bool = false,
-        downloadFailed: Bool
+        downloadFailed: Bool = false
     ) {
         self.progress = progress
         self.buttonColor = buttonColor
@@ -44,8 +44,9 @@ struct CustomButtonStyle: ButtonStyle {
             .background(isDisabled ? buttonColor.opacity(0.5) : buttonColor)
             .cornerRadius(cornerRadius)
             .scaleEffect(configuration.isPressed ? 0.98 : 1.0)
-            .onChange(of: progress?.wrappedValue) {
-                if $0 == 1.0 {
+            .onChange(of: progress?.wrappedValue) { oldValue, newValue in
+                guard let newValue else { return }
+                if newValue == 1.0 {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         self.progress?.wrappedValue = .zero
                     }
@@ -94,3 +95,4 @@ struct CustomButtonStyle_Previews: PreviewProvider {
         )
     }
 }
+

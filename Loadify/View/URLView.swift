@@ -52,8 +52,8 @@ struct URLView: View {
             })
             .navigationDestination(for: LoadifyNavigationPath.self) { path in
                 switch path {
-                case .downloader(let details):
-                    DowmloaderView(details: details)
+                case .downloader(let response):
+                    DownloaderView(response: response)
                 }
             }
         }

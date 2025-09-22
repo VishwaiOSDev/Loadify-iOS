@@ -20,7 +20,7 @@ protocol Detailable {
 }
 
 enum LoadifyNavigationPath: Hashable {
-    case downloader(details: LoadifyResponse)
+    case downloader(response: LoadifyResponse)
 }
 
 @MainActor
@@ -31,7 +31,7 @@ enum LoadifyNavigationPath: Hashable {
     
     var path = NavigationPath()
     
-    private let loadifyEngine = LoadifyEngine(isMockEnabled: true)
+    private let loadifyEngine = LoadifyEngine()
     
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
@@ -47,7 +47,7 @@ enum LoadifyNavigationPath: Hashable {
             let response: LoadifyResponse = try await loadifyEngine.fetchVideoDetails(for: url)
             showLoader = false
             
-            let downloaderPath = LoadifyNavigationPath.downloader(details: response)
+            let downloaderPath = LoadifyNavigationPath.downloader(response: response)
             path.append(downloaderPath)
             
             notifyWithHaptics(for: .success)

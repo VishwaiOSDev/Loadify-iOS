@@ -8,12 +8,21 @@
 import SwiftUI
 import LoadifyEngine
 
+extension Double {
+    
+    var clean: String {
+        return String(format: "%.1f", self)
+    }
+}
+
 struct PlatformBadgeView: View {
     
     let platformType: Platform
+    let fileSize: Double?
     
-    init(platformType: Platform) {
+    init(platformType: Platform, fileSize: Double? = nil) {
         self.platformType = platformType
+        self.fileSize = fileSize
     }
     
     var body: some View {
@@ -21,10 +30,16 @@ struct PlatformBadgeView: View {
             platformLogo()
                 .resizable()
                 .frame(width: 30, height: 30)
-            Text(platformType.rawValue)
-                .bold()
-                .font(.system(size: 12))
-                .foregroundStyle(.white)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(platformType.rawValue)
+                    .font(.inter(.bold(size: 12)))
+                    .foregroundStyle(.white)
+                if let fileSize {
+                    Text("\(fileSize.clean) MB")
+                        .font(.inter(.medium(size: 9)))
+                        .foregroundStyle(.gray)
+                }
+            }
         }
         .padding(.all, 4)
         .padding(.trailing, 8)
@@ -45,7 +60,7 @@ struct PlatformBadgeView: View {
 }
 
 #Preview {
-    PlatformBadgeView(platformType: .instagram)
+    PlatformBadgeView(platformType: .instagram, fileSize: 78.28586673736572)
     PlatformBadgeView(platformType: .twitter)
     PlatformBadgeView(platformType: .tiktok)
 }

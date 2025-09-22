@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import LoadifyEngine
 
+@available(*, deprecated, message: "YouTubeDownloaderView is depreciation. Please use DownloaderView instead.")
 struct YouTubeDownloaderView: View {
     
     @State var viewModel: DownloaderViewModel = DownloaderViewModel()
@@ -188,8 +190,6 @@ struct YouTubeDownloaderView: View {
 #Preview("iPad Pro") {
     NavigationView {
         YouTubeDownloaderView(details: .previews)
-            .previewDevice("iPad Pro (12.9-inch) (6th generation)")
-            .previewInterfaceOrientation(.landscapeRight)
     }
     .preferredColorScheme(.dark)
     .navigationViewStyle(StackNavigationViewStyle())
