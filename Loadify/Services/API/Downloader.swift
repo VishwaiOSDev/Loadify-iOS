@@ -61,7 +61,6 @@ final class Downloader: NSObject {
 }
 
 // MARK: - URLSessionDownloadDelegate methods
-
 extension Downloader: URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {

@@ -25,11 +25,6 @@ protocol DownloadableError {
     var showSettingsAlert: Bool { get set }
 }
 
-@MainActor
-protocol Describable: DetailableError {
-    var details: LoadifyResponse? { get }
-}
-
 // MARK: - Network Service
 protocol URLSessionProtocol {
     func fetch(for request: URLRequest) async throws -> (Data, HTTPURLResponse)

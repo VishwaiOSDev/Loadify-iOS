@@ -14,6 +14,7 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
     @State private var uiImage: UIImage?
     
     private let platformType: Platform?
+    private let fileSize: Double?
     private let placeholder: () -> Placeholder
     private let image: (Image) -> ConfiguredImage
     private let onLoading: () -> Loading
@@ -21,12 +22,14 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
     init(
         urlString: String,
         platformType: Platform? = nil,
+        fileSize: Double? = nil,
         @ViewBuilder placeholder: @escaping () -> Placeholder,
         @ViewBuilder image: @escaping (Image) -> ConfiguredImage,
         @ViewBuilder onLoading: @escaping () -> Loading
     ) {
         self.placeholder = placeholder
         self.platformType = platformType
+        self.fileSize = fileSize
         self.image = image
         self.onLoading = onLoading
         self._imageLoader = StateObject(wrappedValue: ImageLoaderService(urlString: urlString))
@@ -52,7 +55,7 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
         }
         .overlay(alignment: .topTrailing) {
             if let platformType {
-                PlatformBadgeView(platformType: platformType)
+                PlatformBadgeView(platformType: platformType, fileSize: fileSize)
             }
         }
     }
