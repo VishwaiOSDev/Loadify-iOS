@@ -106,7 +106,6 @@ extension DownloaderViewModel: DownloaderDelegate {
             showLoader = false
             isDownloading = true
         }
-        Logger.debug("Downloading... \(progress)")
         self.progress = progress
     }
     
