@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		88007D502AC3B146007A5004 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */; };
 		88083D742855D9D00027BA0D /* VideoDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoDetailsTest.swift */; };
 		880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */; };
-		881B4F992E763C5800E59FB0 /* LoadifyEngine in Frameworks */ = {isa = PBXBuildFile; productRef = 881B4F982E763C5800E59FB0 /* LoadifyEngine */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
 		882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
@@ -81,6 +80,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		887952112E82155D00999A7F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		88007D4F2AC3B146007A5004 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		88083D6A2855D95A0027BA0D /* LoadifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoadifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +156,36 @@
 		88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		887952182E82189D00999A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LoadifyEngine.xcframework,
+			);
+			target = 88083D692855D95A0027BA0D /* LoadifyTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		8879521B2E8218A700999A7F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			attributesByRelativePath = {
+				LoadifyEngine.xcframework = (
+					CodeSignOnCopy,
+					RemoveHeadersOnCopy,
+				);
+			};
+			buildPhase = 887952112E82155D00999A7F /* Embed Frameworks */;
+			membershipExceptions = (
+				LoadifyEngine.xcframework,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		887952142E82187F00999A7F /* Framework */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8879521B2E8218A700999A7F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, 887952182E82189D00999A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Framework; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		88083D672855D95A0027BA0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -156,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				881B4F992E763C5800E59FB0 /* LoadifyEngine in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -290,6 +331,7 @@
 				88B1CFAD2826C41D007B19B4 /* Services */,
 				88EBFF2D284DC2EA007EFF97 /* Protocol */,
 				88F341822836547C00493544 /* Others */,
+				887952142E82187F00999A7F /* Framework */,
 				88A729B328264AD400B5FE61 /* Preview Content */,
 			);
 			path = Loadify;
@@ -445,10 +487,14 @@
 				88A729A628264AD100B5FE61 /* Sources */,
 				88A729A728264AD100B5FE61 /* Frameworks */,
 				88A729A828264AD100B5FE61 /* Resources */,
+				887952112E82155D00999A7F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				887952142E82187F00999A7F /* Framework */,
 			);
 			name = Loadify;
 			packageProductDependencies = (
@@ -456,7 +502,6 @@
 				88D9D1E728C39EED00D6EB79 /* FontKit */,
 				88B3FD6A299A95F400112490 /* LoggerKit */,
 				88EB388C2A835C5F0021A78C /* Haptific */,
-				881B4F982E763C5800E59FB0 /* LoadifyEngine */,
 			);
 			productName = Loadify;
 			productReference = 88A729AA28264AD100B5FE61 /* Loadify.app */;
@@ -482,7 +527,6 @@
 				};
 			};
 			buildConfigurationList = 88A729A528264AD100B5FE61 /* Build configuration list for PBXProject "Loadify" */;
-			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -495,6 +539,7 @@
 				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
 				88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */,
 			);
+			preferredProjectObjectVersion = 55;
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -897,10 +942,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		881B4F982E763C5800E59FB0 /* LoadifyEngine */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LoadifyEngine;
-		};
 		88B3FD6A299A95F400112490 /* LoggerKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */;
