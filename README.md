@@ -27,7 +27,7 @@ Loadify is an iOS and iPad app designed for downloading high-quality content fro
 
 Follow the steps below to setup Loadify on your machine:
 
-- Download and install [**Xcode 15**](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
+- Download and install [**Xcode 26**](https://apps.apple.com/in/app/xcode/id497799835?mt=12)
 - Clone [**Loadify-iOS**](https://github.com/VishwaiOSDev/Loadify-iOS) from GitHub
 - Open `Loadify.xcodeproj` file
 - Run the app after packages have been fetched
@@ -49,11 +49,6 @@ If you see errors related to **LoadifyEngine**:
 
 > ℹ️ Xcode will re-sign the app and the embedded framework automatically with your Apple ID.  
 > No manual setup is needed beyond selecting your team once.
-
-## Platform Availability
-
-- iOS
-- iPadOS
 
 ## Packages Dependency
 
