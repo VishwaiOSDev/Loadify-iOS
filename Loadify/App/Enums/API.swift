@@ -10,7 +10,7 @@ import Foundation
 @available(*, deprecated, message: "PlatformType is now deprecated. Use Platform from the LoadifyEngine instead.")
 enum PlatformType: String {
     case youtube = "yt"
-    case instagram = "ig"
+    case instagram = "ig" 
 }
 
 enum API {
