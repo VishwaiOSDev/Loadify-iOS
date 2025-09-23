@@ -54,10 +54,8 @@
 		88D904522B0EE00400566CA3 /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D904512B0EE00400566CA3 /* DownloaderView.swift */; };
 		88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E528C39EED00D6EB79 /* FontInter */; };
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
-		88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C332856F2820065BBF9 /* MockApiService.swift */; };
 		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
 		88DB2C382856F7820065BBF9 /* youtube_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* youtube_response.json */; };
-		88DB2C3B2856FDA60065BBF9 /* DetailsFetcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */; };
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
 		88EBFF2F284DC33A007EFF97 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBFF2E284DC33A007EFF97 /* Protocols.swift */; };
 		88F341842836549000493544 /* LoadifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F341832836549000493544 /* LoadifyConstants.swift */; };
@@ -141,10 +139,8 @@
 		88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDetails.swift; sourceTree = "<group>"; };
 		88B9E1FC292A18E700232C0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		88D904512B0EE00400566CA3 /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
-		88DB2C332856F2820065BBF9 /* MockApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiService.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		88DB2C372856F7820065BBF9 /* youtube_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = youtube_response.json; sourceTree = "<group>"; };
-		88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFetcherTest.swift; sourceTree = "<group>"; };
 		88EBFF2E284DC33A007EFF97 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		88F341832836549000493544 /* LoadifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyConstants.swift; sourceTree = "<group>"; };
 		88F609522B101BA1001EC3C4 /* LoadifyNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyNavigationBar.swift; sourceTree = "<group>"; };
@@ -211,7 +207,6 @@
 		88083D6B2855D95A0027BA0D /* LoadifyTests */ = {
 			isa = PBXGroup;
 			children = (
-				88DB2C3A2856FDA60065BBF9 /* DetailsFetcherTest.swift */,
 				88083D732855D9D00027BA0D /* VideoDetailsTest.swift */,
 				88DB2C392856FD7C0065BBF9 /* Mock */,
 			);
@@ -418,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				88BB76F92B58B46200F16B72 /* JSON */,
-				88DB2C332856F2820065BBF9 /* MockApiService.swift */,
 				88DB2C352856F2BB0065BBF9 /* Mockable.swift */,
 			);
 			path = Mock;
@@ -577,9 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88DB2C342856F2820065BBF9 /* MockApiService.swift in Sources */,
 				88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */,
-				88DB2C3B2856FDA60065BBF9 /* DetailsFetcherTest.swift in Sources */,
 				88083D742855D9D00027BA0D /* VideoDetailsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,10 +649,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = loadify.LoadifyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -675,10 +670,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = loadify.LoadifyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
