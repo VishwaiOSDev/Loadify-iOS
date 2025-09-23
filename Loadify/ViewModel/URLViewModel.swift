@@ -52,7 +52,6 @@ enum LoadifyNavigationPath: Hashable {
             
             notifyWithHaptics(for: .success)
         } catch let error as NetworkError {
-            
             showLoader = false
             
             // Mapping the specific network errors to error messages
