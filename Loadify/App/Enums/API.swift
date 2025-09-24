@@ -13,6 +13,7 @@ enum PlatformType: String {
     case instagram = "ig" 
 }
 
+@available(*, deprecated, message: "API is deprecated. Use LoadifyClient from the LoadifyEngine instead")
 enum API {
     case details(forPlatform: PlatformType, url: String)
     case download(url: String, quality: VideoQuality)

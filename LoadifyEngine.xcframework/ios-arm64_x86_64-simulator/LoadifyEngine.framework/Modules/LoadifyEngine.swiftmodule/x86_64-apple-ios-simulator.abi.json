@@ -1,0 +1,2048 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "LoadifyEngine",
+    "printedName": "LoadifyEngine",
+    "children": [
+      {
+        "kind": "TypeDecl",
+        "name": "LoadifyResponse",
+        "printedName": "LoadifyResponse",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "platform",
+            "printedName": "platform",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Platform",
+                "printedName": "LoadifyEngine.Platform",
+                "usr": "s:13LoadifyEngine8PlatformO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV8platformAA8PlatformOvp",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV8platformAA8PlatformOvp",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV8platformAA8PlatformOvg",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV8platformAA8PlatformOvg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "user",
+            "printedName": "user",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "LoadifyEngine.LoadifyResponse.UserDetails?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UserDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.UserDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV4userAC11UserDetailsVSgvp",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV4userAC11UserDetailsVSgvp",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "LoadifyEngine.LoadifyResponse.UserDetails?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UserDetails",
+                        "printedName": "LoadifyEngine.LoadifyResponse.UserDetails",
+                        "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV4userAC11UserDetailsVSgvg",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV4userAC11UserDetailsVSgvg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "video",
+            "printedName": "video",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "VideoDetails",
+                "printedName": "LoadifyEngine.LoadifyResponse.VideoDetails",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV5videoAC12VideoDetailsVvp",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV5videoAC12VideoDetailsVvp",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VideoDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.VideoDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV5videoAC12VideoDetailsVvg",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV5videoAC12VideoDetailsVvg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "VideoDetails",
+            "printedName": "VideoDetails",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "url",
+                "printedName": "url",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV3urlSSvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV3urlSSvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV3urlSSvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV3urlSSvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "size",
+                "printedName": "size",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Double?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Double",
+                        "printedName": "Swift.Double",
+                        "usr": "s:Sd"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV4sizeSdSgvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV4sizeSdSgvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.Double?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Double",
+                            "printedName": "Swift.Double",
+                            "usr": "s:Sd"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV4sizeSdSgvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV4sizeSdSgvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "thumbnail",
+                "printedName": "thumbnail",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9hashValueSivp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9hashValueSivp",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9hashValueSivg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9hashValueSivg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV4hash4intoys6HasherVz_tF",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV4hash4intoys6HasherVz_tF",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VideoDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.VideoDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "VideoDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.VideoDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV2eeoiySbAE_AEtFZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV2eeoiySbAE_AEtFZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "UserDetails",
+            "printedName": "UserDetails",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "name",
+                "printedName": "name",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV4nameSSSgvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV4nameSSSgvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV4nameSSSgvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV4nameSSSgvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "profileImage",
+                "printedName": "profileImage",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV12profileImageSSSgvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV12profileImageSSSgvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV12profileImageSSSgvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV12profileImageSSSgvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "profileImageSmall",
+                "printedName": "profileImageSmall",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV17profileImageSmallSSSgvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV17profileImageSmallSSSgvp",
+                "moduleName": "LoadifyEngine",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV17profileImageSmallSSSgvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV17profileImageSmallSSSgvg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV9hashValueSivp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV9hashValueSivp",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV9hashValueSivg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV9hashValueSivg",
+                    "moduleName": "LoadifyEngine",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV4hash4intoys6HasherVz_tF",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV4hash4intoys6HasherVz_tF",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UserDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.UserDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UserDetails",
+                    "printedName": "LoadifyEngine.LoadifyResponse.UserDetails",
+                    "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV2eeoiySbAE_AEtFZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV2eeoiySbAE_AEtFZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:13LoadifyEngine0A8ResponseV11UserDetailsV",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV11UserDetailsV",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV9hashValueSivp",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV9hashValueSivp",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV9hashValueSivg",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV9hashValueSivg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13LoadifyEngine0A8ResponseV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV4hash4intoys6HasherVz_tF",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13LoadifyEngine0A8ResponseV2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV2eeoiySbAC_ACtFZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "mockTikTok",
+            "printedName": "mockTikTok",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV10mockTikTokACvpZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV10mockTikTokACvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadifyResponse",
+                    "printedName": "LoadifyEngine.LoadifyResponse",
+                    "usr": "s:13LoadifyEngine0A8ResponseV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV10mockTikTokACvgZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV10mockTikTokACvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "mockInstagram",
+            "printedName": "mockInstagram",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV13mockInstagramACvpZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV13mockInstagramACvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadifyResponse",
+                    "printedName": "LoadifyEngine.LoadifyResponse",
+                    "usr": "s:13LoadifyEngine0A8ResponseV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV13mockInstagramACvgZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV13mockInstagramACvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "mockTwitter",
+            "printedName": "mockTwitter",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV11mockTwitterACvpZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV11mockTwitterACvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadifyResponse",
+                    "printedName": "LoadifyEngine.LoadifyResponse",
+                    "usr": "s:13LoadifyEngine0A8ResponseV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV11mockTwitterACvgZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV11mockTwitterACvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13LoadifyEngine0A8ResponseV",
+        "mangledName": "$s13LoadifyEngine0A8ResponseV",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TiTokError",
+        "printedName": "TiTokError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "invalidTikTokURL",
+            "printedName": "invalidTikTokURL",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.TiTokError.Type) -> LoadifyEngine.TiTokError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TiTokError",
+                    "printedName": "LoadifyEngine.TiTokError",
+                    "usr": "s:13LoadifyEngine10TiTokErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.TiTokError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TiTokError",
+                        "printedName": "LoadifyEngine.TiTokError",
+                        "usr": "s:13LoadifyEngine10TiTokErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine10TiTokErrorO010invalidTikD3URLyA2CmF",
+            "mangledName": "$s13LoadifyEngine10TiTokErrorO010invalidTikD3URLyA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine10TiTokErrorO16errorDescriptionSSSgvp",
+            "mangledName": "$s13LoadifyEngine10TiTokErrorO16errorDescriptionSSSgvp",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine10TiTokErrorO16errorDescriptionSSSgvg",
+                "mangledName": "$s13LoadifyEngine10TiTokErrorO16errorDescriptionSSSgvg",
+                "moduleName": "LoadifyEngine",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TiTokError",
+                "printedName": "LoadifyEngine.TiTokError",
+                "usr": "s:13LoadifyEngine10TiTokErrorO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TiTokError",
+                "printedName": "LoadifyEngine.TiTokError",
+                "usr": "s:13LoadifyEngine10TiTokErrorO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13LoadifyEngine10TiTokErrorO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s13LoadifyEngine10TiTokErrorO2eeoiySbAC_ACtFZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine10TiTokErrorO9hashValueSivp",
+            "mangledName": "$s13LoadifyEngine10TiTokErrorO9hashValueSivp",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine10TiTokErrorO9hashValueSivg",
+                "mangledName": "$s13LoadifyEngine10TiTokErrorO9hashValueSivg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13LoadifyEngine10TiTokErrorO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s13LoadifyEngine10TiTokErrorO4hash4intoys6HasherVz_tF",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13LoadifyEngine10TiTokErrorO",
+        "mangledName": "$s13LoadifyEngine10TiTokErrorO",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Platform",
+        "printedName": "Platform",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "instagram",
+            "printedName": "instagram",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.Platform.Type) -> LoadifyEngine.Platform",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.Platform.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine8PlatformO9instagramyA2CmF",
+            "mangledName": "$s13LoadifyEngine8PlatformO9instagramyA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "tiktok",
+            "printedName": "tiktok",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.Platform.Type) -> LoadifyEngine.Platform",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.Platform.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine8PlatformO6tiktokyA2CmF",
+            "mangledName": "$s13LoadifyEngine8PlatformO6tiktokyA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "twitter",
+            "printedName": "twitter",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.Platform.Type) -> LoadifyEngine.Platform",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.Platform.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine8PlatformO7twitteryA2CmF",
+            "mangledName": "$s13LoadifyEngine8PlatformO7twitteryA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[LoadifyEngine.Platform]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine8PlatformO8allCasesSayACGvpZ",
+            "mangledName": "$s13LoadifyEngine8PlatformO8allCasesSayACGvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LoadifyEngine.Platform]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine8PlatformO8allCasesSayACGvgZ",
+                "mangledName": "$s13LoadifyEngine8PlatformO8allCasesSayACGvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "LoadifyEngine.Platform?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13LoadifyEngine8PlatformO8rawValueACSgSS_tcfc",
+            "mangledName": "$s13LoadifyEngine8PlatformO8rawValueACSgSS_tcfc",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine8PlatformO8rawValueSSvp",
+            "mangledName": "$s13LoadifyEngine8PlatformO8rawValueSSvp",
+            "moduleName": "LoadifyEngine",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine8PlatformO8rawValueSSvg",
+                "mangledName": "$s13LoadifyEngine8PlatformO8rawValueSSvg",
+                "moduleName": "LoadifyEngine",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:13LoadifyEngine8PlatformO",
+        "mangledName": "$s13LoadifyEngine8PlatformO",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LoadifyEngine.Platform]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UserAgents",
+        "printedName": "UserAgents",
+        "declKind": "Struct",
+        "usr": "s:13LoadifyEngine10UserAgentsV",
+        "mangledName": "$s13LoadifyEngine10UserAgentsV",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LoadifyClient",
+        "printedName": "LoadifyClient",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(isMockEnabled:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyClient",
+                "printedName": "LoadifyEngine.LoadifyClient",
+                "usr": "s:13LoadifyEngine0A6ClientV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:13LoadifyEngine0A6ClientV13isMockEnabledACSb_tcfc",
+            "mangledName": "$s13LoadifyEngine0A6ClientV13isMockEnabledACSb_tcfc",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "fetchVideoDetails",
+            "printedName": "fetchVideoDetails(for:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:13LoadifyEngine0A6ClientV17fetchVideoDetails3forAA0A8ResponseVSS_tYaKF",
+            "mangledName": "$s13LoadifyEngine0A6ClientV17fetchVideoDetails3forAA0A8ResponseVSS_tYaKF",
+            "moduleName": "LoadifyEngine",
+            "declAttributes": [
+              "Nonisolated",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:13LoadifyEngine0A6ClientV",
+        "mangledName": "$s13LoadifyEngine0A6ClientV",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Model\/TikTokResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 20,
+      "value": "\"video_no_watermark\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Model\/TikTokResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 493,
+      "length": 9,
+      "value": "\"size_mb\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Model\/TikTokResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 709,
+      "length": 13,
+      "value": "\"image_small\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
+      "kind": "StringLiteral",
+      "offset": 194,
+      "length": 11,
+      "value": "\"Instagram\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
+      "kind": "StringLiteral",
+      "offset": 224,
+      "length": 8,
+      "value": "\"TikTok\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
+      "kind": "StringLiteral",
+      "offset": 252,
+      "length": 9,
+      "value": "\"Twitter\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/TikTokURLParser.swift",
+      "kind": "StringLiteral",
+      "offset": 412,
+      "length": 34,
+      "value": "\"tiktok\\.com\/@[^\/]+\/video\/(\\d+)\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/TikTokURLParser.swift",
+      "kind": "StringLiteral",
+      "offset": 552,
+      "length": 41,
+      "value": "\"(?:vm|vt)\\.tiktok\\.com\/([A-Za-z0-9]+)\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/TikTokURLParser.swift",
+      "kind": "StringLiteral",
+      "offset": 687,
+      "length": 26,
+      "value": "\"m\\.tiktok\\.com\/v\/(\\d+)\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/UserAgents.swift",
+      "kind": "Array",
+      "offset": 220,
+      "length": 1264,
+      "value": "[\"Mozilla\/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/17.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/16.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPhone; CPU iPhone OS 15_7 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/15.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.6367.118 Mobile Safari\/537.36\", \"Mozilla\/5.0 (Linux; Android 13; SM-S918B) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/120.0.6099.144 Mobile Safari\/537.36\", \"Mozilla\/5.0 (Linux; Android 12; Mi 11) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/114.0.5735.196 Mobile Safari\/537.36\", \"Mozilla\/5.0 (Linux; Android 10; SM-G975F) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/89.0.4389.105 Mobile Safari\/537.36\", \"Mozilla\/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/14.0 Mobile\/15E148 Safari\/604.1\"]"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/UserAgents.swift",
+      "kind": "Array",
+      "offset": 1543,
+      "length": 1422,
+      "value": "[\"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.6367.118 Safari\/537.36\", \"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/120.0.6099.224 Safari\/537.36 Edg\/120.0.2210.121\", \"Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko\/20100101 Firefox\/123.0\", \"Mozilla\/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/17.0 Safari\/605.1.15\", \"Mozilla\/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.6367.118 Safari\/537.36\", \"Mozilla\/5.0 (Macintosh; Intel Mac OS X 13.6; rv:123.0) Gecko\/20100101 Firefox\/123.0\", \"Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/124.0.6367.118 Safari\/537.36\", \"Mozilla\/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko\/20100101 Firefox\/123.0\", \"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/91.0.4472.124 Safari\/537.36\", \"Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/130.0.0.0 Safari\/537.36\", \"Mozilla\/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko\/20100101 Firefox\/89.0\"]"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/UserAgents.swift",
+      "kind": "Array",
+      "offset": 3021,
+      "length": 776,
+      "value": "[\"Mozilla\/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/17.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/16.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 15_0 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148\", \"Mozilla\/5.0 (iPad; CPU OS 14_5_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/14.0 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 13_6_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/13.1.2 Mobile\/15E148 Safari\/604.1\"]"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/InstagramDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 346,
+      "length": 11,
+      "value": "\"instagram\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/InstagramDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 374,
+      "length": 7,
+      "value": "\"video\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1355,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1363,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1413,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1421,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1471,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1479,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1776,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2306,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "Array",
+      "offset": 5500,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/TwitterDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 3,
+      "value": "\"X\""
+    }
+  ]
+}

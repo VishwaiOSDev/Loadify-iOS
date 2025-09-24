@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 73;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,8 @@
 		884BDB032AB14CF500A4828B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAFF2AB14CF500A4828B /* Loader.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
+		88546D9A2E839921002EF004 /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */; };
+		88546D9B2E839921002EF004 /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		887C07BA2E7B3555002A200A /* PlatformBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C07B92E7B3555002A200A /* PlatformBadgeView.swift */; };
 		888236452B58B4E2003B787F /* instagram_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 888236442B58B4E2003B787F /* instagram_response.json */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
@@ -86,6 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				88546D9B2E839921002EF004 /* LoadifyEngine.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +129,7 @@
 		884BDAFF2AB14CF500A4828B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
+		88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoadifyEngine.xcframework; sourceTree = "<group>"; };
 		887C07B92E7B3555002A200A /* PlatformBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformBadgeView.swift; sourceTree = "<group>"; };
 		888236442B58B4E2003B787F /* instagram_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instagram_response.json; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -154,36 +158,6 @@
 		88FF814A2B11CF4B008E6CB1 /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		887952182E82189D00999A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				LoadifyEngine.xcframework,
-			);
-			target = 88083D692855D95A0027BA0D /* LoadifyTests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		8879521B2E8218A700999A7F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			attributesByRelativePath = {
-				LoadifyEngine.xcframework = (
-					CodeSignOnCopy,
-					RemoveHeadersOnCopy,
-				);
-			};
-			buildPhase = 887952112E82155D00999A7F /* Embed Frameworks */;
-			membershipExceptions = (
-				LoadifyEngine.xcframework,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		887952142E82187F00999A7F /* Framework */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8879521B2E8218A700999A7F /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, 887952182E82189D00999A7F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Framework; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		88083D672855D95A0027BA0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -196,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88546D9A2E839921002EF004 /* LoadifyEngine.xcframework in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -218,6 +193,7 @@
 		8815AFE5282AAF6D00980759 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -328,7 +304,6 @@
 				88B1CFAD2826C41D007B19B4 /* Services */,
 				88EBFF2D284DC2EA007EFF97 /* Protocol */,
 				88F341822836547C00493544 /* Others */,
-				887952142E82187F00999A7F /* Framework */,
 				88A729B328264AD400B5FE61 /* Preview Content */,
 			);
 			path = Loadify;
@@ -490,9 +465,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				887952142E82187F00999A7F /* Framework */,
-			);
 			name = Loadify;
 			packageProductDependencies = (
 				88D9D1E528C39EED00D6EB79 /* FontInter */,
@@ -524,6 +496,7 @@
 				};
 			};
 			buildConfigurationList = 88A729A528264AD100B5FE61 /* Build configuration list for PBXProject "Loadify" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -536,7 +509,6 @@
 				88B3FD69299A95F400112490 /* XCRemoteSwiftPackageReference "LoggerKit" */,
 				88EB388B2A835C5F0021A78C /* XCRemoteSwiftPackageReference "Haptific" */,
 			);
-			preferredProjectObjectVersion = 55;
 			productRefGroup = 88A729AB28264AD100B5FE61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -830,7 +802,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -867,7 +839,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
