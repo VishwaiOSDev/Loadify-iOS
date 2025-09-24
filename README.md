@@ -65,11 +65,9 @@ The packages listed below are used by Loadify:
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
 
-## Contributors
+## Support
 
-<a href="https://github.com/jimjimrao" title="Jimmy Rao">
-  <img src="https://avatars.githubusercontent.com/u/32654532?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
-</a>
-<a href="https://github.com/PinkeshGjr" title="Pinkesh Gajera">
-  <img src="https://avatars.githubusercontent.com/u/16368009?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
-</a>
+If you find Loadify useful, consider starring ⭐ the repo or sponsoring my work.  
+Your support helps me keep improving Loadify and building more tools for the iOS community.  
+
+💡 Have a feature request or idea? Feel free to [open an issue](../../issues) — I’d love to hear your suggestions!
