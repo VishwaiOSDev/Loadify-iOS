@@ -56,6 +56,13 @@ struct URLView: View {
                     DownloaderView(response: response)
                 }
             }
+            .onOpenURL {
+                guard let url = viewModel.extractURLStringFromDeepLink(url: $0) else { return }
+                self.videoURL = url
+                Task {
+                    await didTapContinue()
+                }
+            }
         }
     }
     
