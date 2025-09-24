@@ -65,13 +65,6 @@ The packages listed below are used by Loadify:
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
 
-## Author
-Loadify was made by:
-
-<a href="https://github.com/VishwaiOSDev" title="VishwaiOSDev">
-  <img src="https://avatars.githubusercontent.com/u/71421776?v=4" style="border-radius: 12%;" width="50;" alt="fw_qaq"/>
-</a>
-
 ## Contributors
 
 <a href="https://github.com/jimjimrao" title="Jimmy Rao">
