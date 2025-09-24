@@ -31,7 +31,7 @@ enum LoadifyNavigationPath: Hashable {
     
     var path = NavigationPath()
     
-    private let loadifyEngine = LoadifyEngine()
+    private let client = LoadifyClient()
     
     init() {
         Logger.initLifeCycle("URLViewModel init", for: self)
@@ -44,7 +44,7 @@ enum LoadifyNavigationPath: Hashable {
             // Validate if the input URL is a valid URL
             try checkInputTextIsValidURL(text: url)
                     
-            let response: LoadifyResponse = try await loadifyEngine.fetchVideoDetails(for: url)
+            let response: LoadifyResponse = try await client.fetchVideoDetails(for: url)
             showLoader = false
             
             let downloaderPath = LoadifyNavigationPath.downloader(response: response)

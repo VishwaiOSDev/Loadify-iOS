@@ -1,0 +1,91 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target x86_64-apple-ios17.9-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name LoadifyEngine
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct LoadifyResponse : Swift.Hashable {
+  public let platform: LoadifyEngine.Platform
+  public let user: LoadifyEngine.LoadifyResponse.UserDetails?
+  public let video: LoadifyEngine.LoadifyResponse.VideoDetails
+  public struct VideoDetails : Swift.Hashable {
+    public let url: Swift.String
+    public let size: Swift.Double?
+    public let thumbnail: Swift.String
+    public static func == (a: LoadifyEngine.LoadifyResponse.VideoDetails, b: LoadifyEngine.LoadifyResponse.VideoDetails) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct UserDetails : Swift.Hashable {
+    public let name: Swift.String?
+    public let profileImage: Swift.String?
+    public let profileImageSmall: Swift.String?
+    public static func == (a: LoadifyEngine.LoadifyResponse.UserDetails, b: LoadifyEngine.LoadifyResponse.UserDetails) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static func == (a: LoadifyEngine.LoadifyResponse, b: LoadifyEngine.LoadifyResponse) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension LoadifyEngine.LoadifyResponse {
+  public static var mockTikTok: LoadifyEngine.LoadifyResponse {
+    get
+  }
+  public static var mockInstagram: LoadifyEngine.LoadifyResponse {
+    get
+  }
+  public static var mockTwitter: LoadifyEngine.LoadifyResponse {
+    get
+  }
+}
+public enum TiTokError : Swift.Error, Foundation.LocalizedError {
+  case invalidTikTokURL
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var errorDescription: Swift.String? {
+    get
+  }
+  #endif
+  public static func == (a: LoadifyEngine.TiTokError, b: LoadifyEngine.TiTokError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum Platform : Swift.String, Swift.CaseIterable, Swift.RawRepresentable {
+  case instagram
+  case tiktok
+  case twitter
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [LoadifyEngine.Platform]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [LoadifyEngine.Platform] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct UserAgents {
+}
+public struct LoadifyClient {
+  public init(isMockEnabled: Swift.Bool = false)
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) public func fetchVideoDetails(for url: Swift.String) async throws -> LoadifyEngine.LoadifyResponse
+  #endif
+}
+extension LoadifyEngine.TiTokError : Swift.Equatable {}
+extension LoadifyEngine.TiTokError : Swift.Hashable {}
+extension LoadifyEngine.Platform : Swift.Equatable {}
+extension LoadifyEngine.Platform : Swift.Hashable {}

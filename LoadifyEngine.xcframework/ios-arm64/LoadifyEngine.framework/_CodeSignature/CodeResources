@@ -6,11 +6,67 @@
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		77n6nKEPqMFXB+30olO5QH73myo=
+		/XGeZRvNqiiAqmrvIYB1jKCoa08=
+		</data>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		ElJnx8Iv63+pAO/DD/NERoN3Lec=
+		</data>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<data>
+		fON1oOXZlM8HoDAZRFhy++r+kvo=
+		</data>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		u+DzD4jN6GNRQt0qK4bOW6uXhoY=
+		</data>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<data>
+		fON1oOXZlM8HoDAZRFhy++r+kvo=
+		</data>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<data>
+		4yX3IuDS+ImtaTf1aztXZFie7sk=
 		</data>
 	</dict>
 	<key>files2</key>
-	<dict/>
+	<dict>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.abi.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			S7iRy+HsN3f20HzzdhfCmtFimZyaXmDXweLdI8AsBzk=
+			</data>
+		</dict>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4vb64wmKAeOYsznPCKWZ1RUABvH2Da1MoyHCLXqB61w=
+			</data>
+		</dict>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+3vMdoZiLQ4YY9fWPSACMU7ZtIVpM2dotXGpStEox6A=
+			</data>
+		</dict>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			4vb64wmKAeOYsznPCKWZ1RUABvH2Da1MoyHCLXqB61w=
+			</data>
+		</dict>
+		<key>Modules/LoadifyEngine.swiftmodule/arm64-apple-ios.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			w3Bi6r4IzGC+N1wWxu3TLPz8c+eg8kxMwNG9KeV27X0=
+			</data>
+		</dict>
+	</dict>
 	<key>rules</key>
 	<dict>
 		<key>^.*</key>
