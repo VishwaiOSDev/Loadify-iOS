@@ -57,27 +57,6 @@ struct URLView: View {
                 }
             }
         }
-        .navigationBarHidden(true)
-        .onDisappear(perform: viewModel.onDisappear)
-        .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-        .onChange(of: videoURL, perform: { _ in
-            withAnimation {
-                isConvertButtonDisabled = videoURL.isEmpty
-            }
-        })
-        .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
-            guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
-                return AlertUI(title: errorMessage)
-            }
-            return AlertUI(title: errorTitle, subtitle: errorMessage)
-        })
-        .onOpenURL {
-            guard let url = viewModel.extractURLStringFromDeepLink(url: $0) else { return }
-            self.videoURL = url
-            Task {
-                await didTapContinue()
-            }
-        }
     }
     
     @ViewBuilder
