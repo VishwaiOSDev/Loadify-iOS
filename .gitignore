@@ -25,6 +25,12 @@ DerivedData/
 ## Obj-C/Swift specific
 *.hmap
 
+# User-specific Xcode data
+**/xcuserdata/
+
+# Scheme order metadata (not required for builds)
+**/xcschemes/xcschememanagement.plist
+
 ## App packaging
 *.ipa
 *.dSYM.zip
