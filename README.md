@@ -20,7 +20,7 @@ Loadify is an iOS and iPad app designed for downloading high-quality content fro
 ## Screenshots
 
 <div style="flex-direction: row"> 
-    <img src="https://vishwaiosdev.github.io/global-images/loadify-bg.png"> 
+    <img src="https://github.com/user-attachments/assets/cb3a1fef-695e-4fe0-aaaa-5e53af80418b" />
 </div>
 
 ## Setup
