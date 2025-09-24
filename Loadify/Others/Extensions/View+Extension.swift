@@ -9,10 +9,6 @@ import SwiftUI
 
 extension View {
     
-    func embedInNavigation() -> some View {
-        NavigationView { self }
-    }
-    
     func cardView(color: Color, cornerRadius: CGFloat = 10) -> some View {
         modifier(CardView(color: color, cornerRadius: cornerRadius))
     }

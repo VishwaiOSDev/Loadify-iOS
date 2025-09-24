@@ -7,11 +7,13 @@
 
 import Foundation
 
+@available(*, deprecated, message: "PlatformType is now deprecated. Use Platform from the LoadifyEngine instead.")
 enum PlatformType: String {
     case youtube = "yt"
-    case instagram = "ig"
+    case instagram = "ig" 
 }
 
+@available(*, deprecated, message: "API is deprecated. Use LoadifyClient from the LoadifyEngine instead")
 enum API {
     case details(forPlatform: PlatformType, url: String)
     case download(url: String, quality: VideoQuality)

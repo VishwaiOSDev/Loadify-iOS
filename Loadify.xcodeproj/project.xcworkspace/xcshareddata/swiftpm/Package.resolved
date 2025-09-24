@@ -1,4 +1,5 @@
 {
+  "originHash" : "19cfba4c3c4bfc5b0cdb17339838f33ddb2f646b88e7dcccf7761f4b89e857bc",
   "pins" : [
     {
       "identity" : "fontkit",
@@ -21,12 +22,12 @@
     {
       "identity" : "loggerkit",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:VishwaiOSDev/LoggerKit.git",
+      "location" : "https://github.com/VishwaiOSDev/LoggerKit",
       "state" : {
         "revision" : "d4c55d28e3eaa620c4a85c0fcf2ae03ffe889edb",
         "version" : "1.1.2"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

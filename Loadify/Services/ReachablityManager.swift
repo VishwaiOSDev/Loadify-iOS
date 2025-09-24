@@ -8,9 +8,10 @@
 import SwiftUI
 import Network
 
-final class ReachablityManager: ObservableObject {
+@MainActor
+@Observable final class ReachablityManager {
     
-    @Published var isConnected = true
+    var isConnected = true
     
     var connectionDescription: String {
         isConnected ? "Back online" : "No connection"

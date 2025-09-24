@@ -43,5 +43,4 @@ struct DownloadBadge: View {
 
 #Preview {
     DownloadBadge(downloadStatus: .downloaded)
-        .previewLayout(.sizeThatFits)
 }

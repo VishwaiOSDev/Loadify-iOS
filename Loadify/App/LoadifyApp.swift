@@ -14,7 +14,7 @@ import FontInter
 struct LoadifyApp: App {
     
     /// `ReachablityManager` is for checking network connection
-    @StateObject var reachablity = ReachablityManager()
+    @State var reachablity = ReachablityManager()
     
     init() {
         FontKit.registerInter()
@@ -23,8 +23,6 @@ struct LoadifyApp: App {
     var body: some Scene {
         WindowGroup {
             URLView()
-                .embedInNavigation()
-                .navigationViewStyle(StackNavigationViewStyle())
                 .accentColor(LoadifyColors.blueAccent)
                 .preferredColorScheme(.dark)
                 .showNetworkAlert(when: reachablity.isConnected, with: reachablity.connectionDescription)

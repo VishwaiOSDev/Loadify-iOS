@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import LoadifyEngine
 
+@available(*, deprecated, message: "YouTubeDownloaderView is depreciation. Please use DownloaderView instead.")
 struct YouTubeDownloaderView: View {
     
-    @StateObject var viewModel: DownloaderViewModel = DownloaderViewModel()
+    @State var viewModel: DownloaderViewModel = DownloaderViewModel()
     @State private var selectedQuality: VideoQuality = .none
     
     var details: YouTubeDetails
@@ -181,15 +183,13 @@ struct YouTubeDownloaderView: View {
     }
     
     private func didTapDownload(quality: VideoQuality) async {
-        await viewModel.downloadVideo(url: details.videoUrl, for: .youtube, with: quality)
+        await viewModel.downloadVideo(url: details.videoUrl)
     }
 }
 
 #Preview("iPad Pro") {
     NavigationView {
         YouTubeDownloaderView(details: .previews)
-            .previewDevice("iPad Pro (12.9-inch) (6th generation)")
-            .previewInterfaceOrientation(.landscapeRight)
     }
     .preferredColorScheme(.dark)
     .navigationViewStyle(StackNavigationViewStyle())
