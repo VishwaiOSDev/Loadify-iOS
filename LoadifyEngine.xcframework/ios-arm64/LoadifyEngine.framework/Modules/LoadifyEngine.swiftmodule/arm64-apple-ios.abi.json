@@ -951,6 +951,50 @@
           },
           {
             "kind": "Var",
+            "name": "mockFacebook",
+            "printedName": "mockFacebook",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV12mockFacebookACvpZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV12mockFacebookACvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadifyResponse",
+                    "printedName": "LoadifyEngine.LoadifyResponse",
+                    "usr": "s:13LoadifyEngine0A8ResponseV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV12mockFacebookACvgZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12mockFacebookACvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "mockTwitter",
             "printedName": "mockTwitter",
             "children": [
@@ -1355,6 +1399,56 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Platform",
         "printedName": "Platform",
@@ -1394,6 +1488,43 @@
             "declKind": "EnumElement",
             "usr": "s:13LoadifyEngine8PlatformO9instagramyA2CmF",
             "mangledName": "$s13LoadifyEngine8PlatformO9instagramyA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "facebook",
+            "printedName": "facebook",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.Platform.Type) -> LoadifyEngine.Platform",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.Platform.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine8PlatformO8facebookyA2CmF",
+            "mangledName": "$s13LoadifyEngine8PlatformO8facebookyA2CmF",
             "moduleName": "LoadifyEngine"
           },
           {
@@ -1753,16 +1884,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "LoadifyEngine",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
         "kind": "TypeDecl",
         "name": "LoadifyClient",
         "printedName": "LoadifyClient",
@@ -1851,26 +1972,6 @@
             "mangledName": "$ss9EscapableP"
           }
         ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "LoadifyEngine",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "LoadifyEngine",
-        "declAttributes": [
-          "RawDocComment"
-        ]
       }
     ],
     "json_format_version": 8
@@ -1898,6 +1999,41 @@
       "value": "\"image_small\""
     },
     {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Services\/Downloaders\/FacebookDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 323,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Services\/Downloaders\/FacebookDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 359,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Services\/Downloaders\/InstagramDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 346,
+      "length": 11,
+      "value": "\"instagram\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Services\/Downloaders\/InstagramDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 374,
+      "length": 7,
+      "value": "\"video\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Services\/Downloaders\/TwitterDownloader.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 3,
+      "value": "\"X\""
+    },
+    {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
       "kind": "StringLiteral",
       "offset": 194,
@@ -1907,14 +2043,21 @@
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
       "kind": "StringLiteral",
-      "offset": 224,
+      "offset": 226,
+      "length": 10,
+      "value": "\"Facebook\""
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
+      "kind": "StringLiteral",
+      "offset": 255,
       "length": 8,
       "value": "\"TikTok\""
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
       "kind": "StringLiteral",
-      "offset": 252,
+      "offset": 283,
       "length": 9,
       "value": "\"Twitter\""
     },
@@ -1961,88 +2104,81 @@
       "value": "[\"Mozilla\/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/17.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/16.0 Mobile\/15E148 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 15_0 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Mobile\/15E148\", \"Mozilla\/5.0 (iPad; CPU OS 14_5_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/14.0 Safari\/604.1\", \"Mozilla\/5.0 (iPad; CPU OS 13_6_1 like Mac OS X) AppleWebKit\/605.1.15 (KHTML, like Gecko) Version\/13.1.2 Mobile\/15E148 Safari\/604.1\"]"
     },
     {
-      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/InstagramDownloader.swift",
-      "kind": "StringLiteral",
-      "offset": 346,
-      "length": 11,
-      "value": "\"instagram\""
-    },
-    {
-      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/InstagramDownloader.swift",
-      "kind": "StringLiteral",
-      "offset": 374,
-      "length": 7,
-      "value": "\"video\""
-    },
-    {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1355,
+      "offset": 1359,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1363,
+      "offset": 1367,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1413,
+      "offset": 1417,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1421,
+      "offset": 1425,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1471,
+      "offset": 1475,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1483,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1533,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1479,
+      "offset": 1541,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 1776,
+      "offset": 1838,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 2306,
+      "offset": 2368,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "Array",
-      "offset": 5500,
+      "offset": 5909,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/TwitterDownloader.swift",
-      "kind": "StringLiteral",
-      "offset": 313,
-      "length": 3,
-      "value": "\"X\""
     }
   ]
 }

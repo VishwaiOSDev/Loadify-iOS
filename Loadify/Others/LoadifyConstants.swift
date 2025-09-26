@@ -62,6 +62,7 @@ struct LoadifyKit {
         static let instagram = Image(.instagram)
         static let tiktok = Image(.tikTok)
         static let twitter = Image(.twitter)
+        static let facebook = Image(.facebook)
     }
     
     struct ColorKit {
