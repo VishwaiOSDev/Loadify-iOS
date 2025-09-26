@@ -39,8 +39,6 @@
 		884BDB032AB14CF500A4828B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAFF2AB14CF500A4828B /* Loader.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
-		88546D9A2E839921002EF004 /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */; };
-		88546D9B2E839921002EF004 /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		887C07BA2E7B3555002A200A /* PlatformBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C07B92E7B3555002A200A /* PlatformBadgeView.swift */; };
 		888236452B58B4E2003B787F /* instagram_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 888236442B58B4E2003B787F /* instagram_response.json */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
@@ -49,6 +47,8 @@
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
 		88A729B528264AD400B5FE61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B428264AD400B5FE61 /* Preview Assets.xcassets */; };
+		88ADF6C52E8727010006170D /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; };
+		88ADF6C62E8727010006170D /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A22851E7B900D00040 /* PhotosService.swift */; };
 		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
@@ -95,13 +95,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		887952112E82155D00999A7F /* Embed Frameworks */ = {
+		88E002302E86499400EA3545 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88546D9B2E839921002EF004 /* LoadifyEngine.xcframework in Embed Frameworks */,
+				88ADF6C62E8727010006170D /* LoadifyEngine.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +153,6 @@
 		884BDAFF2AB14CF500A4828B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
-		88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoadifyEngine.xcframework; sourceTree = "<group>"; };
 		887C07B92E7B3555002A200A /* PlatformBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformBadgeView.swift; sourceTree = "<group>"; };
 		888236442B58B4E2003B787F /* instagram_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instagram_response.json; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -163,6 +162,7 @@
 		88A729AF28264AD100B5FE61 /* URLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLView.swift; sourceTree = "<group>"; };
 		88A729B128264AD400B5FE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88A729B428264AD400B5FE61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoadifyEngine.xcframework; sourceTree = "<group>"; };
 		88AFF4A22851E7B900D00040 /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		88AFF4A428521F1300D00040 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88546D9A2E839921002EF004 /* LoadifyEngine.xcframework in Frameworks */,
+				88ADF6C52E8727010006170D /* LoadifyEngine.xcframework in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -228,7 +228,7 @@
 		8815AFE5282AAF6D00980759 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				88546D982E8398AE002EF004 /* LoadifyEngine.xcframework */,
+				88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				88A729A728264AD100B5FE61 /* Frameworks */,
 				88A729A828264AD100B5FE61 /* Resources */,
 				CB7071592BADD9BB001F412A /* Embed Foundation Extensions */,
-				887952112E82155D00999A7F /* Embed Frameworks */,
+				88E002302E86499400EA3545 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

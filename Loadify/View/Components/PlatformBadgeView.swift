@@ -55,6 +55,10 @@ struct PlatformBadgeView: View {
             LoadifyAssets.tiktok
         case .twitter:
             LoadifyAssets.twitter
+        case .facebook:
+            LoadifyAssets.facebook
+        @unknown default:
+            Image(systemName: "questionmark.circle")
         }
     }
 }

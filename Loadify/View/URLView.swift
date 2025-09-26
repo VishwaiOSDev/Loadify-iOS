@@ -79,7 +79,7 @@ struct URLView: View {
     
     private var textFieldView: some View {
         VStack(spacing: 12) {
-            CustomTextField("Enter Instagram or TikTok URL", text: $videoURL)
+            CustomTextField("Instagram, Facebook or TikTok link", text: $videoURL)
             DownloadButton("Convert", isDisabled: isConvertButtonDisabled) {
                 Task {
                     await didTapContinue()
