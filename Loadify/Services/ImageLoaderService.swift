@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: - Migrate to Observable API
 final class ImageLoaderService: ObservableObject {
     
     enum ImageStatus {
@@ -33,19 +34,13 @@ final class ImageLoaderService: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
             guard let self else { return }
             guard let data else { return self.setImageStatus(to: .failure) }
-        
-            DispatchQueue.main.async { [weak self] in
-                guard let self else { return }
-                
-                guard let uiImage = UIImage(data: data) else {
-                    return self.setImageStatus(to: .failure)
-                }
-                
+            
+            if let uiImage = UIImage(data: data) {
                 self.setImageStatus(to: .success(uiImage: uiImage))
+            } else {
+                self.setImageStatus(to: .failure)
             }
         }
-        
-        setImageStatus(to: .loading)
         
         task.resume()
     }
