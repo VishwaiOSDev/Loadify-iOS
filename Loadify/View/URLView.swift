@@ -13,6 +13,7 @@ struct URLView: View {
     @State var viewModel = URLViewModel()
     @State private var videoURL: String = ""
     @State private var isConvertButtonDisabled: Bool = false
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         NavigationStack(path: $viewModel.path) {
@@ -29,27 +30,8 @@ struct URLView: View {
                 }
                 .padding()
             }
-            .onAppear(perform: {
-                setupPasteboardObserver()
-            })
+            // Navigation
             .navigationBarHidden(true)
-            .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
-            .onChange(of: videoURL, {
-                withAnimation {
-                    isConvertButtonDisabled = videoURL.isEmpty
-                }
-            })
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                Task {
-                    checkPasteboard()
-                }
-            }
-            .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
-                guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
-                    return AlertUI(title: errorMessage)
-                }
-                return AlertUI(title: errorTitle, subtitle: errorMessage)
-            })
             .navigationDestination(for: LoadifyNavigationPath.self) { path in
                 switch path {
                 case .downloader(let response):
@@ -63,6 +45,32 @@ struct URLView: View {
                     await didTapContinue()
                 }
             }
+            // User feedback
+            .showAlert(item: $viewModel.errorMessage, content: { errorMessage -> AlertUI in
+                guard let errorTitle = LoadifyTexts.tryAgain.randomElement() else {
+                    return AlertUI(title: errorMessage)
+                }
+                return AlertUI(title: errorTitle, subtitle: errorMessage)
+            })
+            .showLoader(LoadifyTexts.loading, isPresented: $viewModel.showLoader)
+            // Lifecycle & state
+            .onAppear {
+                if viewModel.path.isEmpty {
+                    Task {
+                        checkPasteboard()
+                    }
+                }
+            }
+            .onChange(of: videoURL, {
+                withAnimation {
+                    isConvertButtonDisabled = videoURL.isEmpty
+                }
+            })
+            .onChange(of: scenePhase, { _, newPhase in
+                if newPhase == .active && viewModel.path.isEmpty {
+                    checkPasteboard()
+                }
+            })
         }
     }
     
@@ -95,14 +103,10 @@ struct URLView: View {
     }
     
     private func checkPasteboard() {
+        // Only auto-fill from pasteboard if the field is empty
+        guard videoURL.isEmpty else { return }
         if let pasteboardString = UIPasteboard.general.string {
             videoURL = pasteboardString
-        }
-    }
-    
-    private func setupPasteboardObserver() {
-        Task {
-            checkPasteboard()
         }
     }
 }
