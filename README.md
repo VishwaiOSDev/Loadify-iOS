@@ -66,6 +66,11 @@ The packages listed below are used by Loadify:
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
 
+## 💬 Community & Discord
+
+Join our Discord server to contribute, discuss ideas, and learn about Loadify and new updates:
+https://discord.gg/GhteDnmBH7
+
 ## Support
 
 If you find Loadify useful, consider starring ⭐ the repo or sponsoring my work.  
