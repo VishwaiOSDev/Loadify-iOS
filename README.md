@@ -68,8 +68,15 @@ The packages listed below are used by Loadify:
 
 ## 💬 Community & Discord
 
-Join our Discord server to contribute, discuss ideas, and learn about Loadify and new updates:
-https://discord.gg/GhteDnmBH7
+<div align="center">
+  <p><strong>Join our community to contribute, discuss, and stay up to date with new releases.</strong></p>
+  <a href="https://discord.gg/GhteDnmBH7" target="_blank">
+    <img alt="Join our Discord" src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+  </a>
+  <p>
+    <sub>👋 Friendly Q&A • 💡 Feature ideas • 📣 Release notes & sneak peeks</sub>
+  </p>
+</div>
 
 ## Support
 
@@ -77,3 +84,4 @@ If you find Loadify useful, consider starring ⭐ the repo or sponsoring my work
 Your support helps me keep improving Loadify and building more tools for the iOS community.  
 
 💡 Have a feature request or idea? Feel free to [open an issue](../../issues) — I’d love to hear your suggestions!
+
