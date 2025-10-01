@@ -47,8 +47,6 @@
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
 		88A729B228264AD400B5FE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B128264AD400B5FE61 /* Assets.xcassets */; };
 		88A729B528264AD400B5FE61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88A729B428264AD400B5FE61 /* Preview Assets.xcassets */; };
-		88ADF6C52E8727010006170D /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; };
-		88ADF6C62E8727010006170D /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88AFF4A32851E7BA00D00040 /* PhotosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A22851E7B900D00040 /* PhotosService.swift */; };
 		88AFF4A528521F1300D00040 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AFF4A428521F1300D00040 /* FileService.swift */; };
 		88B1CFAA2826BCA5007B19B4 /* DownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */; };
@@ -57,6 +55,8 @@
 		88D904522B0EE00400566CA3 /* DownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D904512B0EE00400566CA3 /* DownloaderView.swift */; };
 		88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E528C39EED00D6EB79 /* FontInter */; };
 		88D9D1E828C39EED00D6EB79 /* FontKit in Frameworks */ = {isa = PBXBuildFile; productRef = 88D9D1E728C39EED00D6EB79 /* FontKit */; };
+		88DABD3C2E8DD3C200D78E21 /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; };
+		88DABD3D2E8DD3C200D78E21 /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88ADF6C32E8726F70006170D /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88DB2C362856F2BB0065BBF9 /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB2C352856F2BB0065BBF9 /* Mockable.swift */; };
 		88DB2C382856F7820065BBF9 /* youtube_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 88DB2C372856F7820065BBF9 /* youtube_response.json */; };
 		88EB388D2A835C5F0021A78C /* Haptific in Frameworks */ = {isa = PBXBuildFile; productRef = 88EB388C2A835C5F0021A78C /* Haptific */; };
@@ -95,13 +95,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		88E002302E86499400EA3545 /* Embed Frameworks */ = {
+		8891E8F72E8CD4E600E0ABF6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				88ADF6C62E8727010006170D /* LoadifyEngine.xcframework in Embed Frameworks */,
+				88DABD3D2E8DD3C200D78E21 /* LoadifyEngine.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88ADF6C52E8727010006170D /* LoadifyEngine.xcframework in Frameworks */,
+				88DABD3C2E8DD3C200D78E21 /* LoadifyEngine.xcframework in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -507,7 +507,7 @@
 				88A729A728264AD100B5FE61 /* Frameworks */,
 				88A729A828264AD100B5FE61 /* Resources */,
 				CB7071592BADD9BB001F412A /* Embed Foundation Extensions */,
-				88E002302E86499400EA3545 /* Embed Frameworks */,
+				8891E8F72E8CD4E600E0ABF6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
