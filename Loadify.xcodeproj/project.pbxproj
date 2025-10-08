@@ -11,9 +11,7 @@
 		88083D742855D9D00027BA0D /* VideoDetailsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88083D732855D9D00027BA0D /* VideoDetailsTest.swift */; };
 		880F1B822AC265C6008EDDB9 /* NetworkRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */; };
 		88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88220A88285DC9CC008260DE /* URLViewModel.swift */; };
-		882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */; };
 		882A8BAA282973620094BA6E /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882A8BA9282973620094BA6E /* VideoQuality.swift */; };
-		882ECF9B28CDB55E001F4C7D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882ECF9A28CDB55E001F4C7D /* API.swift */; };
 		883233872855F34000BF38B5 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883233862855F34000BF38B5 /* Double+Extension.swift */; };
 		883492832B19A99100F9CF74 /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883492822B19A99100F9CF74 /* AppInformationView.swift */; };
 		883672D42B116743001F5325 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 883672D32B116743001F5325 /* Launch Screen.storyboard */; };
@@ -125,9 +123,7 @@
 		88083D732855D9D00027BA0D /* VideoDetailsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsTest.swift; sourceTree = "<group>"; };
 		880F1B812AC265C6008EDDB9 /* NetworkRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestable.swift; sourceTree = "<group>"; };
 		88220A88285DC9CC008260DE /* URLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLViewModel.swift; sourceTree = "<group>"; };
-		882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDownloaderView.swift; sourceTree = "<group>"; };
 		882A8BA9282973620094BA6E /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
-		882ECF9A28CDB55E001F4C7D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		883233862855F34000BF38B5 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		883492822B19A99100F9CF74 /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 		883672D32B116743001F5325 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -252,7 +248,6 @@
 		882A8BAB282973730094BA6E /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				882ECF9A28CDB55E001F4C7D /* API.swift */,
 				88FDA6DF2862C80D0028DCE9 /* Errors.swift */,
 				882A8BA9282973620094BA6E /* VideoQuality.swift */,
 				889714F72932618200D8B1B7 /* DownloadStatus.swift */,
@@ -369,7 +364,6 @@
 			children = (
 				884BDADF2AB14A6700A4828B /* Components */,
 				88A729AF28264AD100B5FE61 /* URLView.swift */,
-				882A8BA0282958D80094BA6E /* YouTubeDownloaderView.swift */,
 				88D904512B0EE00400566CA3 /* DownloaderView.swift */,
 			);
 			path = View;
@@ -637,7 +631,6 @@
 				888945042B17F4A800814D8D /* Downloader.swift in Sources */,
 				884BDAF62AB14C7500A4828B /* ImageView.swift in Sources */,
 				884BDAE62AB14AF200A4828B /* MenuButton.swift in Sources */,
-				882A8BA1282958D80094BA6E /* YouTubeDownloaderView.swift in Sources */,
 				884BDAF82AB14CC300A4828B /* Blur.swift in Sources */,
 				884BDAEC2AB14B2100A4828B /* CustomButtonStyle.swift in Sources */,
 				884BDAF22AB14C3700A4828B /* NetworkAlert.swift in Sources */,
@@ -657,7 +650,6 @@
 				884BDAFB2AB14CD400A4828B /* FontReducer.swift in Sources */,
 				884BDAF02AB14C1500A4828B /* ReachablityManager.swift in Sources */,
 				88220A89285DC9CC008260DE /* URLViewModel.swift in Sources */,
-				882ECF9B28CDB55E001F4C7D /* API.swift in Sources */,
 				88FDA6E02862C80D0028DCE9 /* Errors.swift in Sources */,
 				88F6095B2B102019001EC3C4 /* DownloadBadge.swift in Sources */,
 				88498D4C29A285BE007303B0 /* Logger+Extension.swift in Sources */,
