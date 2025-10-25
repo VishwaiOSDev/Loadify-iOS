@@ -23,28 +23,6 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
     private let image: (Image) -> ConfiguredImage
     private let onLoading: () -> Loading
     
-    /// Generates a thumbnail (UIImage) from a video URL asynchronously.
-    func generateThumbnail(for url: URL, at time: Double = 0.0) async -> UIImage? {
-        let asset = AVURLAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        
-        // Ensures the thumbnail has the correct orientation
-        generator.appliesPreferredTrackTransform = true
-        
-        // CMTime specifies the time in the video to capture a frame.
-        // We use a preferred timescale of 600 for high precision.
-        let timestamp = CMTime(seconds: time, preferredTimescale: 600)
-        
-        do {
-            // Use the async 'image(at:)' method to generate the CGImage
-            let imageRef = try await generator.image(at: timestamp).image
-            return UIImage(cgImage: imageRef)
-        } catch {
-            Logger.error("Error generating thumbnail for \(url): \(error)")
-            return nil
-        }
-    }
-    
     init(
         urlString: String? = nil,
         platformType: Platform? = nil,
@@ -91,7 +69,7 @@ struct ImageView<Placeholder: View, ConfiguredImage: View, Loading: View>: View 
             guard let urlString else { return }
             
             if shouldGenerateThumbnail, let url = URL(string: urlString) {
-                if let thumbnail = await generateThumbnail(for: url) {
+                if let thumbnail = await imageLoader.generateThumbnail(for: url) {
                     await MainActor.run {
                         imageLoader.setImageStatus(to: .success(uiImage: thumbnail))
                     }
