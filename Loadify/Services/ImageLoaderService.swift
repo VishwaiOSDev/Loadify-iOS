@@ -24,6 +24,11 @@ final class ImageLoaderService: ObservableObject {
         loadData(from: urlString)
     }
     
+    convenience init(uiImage: UIImage) {
+        self.init()
+        setImageStatus(to: .success(uiImage: uiImage))
+    }
+    
     func loadData(from urlString: String?) {
         setImageStatus(to: .loading)
         
@@ -45,7 +50,7 @@ final class ImageLoaderService: ObservableObject {
         task.resume()
     }
     
-    private func setImageStatus(to imageStatus: ImageStatus) {
+    func setImageStatus(to imageStatus: ImageStatus) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.imageStatus = imageStatus
