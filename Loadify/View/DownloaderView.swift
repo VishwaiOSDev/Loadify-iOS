@@ -30,10 +30,12 @@ struct DownloaderView: View {
                     Spacer()
                     
                     VStack {
+                        let thumbnailURL = response.video.thumbnail ?? response.video.url
                         ImageView(
-                            urlString: response.video.thumbnail,
+                            urlString: thumbnailURL,
                             platformType: response.platform,
-                            fileSize: response.video.size
+                            fileSize: response.video.size,
+                            shouldGenerateThumbnail: response.video.thumbnail == nil
                         ) {
                             thumbnailModifier(image: LoadifyAssets.notFound)
                         } image: {
