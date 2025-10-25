@@ -18,7 +18,9 @@ struct DownloaderView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
+        let thumbnailURL = response.video.thumbnail ?? response.video.url
+        
+        return GeometryReader { geometry in
             ZStack {
                 LoadifyColors.appBackground
                     .ignoresSafeArea(edges: .all)
@@ -30,7 +32,6 @@ struct DownloaderView: View {
                     Spacer()
                     
                     VStack {
-                        let thumbnailURL = response.video.thumbnail ?? response.video.url
                         ImageView(
                             urlString: thumbnailURL,
                             platformType: response.platform,
