@@ -2,13 +2,13 @@
 
 # LoadifyEngine
 
-A lightweight Swift framework for extracting downloadable video details from popular social platforms. Given a post URL from TikTok, Instagram, or X (Twitter), LoadifyEngine fetches normalized metadata such as a direct video URL and thumbnail so you can handle downloads in your app.
+A lightweight Swift framework for extracting downloadable video details from popular social platforms. Given a post URL from TikTok, Instagram, LinkedIn, Facebook or X (Twitter), LoadifyEngine fetches normalized metadata such as a direct video URL and thumbnail so you can handle downloads in your app.
 
 - Framework target: `LoadifyEngine`
 
 ## Features
 - Infers platform from a URL and routes to the appropriate fetcher
-- Supports TikTok, Instagram, and X (Twitter)
+- Supports TikTok, Instagram, Facebook and X (Twitter)
 - Unified response model (`LoadifyResponse`) with platform, user (optional), and video details
 - Async/await API (Swift Concurrency)
 - Built-in per-platform rate limiting

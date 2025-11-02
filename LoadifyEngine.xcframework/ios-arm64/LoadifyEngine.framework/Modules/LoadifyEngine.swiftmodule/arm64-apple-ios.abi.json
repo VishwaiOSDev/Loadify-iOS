@@ -273,14 +273,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Var",
-                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvp",
-                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvp",
+                "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSSgvp",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSSgvp",
                 "moduleName": "LoadifyEngine",
                 "declAttributes": [
                   "HasStorage",
@@ -296,14 +304,22 @@
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
                       }
                     ],
                     "declKind": "Accessor",
-                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvg",
-                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSvg",
+                    "usr": "s:13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSSgvg",
+                    "mangledName": "$s13LoadifyEngine0A8ResponseV12VideoDetailsV9thumbnailSSSgvg",
                     "moduleName": "LoadifyEngine",
                     "implicit": true,
                     "accessorKind": "get"
@@ -1036,6 +1052,50 @@
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "mockLinkedIn",
+            "printedName": "mockLinkedIn",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoadifyResponse",
+                "printedName": "LoadifyEngine.LoadifyResponse",
+                "usr": "s:13LoadifyEngine0A8ResponseV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:13LoadifyEngine0A8ResponseV12mockLinkedInACvpZ",
+            "mangledName": "$s13LoadifyEngine0A8ResponseV12mockLinkedInACvpZ",
+            "moduleName": "LoadifyEngine",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoadifyResponse",
+                    "printedName": "LoadifyEngine.LoadifyResponse",
+                    "usr": "s:13LoadifyEngine0A8ResponseV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:13LoadifyEngine0A8ResponseV12mockLinkedInACvgZ",
+                "mangledName": "$s13LoadifyEngine0A8ResponseV12mockLinkedInACvgZ",
+                "moduleName": "LoadifyEngine",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Struct",
@@ -1449,6 +1509,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LoadifyEngine",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "Platform",
         "printedName": "Platform",
@@ -1599,6 +1669,43 @@
             "declKind": "EnumElement",
             "usr": "s:13LoadifyEngine8PlatformO7twitteryA2CmF",
             "mangledName": "$s13LoadifyEngine8PlatformO7twitteryA2CmF",
+            "moduleName": "LoadifyEngine"
+          },
+          {
+            "kind": "Var",
+            "name": "linkedin",
+            "printedName": "linkedin",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LoadifyEngine.Platform.Type) -> LoadifyEngine.Platform",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Platform",
+                    "printedName": "LoadifyEngine.Platform",
+                    "usr": "s:13LoadifyEngine8PlatformO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LoadifyEngine.Platform.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Platform",
+                        "printedName": "LoadifyEngine.Platform",
+                        "usr": "s:13LoadifyEngine8PlatformO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:13LoadifyEngine8PlatformO8linkedinyA2CmF",
+            "mangledName": "$s13LoadifyEngine8PlatformO8linkedinyA2CmF",
             "moduleName": "LoadifyEngine"
           },
           {
@@ -2062,6 +2169,13 @@
       "value": "\"Twitter\""
     },
     {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/Platform.swift",
+      "kind": "StringLiteral",
+      "offset": 313,
+      "length": 10,
+      "value": "\"LinkedIn\""
+    },
+    {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/Utils\/TikTokURLParser.swift",
       "kind": "StringLiteral",
       "offset": 412,
@@ -2106,77 +2220,91 @@
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1359,
+      "offset": 1398,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1367,
+      "offset": 1406,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1417,
+      "offset": 1456,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1425,
+      "offset": 1464,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1475,
+      "offset": 1514,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1483,
+      "offset": 1522,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1533,
+      "offset": 1572,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 1541,
+      "offset": 1580,
+      "length": 2,
+      "value": "60"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1630,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1638,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 1838,
+      "offset": 1934,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 2368,
+      "offset": 2464,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/vishweshwaran\/Developer\/Frameworks\/LoadifyEngine\/LoadifyEngine\/LoadifyEngine.swift",
       "kind": "Array",
-      "offset": 5909,
+      "offset": 6270,
       "length": 2,
       "value": "[]"
     }
