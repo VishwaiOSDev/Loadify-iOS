@@ -14,7 +14,7 @@ public struct LoadifyResponse : Swift.Hashable {
   public struct VideoDetails : Swift.Hashable {
     public let url: Swift.String
     public let size: Swift.Double?
-    public let thumbnail: Swift.String
+    public let thumbnail: Swift.String?
     public static func == (a: LoadifyEngine.LoadifyResponse.VideoDetails, b: LoadifyEngine.LoadifyResponse.VideoDetails) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
@@ -50,6 +50,9 @@ extension LoadifyEngine.LoadifyResponse {
   public static var mockTwitter: LoadifyEngine.LoadifyResponse {
     get
   }
+  public static var mockLinkedIn: LoadifyEngine.LoadifyResponse {
+    get
+  }
 }
 public enum TiTokError : Swift.Error, Foundation.LocalizedError {
   case invalidTikTokURL
@@ -69,6 +72,7 @@ public enum Platform : Swift.String, Swift.CaseIterable, Swift.RawRepresentable 
   case facebook
   case tiktok
   case twitter
+  case linkedin
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
   #endif

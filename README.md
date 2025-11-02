@@ -2,7 +2,7 @@
 
 # Loadify
 
-Loadify is an iOS and iPad app designed for downloading high-quality content from Instagram (reels, posts, stories), TikTok videos, and Facebook videos. Simply copy and paste the URL of the desired content, and download it in the best available quality.
+Loadify is an iOS and iPad app designed for downloading high-quality content from Instagram (reels, posts, stories), TikTok videos, Facebook videos, and LinkedIn videos. Simply copy and paste the URL of the desired content, and download it in the best available quality.
 
 # Requirements
 
@@ -14,6 +14,7 @@ Loadify is an iOS and iPad app designed for downloading high-quality content fro
 - High-quality downloads (best available quality)
 - Instagram: reels, posts, and stories
 - Facebook: videos
+- LinkedIn: videos
 - TikTok: videos
 
 **🌈 Beautiful Progress Bar:** Immerse yourself in the download experience with our vibrant progress bar. Watch as your video downloads in real-time, colorfully indicating the progress at a glance.
@@ -62,7 +63,7 @@ The packages listed below are used by Loadify:
 ## Roadmap
 
 - 🚧 **Twitter / X** — Working in progress  
-- 🔜 **YouTube, LinkedIn** — Coming soon  
+- 🔜 **YouTube** — Coming soon  
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
 
@@ -84,4 +85,5 @@ If you find Loadify useful, consider starring ⭐ the repo or sponsoring my work
 Your support helps me keep improving Loadify and building more tools for the iOS community.  
 
 💡 Have a feature request or idea? Feel free to [open an issue](../../issues) — I’d love to hear your suggestions!
+
 
