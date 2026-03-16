@@ -60,19 +60,18 @@ The packages listed below are used by Loadify:
 - [LoggerKit](https://github.com/VishwaiOSDev/LoggerKit)
 - [Haptific](https://github.com/Vignesh-Thangamariappan/Haptific)
 
+## Use LoadifyEngine in Your App
+
+LoadifyEngine is the **core framework that powers Loadify**.
+
+📘 **Integration Guide:** [Use LoadifyEngine in Your App](Docs/LoadifyEngine.md)
+
 ## Roadmap
 
 - 🚧 **Twitter / X** — Working in progress  
 - 🔜 **YouTube** — Coming soon  
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
-
-## 🧩 Use LoadifyEngine in Your App
-
-LoadifyEngine is the core framework behind Loadify.
-
-📘 Full documentation:  
-[LoadifyEngine Integration Guide](Docs/LoadifyEngine.md)
 
 ## 💬 Community & Discord
 
@@ -92,5 +91,3 @@ If you find Loadify useful, consider starring ⭐ the repo or sponsoring my work
 Your support helps me keep improving Loadify and building more tools for the iOS community.  
 
 💡 Have a feature request or idea? Feel free to [open an issue](../../issues) — I’d love to hear your suggestions!
-
-
