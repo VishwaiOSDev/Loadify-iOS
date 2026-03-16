@@ -67,6 +67,13 @@ The packages listed below are used by Loadify:
 - 🚧 **Liquid Glass Design** — Working in progress  
 - 🚧 **Parallel Download** — Working in progress  
 
+## 🧩 Use LoadifyEngine in Your App
+
+LoadifyEngine is the core framework behind Loadify.
+
+📘 Full documentation:  
+[LoadifyEngine Integration Guide](Docs/LoadifyEngine.md)
+
 ## 💬 Community & Discord
 
 <div align="center">

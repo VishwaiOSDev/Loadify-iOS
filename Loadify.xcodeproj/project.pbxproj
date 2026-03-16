@@ -164,6 +164,7 @@
 		88B1CFA92826BCA5007B19B4 /* DownloaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewModel.swift; sourceTree = "<group>"; };
 		88B1CFAB2826C2D7007B19B4 /* YouTubeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeDetails.swift; sourceTree = "<group>"; };
 		88B9E1FC292A18E700232C0D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		88C6381D2F6795BD00DA5787 /* LoadifyEngine.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LoadifyEngine.md; sourceTree = "<group>"; };
 		88D904512B0EE00400566CA3 /* DownloaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderView.swift; sourceTree = "<group>"; };
 		88DB2C352856F2BB0065BBF9 /* Mockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		88DB2C372856F7820065BBF9 /* youtube_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = youtube_response.json; sourceTree = "<group>"; };
@@ -308,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				88B9E1FC292A18E700232C0D /* README.md */,
+				88C6381C2F6795B000DA5787 /* Docs */,
 				88A729AC28264AD100B5FE61 /* Loadify */,
 				88083D6B2855D95A0027BA0D /* LoadifyTests */,
 				CB70714C2BADD9BB001F412A /* LoadifyShareExtension */,
@@ -416,6 +418,14 @@
 				888236442B58B4E2003B787F /* instagram_response.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		88C6381C2F6795B000DA5787 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				88C6381D2F6795BD00DA5787 /* LoadifyEngine.md */,
+			);
+			path = Docs;
 			sourceTree = "<group>";
 		};
 		88DB2C392856FD7C0065BBF9 /* Mock */ = {
