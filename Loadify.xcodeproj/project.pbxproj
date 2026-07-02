@@ -37,11 +37,11 @@
 		884BDB032AB14CF500A4828B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDAFF2AB14CF500A4828B /* Loader.swift */; };
 		884BDB162AB14E0000A4828B /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB152AB14E0000A4828B /* View+Extension.swift */; };
 		884BDB1A2AB14EB400A4828B /* Task+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884BDB192AB14EB400A4828B /* Task+Extension.swift */; };
-		884C6FD72EAC95A90063FF21 /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884C6FD52EAC95A30063FF21 /* LoadifyEngine.xcframework */; };
-		884C6FD82EAC95A90063FF21 /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 884C6FD52EAC95A30063FF21 /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		887C07BA2E7B3555002A200A /* PlatformBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C07B92E7B3555002A200A /* PlatformBadgeView.swift */; };
 		888236452B58B4E2003B787F /* instagram_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 888236442B58B4E2003B787F /* instagram_response.json */; };
 		888945042B17F4A800814D8D /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888945032B17F4A800814D8D /* Downloader.swift */; };
+		8896E4702FF6E2DC0036CC3D /* LoadifyEngine.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8896E42E2FF6E1800036CC3D /* LoadifyEngine.xcframework */; };
+		8896E4712FF6E2DC0036CC3D /* LoadifyEngine.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8896E42E2FF6E1800036CC3D /* LoadifyEngine.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		889714F82932618200D8B1B7 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889714F72932618200D8B1B7 /* DownloadStatus.swift */; };
 		88A729AE28264AD100B5FE61 /* LoadifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AD28264AD100B5FE61 /* LoadifyApp.swift */; };
 		88A729B028264AD100B5FE61 /* URLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A729AF28264AD100B5FE61 /* URLView.swift */; };
@@ -99,7 +99,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				884C6FD82EAC95A90063FF21 /* LoadifyEngine.xcframework in Embed Frameworks */,
+				8896E4712FF6E2DC0036CC3D /* LoadifyEngine.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,10 +149,10 @@
 		884BDAFF2AB14CF500A4828B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		884BDB152AB14E0000A4828B /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		884BDB192AB14EB400A4828B /* Task+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extension.swift"; sourceTree = "<group>"; };
-		884C6FD52EAC95A30063FF21 /* LoadifyEngine.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoadifyEngine.xcframework; sourceTree = "<group>"; };
 		887C07B92E7B3555002A200A /* PlatformBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformBadgeView.swift; sourceTree = "<group>"; };
 		888236442B58B4E2003B787F /* instagram_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = instagram_response.json; sourceTree = "<group>"; };
 		888945032B17F4A800814D8D /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
+		8896E42E2FF6E1800036CC3D /* LoadifyEngine.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LoadifyEngine.xcframework; sourceTree = "<group>"; };
 		889714F72932618200D8B1B7 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		88A729AA28264AD100B5FE61 /* Loadify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loadify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A729AD28264AD100B5FE61 /* LoadifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadifyApp.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				884C6FD72EAC95A90063FF21 /* LoadifyEngine.xcframework in Frameworks */,
+				8896E4702FF6E2DC0036CC3D /* LoadifyEngine.xcframework in Frameworks */,
 				88D9D1E628C39EED00D6EB79 /* FontInter in Frameworks */,
 				88B3FD6B299A95F400112490 /* LoggerKit in Frameworks */,
 				88EB388D2A835C5F0021A78C /* Haptific in Frameworks */,
@@ -225,7 +225,7 @@
 		8815AFE5282AAF6D00980759 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				884C6FD52EAC95A30063FF21 /* LoadifyEngine.xcframework */,
+				8896E42E2FF6E1800036CC3D /* LoadifyEngine.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
